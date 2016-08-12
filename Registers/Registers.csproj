@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{012AA47E-95D5-4F04-9CCE-11F4F8BCB68F}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Registers</RootNamespace>
+    <AssemblyName>Registers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ApplicationIcon>C:\Users\vizir\Downloads\core_content_item_5331.ico</ApplicationIcon>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Registers.xml</DocumentationFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\vizir\AppData\Roaming\ICSharpCode\SharpDevelop5\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aklinsert.cs" />
+    <Compile Include="Aklinsert.Designer.cs">
+      <DependentUpon>Aklinsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="aklr.cs" />
+    <Compile Include="aklr.Designer.cs">
+      <DependentUpon>aklr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blender.cs" />
+    <Compile Include="Blender.Designer.cs">
+      <DependentUpon>Blender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendinginsert.cs" />
+    <Compile Include="blendinginsert.Designer.cs">
+      <DependentUpon>blendinginsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendingter.cs" />
+    <Compile Include="blendingter.Designer.cs">
+      <DependentUpon>blendingter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendkis.cs" />
+    <Compile Include="blendkis.Designer.cs">
+      <DependentUpon>blendkis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendr.cs" />
+    <Compile Include="blendr.Designer.cs">
+      <DependentUpon>blendr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bmpinsert.cs" />
+    <Compile Include="Bmpinsert.Designer.cs">
+      <DependentUpon>Bmpinsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bmpr.cs" />
+    <Compile Include="bmpr.Designer.cs">
+      <DependentUpon>bmpr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bmpter.cs" />
+    <Compile Include="bmpter.Designer.cs">
+      <DependentUpon>bmpter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="celebrate.cs" />
+    <Compile Include="celebrate.Designer.cs">
+      <DependentUpon>celebrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs" />
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form10.cs" />
+    <Compile Include="Form10.Designer.cs">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form11.cs" />
+    <Compile Include="Form11.Designer.cs">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form12.cs" />
+    <Compile Include="Form12.Designer.cs">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form13.cs" />
+    <Compile Include="Form13.Designer.cs">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form14.cs" />
+    <Compile Include="Form14.Designer.cs">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs" />
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs" />
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.Designer1.cs">
+      <DependentUpon>Form3.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Form4.cs" />
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.Designer1.cs">
+      <DependentUpon>Form4.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Form5.cs" />
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form6.cs" />
+    <Compile Include="Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form7.cs" />
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form8.cs" />
+    <Compile Include="Form8.Designer.cs">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form9.cs" />
+    <Compile Include="Form9.Designer.cs">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kiskev.cs" />
+    <Compile Include="kiskev.Designer.cs">
+      <DependentUpon>kiskev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kiskevero.cs" />
+    <Compile Include="kiskevero.Designer.cs">
+      <DependentUpon>kiskevero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquid.cs" />
+    <Compile Include="Liquid.Designer.cs">
+      <DependentUpon>Liquid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidinsert.cs" />
+    <Compile Include="Liquidinsert.Designer.cs">
+      <DependentUpon>Liquidinsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidter.cs" />
+    <Compile Include="Liquidter.Designer.cs">
+      <DependentUpon>Liquidter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lodige.cs" />
+    <Compile Include="lodige.Designer.cs">
+      <DependentUpon>lodige.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogReg.cs" />
+    <Compile Include="LogReg.Designer.cs">
+      <DependentUpon>LogReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm1.cs" />
+    <Compile Include="MainForm1.Designer.cs">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm2.cs" />
+    <Compile Include="MainForm2.Designer.cs">
+      <DependentUpon>MainForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm3.cs" />
+    <Compile Include="MainForm3.Designer.cs">
+      <DependentUpon>MainForm3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm4.cs" />
+    <Compile Include="MainForm4.Designer.cs">
+      <DependentUpon>MainForm4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nagykev.cs" />
+    <Compile Include="nagykev.Designer.cs">
+      <DependentUpon>nagykev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nagykevero.cs" />
+    <Compile Include="nagykevero.Designer.cs">
+      <DependentUpon>nagykevero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="naplok.cs" />
+    <Compile Include="naplok.Designer.cs">
+      <DependentUpon>naplok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nemfelvitt.cs" />
+    <Compile Include="Nemfelvitt.Designer.cs">
+      <DependentUpon>Nemfelvitt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nemfelvitt1.cs" />
+    <Compile Include="Nemfelvitt1.Designer.cs">
+      <DependentUpon>Nemfelvitt1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nemfelvittarchiv.cs" />
+    <Compile Include="Nemfelvittarchiv.Designer.cs">
+      <DependentUpon>Nemfelvittarchiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nemfelvittarchiv1.cs" />
+    <Compile Include="Nemfelvittarchiv1.Designer.cs">
+      <DependentUpon>Nemfelvittarchiv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="packingoffinsert.cs" />
+    <Compile Include="packingoffinsert.Designer.cs">
+      <DependentUpon>packingoffinsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="packrcs.cs" />
+    <Compile Include="packrcs.Designer.cs">
+      <DependentUpon>packrcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="packter.cs" />
+    <Compile Include="packter.Designer.cs">
+      <DependentUpon>packter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paletta.cs" />
+    <Compile Include="paletta.Designer.cs">
+      <DependentUpon>paletta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pf.cs" />
+    <Compile Include="pf.Designer.cs">
+      <DependentUpon>pf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planning.cs" />
+    <Compile Include="Planning.Designer.cs">
+      <DependentUpon>Planning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planningriport.cs" />
+    <Compile Include="Planningriport.Designer.cs">
+      <DependentUpon>Planningriport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QMtabla.cs" />
+    <Compile Include="QMtabla.Designer.cs">
+      <DependentUpon>QMtabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Regist.cs" />
+    <Compile Include="Regist.Designer.cs">
+      <DependentUpon>Regist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sd.cs" />
+    <Compile Include="sd.Designer.cs">
+      <DependentUpon>sd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select.cs" />
+    <Compile Include="Select.Designer.cs">
+      <DependentUpon>Select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select1.cs" />
+    <Compile Include="Select1.Designer.cs">
+      <DependentUpon>Select1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select2.cs" />
+    <Compile Include="Select2.Designer.cs">
+      <DependentUpon>Select2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stat.cs" />
+    <Compile Include="Stat.Designer.cs">
+      <DependentUpon>Stat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stati.cs" />
+    <Compile Include="Stati.Designer.cs">
+      <DependentUpon>Stati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statpep.cs" />
+    <Compile Include="Statpep.Designer.cs">
+      <DependentUpon>Statpep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statwh.cs" />
+    <Compile Include="Statwh.Designer.cs">
+      <DependentUpon>Statwh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Top.cs" />
+    <Compile Include="Top.Designer.cs">
+      <DependentUpon>Top.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.cs" />
+    <Compile Include="Warehouse.Designer.cs">
+      <DependentUpon>Warehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse1.cs" />
+    <Compile Include="Warehouse1.Designer.cs">
+      <DependentUpon>Warehouse1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse2.cs" />
+    <Compile Include="Warehouse2.Designer.cs">
+      <DependentUpon>Warehouse2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse2read.cs" />
+    <Compile Include="Warehouse2read.Designer.cs">
+      <DependentUpon>Warehouse2read.cs</DependentUpon>
+    </Compile>
+    <Compile Include="warehouseout.cs" />
+    <Compile Include="warehouseout.Designer.cs">
+      <DependentUpon>warehouseout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="warehouseoutread.cs" />
+    <Compile Include="warehouseoutread.Designer.cs">
+      <DependentUpon>warehouseoutread.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouseread.cs" />
+    <Compile Include="Warehouseread.Designer.cs">
+      <DependentUpon>Warehouseread.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouseread1.cs" />
+    <Compile Include="Warehouseread1.Designer.cs">
+      <DependentUpon>Warehouseread1.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Aklinsert.resx">
+      <DependentUpon>Aklinsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="aklr.resx">
+      <DependentUpon>aklr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Blender.resx">
+      <DependentUpon>Blender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendinginsert.resx">
+      <DependentUpon>blendinginsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendingter.resx">
+      <DependentUpon>blendingter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendkis.resx">
+      <DependentUpon>blendkis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendr.resx">
+      <DependentUpon>blendr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bmpinsert.resx">
+      <DependentUpon>Bmpinsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bmpr.resx">
+      <DependentUpon>bmpr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bmpter.resx">
+      <DependentUpon>bmpter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="celebrate.resx">
+      <DependentUpon>celebrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form10.resx">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form12.resx">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form14.resx">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Form3.Designer1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Form4.Designer1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form8.resx">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kiskev.resx">
+      <DependentUpon>kiskev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kiskevero.resx">
+      <DependentUpon>kiskevero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquid.resx">
+      <DependentUpon>Liquid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidinsert.resx">
+      <DependentUpon>Liquidinsert.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidter.resx">
+      <DependentUpon>Liquidter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lodige.resx">
+      <DependentUpon>lodige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogReg.resx">
+      <DependentUpon>LogReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm1.resx">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm2.resx">
+      <DependentUpon>MainForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm3.resx">
+      <DependentUpon>MainForm3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm4.resx">
+      <DependentUpon>MainForm4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nagykev.resx">
+      <DependentUpon>nagykev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nagykevero.resx">
+      <DependentUpon>nagykevero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="naplok.resx">
+      <DependentUpon>naplok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemfelvitt.resx">
+      <DependentUpon>Nemfelvitt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemfelvitt1.resx">
+      <DependentUpon>Nemfelvitt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemfelvittarchiv.resx">
+      <DependentUpon>Nemfelvittarchiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemfelvittarchiv1.resx">
+      <DependentUpon>Nemfelvittarchiv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="packingoffinsert.resx">
+      <DependentUpon>packingoffinsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="packrcs.resx">
+      <DependentUpon>packrcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="packter.resx">
+      <DependentUpon>packter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paletta.resx">
+      <DependentUpon>paletta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pf.resx">
+      <DependentUpon>pf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planning.resx">
+      <DependentUpon>Planning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planningriport.resx">
+      <DependentUpon>Planningriport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QMtabla.resx">
+      <DependentUpon>QMtabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Regist.resx">
+      <DependentUpon>Regist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sd.resx">
+      <DependentUpon>sd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select.resx">
+      <DependentUpon>Select.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select1.resx">
+      <DependentUpon>Select1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select2.resx">
+      <DependentUpon>Select2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stat.resx">
+      <DependentUpon>Stat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stati.resx">
+      <DependentUpon>Stati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statpep.resx">
+      <DependentUpon>Statpep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statwh.resx">
+      <DependentUpon>Statwh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Top.resx">
+      <DependentUpon>Top.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse.resx">
+      <DependentUpon>Warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse1.resx">
+      <DependentUpon>Warehouse1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse2.resx">
+      <DependentUpon>Warehouse2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse2read.resx">
+      <DependentUpon>Warehouse2read.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="warehouseout.resx">
+      <DependentUpon>warehouseout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="warehouseoutread.resx">
+      <DependentUpon>warehouseoutread.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouseread.resx">
+      <DependentUpon>Warehouseread.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouseread1.resx">
+      <DependentUpon>Warehouseread1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

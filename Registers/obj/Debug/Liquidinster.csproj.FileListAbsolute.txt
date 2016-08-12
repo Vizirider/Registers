@@ -1,0 +1,11 @@
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\bin\Debug\Liquidinster.exe.config
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\bin\Debug\Liquidinster.exe
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\bin\Debug\Liquidinster.pdb
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.csprojResolveAssemblyReference.cache
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.exe
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.pdb
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.MainForm.resources
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.csproj.GenerateResource.Cache
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.Form1.resources
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.Form2.resources
+C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Debug\Liquidinster.Login.resources

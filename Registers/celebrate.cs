@@ -50,7 +50,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select Töltött, Helyezett from dbo.Helyezes WHERE Nev = ('" + textBox8.Text + "')", connection);
+					new SqlCommand("select Töltött, Helyezett from dbo.Helyezes WHERE ID = ('" + textBox8.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();

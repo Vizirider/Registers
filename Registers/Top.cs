@@ -20,6 +20,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of Top.
 	/// </summary>
+	///  Top scores of users of registers
 	public partial class Top : Form
 	{
 		public Top()

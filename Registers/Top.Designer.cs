@@ -110,6 +110,7 @@ namespace Liquidinster
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(12, 35);
 			this.dataGridView1.Name = "dataGridView1";
@@ -118,6 +119,7 @@ namespace Liquidinster
 			// 
 			// dataGridView2
 			// 
+			this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(276, 35);
 			this.dataGridView2.Name = "dataGridView2";
@@ -159,6 +161,7 @@ namespace Liquidinster
 			// 
 			// dataGridView3
 			// 
+			this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView3.Location = new System.Drawing.Point(505, 35);
 			this.dataGridView3.Name = "dataGridView3";

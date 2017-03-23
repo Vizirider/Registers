@@ -28,6 +28,7 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.CheckBox checkBox14;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.ComboBox comboBox3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -65,12 +66,13 @@ namespace Liquidinster
 			this.button1 = new System.Windows.Forms.Button();
 			this.checkBox14 = new System.Windows.Forms.CheckBox();
 			this.button2 = new System.Windows.Forms.Button();
+			this.comboBox3 = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(421, 509);
+			this.comboBox2.Location = new System.Drawing.Point(421, 530);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -78,7 +80,7 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(105, 509);
+			this.dateTimePicker1.Location = new System.Drawing.Point(100, 531);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
 			this.dateTimePicker1.TabIndex = 86;
@@ -143,13 +145,17 @@ namespace Liquidinster
 			// button7
 			// 
 			this.button7.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button7.Location = new System.Drawing.Point(251, 479);
+			this.button7.Location = new System.Drawing.Point(251, 474);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(90, 24);
 			this.button7.TabIndex = 89;
 			this.button7.Text = "Nyomtatás";
 			this.button7.UseVisualStyleBackColor = true;
 			this.button7.Click += new System.EventHandler(this.Button7Click);
+			// 
+			// printDocument1
+			// 
+			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
 			// 
 			// button1
 			// 
@@ -164,7 +170,7 @@ namespace Liquidinster
 			// 
 			// checkBox14
 			// 
-			this.checkBox14.Location = new System.Drawing.Point(467, 536);
+			this.checkBox14.Location = new System.Drawing.Point(467, 583);
 			this.checkBox14.Name = "checkBox14";
 			this.checkBox14.Size = new System.Drawing.Size(104, 24);
 			this.checkBox14.TabIndex = 91;
@@ -174,7 +180,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.button2.Location = new System.Drawing.Point(251, 535);
+			this.button2.Location = new System.Drawing.Point(251, 583);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(90, 24);
 			this.button2.TabIndex = 92;
@@ -182,13 +188,23 @@ namespace Liquidinster
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
+			// comboBox3
+			// 
+			this.comboBox3.FormattingEnabled = true;
+			this.comboBox3.Location = new System.Drawing.Point(421, 500);
+			this.comboBox3.MinimumSize = new System.Drawing.Size(150, 0);
+			this.comboBox3.Name = "comboBox3";
+			this.comboBox3.Size = new System.Drawing.Size(150, 21);
+			this.comboBox3.TabIndex = 93;
+			// 
 			// Warehouse2read
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(573, 572);
+			this.ClientSize = new System.Drawing.Size(573, 619);
+			this.Controls.Add(this.comboBox3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.checkBox14);
 			this.Controls.Add(this.button1);

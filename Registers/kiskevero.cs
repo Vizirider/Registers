@@ -37,7 +37,7 @@ namespace Liquidinster
 
 		void Button1Click(object sender, EventArgs e)
 		{
-		SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Muszakbe",@"Data Source=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+		SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Blendertime1",@"Data Source=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 		DataSet ds = new DataSet();
 		da.Fill(ds);
 		dataGridView1.DataSource = ds.Tables[0];	

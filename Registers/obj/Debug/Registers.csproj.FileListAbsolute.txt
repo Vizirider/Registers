@@ -206,3 +206,15 @@ C:\Users\vizir\Documents\SharpDevelop Projects\liquidinsert\Liquidinster\obj\Deb
 \\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.exe
 \\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.pdb
 \\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.QMtabla.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.aklro.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.Liquido.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.bmpro.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.blendro.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Liquidinster.packrcso.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.Liqszam.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.aklszam.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.bmpszam.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.blendszam.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.packszam.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.pepsinon.resources
+\\gmacsm0001fp.ds.givaudan.com\HomeDirM$\vizir\Documents\SharpDevelop Projects\liquidinsert\Registers\obj\Debug\Registers.blendingteruj.resources

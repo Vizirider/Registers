@@ -22,7 +22,7 @@ namespace Liquidinster
 {
 	/// <summary>
 	/// Description of Select.
-	/// Főmenü, kiválasztható melyik regisztert szeretnénk használni
+	/// Main menu, which kind of register at Production
 	/// </summary>
 	public partial class Select : Form
 	{
@@ -42,6 +42,8 @@ namespace Liquidinster
 		}
 		void Button3Click(object sender, EventArgs e)
 		{
+			// Each stored procedure from production datatable to another
+			
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			
@@ -726,6 +728,7 @@ namespace Liquidinster
 		}
 		void Button9Click(object sender, EventArgs e)
 		{
+			// Language 
 			if(button9.Text == "Lang")
 			{
 			label1.Text = "Hello";

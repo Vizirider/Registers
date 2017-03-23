@@ -50,6 +50,9 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button12;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.Button button13;
+		private System.Windows.Forms.Button button14;
+		private System.Windows.Forms.Button button15;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -109,6 +112,9 @@ namespace Liquidinster
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
 			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.button13 = new System.Windows.Forms.Button();
+			this.button14 = new System.Windows.Forms.Button();
+			this.button15 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -429,11 +435,50 @@ namespace Liquidinster
 			this.textBox7.Size = new System.Drawing.Size(100, 20);
 			this.textBox7.TabIndex = 240;
 			// 
+			// button13
+			// 
+			this.button13.BackColor = System.Drawing.Color.LightCoral;
+			this.button13.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+			this.button13.Location = new System.Drawing.Point(56, 117);
+			this.button13.Name = "button13";
+			this.button13.Size = new System.Drawing.Size(96, 23);
+			this.button13.TabIndex = 243;
+			this.button13.Text = "Nem megfelelő";
+			this.button13.UseVisualStyleBackColor = false;
+			this.button13.Click += new System.EventHandler(this.Button13Click);
+			// 
+			// button14
+			// 
+			this.button14.BackColor = System.Drawing.Color.LightCoral;
+			this.button14.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+			this.button14.Location = new System.Drawing.Point(300, 117);
+			this.button14.Name = "button14";
+			this.button14.Size = new System.Drawing.Size(90, 23);
+			this.button14.TabIndex = 244;
+			this.button14.Text = "Nem megfelelő";
+			this.button14.UseVisualStyleBackColor = false;
+			this.button14.Click += new System.EventHandler(this.Button14Click);
+			// 
+			// button15
+			// 
+			this.button15.BackColor = System.Drawing.Color.LightCoral;
+			this.button15.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+			this.button15.Location = new System.Drawing.Point(569, 117);
+			this.button15.Name = "button15";
+			this.button15.Size = new System.Drawing.Size(90, 23);
+			this.button15.TabIndex = 245;
+			this.button15.Text = "Nem megfelelő";
+			this.button15.UseVisualStyleBackColor = false;
+			this.button15.Click += new System.EventHandler(this.Button15Click);
+			// 
 			// MainForm2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(828, 524);
+			this.Controls.Add(this.button15);
+			this.Controls.Add(this.button14);
+			this.Controls.Add(this.button13);
 			this.Controls.Add(this.button12);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.textBox7);

@@ -20,6 +20,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of warehouseout.
 	/// </summary>
+	/// abroad warehouse site register insert to sql table
 	public partial class warehouseout : Form
 	{
 		public warehouseout(string mws)
@@ -70,6 +71,78 @@ namespace Liquidinster
 
 			MessageBox.Show("Successfully add the SO check", "Üzenet"); 
 			}	
+		}
+		void CheckBox1MouseHover(object sender, EventArgs e)
+		{
+			checkBox1.BackColor = Color.LightSteelBlue;
+		}
+		void CheckBox1MouseLeave(object sender, EventArgs e)
+		{
+			checkBox1.BackColor = Color.White;	
+		}
+		void CheckBox2MouseHover(object sender, EventArgs e)
+		{
+			checkBox2.BackColor = Color.LightSteelBlue;
+		}
+		void CheckBox2MouseLeave(object sender, EventArgs e)
+		{
+			checkBox2.BackColor = Color.White;	
+		}
+		void CheckBox3MouseHover(object sender, EventArgs e)
+		{
+			checkBox3.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox3MouseLeave(object sender, EventArgs e)
+		{
+			checkBox3.BackColor = Color.White;	
+		}
+		void CheckBox4MouseHover(object sender, EventArgs e)
+		{
+			checkBox4.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox4MouseLeave(object sender, EventArgs e)
+		{
+			checkBox4.BackColor = Color.White;	
+		}
+		void CheckBox5MouseHover(object sender, EventArgs e)
+		{
+			checkBox5.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox5MouseLeave(object sender, EventArgs e)
+		{
+			checkBox5.BackColor = Color.White;	
+		}
+		void CheckBox6MouseHover(object sender, EventArgs e)
+		{
+			checkBox6.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox6MouseLeave(object sender, EventArgs e)
+		{
+			checkBox6.BackColor = Color.White;	
+		}
+		void CheckBox7MouseHover(object sender, EventArgs e)
+		{
+			checkBox7.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox7MouseLeave(object sender, EventArgs e)
+		{
+			checkBox7.BackColor = Color.White;	
+		}
+		void CheckBox8MouseHover(object sender, EventArgs e)
+		{
+			checkBox8.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox8MouseLeave(object sender, EventArgs e)
+		{
+			checkBox8.BackColor = Color.White;	
+		}
+		void CheckBox9MouseHover(object sender, EventArgs e)
+		{
+			checkBox9.BackColor = Color.LightSteelBlue;	
+		}
+		void CheckBox9MouseLeave(object sender, EventArgs e)
+		{
+			checkBox9.BackColor = Color.White;
 		}
 	}
 }

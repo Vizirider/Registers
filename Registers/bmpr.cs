@@ -38,6 +38,8 @@ namespace Liquidinster
 			this.comboBox1.Text = po;
 			this.Button3Click(null, null);
 			
+			// bmp register with instances (po, mws number)
+			
 		}
 		void Button3Click(object sender, EventArgs e)
 		{
@@ -59,14 +61,17 @@ namespace Liquidinster
 			        textBox4.Text = (read["LastIBCszam"].ToString());
 			        checkBox2.Checked = (bool)read["Allomastisztae"];
 			        checkBox3.Checked = (bool)read["Elese"];
-			        checkBox5.Checked = (bool)read["Kimerteke"];
-			        checkBox6.Checked = (bool)read["MegfeleloIBCe"];
+			        checkBox4.Checked = (bool)read["Kimerteke"];
 			        textBox5.Text = (read["AKLzsak"].ToString());
-			        checkBox7.Checked = (bool)read["Csomomentese"];
+			        checkBox5.Checked = (bool)read["Csomomentese"];
 			        textBox6.Text = (read["Komment"].ToString());
 			        dateTimePicker1.Text = Convert.ToDateTime(read["Datum"]).ToString();
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
 			        comboBox3.Text = (read["Ki"].ToString());
+			        checkBox6.Checked = (bool)read["Alapanyage"];
+			        checkBox7.Checked = (bool)read["Bonthatoe"];
+			        checkBox8.Checked = (bool)read["Idegene"];
+			        textBox7.Text = (read["Soszam"].ToString());
 			    }
 			    read.Close();
 			}
@@ -85,8 +90,8 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Update dbo.bmpa set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, IBCtisztae = @IBCtisztae, IBCszam = @IBCszam, LastIBCszam = @LastIBCszam, Allomastisztae = @Allomastisztae, Elese = @Elese, Kimerteke = @Kimerteke, MegfeleloIBCe = @MegfeleloIBCe, AKLzsak = @AKLzsak, Csomomentese = @Csomomentese, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki 
-			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
+			SqlCommand cmd = new SqlCommand(@"Update dbo.bmpa set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, IBCtisztae = @IBCtisztae, IBCszam = @IBCszam, LastIBCszam = @LastIBCszam, Allomastisztae = @Allomastisztae, Elese = @Elese, Kimerteke = @Kimerteke, AKLzsak = @AKLzsak, Csomomentese = @Csomomentese, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo,  Ki = @Ki, 
+			Soszam = @Soszam, Alapanyage = @Alapanyage, Bonthatoe = @Bonthatoe, Idegene = @Idegene WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
@@ -95,18 +100,20 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@LastIBCszam", textBox4.Text));
 			cmd.Parameters.Add(new SqlParameter("@Allomastisztae", checkBox2.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Elese", checkBox3.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Kimerteke", checkBox5.Checked));
-			cmd.Parameters.Add(new SqlParameter("@MegfeleloIBCe", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Kimerteke", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@AKLzsak", textBox5.Text));
-			cmd.Parameters.Add(new SqlParameter("@Csomomentese", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Csomomentese", checkBox5.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox6.Text));
 			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
-			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Soszam", textBox7.Text));
+			cmd.Parameters.Add(new SqlParameter("@Alapanyage", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Bonthatoe", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox8.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Sikeresen hozzáadtad a PO-t", "Üzenet"); 
+			MessageBox.Show("Sikeresen módosítottad a PO-t", "Üzenet"); 
 		}
 		void BmprLoad(object sender, EventArgs e)
 		{
@@ -134,8 +141,15 @@ namespace Liquidinster
 			{
 				checkBox7.BackColor = Color.Red;
 			}
+			if(checkBox8.Checked == true)
+			{
+				checkBox8.BackColor = Color.Red;
+			}	
+			if(checkBox4.Checked == false)
+			{
+				checkBox4.BackColor = Color.Red;
+			}
 
-	
 		}
 	}
 }

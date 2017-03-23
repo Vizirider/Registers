@@ -36,6 +36,8 @@ namespace Liquidinster
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
 			this.Button3Click(null, null);
+			
+			// pack register with instances
 		}
 		void Button3Click(object sender, EventArgs e)
 		{
@@ -58,13 +60,24 @@ namespace Liquidinster
 			        textBox4.Text = (read["IBCdok"].ToString());
 			        checkBox10.Checked = (bool)read["POStisztae"];
 			        checkBox2.Checked = (bool)read["Kezitisztae"];		
-			        checkBox5.Checked = (bool)read["Szitae"];
-			        checkBox11.Checked = (bool)read["Serulese"];
-			        checkBox4.Checked = (bool)read["Pore"];
+			        checkBox5.Checked = (bool)read["Prepordere"];
+			        checkBox11.Checked = (bool)read["Szitae"];
+			        checkBox3.Checked = (bool)read["Szitaellazone"];
 			        textBox7.Text = (read["Komment"].ToString());
 			        dateTimePicker1.Text = Convert.ToDateTime(read["Datum"]).ToString();
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
 			        comboBox3.Text = (read["Ki"].ToString());
+			        checkBox6.Checked = (bool)read["Serulese"];
+			        checkBox7.Checked = (bool)read["Beleszsake"];
+			        textBox5.Text = (read["Mintaedenyszame"].ToString());
+			        textBox6.Text = (read["Mintaedenyszamu"].ToString());
+			        checkBox8.Checked = (bool)read["Szinhomogene"];
+			        checkBox9.Checked = (bool)read["Beleszsakzare"];
+			        checkBox12.Checked = (bool)read["Packofffolye"];
+			        checkBox13.Checked = (bool)read["Idegene"];
+			        checkBox14.Checked = (bool)read["Vizfolye"];
+			        checkBox4.Checked = (bool)read["Pore"];
+			        textBox8.Text = (read["Komment1"].ToString());
 			    }
 			    read.Close();
 			}
@@ -85,19 +98,31 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.packingoffa Set Tisztae = @Tisztae, POSszam = @POSszam, IBCdok = @IBCdok, POStisztae = @POStisztae, Kezitisztae = @Kezitisztae, 
-			Szitae = @Szitae, Serulese = @Serulese, Pore = @Pore
+			Szitae = @Szitae, Serulese = @Serulese, Pore = @Pore, Prepordere = @Prepordere, Szitaellazone = @Szitaellazone, Beleszsake = @Beleszsake,
+			Mintaedenyszame = @Mintaedenyszame, Mintaedenyszamu = @Mintaedenyszamu, Szinhomogene = @Szinhomogene, Beleszsakzare = @Beleszsakzare, Packofffolye = @Packofffolye, Idegene = @Idegene, Vizfolye = @Vizfolye, Komment = @Komment, Komment1 = @Komment1
 			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
 			cmd.Parameters.Add(new SqlParameter("@Tisztae", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@POSszam", textBox3.Text));
 			cmd.Parameters.Add(new SqlParameter("@IBCdok", textBox4.Text));
 			cmd.Parameters.Add(new SqlParameter("@POStisztae", checkBox10.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Kezitisztae", checkBox2.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Szitae", checkBox5.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Serulese", checkBox11.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Komment", textBox7.Text));
+			cmd.Parameters.Add(new SqlParameter("@Prepordere", checkBox5.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Szitae", checkBox11.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
-			cmd.Parameters.Add(new SqlParameter("@Pore", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Szitaellazone", checkBox3.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Serulese", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Beleszsake", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Mintaedenyszame", textBox5.Text));
+			cmd.Parameters.Add(new SqlParameter("@Mintaedenyszamu", textBox6.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szinhomogene", checkBox8.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Beleszsakzare", checkBox9.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Packofffolye", checkBox12.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox13.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Vizfolye", checkBox14.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Pore", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Komment", textBox7.Text));
+			cmd.Parameters.Add(new SqlParameter("@Komment1", textBox8.Text));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen módosítottad a PO-t", "Üzenet"); 
@@ -124,14 +149,42 @@ namespace Liquidinster
 			{
 				checkBox10.BackColor = Color.Red;
 			}
-			if(checkBox4.Checked == true)
-			{
-				checkBox4.BackColor = Color.Red;
-			}
-			if(checkBox11.Checked == true)
+			if(checkBox11.Checked == false)
 			{
 				checkBox11.BackColor = Color.Red;
 			}	
+			if(checkBox6.Checked == true)
+			{
+				checkBox6.BackColor = Color.Red;
+			}
+			if(checkBox7.Checked == false)
+			{
+				checkBox7.BackColor = Color.Red;
+			}
+			if(checkBox8.Checked == false)
+			{
+				checkBox8.BackColor = Color.Red;
+			}
+			if(checkBox9.Checked == false)
+			{
+				checkBox9.BackColor = Color.Red;
+			}
+			if(checkBox12.Checked == false)
+			{
+				checkBox12.BackColor = Color.Red;
+			}
+			if(checkBox13.Checked == true)
+			{
+				checkBox13.BackColor = Color.Red;
+			}
+			if(checkBox14.Checked == true)
+			{
+				checkBox14.BackColor = Color.Red;
+			}
+			if(checkBox3.Checked == false && string.IsNullOrWhiteSpace(textBox8.Text))
+			{
+				checkBox3.BackColor = Color.Red;
+			}
 		}
 	}
 }

@@ -239,6 +239,7 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox8);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
+			this.MaximizeBox = false;
 			this.Name = "Select";
 			this.Text = "Production Registers";
 			this.ResumeLayout(false);

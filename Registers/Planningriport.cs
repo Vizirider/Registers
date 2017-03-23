@@ -35,22 +35,7 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			Button1Click(null,null);
 			Button2Click(null,null);
-		}
-		void Button1Click(object sender, EventArgs e)
-		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Planningriport ORDER BY Datum", conn);
-			dataAdapter1.Fill(ds);	
-			chart1.DataSource = ds.Tables[0];
-			chart1.Series.Add("POszam");
-			chart1.Series["POszam"].YValueMembers = "POszam";
-			chart1.Series["POszam"].XValueMember = "Datum";
-			chart1.Series["POszam"].ChartType = SeriesChartType.StackedColumn;
-			chart1.Series["POszam"].LegendText = "POszam";
-			chart1.Series["Series1"].IsVisibleInLegend = false;	
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
@@ -59,29 +44,20 @@ namespace Liquidinster
 			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Planningriporttarget ORDER BY Datum", conn);
 			dataAdapter1.Fill(ds);	
 			chart1.DataSource = ds.Tables[0];
+			chart1.Series.Add("POszam");
+			chart1.Series["POszam"].YValueMembers = "POszam";
+			chart1.Series["POszam"].XValueMember = "Datum";
+			chart1.Series["POszam"].ChartType = SeriesChartType.StackedColumn;
+			chart1.Series["POszam"].LegendText = "POszam";
+			chart1.Series["Series1"].IsVisibleInLegend = false;	
 			chart1.Series.Add("Target");
+			chart1.ChartAreas[0].AxisX.Title = "Week";
+			chart1.ChartAreas[0].AxisX.Interval = 1;
 			chart1.Series["Target"].YValueMembers = "POszam";
 			chart1.Series["Target"].XValueMember = "Datum";
 			chart1.Series["Target"].ChartType = SeriesChartType.Line;
 			chart1.Series["Target"].LegendText = "Target";	
 		}
-//   protected override void WndProc(ref Message m)
-//    {
-//        FormWindowState previousWindowState = this.WindowState;
-//
-//        base.WndProc(ref m);
-//
-//        FormWindowState currentWindowState = this.WindowState;
-//
-//        if (previousWindowState != currentWindowState && currentWindowState == FormWindowState.Maximized)
-//        {
-//			chart1.Size = new System.Drawing.Size(2000, 400);
-//        }
-//        else if (currentWindowState == FormWindowState.Minimized)
-//        {
-//			chart1.Size = new System.Drawing.Size(1180, 352);
-//        }
-//    }
 
 	}
 }

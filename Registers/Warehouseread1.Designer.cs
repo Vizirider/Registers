@@ -255,6 +255,10 @@ namespace Liquidinster
 			this.button7.UseVisualStyleBackColor = true;
 			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
+			// printDocument1
+			// 
+			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
+			// 
 			// comboBox3
 			// 
 			this.comboBox3.FormattingEnabled = true;

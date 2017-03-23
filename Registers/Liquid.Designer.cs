@@ -29,6 +29,9 @@ namespace Liquidinster
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.CheckBox checkBox7;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -67,12 +70,15 @@ namespace Liquidinster
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
+			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// button4
 			// 
 			this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button4.Location = new System.Drawing.Point(448, 634);
+			this.button4.Location = new System.Drawing.Point(614, 316);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(75, 23);
 			this.button4.TabIndex = 0;
@@ -94,7 +100,7 @@ namespace Liquidinster
 			"bko",
 			"ani",
 			"gok"});
-			this.comboBox3.Location = new System.Drawing.Point(178, 660);
+			this.comboBox3.Location = new System.Drawing.Point(645, 448);
 			this.comboBox3.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(150, 21);
@@ -129,15 +135,15 @@ namespace Liquidinster
 			// 
 			// textBox5
 			// 
-			this.textBox5.Location = new System.Drawing.Point(432, 421);
+			this.textBox5.Location = new System.Drawing.Point(503, 421);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(149, 20);
+			this.textBox5.Size = new System.Drawing.Size(101, 20);
 			this.textBox5.TabIndex = 38;
 			// 
 			// checkBox4
 			// 
 			this.checkBox4.BackColor = System.Drawing.Color.White;
-			this.checkBox4.Location = new System.Drawing.Point(221, 623);
+			this.checkBox4.Location = new System.Drawing.Point(645, 366);
 			this.checkBox4.Name = "checkBox4";
 			this.checkBox4.Size = new System.Drawing.Size(104, 24);
 			this.checkBox4.TabIndex = 42;
@@ -146,7 +152,7 @@ namespace Liquidinster
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(448, 568);
+			this.comboBox2.Location = new System.Drawing.Point(645, 396);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -154,28 +160,28 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(150, 569);
+			this.dateTimePicker1.Location = new System.Drawing.Point(646, 509);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(149, 20);
 			this.dateTimePicker1.TabIndex = 40;
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(464, 483);
+			this.textBox3.Location = new System.Drawing.Point(261, 653);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(241, 20);
 			this.textBox3.TabIndex = 39;
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(449, 130);
+			this.textBox2.Location = new System.Drawing.Point(586, 133);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(149, 20);
 			this.textBox2.TabIndex = 34;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(400, 104);
+			this.textBox1.Location = new System.Drawing.Point(454, 105);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(149, 20);
 			this.textBox1.TabIndex = 33;
@@ -183,7 +189,7 @@ namespace Liquidinster
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(400, 76);
+			this.comboBox1.Location = new System.Drawing.Point(454, 77);
 			this.comboBox1.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(150, 21);
@@ -203,13 +209,40 @@ namespace Liquidinster
 			// button1
 			// 
 			this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button1.Location = new System.Drawing.Point(554, 634);
+			this.button1.Location = new System.Drawing.Point(720, 316);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 53;
 			this.button1.Text = "Módosít";
 			this.button1.UseVisualStyleBackColor = false;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
+			// 
+			// checkBox5
+			// 
+			this.checkBox5.BackColor = System.Drawing.Color.White;
+			this.checkBox5.Location = new System.Drawing.Point(576, 487);
+			this.checkBox5.Name = "checkBox5";
+			this.checkBox5.Size = new System.Drawing.Size(72, 24);
+			this.checkBox5.TabIndex = 54;
+			this.checkBox5.UseVisualStyleBackColor = false;
+			// 
+			// checkBox6
+			// 
+			this.checkBox6.BackColor = System.Drawing.Color.White;
+			this.checkBox6.Location = new System.Drawing.Point(576, 535);
+			this.checkBox6.Name = "checkBox6";
+			this.checkBox6.Size = new System.Drawing.Size(72, 24);
+			this.checkBox6.TabIndex = 55;
+			this.checkBox6.UseVisualStyleBackColor = false;
+			// 
+			// checkBox7
+			// 
+			this.checkBox7.BackColor = System.Drawing.Color.White;
+			this.checkBox7.Location = new System.Drawing.Point(576, 587);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(72, 24);
+			this.checkBox7.TabIndex = 56;
+			this.checkBox7.UseVisualStyleBackColor = false;
 			// 
 			// Liquid
 			// 
@@ -219,7 +252,10 @@ namespace Liquidinster
 			this.AutoSize = true;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(747, 684);
+			this.ClientSize = new System.Drawing.Size(807, 716);
+			this.Controls.Add(this.checkBox7);
+			this.Controls.Add(this.checkBox6);
+			this.Controls.Add(this.checkBox5);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button4);

@@ -154,6 +154,7 @@ namespace Liquidinster
 			this.Controls.Add(this.comboBox1);
 			this.DoubleBuffered = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "Login";
 			this.Text = "Login";
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Button1KeyUp);

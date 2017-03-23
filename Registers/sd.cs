@@ -20,6 +20,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of sd.
 	/// </summary>
+	///  SD Production check register with select sql 
 	public partial class sd : Form
 	{
 		public sd(string mws, string po)
@@ -32,9 +33,24 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.comboBox2.Text = mws;
-			this.comboBox5.Text = mws;
+//			this.comboBox2.Text = mws;
+//			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox5.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox5.Text = mws;				
+				}
+				read.Close();
+			}
 			Button5Click(null,null);
 		}
 				void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
@@ -176,26 +192,75 @@ namespace Liquidinster
 					textBox75.Text = (read["Kezkorny"].ToString());
 					textBox76.Text = (read["Leiras4"].ToString());
 					textBox77.Text = (read["Datumd"].ToString());
-					textBox78.Text = (read["Kezjegy"].ToString());
+					textBox78.Text = (read["Kezjegy"].ToString());				
+					textBox72.Text = (read["Datum1"].ToString());
+					textBox79.Text = (read["Datum2"].ToString());
+					textBox80.Text = (read["Datum3"].ToString());
+					textBox81.Text = (read["Datum4"].ToString());
+					textBox82.Text = (read["Datum5"].ToString());
+					textBox83.Text = (read["Datum6"].ToString());
+					textBox89.Text = (read["Ido1"].ToString());
+					textBox88.Text = (read["Ido2"].ToString());
+					textBox87.Text = (read["Ido3"].ToString());
+					textBox86.Text = (read["Ido4"].ToString());
+					textBox85.Text = (read["Ido5"].ToString());
+					textBox84.Text = (read["Ido6"].ToString());
+					textBox96.Text = (read["Emulzio1"].ToString());
+					textBox95.Text = (read["Emulzio1"].ToString());
+					textBox94.Text = (read["Emulzio1"].ToString());
+					textBox93.Text = (read["Emulzio1"].ToString());
+					textBox92.Text = (read["Emulzio1"].ToString());
+					textBox91.Text = (read["Emulzio1"].ToString());
+					textBox102.Text = (read["Egettszem1"].ToString());
+					textBox101.Text = (read["Egettszem2"].ToString());
+					textBox100.Text = (read["Egettszem3"].ToString());
+					textBox99.Text = (read["Egettszem4"].ToString());
+					textBox98.Text = (read["Egettszem5"].ToString());
+					textBox97.Text = (read["Egettszem6"].ToString());
+					textBox108.Text = (read["Mertned1"].ToString());
+					textBox107.Text = (read["Mertned2"].ToString());
+					textBox106.Text = (read["Mertned3"].ToString());
+					textBox105.Text = (read["Mertned4"].ToString());
+					textBox104.Text = (read["Mertned5"].ToString());
+					textBox103.Text = (read["Mertned6"].ToString());
+					textBox114.Text = (read["Comment1"].ToString());
+					textBox113.Text = (read["Comment2"].ToString());
+					textBox112.Text = (read["Comment3"].ToString());
+					textBox111.Text = (read["Comment4"].ToString());
+					textBox110.Text = (read["Comment5"].ToString());
+					textBox109.Text = (read["Comment6"].ToString());
+					textBox120.Text = (read["Karton1"].ToString());
+					textBox119.Text = (read["Karton2"].ToString());
+					textBox118.Text = (read["Karton3"].ToString());
+					textBox117.Text = (read["Karton4"].ToString());
+					textBox116.Text = (read["Karton5"].ToString());
+					textBox115.Text = (read["Karton6"].ToString());
+					comboBox3.Text = (read["Ellenorzo"].ToString());
 					
 					if(read["lugos"] == DBNull.Value){
 			        	checkBox4.Checked = false;
 			        }
 			        else{
-			        checkBox1.Checked = (bool)read["lugos"];			        	
+			        checkBox4.Checked = (bool)read["lugos"];			        	
 			        }	
 			        if(read["savas"] == DBNull.Value){
 			        	checkBox5.Checked = false;
 			        }
 			        else{
-			        checkBox2.Checked = (bool)read["savas"];			        	
+			        checkBox5.Checked = (bool)read["savas"];			        	
 			        }
 			        if(read["kosher"] == DBNull.Value){
 			        	checkBox6.Checked = false;
 			        }
 			        else{
-			        checkBox3.Checked = (bool)read["kosher"];			        	
-			        }	
+			        checkBox6.Checked = (bool)read["kosher"];			        	
+			        }
+			        if(read["mintavetel"] == DBNull.Value){
+			        	checkBox3.Checked = false;
+			        }
+			        else{
+			        checkBox3.Checked = (bool)read["mintavetel"];			        	
+			        }						
 
 					
 	if (!string.IsNullOrWhiteSpace(textBox54.Text))
@@ -246,6 +311,25 @@ namespace Liquidinster
 	if (!string.IsNullOrWhiteSpace(textBox51.Text))
 	{textBox51.Text = textBox51.Text.Substring(11);
 	}
+
+	if (!string.IsNullOrWhiteSpace(textBox89.Text))
+	{textBox89.Text = textBox89.Text.Substring(11);
+	}
+	if (!string.IsNullOrWhiteSpace(textBox88.Text))
+	{textBox88.Text = textBox88.Text.Substring(11);
+	}	
+	if (!string.IsNullOrWhiteSpace(textBox87.Text))
+	{textBox87.Text = textBox87.Text.Substring(11);
+	}
+	if (!string.IsNullOrWhiteSpace(textBox86.Text))
+	{textBox86.Text = textBox86.Text.Substring(11);
+	}
+	if (!string.IsNullOrWhiteSpace(textBox85.Text))
+	{textBox85.Text = textBox85.Text.Substring(11);
+	}
+	if (!string.IsNullOrWhiteSpace(textBox84.Text))
+	{textBox84.Text = textBox84.Text.Substring(11);
+	}
 				}
 				
 				panel82.Visible |= textBox6.Text == "1";
@@ -295,6 +379,11 @@ namespace Liquidinster
 				panel73.Visible |= textBox8.Text == "2";
 				panel72.Visible |= textBox9.Text == "2";
 				panel71.Visible |= textBox10.Text == "2";
+				if(textBox6.Text == "1")
+				{
+					panel72.BackColor = Color.White;
+					panel71.BackColor = Color.White;
+				}
 				panel70.Visible |= textBox11.Text == "2";
 				panel69.Visible |= textBox12.Text == "2";
 				panel68.Visible |= textBox13.Text == "2";
@@ -504,7 +593,7 @@ namespace Liquidinster
 			sdkezdk = @sdkezdk, sdkvegk = @sdkvegk, sdellk = @sdellk, sdms = @sdms, kiszaritaskezdc = @kiszaritaskezdc,
 			kiszaritasvegc = @kiszaritasvegc, mixtankmosl = @mixtankmosl, sdmosl = @sdmosl, mixtankmosk = @mixtankmosk, sdmosk = @sdmosk, kiszaritasszars = @kiszaritasszars,
 			kiszaritasszarc = @kiszaritasszarc, Labor = @Labor, Leiras3 = @Leiras3, Keztermek = @Keztermek, Kezszita = @Kezszita, Kezsd = @Kezsd,
-			Kezcsomag = @Kezcsomag, Kezemul = @Kezemul, Kezkorny = @Kezkorny, Leiras4 = @Leiras4, Datumd = @Datumd, Kezjegy = @Kezjegy
+			Kezcsomag = @Kezcsomag, Kezemul = @Kezemul, Kezkorny = @Kezkorny, Leiras4 = @Leiras4, Datumd = @Datumd, Kezjegy = @Kezjegy, lugos = @lugos, savas = @savas, kosher = @kosher
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox2.Text));
@@ -585,6 +674,9 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Leiras4", textBox76.Text));
 			cmd.Parameters.Add(new SqlParameter("@Datumd", textBox77.Text));
 			cmd.Parameters.Add(new SqlParameter("@Kezjegy", textBox78.Text));
+			cmd.Parameters.Add(new SqlParameter("@lugos", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@savas", checkBox5.Checked));
+			cmd.Parameters.Add(new SqlParameter("@kosher", checkBox6.Checked));
 
 			cmd.ExecuteNonQuery();
 			conn.Close();
@@ -592,6 +684,24 @@ namespace Liquidinster
 			Button5Click(null,null);	
 		
 		}
-	
+		void Button8Click(object sender, EventArgs e)
+		{
+		CaptureScreen();
+        printDocument1.Print();	
+		}
+		Bitmap memoryImage;
+    
+		private void CaptureScreen()
+	    {
+	        Graphics myGraphics = this.CreateGraphics();
+	        Size s = this.Size;
+	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+	    }
+			void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+			{
+	        e.Graphics.DrawImage(memoryImage, 0, 0);
+			}	
 	}
 }

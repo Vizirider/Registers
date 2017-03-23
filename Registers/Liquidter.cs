@@ -28,14 +28,33 @@ namespace Liquidinster
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			this.comboBox2.Text = mws;
-			this.comboBox3.Text = mws;
+//			this.comboBox2.Text = mws;
+//			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox3.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox3.Text = mws;				
+				}
+				read.Close();
+			}
+			
 			this.Button5Click(null, null); 
 			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			
+			
 		}
 		void LiquidterLoad(object sender, EventArgs e)
 		{
@@ -44,40 +63,23 @@ namespace Liquidinster
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.liquidella (POszam, Anyagkod, Anyagnev, SOszam, Operator1, Ellenorzo, Termeles, berendeztiszta, Edenytiszta,
-			Folymel, Folyhom, Csomagtiszta, Tomites, Cimkek, Extracimke, Zaras, Alapanyagtar, Sampling, Samplingcimke, Csomagazon, Leiras, Hanemtakaritunk, Ellenorizve)
-			VALUES (@POszam, @Anyagkod, @Anyagnev, @SOszam, @Operator1, @Ellenorzo, @Termeles, @berendeztiszta, @Edenytiszta,
-			@Folymel, @Folyhom, @Csomagtiszta, @Tomites, @Cimkek, @Extracimke, @Zaras, @Alapanyagtar, @Sampling, @Samplingcimke, @Csomagazon, @Leiras, @Hanemtakaritunk, @Ellenorizve)", conn);
-			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
-			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
-			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
-			cmd.Parameters.Add(new SqlParameter("@SOszam", textBox4.Text));
-			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox2.Text));
-			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox3.Text));
-			cmd.Parameters.Add(new SqlParameter("@Termeles", dateTimePicker1.Value.Date));
-			cmd.Parameters.Add(new SqlParameter("@berendeztiszta", textBox5.Text));
-			cmd.Parameters.Add(new SqlParameter("@Edenytiszta", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Folymel", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Folyhom", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Csomagtiszta", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Tomites", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Cimkek", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Extracimke", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Zaras", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Alapanyagtar", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Sampling", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Samplingcimke", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Csomagazon", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Leiras", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Hanemtakaritunk", textBox6.Text));
-			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox1.Checked));
-
-			cmd.ExecuteNonQuery();
-			conn.Close();
-			MessageBox.Show("Sikeresen hozzáadtad a PO-t", "Üzenet");
+		CaptureScreen();
+        printDocument1.Print();
 		}
+		Bitmap memoryImage;
+    
+		private void CaptureScreen()
+	    {
+	        Graphics myGraphics = this.CreateGraphics();
+	        Size s = this.Size;
+	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+	    }
+			void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+			{
+	        e.Graphics.DrawImage(memoryImage, 0, 0);
+			}
 		void Button1Click(object sender, EventArgs e)
 		{
 			OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
@@ -176,7 +178,6 @@ namespace Liquidinster
 					textBox2.Text = (read["Anyagnev"].ToString());
 					textBox4.Text = (read["SOszam"].ToString());
 					comboBox2.Text = (read["Operator1"].ToString());
-					comboBox3.Text = (read["Ellenorzo"].ToString());
 					dateTimePicker1.Text = Convert.ToDateTime(read["Termeles"]).ToString();
 					textBox5.Text = (read["berendeztiszta"].ToString());
 					textBox6.Text = (read["Edenytiszta"].ToString());
@@ -193,6 +194,7 @@ namespace Liquidinster
 					textBox17.Text = (read["Csomagazon"].ToString());
 					textBox18.Text = (read["Leiras"].ToString());
 					textBox19.Text = (read["Hanemtakaritunk"].ToString());
+					comboBox4.Text = (read["Ellenorzo"].ToString()); 
 				}
 				read.Close();
 				panel1.Visible |= textBox5.Text == "1";
@@ -314,7 +316,6 @@ namespace Liquidinster
 		}
 		void Button7Click(object sender, EventArgs e)
 		{
-
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.liquidella set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, SOszam = @SOszam, Operator1 = @Operator1, Ellenorzo = @Ellenorzo, berendeztiszta = @berendeztiszta, Edenytiszta = @Edenytiszta, Folymel = @Folymel, Folyhom = @Folyhom, Csomagtiszta = @Csomagtiszta,

@@ -38,6 +38,7 @@ namespace Liquidinster
 			this.comboBox1.Text = po;
 			this.Button3Click(null, null);
 			
+			// blender register with instances 
 			
 		}
 		
@@ -68,13 +69,17 @@ namespace Liquidinster
 			        textBox6.Text = (read["Kannaszam"].ToString());
 			        checkBox6.Checked = (bool)read["Urese"];
 			        checkBox7.Checked = (bool)read["Automatae"];
-			        checkBox8.Checked = (bool)read["Csotisztae"];
 			        checkBox9.Checked = (bool)read["Szivarogepor"];
 			        textBox8.Text = (read["IBCbatch"].ToString());
 			        textBox7.Text = (read["Komment"].ToString());
 			        dateTimePicker1.Text = Convert.ToDateTime(read["Datum"]).ToString();
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
 			        comboBox3.Text = (read["Ki"].ToString());
+			        checkBox11.Checked = (bool)read["Felrazvahoe"];
+			        checkBox10.Checked = (bool)read["Szivaroge"];			        
+			        checkBox8.Checked = (bool)read["Jerrycane"];
+			        checkBox12.Checked = (bool)read["Muszakie"];
+			        checkBox13.Checked = (bool)read["Idegene"];
 			    }
 			    read.Close();
 			}
@@ -96,7 +101,7 @@ namespace Liquidinster
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.blendinga set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, Tisztae = @Tisztae, Blenderszam = @Blenderszam, Kitoltvee = @Kitoltvee, IBCszam = @IBCszam, LastIBC = @LastIBC, IBCkiurulte = @IBCkiurulte, 
 			Felrazvae = @Felrazvae, Kannaszam = @Kannaszam, Urese = @Urese, Automatae = @Automatae, Csotisztae = @Csotisztae,
-			Szivarogepor = @Szivarogepor, IBCbatch = @IBCbatch, Szivaroge = @Szivaroge, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki
+			Szivarogepor = @Szivarogepor, IBCbatch = @IBCbatch, Szivaroge = @Szivaroge, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki, Felrazvahoe = @Felrazvahoe, Jerrycane = @Jerrycane, Muszakie = @Muszakie, Idegene = @Idegene
 			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
@@ -114,18 +119,23 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Csotisztae", checkBox8.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Szivarogepor", checkBox9.Checked));
 			cmd.Parameters.Add(new SqlParameter("@IBCbatch", textBox8.Text));
-			cmd.Parameters.Add(new SqlParameter("@Szivaroge", checkBox10.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox7.Text));
 			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Felrazvahoe", checkBox11.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Jerrycane", checkBox8.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Muszakie", checkBox12.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox13.Checked));	
+			cmd.Parameters.Add(new SqlParameter("@Szivaroge", checkBox10.Checked));				
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen módosítottad a PO-t", "Üzenet"); 
 		}
 		void BlendrLoad(object sender, EventArgs e)
 		{
+			// if non comfort event background is red
 			if(checkBox1.Checked == false)
 			{
 				checkBox1.BackColor = Color.Red;
@@ -137,10 +147,6 @@ namespace Liquidinster
 			if(checkBox3.Checked == false)
 			{
 				checkBox3.BackColor = Color.Red;
-			}
-			if(checkBox5.Checked == false)
-			{
-				checkBox5.BackColor = Color.Red;
 			}
 			if(checkBox6.Checked == false)
 			{
@@ -162,7 +168,22 @@ namespace Liquidinster
 			{
 				checkBox10.BackColor = Color.Red;
 			}
-	
+			if(checkBox8.Checked == false)
+			{
+				checkBox8.BackColor = Color.Red;
+			}			
+			if(checkBox12.Checked == true)
+			{
+				checkBox12.BackColor = Color.Red;
+			}
+			if(checkBox13.Checked == true)
+			{
+				checkBox13.BackColor = Color.Red;
+			}
+			if(checkBox11.Checked == false)
+			{
+				checkBox11.BackColor = Color.Red;
+			}				
 		}
 	}
 }

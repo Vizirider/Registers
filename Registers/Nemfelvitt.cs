@@ -29,6 +29,7 @@ namespace Liquidinster
 			//
 			InitializeComponent();
 			this.Button1Click(null, null);
+			this.Button2Click(null, null);
 			this.Button3Click(null, null);
 			this.Button4Click(null, null);
 			this.Button5Click(null, null);
@@ -42,11 +43,10 @@ namespace Liquidinster
 
 		void Button2Click(object sender, EventArgs e)
 		{
-			OleDbConnection  conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=V:\Common (Don't share confidential docs here)\adminregisters\registers.accdb;
-			Persist Security Info=False;");
+			SqlConnection  conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT [EQ],[POszam],[SOszam],[WH],[LIQ],[AKL],[BMP],[BLEND],[PACK_OFF] FROM [pepsi]",conn);
-			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT [EQ],[POszam],[SOszam],[WH],[LIQ],[AKL],[BMP],[BLEND],[PACK_OFF] FROM [pepsiall] WHERE Datum = cast(GETDATE() AS DATE) OR Datum = cast(GETDATE()-1 AS DATE) ORDER BY EQ",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
 			dataGridView2.DataSource = ds.Tables[0];
@@ -265,6 +265,18 @@ namespace Liquidinster
 			dataGridView7.AutoResizeColumns();
 			conn.Close();		
 		}
+		void TextBox1KeyUp(object sender, KeyEventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT [EQ],[POszam],[SOszam],[WH],[LIQ],[AKL],[BMP],[BLEND],[PACK_OFF],[Datum] FROM pepsiall WHERE POszam = ('" + textBox1.Text +"')",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView2.DataSource = ds.Tables[0];
+			dataGridView2.AutoResizeColumns();	
+		}
+
 
 		
 	}

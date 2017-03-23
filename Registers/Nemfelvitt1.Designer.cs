@@ -17,11 +17,6 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
@@ -36,7 +31,6 @@ namespace Liquidinster
 		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.DataGridView dataGridView7;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button8;
 		private System.Drawing.Printing.PrintDocument printDocument1;
 		private System.Windows.Forms.Button button9;
@@ -60,13 +54,15 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button15;
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
-		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox textBox9;
 		private System.Windows.Forms.DataGridView dataGridView10;
 		private System.Windows.Forms.Button button19;
 		private System.Windows.Forms.Button button20;
+		private System.Windows.Forms.TextBox textBox10;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Timer timer1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -89,14 +85,10 @@ namespace Liquidinster
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button6 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -111,7 +103,6 @@ namespace Liquidinster
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.dataGridView7 = new System.Windows.Forms.DataGridView();
 			this.label9 = new System.Windows.Forms.Label();
-			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.button9 = new System.Windows.Forms.Button();
@@ -135,13 +126,15 @@ namespace Liquidinster
 			this.button15 = new System.Windows.Forms.Button();
 			this.button16 = new System.Windows.Forms.Button();
 			this.button17 = new System.Windows.Forms.Button();
-			this.button18 = new System.Windows.Forms.Button();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label12 = new System.Windows.Forms.Label();
 			this.textBox9 = new System.Windows.Forms.TextBox();
 			this.dataGridView10 = new System.Windows.Forms.DataGridView();
 			this.button19 = new System.Windows.Forms.Button();
 			this.button20 = new System.Windows.Forms.Button();
+			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -178,56 +171,6 @@ namespace Liquidinster
 			this.label1.Size = new System.Drawing.Size(129, 23);
 			this.label1.TabIndex = 61;
 			this.label1.Text = "Hiányzó regiszterek:";
-			// 
-			// button6
-			// 
-			this.button6.Location = new System.Drawing.Point(818, 690);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(75, 23);
-			this.button6.TabIndex = 60;
-			this.button6.Text = "button";
-			this.button6.Visible = false;
-			this.button6.Click += new System.EventHandler(this.Button6Click);
-			// 
-			// button5
-			// 
-			this.button5.Location = new System.Drawing.Point(818, 661);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(75, 23);
-			this.button5.TabIndex = 59;
-			this.button5.Text = "button";
-			this.button5.Visible = false;
-			this.button5.Click += new System.EventHandler(this.Button5Click);
-			// 
-			// button4
-			// 
-			this.button4.Location = new System.Drawing.Point(818, 632);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(75, 23);
-			this.button4.TabIndex = 58;
-			this.button4.Text = "button";
-			this.button4.Visible = false;
-			this.button4.Click += new System.EventHandler(this.Button4Click);
-			// 
-			// button3
-			// 
-			this.button3.Location = new System.Drawing.Point(818, 606);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(75, 20);
-			this.button3.TabIndex = 57;
-			this.button3.Text = "button";
-			this.button3.Visible = false;
-			this.button3.Click += new System.EventHandler(this.Button3Click);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(818, 577);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 56;
-			this.button1.Text = "button";
-			this.button1.Visible = false;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// label6
 			// 
@@ -312,7 +255,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button2.Location = new System.Drawing.Point(807, 30);
+			this.button2.Location = new System.Drawing.Point(816, 36);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(100, 36);
 			this.button2.TabIndex = 45;
@@ -335,7 +278,6 @@ namespace Liquidinster
 			this.dataGridView7.Name = "dataGridView7";
 			this.dataGridView7.Size = new System.Drawing.Size(124, 104);
 			this.dataGridView7.TabIndex = 64;
-			this.dataGridView7.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView7CellContentClick);
 			// 
 			// label9
 			// 
@@ -344,16 +286,6 @@ namespace Liquidinster
 			this.label9.Size = new System.Drawing.Size(63, 23);
 			this.label9.TabIndex = 65;
 			this.label9.Text = "pf";
-			// 
-			// button7
-			// 
-			this.button7.Location = new System.Drawing.Point(899, 615);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(75, 23);
-			this.button7.TabIndex = 66;
-			this.button7.Text = "button";
-			this.button7.Visible = false;
-			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button8
 			// 
@@ -364,11 +296,6 @@ namespace Liquidinster
 			this.button8.TabIndex = 67;
 			this.button8.Text = "Nyomtatás";
 			this.button8.UseVisualStyleBackColor = true;
-			this.button8.Click += new System.EventHandler(this.Button8Click);
-			// 
-			// printDocument1
-			// 
-			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
 			// 
 			// button9
 			// 
@@ -392,7 +319,6 @@ namespace Liquidinster
 			this.button10.TabIndex = 69;
 			this.button10.Text = "Indikátor";
 			this.button10.UseVisualStyleBackColor = false;
-			this.button10.Click += new System.EventHandler(this.Button10Click);
 			// 
 			// textBox1
 			// 
@@ -427,7 +353,7 @@ namespace Liquidinster
 			// dataGridView8
 			// 
 			this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView8.Location = new System.Drawing.Point(778, 30);
+			this.dataGridView8.Location = new System.Drawing.Point(767, 30);
 			this.dataGridView8.Name = "dataGridView8";
 			this.dataGridView8.Size = new System.Drawing.Size(182, 28);
 			this.dataGridView8.TabIndex = 74;
@@ -450,7 +376,6 @@ namespace Liquidinster
 			this.button11.TabIndex = 76;
 			this.button11.Text = "button";
 			this.button11.Visible = false;
-			this.button11.Click += new System.EventHandler(this.Button11Click);
 			// 
 			// textBox3
 			// 
@@ -502,7 +427,6 @@ namespace Liquidinster
 			this.button12.TabIndex = 90;
 			this.button12.Text = "button";
 			this.button12.Visible = false;
-			this.button12.Click += new System.EventHandler(this.Button12Click);
 			// 
 			// button13
 			// 
@@ -512,7 +436,6 @@ namespace Liquidinster
 			this.button13.TabIndex = 89;
 			this.button13.Text = "button";
 			this.button13.Visible = false;
-			this.button13.Click += new System.EventHandler(this.Button13Click);
 			// 
 			// button14
 			// 
@@ -522,7 +445,6 @@ namespace Liquidinster
 			this.button14.TabIndex = 88;
 			this.button14.Text = "button";
 			this.button14.Visible = false;
-			this.button14.Click += new System.EventHandler(this.Button14Click);
 			// 
 			// button15
 			// 
@@ -532,7 +454,6 @@ namespace Liquidinster
 			this.button15.TabIndex = 87;
 			this.button15.Text = "button";
 			this.button15.Visible = false;
-			this.button15.Click += new System.EventHandler(this.Button15Click);
 			// 
 			// button16
 			// 
@@ -542,7 +463,6 @@ namespace Liquidinster
 			this.button16.TabIndex = 86;
 			this.button16.Text = "button";
 			this.button16.Visible = false;
-			this.button16.Click += new System.EventHandler(this.Button16Click);
 			// 
 			// button17
 			// 
@@ -552,16 +472,6 @@ namespace Liquidinster
 			this.button17.TabIndex = 85;
 			this.button17.Text = "button";
 			this.button17.Visible = false;
-			this.button17.Click += new System.EventHandler(this.Button17Click);
-			// 
-			// button18
-			// 
-			this.button18.Location = new System.Drawing.Point(418, 4);
-			this.button18.Name = "button18";
-			this.button18.Size = new System.Drawing.Size(75, 23);
-			this.button18.TabIndex = 91;
-			this.button18.Text = "button";
-			this.button18.Visible = false;
 			// 
 			// dateTimePicker1
 			// 
@@ -607,7 +517,6 @@ namespace Liquidinster
 			this.button19.TabIndex = 96;
 			this.button19.Text = "Keres";
 			this.button19.UseVisualStyleBackColor = false;
-			this.button19.Click += new System.EventHandler(this.Button19Click);
 			// 
 			// button20
 			// 
@@ -619,7 +528,26 @@ namespace Liquidinster
 			this.button20.TabIndex = 97;
 			this.button20.Text = "Összesített";
 			this.button20.UseVisualStyleBackColor = false;
-			this.button20.Click += new System.EventHandler(this.Button20Click);
+			// 
+			// textBox10
+			// 
+			this.textBox10.Location = new System.Drawing.Point(658, 6);
+			this.textBox10.Name = "textBox10";
+			this.textBox10.Size = new System.Drawing.Size(100, 20);
+			this.textBox10.TabIndex = 99;
+			this.textBox10.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox10KeyUp);
+			// 
+			// label13
+			// 
+			this.label13.Location = new System.Drawing.Point(523, 9);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(129, 20);
+			this.label13.TabIndex = 98;
+			this.label13.Text = "Gyártási PO:";
+			// 
+			// timer1
+			// 
+			this.timer1.Interval = 1000;
 			// 
 			// Nemfelvitt1
 			// 
@@ -628,13 +556,14 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(986, 892);
+			this.Controls.Add(this.textBox10);
+			this.Controls.Add(this.label13);
 			this.Controls.Add(this.button20);
 			this.Controls.Add(this.button19);
 			this.Controls.Add(this.dataGridView10);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.textBox9);
 			this.Controls.Add(this.dateTimePicker1);
-			this.Controls.Add(this.button18);
 			this.Controls.Add(this.button12);
 			this.Controls.Add(this.button13);
 			this.Controls.Add(this.button14);
@@ -657,17 +586,11 @@ namespace Liquidinster
 			this.Controls.Add(this.button10);
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button8);
-			this.Controls.Add(this.button7);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.dataGridView7);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.button6);
-			this.Controls.Add(this.button5);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);

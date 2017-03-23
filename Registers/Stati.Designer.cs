@@ -110,6 +110,11 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button32;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Button button33;
+		private System.Windows.Forms.DateTimePicker dateTimePicker2;
+		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.Label label31;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.Button button34;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -133,8 +138,8 @@ namespace Liquidinster
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -231,6 +236,11 @@ namespace Liquidinster
 			this.button32 = new System.Windows.Forms.Button();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.button33 = new System.Windows.Forms.Button();
+			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+			this.label30 = new System.Windows.Forms.Label();
+			this.label31 = new System.Windows.Forms.Label();
+			this.label32 = new System.Windows.Forms.Label();
+			this.button34 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -257,7 +267,6 @@ namespace Liquidinster
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
 			this.dateTimePicker1.TabIndex = 2;
-			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1ValueChanged);
 			// 
 			// textBox1
 			// 
@@ -536,6 +545,7 @@ namespace Liquidinster
 			this.textBox21.Name = "textBox21";
 			this.textBox21.Size = new System.Drawing.Size(86, 20);
 			this.textBox21.TabIndex = 46;
+			this.textBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextBox21MouseDown);
 			// 
 			// textBox22
 			// 
@@ -543,6 +553,7 @@ namespace Liquidinster
 			this.textBox22.Name = "textBox22";
 			this.textBox22.Size = new System.Drawing.Size(86, 20);
 			this.textBox22.TabIndex = 45;
+			this.textBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextBox22MouseDown);
 			// 
 			// textBox23
 			// 
@@ -550,6 +561,7 @@ namespace Liquidinster
 			this.textBox23.Name = "textBox23";
 			this.textBox23.Size = new System.Drawing.Size(86, 20);
 			this.textBox23.TabIndex = 44;
+			this.textBox23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextBox23MouseDown);
 			// 
 			// textBox24
 			// 
@@ -557,6 +569,7 @@ namespace Liquidinster
 			this.textBox24.Name = "textBox24";
 			this.textBox24.Size = new System.Drawing.Size(86, 20);
 			this.textBox24.TabIndex = 43;
+			this.textBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextBox24MouseDown);
 			// 
 			// label18
 			// 
@@ -605,6 +618,7 @@ namespace Liquidinster
 			this.textBox25.Name = "textBox25";
 			this.textBox25.Size = new System.Drawing.Size(86, 20);
 			this.textBox25.TabIndex = 48;
+			this.textBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextBox25MouseDown);
 			// 
 			// label23
 			// 
@@ -1047,11 +1061,11 @@ namespace Liquidinster
 			// 
 			// chart1
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea1);
+			chartArea2.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea2);
 			this.chart1.DataSource = this.chart1.Series;
-			legend1.Name = "Legend1";
-			this.chart1.Legends.Add(legend1);
+			legend2.Name = "Legend1";
+			this.chart1.Legends.Add(legend2);
 			this.chart1.Location = new System.Drawing.Point(12, 311);
 			this.chart1.Name = "chart1";
 			this.chart1.Size = new System.Drawing.Size(564, 168);
@@ -1084,6 +1098,48 @@ namespace Liquidinster
 			this.button33.Visible = false;
 			this.button33.Click += new System.EventHandler(this.Button33Click);
 			// 
+			// dateTimePicker2
+			// 
+			this.dateTimePicker2.Location = new System.Drawing.Point(248, 3);
+			this.dateTimePicker2.Name = "dateTimePicker2";
+			this.dateTimePicker2.Size = new System.Drawing.Size(143, 20);
+			this.dateTimePicker2.TabIndex = 96;
+			this.dateTimePicker2.ValueChanged += new System.EventHandler(this.DateTimePicker1ValueChanged);
+			// 
+			// label30
+			// 
+			this.label30.Location = new System.Drawing.Point(220, 4);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(28, 23);
+			this.label30.TabIndex = 97;
+			this.label30.Text = "-tól";
+			// 
+			// label31
+			// 
+			this.label31.Location = new System.Drawing.Point(397, 4);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(28, 23);
+			this.label31.TabIndex = 98;
+			this.label31.Text = "-ig";
+			// 
+			// label32
+			// 
+			this.label32.Location = new System.Drawing.Point(315, 722);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(79, 23);
+			this.label32.TabIndex = 99;
+			this.label32.Text = "Chart";
+			// 
+			// button34
+			// 
+			this.button34.Location = new System.Drawing.Point(440, 718);
+			this.button34.Name = "button34";
+			this.button34.Size = new System.Drawing.Size(86, 23);
+			this.button34.TabIndex = 100;
+			this.button34.Text = "Chart";
+			this.button34.UseVisualStyleBackColor = true;
+			this.button34.Click += new System.EventHandler(this.Button34Click);
+			// 
 			// Stati
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1091,6 +1147,11 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(586, 750);
+			this.Controls.Add(this.button34);
+			this.Controls.Add(this.label32);
+			this.Controls.Add(this.label31);
+			this.Controls.Add(this.label30);
+			this.Controls.Add(this.dateTimePicker2);
 			this.Controls.Add(this.button33);
 			this.Controls.Add(this.button32);
 			this.Controls.Add(this.chart1);

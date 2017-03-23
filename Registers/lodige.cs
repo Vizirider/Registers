@@ -32,8 +32,23 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.textBox5.Text = mws;
+//			this.textBox5.Text = mws;
 			this.textBox2.Text = po;
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					textBox5.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.textBox5.Text = mws;				
+				}
+				read.Close();
+			}
 			Button1Click(null, null);
 		}
 		void Button1Click(object sender, EventArgs e)
@@ -151,6 +166,7 @@ namespace Liquidinster
 					textBox91.Text = (read["Szuromeret"].ToString());
 					textBox50.Text = (read["Mertszaraz"].ToString());
 					textBox92.Text = (read["Mertph"].ToString());
+					textBox100.Text = (read["Ellenorzo"].ToString());
 					
 				}
 				read.Close();

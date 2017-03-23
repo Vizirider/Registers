@@ -19,6 +19,7 @@ namespace Liquidinster
 		private System.Windows.Forms.TextBox textBox8;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.Button button5;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -47,6 +48,7 @@ namespace Liquidinster
 			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -56,7 +58,7 @@ namespace Liquidinster
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 33);
 			this.label2.TabIndex = 15;
-			this.label2.Text = "Fejlesztő: Vizi Róbert robert.vizi@givaudan.com";
+			this.label2.Text = "Developer: Robert Vizi robert.vizi@givaudan.com";
 			// 
 			// label1
 			// 
@@ -98,16 +100,28 @@ namespace Liquidinster
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(299, 18);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(75, 23);
+			this.button5.TabIndex = 19;
+			this.button5.Text = "Login";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
 			// Select2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(386, 326);
+			this.Controls.Add(this.button5);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox8);
 			this.Controls.Add(this.button3);
+			this.MaximizeBox = false;
 			this.Name = "Select2";
 			this.Text = "Planner register";
 			this.ResumeLayout(false);

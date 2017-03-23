@@ -32,9 +32,24 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.comboBox2.Text = mws;
-			this.comboBox5.Text = mws;
+//			this.comboBox2.Text = mws;
+//			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox5.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox5.Text = mws;				
+				}
+				read.Close();
+			}
 			Button5Click(null,null);
 		}
 		void Button6Click(object sender, EventArgs e)
@@ -227,6 +242,9 @@ namespace Liquidinster
 					textBox78.Text = (read["Csomagtiszt"].ToString());
 					textBox79.Text = (read["Munkakor"].ToString());
 					textBox81.Text = (read["Komment"].ToString());
+					textBox83.Text = (read["Boxhand"].ToString());
+					textBox84.Text = (read["Boxoperator"].ToString());
+					comboBox3.Text = (read["Ellenorzo"].ToString());
 					
 			        if(read["Lugos"] == DBNull.Value){
 			        	checkBox4.Checked = false;
@@ -336,6 +354,8 @@ namespace Liquidinster
 				panel34.Visible |= textBox77.Text == "1";
 				panel35.Visible |= textBox78.Text == "1";
 				panel36.Visible |= textBox79.Text == "1";
+				panel77.Visible |= textBox7.Text == "1";
+				panel79.Visible |= textBox8.Text == "1";
 				
 				panel75.Visible |= textBox14.Text == "2";
 				panel74.Visible |= textBox15.Text == "2";
@@ -371,7 +391,17 @@ namespace Liquidinster
 				panel40.Visible |= textBox76.Text == "2";
 				panel39.Visible |= textBox77.Text == "2";
 				panel38.Visible |= textBox78.Text == "2";
-				panel37.Visible |= textBox79.Text == "2";				
+				panel37.Visible |= textBox79.Text == "2";
+				panel76.Visible |= textBox7.Text == "2";
+				panel78.Visible |= textBox8.Text == "2";
+				
+				panel80.Visible |= textBox6.Text == "1";
+				panel81.Visible |= textBox6.Text == "2";
+				panel82.Visible |= textBox6.Text == "3";
+				panel83.Visible |= textBox6.Text == "4";
+				panel84.Visible |= textBox6.Text == "6";
+				panel85.Visible |= textBox6.Text == "7";
+				
 		}
 			Button6Click(null,null);
 	}
@@ -492,7 +522,7 @@ namespace Liquidinster
 			Koshercipszar = @Koshercipszar, Csomagkezd = @Csomagkezd, Csomagveg = @Csomagveg, Csomagcheck = @Csomagcheck, Csomagms = @Csomagms, Csomagmos = @Csomagmos,
 			Csomagszar = @Csomagszar, Alkatkezd = @Alkatkezd, Alkatveg = @Alkatveg, Alkatcheck = @Alkatcheck, Alkatms = @Alkatms, Alkatmos = @Alkatmos,
 			Alkatszar = @Alkatszar, Leiras3 = @Leiras3, Operator5 = @Operator5, Szitabetet = @Szitabetet, Szita = @Szita, Csomagkez = @Csomagkez,
-			Csomagtiszt = @Csomagtiszt, Munkakor = @Munkakor, Komment = @Komment
+			Csomagtiszt = @Csomagtiszt, Munkakor = @Munkakor, Komment = @Komment, Lugos = @Lugos, Savas = @Savas, Kosher = @Kosher
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox2.Text));
@@ -577,7 +607,10 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Csomagkez", textBox77.Text));
 			cmd.Parameters.Add(new SqlParameter("@Csomagtiszt", textBox78.Text));
 			cmd.Parameters.Add(new SqlParameter("@Munkakor", textBox79.Text));
-			cmd.Parameters.Add(new SqlParameter("@Komment", textBox81.Text));		
+			cmd.Parameters.Add(new SqlParameter("@Komment", textBox81.Text));	
+			cmd.Parameters.Add(new SqlParameter("@Lugos", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Savas", checkBox1.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Kosher", checkBox3.Checked));			
 
 			cmd.ExecuteNonQuery();
 			conn.Close();
@@ -585,5 +618,23 @@ namespace Liquidinster
 			Button5Click(null,null);			
 	
 		}
+		void Button8Click(object sender, EventArgs e)
+		{
+		CaptureScreen();
+        printDocument1.Print();		
+		}
+		Bitmap memoryImage;
+		private void CaptureScreen()
+	    {
+	        Graphics myGraphics = this.CreateGraphics();
+	        Size s = this.Size;
+	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+	    }
+			void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+			{
+	        e.Graphics.DrawImage(memoryImage, 0, 0);
+			}
 }
 }

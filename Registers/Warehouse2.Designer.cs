@@ -24,6 +24,7 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.ComboBox comboBox2;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.ComboBox comboBox3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -57,6 +58,7 @@ namespace Liquidinster
 			this.button2 = new System.Windows.Forms.Button();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.comboBox3 = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// textBox2
@@ -119,7 +121,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button2.Location = new System.Drawing.Point(308, 487);
+			this.button2.Location = new System.Drawing.Point(272, 479);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 79;
@@ -130,7 +132,7 @@ namespace Liquidinster
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(421, 508);
+			this.comboBox2.Location = new System.Drawing.Point(421, 529);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -138,17 +140,28 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(105, 508);
+			this.dateTimePicker1.Location = new System.Drawing.Point(99, 530);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
 			this.dateTimePicker1.TabIndex = 77;
+			// 
+			// comboBox3
+			// 
+			this.comboBox3.FormattingEnabled = true;
+			this.comboBox3.Location = new System.Drawing.Point(421, 499);
+			this.comboBox3.MinimumSize = new System.Drawing.Size(150, 0);
+			this.comboBox3.Name = "comboBox3";
+			this.comboBox3.Size = new System.Drawing.Size(150, 21);
+			this.comboBox3.TabIndex = 80;
 			// 
 			// Warehouse2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-			this.ClientSize = new System.Drawing.Size(583, 546);
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ClientSize = new System.Drawing.Size(583, 572);
+			this.Controls.Add(this.comboBox3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.comboBox2);
 			this.Controls.Add(this.dateTimePicker1);

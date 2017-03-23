@@ -38,6 +38,13 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.CheckBox checkBox14;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.CheckBox checkBox16;
+		private System.Windows.Forms.CheckBox checkBox17;
+		private System.Windows.Forms.CheckBox checkBox18;
+		private System.Windows.Forms.CheckBox checkBox19;
+		private System.Windows.Forms.CheckBox checkBox15;
+		private System.Windows.Forms.CheckBox checkBox20;
+		private System.Windows.Forms.TextBox textBox4;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -85,19 +92,26 @@ namespace Liquidinster
 			this.button1 = new System.Windows.Forms.Button();
 			this.checkBox14 = new System.Windows.Forms.CheckBox();
 			this.button2 = new System.Windows.Forms.Button();
+			this.checkBox16 = new System.Windows.Forms.CheckBox();
+			this.checkBox17 = new System.Windows.Forms.CheckBox();
+			this.checkBox18 = new System.Windows.Forms.CheckBox();
+			this.checkBox19 = new System.Windows.Forms.CheckBox();
+			this.checkBox15 = new System.Windows.Forms.CheckBox();
+			this.checkBox20 = new System.Windows.Forms.CheckBox();
+			this.textBox4 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(254, 498);
+			this.textBox3.Location = new System.Drawing.Point(282, 591);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(75, 20);
+			this.textBox3.Size = new System.Drawing.Size(81, 20);
 			this.textBox3.TabIndex = 66;
 			// 
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(459, 684);
+			this.comboBox2.Location = new System.Drawing.Point(500, 841);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -105,39 +119,39 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(109, 685);
+			this.dateTimePicker1.Location = new System.Drawing.Point(116, 842);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(149, 20);
 			this.dateTimePicker1.TabIndex = 64;
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(282, 128);
+			this.textBox2.Location = new System.Drawing.Point(268, 128);
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(225, 59);
+			this.textBox2.Size = new System.Drawing.Size(296, 59);
 			this.textBox2.TabIndex = 63;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(302, 102);
+			this.textBox1.Location = new System.Drawing.Point(282, 101);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(149, 20);
+			this.textBox1.Size = new System.Drawing.Size(188, 20);
 			this.textBox1.TabIndex = 62;
 			// 
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(261, 75);
+			this.comboBox1.Location = new System.Drawing.Point(243, 74);
 			this.comboBox1.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(150, 21);
+			this.comboBox1.Size = new System.Drawing.Size(227, 21);
 			this.comboBox1.TabIndex = 61;
 			// 
 			// checkBox13
 			// 
 			this.checkBox13.BackColor = System.Drawing.Color.White;
-			this.checkBox13.Location = new System.Drawing.Point(550, 613);
+			this.checkBox13.Location = new System.Drawing.Point(605, 739);
 			this.checkBox13.Name = "checkBox13";
 			this.checkBox13.Size = new System.Drawing.Size(25, 17);
 			this.checkBox13.TabIndex = 60;
@@ -146,7 +160,7 @@ namespace Liquidinster
 			// checkBox12
 			// 
 			this.checkBox12.BackColor = System.Drawing.Color.White;
-			this.checkBox12.Location = new System.Drawing.Point(550, 586);
+			this.checkBox12.Location = new System.Drawing.Point(605, 712);
 			this.checkBox12.Name = "checkBox12";
 			this.checkBox12.Size = new System.Drawing.Size(25, 17);
 			this.checkBox12.TabIndex = 59;
@@ -155,7 +169,7 @@ namespace Liquidinster
 			// checkBox11
 			// 
 			this.checkBox11.BackColor = System.Drawing.Color.White;
-			this.checkBox11.Location = new System.Drawing.Point(550, 561);
+			this.checkBox11.Location = new System.Drawing.Point(606, 684);
 			this.checkBox11.Name = "checkBox11";
 			this.checkBox11.Size = new System.Drawing.Size(25, 17);
 			this.checkBox11.TabIndex = 58;
@@ -164,7 +178,7 @@ namespace Liquidinster
 			// checkBox10
 			// 
 			this.checkBox10.BackColor = System.Drawing.Color.White;
-			this.checkBox10.Location = new System.Drawing.Point(550, 535);
+			this.checkBox10.Location = new System.Drawing.Point(606, 658);
 			this.checkBox10.Name = "checkBox10";
 			this.checkBox10.Size = new System.Drawing.Size(25, 17);
 			this.checkBox10.TabIndex = 57;
@@ -173,7 +187,7 @@ namespace Liquidinster
 			// checkBox9
 			// 
 			this.checkBox9.BackColor = System.Drawing.Color.White;
-			this.checkBox9.Location = new System.Drawing.Point(550, 510);
+			this.checkBox9.Location = new System.Drawing.Point(606, 630);
 			this.checkBox9.Name = "checkBox9";
 			this.checkBox9.Size = new System.Drawing.Size(25, 17);
 			this.checkBox9.TabIndex = 56;
@@ -182,7 +196,7 @@ namespace Liquidinster
 			// checkBox8
 			// 
 			this.checkBox8.BackColor = System.Drawing.Color.White;
-			this.checkBox8.Location = new System.Drawing.Point(550, 483);
+			this.checkBox8.Location = new System.Drawing.Point(606, 603);
 			this.checkBox8.Name = "checkBox8";
 			this.checkBox8.Size = new System.Drawing.Size(25, 17);
 			this.checkBox8.TabIndex = 55;
@@ -191,7 +205,7 @@ namespace Liquidinster
 			// checkBox7
 			// 
 			this.checkBox7.BackColor = System.Drawing.Color.White;
-			this.checkBox7.Location = new System.Drawing.Point(550, 452);
+			this.checkBox7.Location = new System.Drawing.Point(606, 572);
 			this.checkBox7.Name = "checkBox7";
 			this.checkBox7.Size = new System.Drawing.Size(25, 17);
 			this.checkBox7.TabIndex = 54;
@@ -200,7 +214,7 @@ namespace Liquidinster
 			// checkBox6
 			// 
 			this.checkBox6.BackColor = System.Drawing.Color.White;
-			this.checkBox6.Location = new System.Drawing.Point(550, 425);
+			this.checkBox6.Location = new System.Drawing.Point(605, 483);
 			this.checkBox6.Name = "checkBox6";
 			this.checkBox6.Size = new System.Drawing.Size(25, 17);
 			this.checkBox6.TabIndex = 53;
@@ -209,7 +223,7 @@ namespace Liquidinster
 			// checkBox5
 			// 
 			this.checkBox5.BackColor = System.Drawing.Color.White;
-			this.checkBox5.Location = new System.Drawing.Point(550, 399);
+			this.checkBox5.Location = new System.Drawing.Point(605, 401);
 			this.checkBox5.Name = "checkBox5";
 			this.checkBox5.Size = new System.Drawing.Size(25, 17);
 			this.checkBox5.TabIndex = 52;
@@ -218,7 +232,7 @@ namespace Liquidinster
 			// checkBox4
 			// 
 			this.checkBox4.BackColor = System.Drawing.Color.White;
-			this.checkBox4.Location = new System.Drawing.Point(550, 330);
+			this.checkBox4.Location = new System.Drawing.Point(605, 347);
 			this.checkBox4.Name = "checkBox4";
 			this.checkBox4.Size = new System.Drawing.Size(25, 17);
 			this.checkBox4.TabIndex = 51;
@@ -227,7 +241,7 @@ namespace Liquidinster
 			// checkBox3
 			// 
 			this.checkBox3.BackColor = System.Drawing.Color.White;
-			this.checkBox3.Location = new System.Drawing.Point(550, 294);
+			this.checkBox3.Location = new System.Drawing.Point(605, 300);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(25, 17);
 			this.checkBox3.TabIndex = 50;
@@ -236,7 +250,7 @@ namespace Liquidinster
 			// checkBox2
 			// 
 			this.checkBox2.BackColor = System.Drawing.Color.White;
-			this.checkBox2.Location = new System.Drawing.Point(550, 238);
+			this.checkBox2.Location = new System.Drawing.Point(605, 244);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(25, 17);
 			this.checkBox2.TabIndex = 49;
@@ -245,7 +259,7 @@ namespace Liquidinster
 			// checkBox1
 			// 
 			this.checkBox1.BackColor = System.Drawing.Color.White;
-			this.checkBox1.Location = new System.Drawing.Point(550, 195);
+			this.checkBox1.Location = new System.Drawing.Point(605, 201);
 			this.checkBox1.Name = "checkBox1";
 			this.checkBox1.Size = new System.Drawing.Size(25, 17);
 			this.checkBox1.TabIndex = 48;
@@ -258,7 +272,7 @@ namespace Liquidinster
 			// button7
 			// 
 			this.button7.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button7.Location = new System.Drawing.Point(243, 646);
+			this.button7.Location = new System.Drawing.Point(319, 888);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(86, 33);
 			this.button7.TabIndex = 67;
@@ -279,7 +293,7 @@ namespace Liquidinster
 			// 
 			// checkBox14
 			// 
-			this.checkBox14.Location = new System.Drawing.Point(505, 713);
+			this.checkBox14.Location = new System.Drawing.Point(582, 937);
 			this.checkBox14.Name = "checkBox14";
 			this.checkBox14.Size = new System.Drawing.Size(104, 24);
 			this.checkBox14.TabIndex = 69;
@@ -289,7 +303,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.button2.Location = new System.Drawing.Point(243, 714);
+			this.button2.Location = new System.Drawing.Point(320, 938);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(86, 23);
 			this.button2.TabIndex = 70;
@@ -297,13 +311,82 @@ namespace Liquidinster
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
+			// checkBox16
+			// 
+			this.checkBox16.BackColor = System.Drawing.Color.White;
+			this.checkBox16.Location = new System.Drawing.Point(639, 453);
+			this.checkBox16.Name = "checkBox16";
+			this.checkBox16.Size = new System.Drawing.Size(30, 17);
+			this.checkBox16.TabIndex = 76;
+			this.checkBox16.UseVisualStyleBackColor = false;
+			// 
+			// checkBox17
+			// 
+			this.checkBox17.BackColor = System.Drawing.Color.White;
+			this.checkBox17.Location = new System.Drawing.Point(425, 453);
+			this.checkBox17.Name = "checkBox17";
+			this.checkBox17.Size = new System.Drawing.Size(28, 17);
+			this.checkBox17.TabIndex = 75;
+			this.checkBox17.UseVisualStyleBackColor = false;
+			// 
+			// checkBox18
+			// 
+			this.checkBox18.BackColor = System.Drawing.Color.White;
+			this.checkBox18.Location = new System.Drawing.Point(302, 453);
+			this.checkBox18.Name = "checkBox18";
+			this.checkBox18.Size = new System.Drawing.Size(27, 17);
+			this.checkBox18.TabIndex = 74;
+			this.checkBox18.UseVisualStyleBackColor = false;
+			// 
+			// checkBox19
+			// 
+			this.checkBox19.BackColor = System.Drawing.Color.White;
+			this.checkBox19.Location = new System.Drawing.Point(116, 456);
+			this.checkBox19.Name = "checkBox19";
+			this.checkBox19.Size = new System.Drawing.Size(28, 17);
+			this.checkBox19.TabIndex = 73;
+			this.checkBox19.UseVisualStyleBackColor = false;
+			// 
+			// checkBox15
+			// 
+			this.checkBox15.BackColor = System.Drawing.Color.White;
+			this.checkBox15.Location = new System.Drawing.Point(605, 545);
+			this.checkBox15.Name = "checkBox15";
+			this.checkBox15.Size = new System.Drawing.Size(25, 17);
+			this.checkBox15.TabIndex = 72;
+			this.checkBox15.UseVisualStyleBackColor = false;
+			// 
+			// checkBox20
+			// 
+			this.checkBox20.BackColor = System.Drawing.Color.White;
+			this.checkBox20.Location = new System.Drawing.Point(605, 514);
+			this.checkBox20.Name = "checkBox20";
+			this.checkBox20.Size = new System.Drawing.Size(25, 17);
+			this.checkBox20.TabIndex = 71;
+			this.checkBox20.UseVisualStyleBackColor = false;
+			// 
+			// textBox4
+			// 
+			this.textBox4.Location = new System.Drawing.Point(165, 794);
+			this.textBox4.Multiline = true;
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(527, 43);
+			this.textBox4.TabIndex = 77;
+			// 
 			// Warehouseread
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(638, 749);
+			this.ClientSize = new System.Drawing.Size(723, 973);
+			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.checkBox16);
+			this.Controls.Add(this.checkBox17);
+			this.Controls.Add(this.checkBox18);
+			this.Controls.Add(this.checkBox19);
+			this.Controls.Add(this.checkBox15);
+			this.Controls.Add(this.checkBox20);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.checkBox14);
 			this.Controls.Add(this.button1);

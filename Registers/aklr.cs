@@ -32,12 +32,13 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			
+			// akl register with po and mws username instances to check easy
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
 			this.Button3Click(null, null);
 		}
+		// akl database to form
 		void Button3Click(object sender, EventArgs e)
 		{
 		using (SqlConnection connection =  new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
@@ -107,7 +108,7 @@ namespace Liquidinster
 			{
 				checkBox2.BackColor = Color.Red;
 			}
-			if(checkBox3.Checked == false)
+			if(checkBox3.Checked == true)
 			{
 				checkBox3.BackColor = Color.Red;
 			}

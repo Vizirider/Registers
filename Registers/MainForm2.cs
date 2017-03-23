@@ -146,7 +146,7 @@ namespace Liquidinster
 			dataAdapter.Fill(ds);
 			dataGridView3.DataSource = ds.Tables[0];
 			dataGridView3.AutoResizeColumns();
-			dataGridView3.Columns[0].Width = 150;
+			dataGridView3.Columns[0].Width = 145;
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
 				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Hu) FROM warehouse2 WHERE Hu LIKE ('" + textBox7.Text +"%')",conn))
@@ -183,14 +183,8 @@ namespace Liquidinster
 		}
 		void DataGridView1CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(textBox1.Text.Length == 0)
-			{
-				MessageBox.Show("Hiányzó SO","Figyelmeztetés");
-			}
-			else{
 			Warehouseread wh = new Warehouseread(this.dataGridView1.CurrentCell.Value.ToString(), textBox1.Text);
 			wh.Show();					
-			}
 		}
 		void DataGridView2CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -231,8 +225,76 @@ namespace Liquidinster
 		}
 		void Button13Click(object sender, EventArgs e)
 		{
-			warehouseout who = new warehouseout(textBox8.Text);
-			who.Show();
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Datum, Batch FROM Warehousenem WHERE POszam LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView1.DataSource = ds.Tables[0];
+			dataGridView1.AutoResizeColumns();
+			try{
+			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM Warehousenem WHERE POszam LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08'",conn))
+    		{
+       	 	con.Open();
+        	int result = (int)cmd.ExecuteScalar();
+        	textBox2.Text = result.ToString();
+    		}
+			}
+			catch (SqlException ex)
+			{
+			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
+			}
+		}
+		void Button14Click(object sender, EventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Batch, Datum FROM Warehouseraklapnem WHERE Batch LIKE ('" + textBox6.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView2.DataSource = ds.Tables[0];
+			dataGridView2.AutoResizeColumns();
+			try{
+			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Batch) FROM Warehouseraklapnem WHERE Batch LIKE ('" + textBox6.Text +"%') AND Datum > '2016-05-08'",conn))
+    		{
+       	 	con.Open();
+        	int result = (int)cmd.ExecuteScalar();
+        	textBox3.Text = result.ToString();
+    		}
+			}
+			catch (SqlException ex)
+			{
+			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
+			}
+
+		}
+		void Button15Click(object sender, EventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Batch, Datum FROM Warehousemintazonem WHERE Batch LIKE ('" + textBox7.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView3.DataSource = ds.Tables[0];
+			dataGridView3.AutoResizeColumns();
+			try{
+			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Batch) FROM Warehousemintazonem WHERE Batch LIKE ('" + textBox7.Text +"%') AND Datum > '2016-05-08'",conn))
+    		{
+       	 	con.Open();
+        	int result = (int)cmd.ExecuteScalar();
+        	textBox5.Text = result.ToString();
+    		}
+			}
+			catch (SqlException ex)
+			{
+			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
+			}		
 		}
 
 	}

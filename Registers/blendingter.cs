@@ -32,9 +32,25 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.comboBox3.Text = mws;
-			this.comboBox4.Text = mws;
+//			this.comboBox3.Text = mws;
+//			this.comboBox4.Text = mws;
+			// blending production check register with instances to check
 			this.comboBox1.Text = po;
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox3.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox3.Text = mws;				
+				}
+				read.Close();
+			}
 			Button5Click(null, null);
 		}
 		void Button5Click(object sender, EventArgs e)
@@ -145,6 +161,8 @@ namespace Liquidinster
 					textBox85.Text = (read["csomagolotiszt"].ToString());
 					textBox86.Text = (read["munkakor"].ToString());
 					textBox88.Text = (read["Komment"].ToString());	
+					textBox91.Text = (read["Operator7"].ToString());	
+					comboBox2.Text = (read["Ellenorzo"].ToString());
 			        if(read["lugos"] == DBNull.Value){
 			        	checkBox1.Checked = false;
 			        }
@@ -268,7 +286,7 @@ namespace Liquidinster
 				panel100.Visible |= textBox82.Text == "1";
 				panel99.Visible |= textBox83.Text == "1";
 				panel97.Visible |= textBox84.Text == "1";
-				panel104.Visible |= textBox85.Text == "1";
+				panel102.Visible |= textBox85.Text == "1";
 				panel103.Visible |= textBox86.Text == "1";
 
 
@@ -310,13 +328,13 @@ namespace Liquidinster
 				panel83.Visible |= textBox76.Text == "2";
 				panel91.Visible |= textBox81.Text == "2";
 				panel88.Visible |= textBox80.Text == "2";
-				textBox89.Visible |= textBox79.Text == "2";
+				panel89.Visible |= textBox79.Text == "2";
 				panel86.Visible |= textBox78.Text == "2";
 				panel85.Visible |= textBox77.Text == "2";
 				panel98.Visible |= textBox82.Text == "2";
 				panel96.Visible |= textBox83.Text == "2";
 				panel95.Visible |= textBox84.Text == "2";
-				panel102.Visible |= textBox85.Text == "2";
+				panel104.Visible |= textBox85.Text == "2";
 				panel101.Visible |= textBox86.Text == "2";
 		}
 				Button6Click(null,null);			
@@ -599,7 +617,7 @@ namespace Liquidinster
 			blendms = @blendms, csomagkezd = @csomagkezd, csomagveg = @csomagveg, csomagcheck = @csomagcheck, csomagms = @csomagms, lugkevmos = @lugkevmos,
 			savcsommos = @savcsommos, kosherujcipmos = @kosherujcipmos, blendmos = @blendmos, csomagmos = @csomagmos, lugkevszar = @lugkevszar, savcsomszar = @savcsomszar,
 			kosherujcipszar = @kosherujcipszar, blendszar = @blendszar, csomagszar = @csomagszar, Leiras5 = @Leiras5, Leiras6 = @Leiras6, szitabetet = @szitabetet,
-			szita = @szita, keverokezzel = @keverokezzel, csomagolotiszt = @csomagolotiszt, munkakor = @munkakor, Komment = @Komment
+			szita = @szita, keverokezzel = @keverokezzel, csomagolotiszt = @csomagolotiszt, munkakor = @munkakor, Komment = @Komment,  lugos = @lugos, sav = @sav, kosherc = kosherc
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox4.Text));
@@ -694,7 +712,10 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@keverokezzel", textBox84.Text));
 			cmd.Parameters.Add(new SqlParameter("@csomagolotiszt", textBox85.Text));
 			cmd.Parameters.Add(new SqlParameter("@munkakor", textBox86.Text));
-			cmd.Parameters.Add(new SqlParameter("@Komment", textBox88.Text));				
+			cmd.Parameters.Add(new SqlParameter("@Komment", textBox88.Text));	
+			cmd.Parameters.Add(new SqlParameter("@lugos", checkBox1.Checked));
+			cmd.Parameters.Add(new SqlParameter("@sav", checkBox2.Checked));
+			cmd.Parameters.Add(new SqlParameter("@kosherc", checkBox3.Checked));			
 
 			cmd.ExecuteNonQuery();
 			conn.Close();

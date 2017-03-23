@@ -37,6 +37,9 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.ComboBox comboBox3;
+		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.CheckBox checkBox7;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -82,6 +85,9 @@ namespace Liquidinster
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.comboBox3 = new System.Windows.Forms.ComboBox();
+			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -125,9 +131,9 @@ namespace Liquidinster
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 456);
+			this.dataGridView1.Location = new System.Drawing.Point(12, 513);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(384, 126);
+			this.dataGridView1.Size = new System.Drawing.Size(384, 69);
 			this.dataGridView1.TabIndex = 14;
 			// 
 			// button1
@@ -142,7 +148,7 @@ namespace Liquidinster
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(13, 427);
+			this.label4.Location = new System.Drawing.Point(13, 487);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(100, 23);
 			this.label4.TabIndex = 7;
@@ -187,7 +193,7 @@ namespace Liquidinster
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(50, 270);
+			this.label6.Location = new System.Drawing.Point(50, 375);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(100, 23);
 			this.label6.TabIndex = 17;
@@ -196,7 +202,7 @@ namespace Liquidinster
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(156, 270);
+			this.comboBox2.Location = new System.Drawing.Point(156, 375);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -204,7 +210,7 @@ namespace Liquidinster
 			// 
 			// checkBox4
 			// 
-			this.checkBox4.Location = new System.Drawing.Point(156, 336);
+			this.checkBox4.Location = new System.Drawing.Point(156, 396);
 			this.checkBox4.Name = "checkBox4";
 			this.checkBox4.Size = new System.Drawing.Size(104, 24);
 			this.checkBox4.TabIndex = 11;
@@ -214,7 +220,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button2.Location = new System.Drawing.Point(185, 413);
+			this.button2.Location = new System.Drawing.Point(185, 473);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 13;
@@ -266,7 +272,7 @@ namespace Liquidinster
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(51, 369);
+			this.label9.Location = new System.Drawing.Point(51, 429);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(100, 23);
 			this.label9.TabIndex = 28;
@@ -286,17 +292,48 @@ namespace Liquidinster
 			"bko",
 			"ani",
 			"gok"});
-			this.comboBox3.Location = new System.Drawing.Point(157, 369);
+			this.comboBox3.Location = new System.Drawing.Point(157, 429);
 			this.comboBox3.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(150, 21);
 			this.comboBox3.TabIndex = 12;
+			// 
+			// checkBox5
+			// 
+			this.checkBox5.Location = new System.Drawing.Point(154, 332);
+			this.checkBox5.Name = "checkBox5";
+			this.checkBox5.Size = new System.Drawing.Size(104, 24);
+			this.checkBox5.TabIndex = 31;
+			this.checkBox5.Text = "Megfelelőhőe";
+			this.checkBox5.UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this.checkBox6.Location = new System.Drawing.Point(154, 302);
+			this.checkBox6.Name = "checkBox6";
+			this.checkBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.checkBox6.Size = new System.Drawing.Size(104, 24);
+			this.checkBox6.TabIndex = 30;
+			this.checkBox6.Text = "Idegene";
+			this.checkBox6.UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this.checkBox7.Location = new System.Drawing.Point(154, 272);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(104, 24);
+			this.checkBox7.TabIndex = 29;
+			this.checkBox7.Text = "Uledeke";
+			this.checkBox7.UseVisualStyleBackColor = true;
 			// 
 			// Liquidinsert
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(413, 594);
+			this.Controls.Add(this.checkBox5);
+			this.Controls.Add(this.checkBox6);
+			this.Controls.Add(this.checkBox7);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.comboBox3);
 			this.Controls.Add(this.checkBox3);

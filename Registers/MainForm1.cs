@@ -923,7 +923,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -949,7 +949,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM bmpella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM bmpella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -960,7 +960,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM packella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM packella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -971,7 +971,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM blendella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -982,7 +982,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM blendkisella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendkisella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -993,7 +993,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM sdella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM sdella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -1004,7 +1004,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM pfella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM pfella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -1149,375 +1149,6 @@ namespace Liquidinster
 			SqlCommand cmd47 = new SqlCommand(@"DELETE FROM dbo.blendkisella  WHERE POszam IS NULL",conn);
 			SqlCommand cmd147 = new SqlCommand(@"DELETE FROM dbo.lodige  WHERE POszam IS NULL",conn);
 			SqlCommand cmd148 = new SqlCommand(@"DELETE FROM dbo.lodigea  WHERE POszam IS NULL",conn);
-//			SqlCommand cmd12 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM akl
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    akl
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd13 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM akla
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    akla
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd14 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmp
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmp
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd15 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpa
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpa
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd16 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blending
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blending
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd17 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendinga
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendinga
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd18 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packingoff
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packingoff
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd19 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packingoffa
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packingoffa
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			
-//			SqlCommand cmd20 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquidell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquidell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd21 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquidella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquidella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd22 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd23 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd24 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd25 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd26 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd27 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd28 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM sdell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    sdell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd29 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM sdella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    sdella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd44 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendkisell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendkisella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd45 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendkisella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendkisella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd48 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM reportall
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    reportall
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//						SqlCommand cmd49 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM lodige
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    lodige
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//						SqlCommand cmd50 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM lodigea
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    lodigea
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
 			
 			cmd.ExecuteNonQuery();
 			cmd1.ExecuteNonQuery();
@@ -1529,24 +1160,6 @@ namespace Liquidinster
 			cmd7.ExecuteNonQuery();
 			cmd8.ExecuteNonQuery();
 			cmd9.ExecuteNonQuery();
-//			cmd12.ExecuteNonQuery();
-//			cmd13.ExecuteNonQuery();
-//			cmd14.ExecuteNonQuery();
-//			cmd15.ExecuteNonQuery();
-//			cmd16.ExecuteNonQuery();
-//			cmd17.ExecuteNonQuery();
-//			cmd18.ExecuteNonQuery();
-//			cmd19.ExecuteNonQuery();
-//			cmd20.ExecuteNonQuery();
-//			cmd21.ExecuteNonQuery();
-//			cmd22.ExecuteNonQuery();
-//			cmd23.ExecuteNonQuery();
-//			cmd24.ExecuteNonQuery();
-//			cmd25.ExecuteNonQuery();
-//			cmd26.ExecuteNonQuery();
-//			cmd27.ExecuteNonQuery();
-//			cmd28.ExecuteNonQuery();
-//			cmd29.ExecuteNonQuery();
 			cmd32.ExecuteNonQuery();
 			cmd33.ExecuteNonQuery();
 			cmd34.ExecuteNonQuery();
@@ -1559,13 +1172,8 @@ namespace Liquidinster
 			cmd41.ExecuteNonQuery();
 			cmd42.ExecuteNonQuery();
 			cmd43.ExecuteNonQuery();
-//			cmd44.ExecuteNonQuery();
-//			cmd45.ExecuteNonQuery();
 			cmd46.ExecuteNonQuery();
 			cmd47.ExecuteNonQuery();
-//			cmd48.ExecuteNonQuery();
-//			cmd49.ExecuteNonQuery();
-//			cmd50.ExecuteNonQuery();
 			cmd147.ExecuteNonQuery();
 			cmd148.ExecuteNonQuery();
 			conn.Close();
@@ -1589,6 +1197,9 @@ namespace Liquidinster
 
 		}
 		void Button71Click(object sender, EventArgs e)
+		{
+		DialogResult dialogResult = MessageBox.Show("Are you sure?", "Delete Register from " + comboBox2.Text, MessageBoxButtons.YesNo);
+		if(dialogResult == DialogResult.Yes)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
@@ -1657,6 +1268,10 @@ namespace Liquidinster
 			Button7Click(sender, e);
 			}
 			conn.Close();
+		}
+		else{
+			
+		}
 		}
 		void Button41Click(object sender, EventArgs e)
 		{
@@ -1787,6 +1402,7 @@ namespace Liquidinster
 			label1.Text = "POnumber";
 			button7.Text = "Search";
 			button71.Text = "Delete";
+			button64.Text = "Drop";
 			button47.Text = "Multi check";
 			button42.Text = "Check";	
 			button40.Text = "Mail riport";
@@ -1817,6 +1433,7 @@ namespace Liquidinster
 			label1.Text = "POszam";		
 			button7.Text = "Keres";	
 			button71.Text = "törlés";
+			button64.Text = "kivétel";
 			button47.Text = "Multi ellenőrzés";
 			button42.Text = "ellenőrzés";	
 			button40.Text = "Levél riport";
@@ -1830,7 +1447,7 @@ namespace Liquidinster
 			comboBox1.Items.Remove("Morning");	
 			comboBox1.Items.Remove("Afternoon");	
 			comboBox1.Items.Remove("Night");				
-			}	
+			}			
 			var dateTimeStr = "06:00:00";
 			var dateTimeStr1 = "14:00:00";
 			var dateTimeStr2 = "22:00:00";
@@ -1974,7 +1591,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM lodigea WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM lodigea WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -2449,8 +2066,27 @@ namespace Liquidinster
 		}
 		void DataGridView4CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			blendingter blendtermeles = new blendingter(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString());
-			blendtermeles.Show();	
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select * from dbo.blendella WHERE POszam = ('" +this.dataGridView4.CurrentCell.Value.ToString() + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				while (read.Read()) {
+					
+					if(read["kevero"].ToString() == "1" || read["kevero"].ToString() == "2" || read["kevero"].ToString() == "3" || read["kevero"].ToString() == "4" || read["kevero"].ToString() == "5" ||
+					   read["kevero"].ToString() == "8"){
+						Registers.blendingteruj blend = new Registers.blendingteruj(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString());
+						blend.Show();
+			        }
+					else{
+						blendingter blendtermeles = new blendingter(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString());
+						blendtermeles.Show();
+					}
+				}
+				
+			}	
 		}
 		void DataGridView7CellClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -2603,35 +2239,6 @@ namespace Liquidinster
 			comboBox1.Items.Add("Délután");	
 			comboBox1.Items.Add("Éjszaka");				
 			}			
-		}
-		void TextBox1KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if(	e.KeyChar == (char)13)
-			{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
-			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-			DataSet ds = new DataSet();
-			dataAdapter.Fill(ds);
-			dataGridView1.DataSource = ds.Tables[0];
-			dataGridView1.AutoResizeColumns();
-			Button20Click(sender, e);
-			Button21Click(sender, e);
-			Button22Click(sender, e);
-			Button23Click(sender, e);
-			Button37Click(sender, e);
-			Button38Click(sender, e);
-			Button46Click(sender, e);
-			textBox2.Text = "";
-			textBox3.Text = "";
-			textBox6.Text = "";
-			textBox7.Text = "";
-			textBox10.Text = "";
-			textBox9.Text = "";
-			textBox5.Text = "";
-			textBox11.Text = "";				
-			}
 		}
 		void Button63Click(object sender, EventArgs e)
 		{
@@ -2955,6 +2562,96 @@ namespace Liquidinster
     		}
 			}
 	
+		}
+		void TextBox1KeyUp(object sender, KeyEventArgs e)
+		{		
+			if (e.KeyCode == Keys.Enter)
+		{			
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView1.DataSource = ds.Tables[0];
+			dataGridView1.AutoResizeColumns();
+			Button20Click(sender, e);
+			Button21Click(sender, e);
+			Button22Click(sender, e);
+			Button23Click(sender, e);
+			Button37Click(sender, e);
+			Button38Click(sender, e);
+			Button46Click(sender, e);
+			textBox2.Text = "";
+			textBox3.Text = "";
+			textBox6.Text = "";
+			textBox7.Text = "";
+			textBox10.Text = "";
+			textBox9.Text = "";
+			textBox5.Text = "";
+			textBox11.Text = "";
+			}
+		}
+		void Button64Click(object sender, EventArgs e)
+		{
+		DialogResult dialogResult = MessageBox.Show("Are you sure?", "n/a in " + comboBox2.Text, MessageBoxButtons.YesNo);
+		if(dialogResult == DialogResult.Yes)		
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			if(comboBox2.Text == "liquid")
+			{
+			SqlCommand cmd1 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [LIQ] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd1.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "bmp")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [BMP] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "blendingnagy")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [BLEND] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "blendingkicsi")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [BLEND] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "sd")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [SD] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "pf")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [PF] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "lödige")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [PF] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			else if(comboBox2.Text == "packingoff")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [PACK_OFF] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button7Click(sender, e);
+			}
+			conn.Close();
+		}
+		else{
+			
+		}
 		}
 
 	

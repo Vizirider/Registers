@@ -68,14 +68,8 @@ namespace Liquidinster
 		private System.Windows.Forms.Panel panel18;
 		private System.Windows.Forms.Panel panel19;
 		private System.Windows.Forms.Panel panel20;
-		private System.Windows.Forms.Panel panel21;
 		private System.Windows.Forms.Panel panel22;
-		private System.Windows.Forms.Panel panel23;
 		private System.Windows.Forms.Panel panel24;
-		private System.Windows.Forms.Panel panel25;
-		private System.Windows.Forms.Panel panel26;
-		private System.Windows.Forms.Panel panel27;
-		private System.Windows.Forms.Panel panel28;
 		private System.Windows.Forms.Panel panel31;
 		private System.Windows.Forms.Panel panel36;
 		private System.Windows.Forms.Panel panel39;
@@ -93,6 +87,17 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button2;
+		private System.Drawing.Printing.PrintDocument printDocument1;
+		private System.Windows.Forms.Panel panel21;
+		private System.Windows.Forms.Panel panel23;
+		private System.Windows.Forms.Panel panel29;
+		private System.Windows.Forms.Panel panel30;
+		private System.Windows.Forms.Panel panel32;
+		private System.Windows.Forms.Panel panel33;
+		private System.Windows.Forms.Panel panel34;
+		private System.Windows.Forms.DateTimePicker dateTimePicker3;
+		private System.Windows.Forms.TextBox textBox24;
+		private System.Windows.Forms.ComboBox comboBox6;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -170,14 +175,7 @@ namespace Liquidinster
 			this.panel18 = new System.Windows.Forms.Panel();
 			this.panel19 = new System.Windows.Forms.Panel();
 			this.panel20 = new System.Windows.Forms.Panel();
-			this.panel21 = new System.Windows.Forms.Panel();
-			this.panel23 = new System.Windows.Forms.Panel();
 			this.panel24 = new System.Windows.Forms.Panel();
-			this.panel22 = new System.Windows.Forms.Panel();
-			this.panel25 = new System.Windows.Forms.Panel();
-			this.panel26 = new System.Windows.Forms.Panel();
-			this.panel27 = new System.Windows.Forms.Panel();
-			this.panel28 = new System.Windows.Forms.Panel();
 			this.panel31 = new System.Windows.Forms.Panel();
 			this.panel36 = new System.Windows.Forms.Panel();
 			this.panel39 = new System.Windows.Forms.Panel();
@@ -195,17 +193,26 @@ namespace Liquidinster
 			this.button8 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+			this.panel21 = new System.Windows.Forms.Panel();
+			this.panel23 = new System.Windows.Forms.Panel();
+			this.panel29 = new System.Windows.Forms.Panel();
+			this.panel30 = new System.Windows.Forms.Panel();
+			this.panel32 = new System.Windows.Forms.Panel();
+			this.panel33 = new System.Windows.Forms.Panel();
+			this.panel34 = new System.Windows.Forms.Panel();
+			this.panel22 = new System.Windows.Forms.Panel();
+			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+			this.textBox24 = new System.Windows.Forms.TextBox();
+			this.comboBox6 = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			this.panel21.SuspendLayout();
-			this.panel22.SuspendLayout();
-			this.panel25.SuspendLayout();
 			this.panel45.SuspendLayout();
 			this.panel47.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button5
 			// 
-			this.button5.Location = new System.Drawing.Point(1178, 109);
+			this.button5.Location = new System.Drawing.Point(1159, 194);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(75, 23);
 			this.button5.TabIndex = 80;
@@ -217,7 +224,7 @@ namespace Liquidinster
 			// button3
 			// 
 			this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button3.Location = new System.Drawing.Point(877, 108);
+			this.button3.Location = new System.Drawing.Point(858, 193);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(75, 23);
 			this.button3.TabIndex = 79;
@@ -228,7 +235,7 @@ namespace Liquidinster
 			// button4
 			// 
 			this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button4.Location = new System.Drawing.Point(877, 80);
+			this.button4.Location = new System.Drawing.Point(858, 165);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(75, 23);
 			this.button4.TabIndex = 78;
@@ -238,7 +245,7 @@ namespace Liquidinster
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(877, 109);
+			this.button1.Location = new System.Drawing.Point(858, 194);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 77;
@@ -248,22 +255,22 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(1115, 12);
+			this.dateTimePicker1.Location = new System.Drawing.Point(1096, 97);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
+			this.dateTimePicker1.Size = new System.Drawing.Size(165, 20);
 			this.dateTimePicker1.TabIndex = 86;
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(757, 19);
+			this.textBox4.Location = new System.Drawing.Point(600, 104);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(150, 20);
+			this.textBox4.Size = new System.Drawing.Size(288, 20);
 			this.textBox4.TabIndex = 85;
 			// 
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(1106, 48);
+			this.comboBox2.Location = new System.Drawing.Point(1111, 136);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -271,14 +278,14 @@ namespace Liquidinster
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(210, 19);
+			this.textBox2.Location = new System.Drawing.Point(191, 104);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(177, 20);
 			this.textBox2.TabIndex = 83;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(210, 0);
+			this.textBox1.Location = new System.Drawing.Point(191, 85);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(177, 20);
 			this.textBox1.TabIndex = 82;
@@ -286,10 +293,10 @@ namespace Liquidinster
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(757, 0);
+			this.comboBox1.Location = new System.Drawing.Point(600, 85);
 			this.comboBox1.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(150, 21);
+			this.comboBox1.Size = new System.Drawing.Size(307, 21);
 			this.comboBox1.TabIndex = 81;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
 			this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Combobox1KeyUp);
@@ -297,76 +304,77 @@ namespace Liquidinster
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(281, 58);
+			this.textBox3.Location = new System.Drawing.Point(283, 146);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(177, 20);
 			this.textBox3.TabIndex = 88;
 			// 
 			// textBox5
 			// 
-			this.textBox5.Location = new System.Drawing.Point(281, 39);
+			this.textBox5.Location = new System.Drawing.Point(283, 127);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(177, 20);
 			this.textBox5.TabIndex = 87;
 			// 
 			// textBox6
 			// 
-			this.textBox6.Location = new System.Drawing.Point(99, 127);
+			this.textBox6.Location = new System.Drawing.Point(124, 242);
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(558, 20);
 			this.textBox6.TabIndex = 89;
+			this.textBox6.Visible = false;
 			// 
 			// textBox7
 			// 
-			this.textBox7.Location = new System.Drawing.Point(457, 258);
+			this.textBox7.Location = new System.Drawing.Point(460, 344);
 			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(66, 20);
+			this.textBox7.Size = new System.Drawing.Size(83, 20);
 			this.textBox7.TabIndex = 90;
 			this.textBox7.Visible = false;
 			// 
 			// textBox8
 			// 
-			this.textBox8.Location = new System.Drawing.Point(457, 293);
+			this.textBox8.Location = new System.Drawing.Point(460, 379);
 			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(66, 20);
+			this.textBox8.Size = new System.Drawing.Size(83, 20);
 			this.textBox8.TabIndex = 91;
 			this.textBox8.Visible = false;
 			// 
 			// textBox9
 			// 
-			this.textBox9.Location = new System.Drawing.Point(457, 327);
+			this.textBox9.Location = new System.Drawing.Point(460, 413);
 			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(66, 20);
+			this.textBox9.Size = new System.Drawing.Size(83, 20);
 			this.textBox9.TabIndex = 92;
 			this.textBox9.Visible = false;
 			// 
 			// textBox10
 			// 
-			this.textBox10.Location = new System.Drawing.Point(457, 357);
+			this.textBox10.Location = new System.Drawing.Point(460, 443);
 			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(66, 20);
+			this.textBox10.Size = new System.Drawing.Size(83, 20);
 			this.textBox10.TabIndex = 93;
 			this.textBox10.Visible = false;
 			// 
 			// textBox11
 			// 
-			this.textBox11.Location = new System.Drawing.Point(457, 391);
+			this.textBox11.Location = new System.Drawing.Point(460, 477);
 			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(66, 20);
+			this.textBox11.Size = new System.Drawing.Size(83, 20);
 			this.textBox11.TabIndex = 94;
 			this.textBox11.Visible = false;
 			// 
 			// textBox12
 			// 
-			this.textBox12.Location = new System.Drawing.Point(457, 429);
+			this.textBox12.Location = new System.Drawing.Point(460, 515);
 			this.textBox12.Name = "textBox12";
-			this.textBox12.Size = new System.Drawing.Size(66, 20);
+			this.textBox12.Size = new System.Drawing.Size(83, 20);
 			this.textBox12.TabIndex = 95;
 			this.textBox12.Visible = false;
 			// 
 			// textBox13
 			// 
-			this.textBox13.Location = new System.Drawing.Point(1131, 258);
+			this.textBox13.Location = new System.Drawing.Point(1129, 346);
 			this.textBox13.Name = "textBox13";
 			this.textBox13.Size = new System.Drawing.Size(66, 20);
 			this.textBox13.TabIndex = 96;
@@ -374,7 +382,7 @@ namespace Liquidinster
 			// 
 			// textBox14
 			// 
-			this.textBox14.Location = new System.Drawing.Point(1131, 293);
+			this.textBox14.Location = new System.Drawing.Point(1129, 381);
 			this.textBox14.Name = "textBox14";
 			this.textBox14.Size = new System.Drawing.Size(66, 20);
 			this.textBox14.TabIndex = 97;
@@ -382,7 +390,7 @@ namespace Liquidinster
 			// 
 			// textBox15
 			// 
-			this.textBox15.Location = new System.Drawing.Point(1131, 327);
+			this.textBox15.Location = new System.Drawing.Point(1129, 415);
 			this.textBox15.Name = "textBox15";
 			this.textBox15.Size = new System.Drawing.Size(66, 20);
 			this.textBox15.TabIndex = 98;
@@ -390,7 +398,7 @@ namespace Liquidinster
 			// 
 			// textBox16
 			// 
-			this.textBox16.Location = new System.Drawing.Point(1131, 357);
+			this.textBox16.Location = new System.Drawing.Point(1129, 445);
 			this.textBox16.Name = "textBox16";
 			this.textBox16.Size = new System.Drawing.Size(66, 20);
 			this.textBox16.TabIndex = 99;
@@ -398,21 +406,21 @@ namespace Liquidinster
 			// 
 			// textBox18
 			// 
-			this.textBox18.Location = new System.Drawing.Point(953, 357);
+			this.textBox18.Location = new System.Drawing.Point(954, 438);
 			this.textBox18.Name = "textBox18";
-			this.textBox18.Size = new System.Drawing.Size(120, 20);
+			this.textBox18.Size = new System.Drawing.Size(111, 20);
 			this.textBox18.TabIndex = 101;
 			// 
 			// textBox19
 			// 
-			this.textBox19.Location = new System.Drawing.Point(953, 391);
+			this.textBox19.Location = new System.Drawing.Point(954, 467);
 			this.textBox19.Name = "textBox19";
-			this.textBox19.Size = new System.Drawing.Size(120, 20);
+			this.textBox19.Size = new System.Drawing.Size(111, 20);
 			this.textBox19.TabIndex = 102;
 			// 
 			// dateTimePicker2
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(992, 475);
+			this.dateTimePicker2.Location = new System.Drawing.Point(988, 560);
 			this.dateTimePicker2.Name = "dateTimePicker2";
 			this.dateTimePicker2.Size = new System.Drawing.Size(141, 20);
 			this.dateTimePicker2.TabIndex = 103;
@@ -420,7 +428,7 @@ namespace Liquidinster
 			// comboBox3
 			// 
 			this.comboBox3.FormattingEnabled = true;
-			this.comboBox3.Location = new System.Drawing.Point(1106, 519);
+			this.comboBox3.Location = new System.Drawing.Point(1111, 604);
 			this.comboBox3.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(150, 21);
@@ -428,7 +436,7 @@ namespace Liquidinster
 			// 
 			// textBox22
 			// 
-			this.textBox22.Location = new System.Drawing.Point(0, 466);
+			this.textBox22.Location = new System.Drawing.Point(0, 551);
 			this.textBox22.Multiline = true;
 			this.textBox22.Name = "textBox22";
 			this.textBox22.Size = new System.Drawing.Size(907, 74);
@@ -436,16 +444,16 @@ namespace Liquidinster
 			// 
 			// textBox23
 			// 
-			this.textBox23.Location = new System.Drawing.Point(597, 633);
+			this.textBox23.Location = new System.Drawing.Point(600, 720);
 			this.textBox23.Multiline = true;
 			this.textBox23.Name = "textBox23";
-			this.textBox23.Size = new System.Drawing.Size(464, 107);
+			this.textBox23.Size = new System.Drawing.Size(471, 107);
 			this.textBox23.TabIndex = 108;
 			// 
 			// comboBox4
 			// 
 			this.comboBox4.FormattingEnabled = true;
-			this.comboBox4.Location = new System.Drawing.Point(1089, 650);
+			this.comboBox4.Location = new System.Drawing.Point(1111, 737);
 			this.comboBox4.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox4.Name = "comboBox4";
 			this.comboBox4.Size = new System.Drawing.Size(150, 21);
@@ -454,7 +462,7 @@ namespace Liquidinster
 			// checkBox1
 			// 
 			this.checkBox1.BackColor = System.Drawing.Color.White;
-			this.checkBox1.Location = new System.Drawing.Point(898, 137);
+			this.checkBox1.Location = new System.Drawing.Point(879, 222);
 			this.checkBox1.Name = "checkBox1";
 			this.checkBox1.Size = new System.Drawing.Size(104, 24);
 			this.checkBox1.TabIndex = 113;
@@ -464,7 +472,7 @@ namespace Liquidinster
 			// label1
 			// 
 			this.label1.BackColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(1007, 142);
+			this.label1.Location = new System.Drawing.Point(988, 227);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(60, 23);
 			this.label1.TabIndex = 112;
@@ -473,27 +481,17 @@ namespace Liquidinster
 			// comboBox5
 			// 
 			this.comboBox5.FormattingEnabled = true;
-			this.comboBox5.Items.AddRange(new object[] {
-			"vizir",
-			"kisst",
-			"ga5",
-			"szaboz1",
-			"beg",
-			"szombatm",
-			"tkr",
-			"bko",
-			"ani",
-			"gok"});
-			this.comboBox5.Location = new System.Drawing.Point(1073, 137);
+			this.comboBox5.Location = new System.Drawing.Point(1054, 222);
 			this.comboBox5.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox5.Name = "comboBox5";
 			this.comboBox5.Size = new System.Drawing.Size(150, 21);
 			this.comboBox5.TabIndex = 111;
+			this.comboBox5.Visible = false;
 			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(727, 153);
+			this.dataGridView1.Location = new System.Drawing.Point(708, 238);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.Size = new System.Drawing.Size(165, 10);
 			this.dataGridView1.TabIndex = 110;
@@ -502,314 +500,264 @@ namespace Liquidinster
 			// panel13
 			// 
 			this.panel13.BackColor = System.Drawing.Color.DarkRed;
-			this.panel13.Location = new System.Drawing.Point(529, 285);
+			this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel13.Location = new System.Drawing.Point(532, 371);
 			this.panel13.Name = "panel13";
-			this.panel13.Size = new System.Drawing.Size(40, 28);
+			this.panel13.Size = new System.Drawing.Size(57, 28);
 			this.panel13.TabIndex = 117;
 			this.panel13.Visible = false;
 			// 
 			// panel14
 			// 
 			this.panel14.BackColor = System.Drawing.Color.DarkRed;
-			this.panel14.Location = new System.Drawing.Point(529, 250);
+			this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel14.Location = new System.Drawing.Point(532, 336);
 			this.panel14.Name = "panel14";
-			this.panel14.Size = new System.Drawing.Size(40, 28);
+			this.panel14.Size = new System.Drawing.Size(57, 28);
 			this.panel14.TabIndex = 115;
 			this.panel14.Visible = false;
 			// 
 			// panel15
 			// 
 			this.panel15.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel15.Location = new System.Drawing.Point(389, 285);
+			this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel15.Location = new System.Drawing.Point(392, 371);
 			this.panel15.Name = "panel15";
-			this.panel15.Size = new System.Drawing.Size(40, 28);
+			this.panel15.Size = new System.Drawing.Size(57, 28);
 			this.panel15.TabIndex = 116;
 			this.panel15.Visible = false;
 			// 
 			// panel16
 			// 
 			this.panel16.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel16.Location = new System.Drawing.Point(389, 250);
+			this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel16.Location = new System.Drawing.Point(392, 336);
 			this.panel16.Name = "panel16";
-			this.panel16.Size = new System.Drawing.Size(40, 28);
+			this.panel16.Size = new System.Drawing.Size(57, 28);
 			this.panel16.TabIndex = 114;
 			this.panel16.Visible = false;
 			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.DarkRed;
-			this.panel1.Location = new System.Drawing.Point(529, 354);
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Location = new System.Drawing.Point(532, 440);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(40, 28);
+			this.panel1.Size = new System.Drawing.Size(57, 28);
 			this.panel1.TabIndex = 121;
 			this.panel1.Visible = false;
 			// 
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.DarkRed;
-			this.panel2.Location = new System.Drawing.Point(529, 319);
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Location = new System.Drawing.Point(532, 405);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(40, 28);
+			this.panel2.Size = new System.Drawing.Size(57, 28);
 			this.panel2.TabIndex = 119;
 			this.panel2.Visible = false;
 			// 
 			// panel3
 			// 
 			this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel3.Location = new System.Drawing.Point(389, 354);
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel3.Location = new System.Drawing.Point(392, 438);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(40, 28);
+			this.panel3.Size = new System.Drawing.Size(57, 28);
 			this.panel3.TabIndex = 120;
 			this.panel3.Visible = false;
 			// 
 			// panel4
 			// 
 			this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel4.Location = new System.Drawing.Point(389, 319);
+			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel4.Location = new System.Drawing.Point(392, 405);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(40, 28);
+			this.panel4.Size = new System.Drawing.Size(57, 28);
 			this.panel4.TabIndex = 118;
 			this.panel4.Visible = false;
 			// 
 			// panel5
 			// 
 			this.panel5.BackColor = System.Drawing.Color.DarkRed;
-			this.panel5.Location = new System.Drawing.Point(529, 418);
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel5.Location = new System.Drawing.Point(532, 504);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(40, 28);
+			this.panel5.Size = new System.Drawing.Size(57, 28);
 			this.panel5.TabIndex = 125;
 			this.panel5.Visible = false;
 			// 
 			// panel6
 			// 
 			this.panel6.BackColor = System.Drawing.Color.DarkRed;
-			this.panel6.Location = new System.Drawing.Point(529, 383);
+			this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel6.Location = new System.Drawing.Point(532, 469);
 			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(40, 28);
+			this.panel6.Size = new System.Drawing.Size(57, 28);
 			this.panel6.TabIndex = 123;
 			this.panel6.Visible = false;
 			// 
 			// panel7
 			// 
 			this.panel7.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel7.Location = new System.Drawing.Point(389, 421);
+			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel7.Location = new System.Drawing.Point(392, 507);
 			this.panel7.Name = "panel7";
-			this.panel7.Size = new System.Drawing.Size(40, 28);
+			this.panel7.Size = new System.Drawing.Size(57, 28);
 			this.panel7.TabIndex = 124;
 			this.panel7.Visible = false;
 			// 
 			// panel8
 			// 
 			this.panel8.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel8.Location = new System.Drawing.Point(389, 383);
+			this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel8.Location = new System.Drawing.Point(392, 470);
 			this.panel8.Name = "panel8";
-			this.panel8.Size = new System.Drawing.Size(40, 28);
+			this.panel8.Size = new System.Drawing.Size(57, 28);
 			this.panel8.TabIndex = 122;
 			this.panel8.Visible = false;
 			// 
 			// panel9
 			// 
 			this.panel9.BackColor = System.Drawing.Color.DarkRed;
-			this.panel9.Location = new System.Drawing.Point(1199, 285);
+			this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel9.Location = new System.Drawing.Point(1197, 373);
 			this.panel9.Name = "panel9";
-			this.panel9.Size = new System.Drawing.Size(40, 28);
+			this.panel9.Size = new System.Drawing.Size(51, 28);
 			this.panel9.TabIndex = 129;
 			this.panel9.Visible = false;
 			// 
 			// panel10
 			// 
 			this.panel10.BackColor = System.Drawing.Color.DarkRed;
-			this.panel10.Location = new System.Drawing.Point(1199, 250);
+			this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel10.Location = new System.Drawing.Point(1197, 338);
 			this.panel10.Name = "panel10";
-			this.panel10.Size = new System.Drawing.Size(40, 28);
+			this.panel10.Size = new System.Drawing.Size(51, 28);
 			this.panel10.TabIndex = 127;
 			this.panel10.Visible = false;
 			// 
 			// panel11
 			// 
 			this.panel11.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel11.Location = new System.Drawing.Point(1073, 285);
+			this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel11.Location = new System.Drawing.Point(1071, 373);
 			this.panel11.Name = "panel11";
-			this.panel11.Size = new System.Drawing.Size(40, 28);
+			this.panel11.Size = new System.Drawing.Size(52, 28);
 			this.panel11.TabIndex = 128;
 			this.panel11.Visible = false;
 			// 
 			// panel12
 			// 
 			this.panel12.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel12.Location = new System.Drawing.Point(1073, 250);
+			this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel12.Location = new System.Drawing.Point(1071, 338);
 			this.panel12.Name = "panel12";
-			this.panel12.Size = new System.Drawing.Size(40, 28);
+			this.panel12.Size = new System.Drawing.Size(52, 28);
 			this.panel12.TabIndex = 126;
 			this.panel12.Visible = false;
 			// 
 			// panel17
 			// 
 			this.panel17.BackColor = System.Drawing.Color.DarkRed;
-			this.panel17.Location = new System.Drawing.Point(1199, 352);
+			this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel17.Location = new System.Drawing.Point(1197, 440);
 			this.panel17.Name = "panel17";
-			this.panel17.Size = new System.Drawing.Size(40, 28);
+			this.panel17.Size = new System.Drawing.Size(51, 28);
 			this.panel17.TabIndex = 133;
 			this.panel17.Visible = false;
 			// 
 			// panel18
 			// 
 			this.panel18.BackColor = System.Drawing.Color.DarkRed;
-			this.panel18.Location = new System.Drawing.Point(1199, 319);
+			this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel18.Location = new System.Drawing.Point(1197, 407);
 			this.panel18.Name = "panel18";
-			this.panel18.Size = new System.Drawing.Size(40, 28);
+			this.panel18.Size = new System.Drawing.Size(51, 28);
 			this.panel18.TabIndex = 131;
 			this.panel18.Visible = false;
 			// 
 			// panel19
 			// 
 			this.panel19.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel19.Location = new System.Drawing.Point(1073, 352);
+			this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel19.Location = new System.Drawing.Point(1071, 440);
 			this.panel19.Name = "panel19";
-			this.panel19.Size = new System.Drawing.Size(40, 28);
+			this.panel19.Size = new System.Drawing.Size(52, 28);
 			this.panel19.TabIndex = 132;
 			this.panel19.Visible = false;
 			// 
 			// panel20
 			// 
 			this.panel20.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel20.Location = new System.Drawing.Point(1073, 319);
+			this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel20.Location = new System.Drawing.Point(1071, 407);
 			this.panel20.Name = "panel20";
-			this.panel20.Size = new System.Drawing.Size(40, 28);
+			this.panel20.Size = new System.Drawing.Size(52, 28);
 			this.panel20.TabIndex = 130;
 			this.panel20.Visible = false;
-			// 
-			// panel21
-			// 
-			this.panel21.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel21.BackgroundImage")));
-			this.panel21.Controls.Add(this.panel23);
-			this.panel21.Controls.Add(this.panel24);
-			this.panel21.Location = new System.Drawing.Point(1199, 383);
-			this.panel21.Name = "panel21";
-			this.panel21.Size = new System.Drawing.Size(40, 28);
-			this.panel21.TabIndex = 135;
-			this.panel21.Visible = false;
-			// 
-			// panel23
-			// 
-			this.panel23.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel23.BackgroundImage")));
-			this.panel23.Location = new System.Drawing.Point(63, 0);
-			this.panel23.Name = "panel23";
-			this.panel23.Size = new System.Drawing.Size(40, 28);
-			this.panel23.TabIndex = 137;
-			this.panel23.Visible = false;
 			// 
 			// panel24
 			// 
 			this.panel24.BackColor = System.Drawing.Color.DarkRed;
-			this.panel24.Location = new System.Drawing.Point(0, 0);
+			this.panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel24.Location = new System.Drawing.Point(1197, 474);
 			this.panel24.Name = "panel24";
-			this.panel24.Size = new System.Drawing.Size(40, 28);
+			this.panel24.Size = new System.Drawing.Size(51, 28);
 			this.panel24.TabIndex = 136;
 			this.panel24.Visible = false;
-			// 
-			// panel22
-			// 
-			this.panel22.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel22.BackgroundImage")));
-			this.panel22.Controls.Add(this.panel25);
-			this.panel22.Controls.Add(this.panel28);
-			this.panel22.Location = new System.Drawing.Point(1073, 383);
-			this.panel22.Name = "panel22";
-			this.panel22.Size = new System.Drawing.Size(40, 28);
-			this.panel22.TabIndex = 134;
-			this.panel22.Visible = false;
-			// 
-			// panel25
-			// 
-			this.panel25.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel25.BackgroundImage")));
-			this.panel25.Controls.Add(this.panel26);
-			this.panel25.Controls.Add(this.panel27);
-			this.panel25.Location = new System.Drawing.Point(63, 0);
-			this.panel25.Name = "panel25";
-			this.panel25.Size = new System.Drawing.Size(40, 28);
-			this.panel25.TabIndex = 137;
-			this.panel25.Visible = false;
-			// 
-			// panel26
-			// 
-			this.panel26.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel26.BackgroundImage")));
-			this.panel26.Location = new System.Drawing.Point(63, 0);
-			this.panel26.Name = "panel26";
-			this.panel26.Size = new System.Drawing.Size(40, 28);
-			this.panel26.TabIndex = 137;
-			this.panel26.Visible = false;
-			// 
-			// panel27
-			// 
-			this.panel27.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.panel27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel27.BackgroundImage")));
-			this.panel27.Location = new System.Drawing.Point(0, 0);
-			this.panel27.Name = "panel27";
-			this.panel27.Size = new System.Drawing.Size(40, 28);
-			this.panel27.TabIndex = 136;
-			this.panel27.Visible = false;
-			// 
-			// panel28
-			// 
-			this.panel28.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel28.Location = new System.Drawing.Point(0, 0);
-			this.panel28.Name = "panel28";
-			this.panel28.Size = new System.Drawing.Size(40, 28);
-			this.panel28.TabIndex = 136;
-			this.panel28.Visible = false;
 			// 
 			// panel31
 			// 
 			this.panel31.BackColor = System.Drawing.Color.DarkRed;
-			this.panel31.Location = new System.Drawing.Point(529, 702);
+			this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel31.Location = new System.Drawing.Point(532, 789);
 			this.panel31.Name = "panel31";
-			this.panel31.Size = new System.Drawing.Size(40, 28);
+			this.panel31.Size = new System.Drawing.Size(57, 28);
 			this.panel31.TabIndex = 136;
 			this.panel31.Visible = false;
 			// 
 			// panel36
 			// 
 			this.panel36.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel36.Location = new System.Drawing.Point(389, 650);
+			this.panel36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel36.Location = new System.Drawing.Point(392, 737);
 			this.panel36.Name = "panel36";
-			this.panel36.Size = new System.Drawing.Size(40, 28);
+			this.panel36.Size = new System.Drawing.Size(57, 28);
 			this.panel36.TabIndex = 136;
 			this.panel36.Visible = false;
 			// 
 			// panel39
 			// 
 			this.panel39.BackColor = System.Drawing.Color.DarkRed;
-			this.panel39.Location = new System.Drawing.Point(529, 650);
+			this.panel39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel39.Location = new System.Drawing.Point(532, 737);
 			this.panel39.Name = "panel39";
-			this.panel39.Size = new System.Drawing.Size(40, 28);
+			this.panel39.Size = new System.Drawing.Size(57, 28);
 			this.panel39.TabIndex = 136;
 			this.panel39.Visible = false;
 			// 
 			// panel44
 			// 
 			this.panel44.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.panel44.Location = new System.Drawing.Point(389, 702);
+			this.panel44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel44.Location = new System.Drawing.Point(392, 789);
 			this.panel44.Name = "panel44";
-			this.panel44.Size = new System.Drawing.Size(40, 28);
+			this.panel44.Size = new System.Drawing.Size(57, 28);
 			this.panel44.TabIndex = 136;
 			this.panel44.Visible = false;
 			// 
 			// panel45
 			// 
 			this.panel45.Controls.Add(this.panel46);
-			this.panel45.Location = new System.Drawing.Point(279, 39);
+			this.panel45.Location = new System.Drawing.Point(281, 127);
 			this.panel45.Name = "panel45";
 			this.panel45.Size = new System.Drawing.Size(59, 20);
 			this.panel45.TabIndex = 142;
 			// 
 			// panel46
 			// 
-			this.panel46.Location = new System.Drawing.Point(3, 19);
+			this.panel46.Location = new System.Drawing.Point(3, 22);
 			this.panel46.Name = "panel46";
 			this.panel46.Size = new System.Drawing.Size(62, 20);
 			this.panel46.TabIndex = 143;
@@ -817,14 +765,14 @@ namespace Liquidinster
 			// panel47
 			// 
 			this.panel47.Controls.Add(this.panel48);
-			this.panel47.Location = new System.Drawing.Point(279, 58);
+			this.panel47.Location = new System.Drawing.Point(281, 146);
 			this.panel47.Name = "panel47";
 			this.panel47.Size = new System.Drawing.Size(59, 20);
 			this.panel47.TabIndex = 144;
 			// 
 			// panel48
 			// 
-			this.panel48.Location = new System.Drawing.Point(3, 19);
+			this.panel48.Location = new System.Drawing.Point(3, 22);
 			this.panel48.Name = "panel48";
 			this.panel48.Size = new System.Drawing.Size(62, 20);
 			this.panel48.TabIndex = 143;
@@ -832,7 +780,7 @@ namespace Liquidinster
 			// label2
 			// 
 			this.label2.BackColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(973, 85);
+			this.label2.Location = new System.Drawing.Point(954, 170);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(94, 23);
 			this.label2.TabIndex = 157;
@@ -841,7 +789,7 @@ namespace Liquidinster
 			// textBox72
 			// 
 			this.textBox72.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox72.Location = new System.Drawing.Point(1069, 85);
+			this.textBox72.Location = new System.Drawing.Point(1050, 170);
 			this.textBox72.Multiline = true;
 			this.textBox72.Name = "textBox72";
 			this.textBox72.Size = new System.Drawing.Size(100, 47);
@@ -849,7 +797,7 @@ namespace Liquidinster
 			// 
 			// button6
 			// 
-			this.button6.Location = new System.Drawing.Point(783, 108);
+			this.button6.Location = new System.Drawing.Point(764, 193);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(75, 23);
 			this.button6.TabIndex = 158;
@@ -860,7 +808,7 @@ namespace Liquidinster
 			// 
 			// textBox17
 			// 
-			this.textBox17.Location = new System.Drawing.Point(1136, 391);
+			this.textBox17.Location = new System.Drawing.Point(1134, 479);
 			this.textBox17.Name = "textBox17";
 			this.textBox17.Size = new System.Drawing.Size(57, 20);
 			this.textBox17.TabIndex = 159;
@@ -868,7 +816,7 @@ namespace Liquidinster
 			// 
 			// textBox20
 			// 
-			this.textBox20.Location = new System.Drawing.Point(457, 658);
+			this.textBox20.Location = new System.Drawing.Point(460, 745);
 			this.textBox20.Name = "textBox20";
 			this.textBox20.Size = new System.Drawing.Size(66, 20);
 			this.textBox20.TabIndex = 160;
@@ -876,7 +824,7 @@ namespace Liquidinster
 			// 
 			// textBox21
 			// 
-			this.textBox21.Location = new System.Drawing.Point(457, 710);
+			this.textBox21.Location = new System.Drawing.Point(460, 789);
 			this.textBox21.Name = "textBox21";
 			this.textBox21.Size = new System.Drawing.Size(66, 20);
 			this.textBox21.TabIndex = 161;
@@ -885,7 +833,7 @@ namespace Liquidinster
 			// button8
 			// 
 			this.button8.BackColor = System.Drawing.Color.Transparent;
-			this.button8.Location = new System.Drawing.Point(757, 80);
+			this.button8.Location = new System.Drawing.Point(738, 165);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(75, 23);
 			this.button8.TabIndex = 163;
@@ -896,7 +844,7 @@ namespace Liquidinster
 			// button7
 			// 
 			this.button7.BackColor = System.Drawing.Color.Transparent;
-			this.button7.Location = new System.Drawing.Point(757, 108);
+			this.button7.Location = new System.Drawing.Point(738, 193);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(75, 23);
 			this.button7.TabIndex = 162;
@@ -908,12 +856,121 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button2.Location = new System.Drawing.Point(973, 106);
+			this.button2.Location = new System.Drawing.Point(954, 191);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(86, 27);
 			this.button2.TabIndex = 331;
 			this.button2.Text = "Nyomtatás";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
+			// 
+			// printDocument1
+			// 
+			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
+			// 
+			// panel21
+			// 
+			this.panel21.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel21.Location = new System.Drawing.Point(642, 215);
+			this.panel21.Name = "panel21";
+			this.panel21.Size = new System.Drawing.Size(40, 28);
+			this.panel21.TabIndex = 137;
+			this.panel21.Visible = false;
+			// 
+			// panel23
+			// 
+			this.panel23.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel23.Location = new System.Drawing.Point(522, 215);
+			this.panel23.Name = "panel23";
+			this.panel23.Size = new System.Drawing.Size(40, 28);
+			this.panel23.TabIndex = 138;
+			this.panel23.Visible = false;
+			// 
+			// panel29
+			// 
+			this.panel29.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel29.Location = new System.Drawing.Point(460, 215);
+			this.panel29.Name = "panel29";
+			this.panel29.Size = new System.Drawing.Size(40, 28);
+			this.panel29.TabIndex = 139;
+			this.panel29.Visible = false;
+			// 
+			// panel30
+			// 
+			this.panel30.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel30.Location = new System.Drawing.Point(392, 215);
+			this.panel30.Name = "panel30";
+			this.panel30.Size = new System.Drawing.Size(40, 28);
+			this.panel30.TabIndex = 140;
+			this.panel30.Visible = false;
+			// 
+			// panel32
+			// 
+			this.panel32.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel32.Location = new System.Drawing.Point(328, 215);
+			this.panel32.Name = "panel32";
+			this.panel32.Size = new System.Drawing.Size(40, 28);
+			this.panel32.TabIndex = 141;
+			this.panel32.Visible = false;
+			// 
+			// panel33
+			// 
+			this.panel33.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel33.Location = new System.Drawing.Point(256, 215);
+			this.panel33.Name = "panel33";
+			this.panel33.Size = new System.Drawing.Size(40, 28);
+			this.panel33.TabIndex = 142;
+			this.panel33.Visible = false;
+			// 
+			// panel34
+			// 
+			this.panel34.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel34.Location = new System.Drawing.Point(191, 215);
+			this.panel34.Name = "panel34";
+			this.panel34.Size = new System.Drawing.Size(40, 28);
+			this.panel34.TabIndex = 143;
+			this.panel34.Visible = false;
+			// 
+			// panel22
+			// 
+			this.panel22.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel22.Location = new System.Drawing.Point(1071, 469);
+			this.panel22.Name = "panel22";
+			this.panel22.Size = new System.Drawing.Size(52, 28);
+			this.panel22.TabIndex = 133;
+			this.panel22.Visible = false;
+			// 
+			// dateTimePicker3
+			// 
+			this.dateTimePicker3.Location = new System.Drawing.Point(907, 848);
+			this.dateTimePicker3.Name = "dateTimePicker3";
+			this.dateTimePicker3.Size = new System.Drawing.Size(141, 20);
+			this.dateTimePicker3.TabIndex = 332;
+			// 
+			// textBox24
+			// 
+			this.textBox24.Location = new System.Drawing.Point(1159, 848);
+			this.textBox24.Name = "textBox24";
+			this.textBox24.Size = new System.Drawing.Size(102, 20);
+			this.textBox24.TabIndex = 333;
+			this.textBox24.Visible = false;
+			// 
+			// comboBox6
+			// 
+			this.comboBox6.FormattingEnabled = true;
+			this.comboBox6.Location = new System.Drawing.Point(1054, 222);
+			this.comboBox6.MinimumSize = new System.Drawing.Size(150, 0);
+			this.comboBox6.Name = "comboBox6";
+			this.comboBox6.Size = new System.Drawing.Size(150, 21);
+			this.comboBox6.TabIndex = 334;
 			// 
 			// bmpter
 			// 
@@ -921,8 +978,20 @@ namespace Liquidinster
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(1260, 742);
+			this.ClientSize = new System.Drawing.Size(1260, 880);
+			this.Controls.Add(this.comboBox6);
+			this.Controls.Add(this.textBox24);
+			this.Controls.Add(this.dateTimePicker3);
+			this.Controls.Add(this.panel22);
+			this.Controls.Add(this.panel34);
+			this.Controls.Add(this.panel33);
+			this.Controls.Add(this.panel32);
+			this.Controls.Add(this.panel30);
+			this.Controls.Add(this.panel29);
+			this.Controls.Add(this.panel23);
+			this.Controls.Add(this.panel21);
 			this.Controls.Add(this.button2);
+			this.Controls.Add(this.panel24);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.button7);
 			this.Controls.Add(this.textBox21);
@@ -937,8 +1006,6 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox72);
 			this.Controls.Add(this.panel47);
 			this.Controls.Add(this.panel45);
-			this.Controls.Add(this.panel21);
-			this.Controls.Add(this.panel22);
 			this.Controls.Add(this.panel17);
 			this.Controls.Add(this.panel9);
 			this.Controls.Add(this.panel18);
@@ -996,9 +1063,6 @@ namespace Liquidinster
 			this.Name = "bmpter";
 			this.Text = "bmpter";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			this.panel21.ResumeLayout(false);
-			this.panel22.ResumeLayout(false);
-			this.panel25.ResumeLayout(false);
 			this.panel45.ResumeLayout(false);
 			this.panel47.ResumeLayout(false);
 			this.ResumeLayout(false);

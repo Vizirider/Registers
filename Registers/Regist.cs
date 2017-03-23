@@ -35,17 +35,24 @@ namespace Liquidinster
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
+			if(string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(comboBox1.Text))
+			{
+			MessageBox.Show("Missing information to registration!", "Message");				
+			}
+			else{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.LoginUser (UserName, Password)  VALUES 
-			(@UserName, @Password)",conn);
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.LoginUser (UserName, Password, Area)  VALUES 
+			(@UserName, @Password, @Area)",conn);
 			cmd.Parameters.Add(new SqlParameter("@UserName", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Password", textBox2.Text));
+			cmd.Parameters.Add(new SqlParameter("@Area", comboBox1.Text));
 			
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Sikeresen regisztráltál, te vagy a " +textBox3.Text+ ". felhasználó ", "Üzenet"); 
-			this.Close();
+			MessageBox.Show("Succesful registration, you're the " +textBox3.Text+ ". User ", "Message");  
+			this.Close();	
+			}
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
@@ -56,6 +63,27 @@ namespace Liquidinster
         	int result = (int)cmd.ExecuteScalar() +1;
         	textBox3.Text = result.ToString();
 		}
+		}
+		void RegistKeyPress(object sender, KeyPressEventArgs e)
+		{
+			if(string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(comboBox1.Text))
+			{
+			MessageBox.Show("Missing information to registration!", "Message");				
+			}
+			else{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.LoginUser (UserName, Password, Area)  VALUES 
+			(@UserName, @Password, @Area)",conn);
+			cmd.Parameters.Add(new SqlParameter("@UserName", textBox1.Text));
+			cmd.Parameters.Add(new SqlParameter("@Password", textBox2.Text));
+			cmd.Parameters.Add(new SqlParameter("@Area", comboBox1.Text));
+			
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Succesful registration, you're the " +textBox3.Text+ ". User ", "Message");  
+			this.Close();	
+			}
 		}
 	}
 }

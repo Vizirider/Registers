@@ -33,9 +33,24 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.comboBox2.Text = mws;
-			this.comboBox5.Text = mws;
+//			this.comboBox2.Text = mws;
+//			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox5.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox5.Text = mws;				
+				}
+				read.Close();
+			}
 			Button5Click(null,null);
 		}
 			void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
@@ -195,6 +210,7 @@ namespace Liquidinster
 					textBox92.Text = (read["pufferop"].ToString());
 					textBox88.Text = (read["munkakordatum"].ToString());
 					textBox93.Text = (read["munkakorop"].ToString());
+					comboBox4.Text = (read["Ellenorzo"].ToString());
 					
 		}
 	if (!string.IsNullOrWhiteSpace(textBox5.Text))
@@ -599,5 +615,24 @@ namespace Liquidinster
 			Button5Click(null,null);	
 	
 		}
+		void Button8Click(object sender, EventArgs e)
+		{
+		CaptureScreen();
+        printDocument1.Print();	
+		}
+		Bitmap memoryImage;
+    
+		private void CaptureScreen()
+	    {
+	        Graphics myGraphics = this.CreateGraphics();
+	        Size s = this.Size;
+	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+	    }
+			void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+			{
+	        e.Graphics.DrawImage(memoryImage, 0, 0);
+			}
 }
 }

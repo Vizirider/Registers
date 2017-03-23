@@ -74,6 +74,7 @@ namespace Liquidinster
 			        checkBox2.Checked = (bool)read["Kidobva"];					
 			        dateTimePicker1.Text = Convert.ToDateTime(read["Datum"]).ToString();
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
+			        comboBox3.Text = (read["Mintazo"].ToString());
 			        if(read["Javitott"] == DBNull.Value){
 			        	checkBox14.Checked = false;
 			        }
@@ -94,23 +95,29 @@ namespace Liquidinster
 			{
 				checkBox2.BackColor = Color.Red;
 			}
+			int samp1 = int.Parse(textBox3.Text);
+			int samp2 = int.Parse(textBox4.Text);
+			if(samp1 < samp2){
+				textBox4.BackColor = Color.Red;
+			}
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.warehouse2 set Hu = @Hu, Batch = @Batch, Material = @Material, Edeny = @Edeny,
-			Edenyu = @Edenyu, Kanal = @Kanal, Kidobva = @Kidobva, Datum = @Datum, Ellenorzo = @Ellenorzo, Javitott = @Javitott
-			WHERE Hu=('" + textBox1.Text +"')",conn);
-			cmd.Parameters.Add(new SqlParameter("@Hu", comboBox1.Text));
+			Edenyu = @Edenyu, Kanal = @Kanal, Kidobva = @Kidobva, Datum = @Datum, Ellenorzo = @Ellenorzo, Javitott = @Javitott, Mintazo = @Mintazo
+			WHERE Hu = ('" + textBox1.Text +"')",conn);
+			cmd.Parameters.Add(new SqlParameter("@Hu", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Kanal", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Kidobva", checkBox2.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Batch", textBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Edeny", textBox3.Text));
 			cmd.Parameters.Add(new SqlParameter("@Edenyu", textBox4.Text));
-			cmd.Parameters.Add(new SqlParameter("@Material", textBox1.Text));
+			cmd.Parameters.Add(new SqlParameter("@Material", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
+			cmd.Parameters.Add(new SqlParameter("@Mintazo", comboBox3.Text));
 			cmd.Parameters.Add(new SqlParameter("@Javitott", 1));
 
 			cmd.ExecuteNonQuery();

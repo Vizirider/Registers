@@ -44,6 +44,10 @@ namespace Liquidinster
 		private System.Windows.Forms.CheckBox checkBox7;
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.CheckBox checkBox8;
+		private System.Windows.Forms.CheckBox checkBox9;
+		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.Label label11;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -96,6 +100,10 @@ namespace Liquidinster
 			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
+			this.checkBox8 = new System.Windows.Forms.CheckBox();
+			this.checkBox9 = new System.Windows.Forms.CheckBox();
+			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -289,7 +297,7 @@ namespace Liquidinster
 			// 
 			// checkBox2
 			// 
-			this.checkBox2.Location = new System.Drawing.Point(150, 182);
+			this.checkBox2.Location = new System.Drawing.Point(89, 212);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(104, 24);
 			this.checkBox2.TabIndex = 6;
@@ -298,7 +306,7 @@ namespace Liquidinster
 			// 
 			// checkBox3
 			// 
-			this.checkBox3.Location = new System.Drawing.Point(150, 212);
+			this.checkBox3.Location = new System.Drawing.Point(89, 242);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(104, 24);
 			this.checkBox3.TabIndex = 7;
@@ -307,7 +315,7 @@ namespace Liquidinster
 			// 
 			// checkBox5
 			// 
-			this.checkBox5.Location = new System.Drawing.Point(150, 242);
+			this.checkBox5.Location = new System.Drawing.Point(89, 272);
 			this.checkBox5.Name = "checkBox5";
 			this.checkBox5.Size = new System.Drawing.Size(104, 24);
 			this.checkBox5.TabIndex = 8;
@@ -316,11 +324,11 @@ namespace Liquidinster
 			// 
 			// checkBox6
 			// 
-			this.checkBox6.Location = new System.Drawing.Point(150, 272);
+			this.checkBox6.Location = new System.Drawing.Point(199, 212);
 			this.checkBox6.Name = "checkBox6";
 			this.checkBox6.Size = new System.Drawing.Size(104, 24);
 			this.checkBox6.TabIndex = 9;
-			this.checkBox6.Text = "Megfelelő IBC e";
+			this.checkBox6.Text = "Csomagolasep";
 			this.checkBox6.UseVisualStyleBackColor = true;
 			// 
 			// textBox5
@@ -362,11 +370,48 @@ namespace Liquidinster
 			this.label10.TabIndex = 80;
 			this.label10.Text = "Komment";
 			// 
+			// checkBox8
+			// 
+			this.checkBox8.Location = new System.Drawing.Point(196, 242);
+			this.checkBox8.Name = "checkBox8";
+			this.checkBox8.Size = new System.Drawing.Size(104, 24);
+			this.checkBox8.TabIndex = 81;
+			this.checkBox8.Text = "Alapanyagbont";
+			this.checkBox8.UseVisualStyleBackColor = true;
+			// 
+			// checkBox9
+			// 
+			this.checkBox9.Location = new System.Drawing.Point(195, 272);
+			this.checkBox9.Name = "checkBox9";
+			this.checkBox9.Size = new System.Drawing.Size(104, 24);
+			this.checkBox9.TabIndex = 82;
+			this.checkBox9.Text = "Idegenanyag";
+			this.checkBox9.UseVisualStyleBackColor = true;
+			// 
+			// textBox7
+			// 
+			this.textBox7.Location = new System.Drawing.Point(150, 178);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.Size = new System.Drawing.Size(149, 20);
+			this.textBox7.TabIndex = 83;
+			// 
+			// label11
+			// 
+			this.label11.Location = new System.Drawing.Point(43, 178);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(100, 23);
+			this.label11.TabIndex = 84;
+			this.label11.Text = "Soszam";
+			// 
 			// Bmpinsert
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(399, 611);
+			this.Controls.Add(this.textBox7);
+			this.Controls.Add(this.label11);
+			this.Controls.Add(this.checkBox9);
+			this.Controls.Add(this.checkBox8);
 			this.Controls.Add(this.textBox6);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.checkBox7);

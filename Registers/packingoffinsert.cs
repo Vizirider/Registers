@@ -73,7 +73,8 @@ namespace Liquidinster
 		SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Insert into dbo.packingoffa (POszam, Anyagkod, Anyagnev, Tisztae, POSszam, IBCdok, POStisztae, Kezitisztae, Szitae, Serulese, Pore, Komment, Datum, Ellenorzo, Ellenorizve, Ki)  VALUES 
-			(@POszam, @Anyagkod, @Anyagnev, @Tisztae, @POSszam, @IBCdok, @POStisztae, @Kezitisztae, @Szitae, @Serulese, @Pore, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki)",conn);
+			(@POszam, @Anyagkod, @Anyagnev, @Tisztae, @POSszam, @IBCdok, @POStisztae, @Kezitisztae, @Szitae, @Serulese, @Pore, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Prepordere, @Szitaellazone,
+			 @Beleszsake, @Mintaedenyszame, @Szinhomogene, @Beleszsakzare, @Packofffolye, @Mintaedenyszamu, @Idegene, @Vizfolye)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
@@ -90,6 +91,16 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Mintaedenyszame", textBox6.Text));
+		    cmd.Parameters.Add(new SqlParameter("@Mintaedenyszamu", textBox5.Text));
+			cmd.Parameters.Add(new SqlParameter("@Prepordere", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Szitaellazone", checkBox12.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Beleszsake", checkBox9.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Szinhomogene", checkBox8.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Beleszsakzare", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Packofffolye", checkBox15.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox14.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Vizfolye", checkBox13.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen hozzáadtad a PO-t", "Üzenet"); 

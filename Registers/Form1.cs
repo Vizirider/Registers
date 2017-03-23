@@ -20,6 +20,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of Form1.
 	/// </summary>
+	/// liquid register display like datagridview
 	public partial class Form1 : Form
 	{
 		string id;

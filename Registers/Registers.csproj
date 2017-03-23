@@ -82,6 +82,14 @@
     <Compile Include="aklr.Designer.cs">
       <DependentUpon>aklr.cs</DependentUpon>
     </Compile>
+    <Compile Include="aklro.cs" />
+    <Compile Include="aklro.Designer.cs">
+      <DependentUpon>aklro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="aklszam.cs" />
+    <Compile Include="aklszam.Designer.cs">
+      <DependentUpon>aklszam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Blender.cs" />
     <Compile Include="Blender.Designer.cs">
       <DependentUpon>Blender.cs</DependentUpon>
@@ -94,6 +102,10 @@
     <Compile Include="blendingter.Designer.cs">
       <DependentUpon>blendingter.cs</DependentUpon>
     </Compile>
+    <Compile Include="blendingteruj.cs" />
+    <Compile Include="blendingteruj.Designer.cs">
+      <DependentUpon>blendingteruj.cs</DependentUpon>
+    </Compile>
     <Compile Include="blendkis.cs" />
     <Compile Include="blendkis.Designer.cs">
       <DependentUpon>blendkis.cs</DependentUpon>
@@ -102,6 +114,14 @@
     <Compile Include="blendr.Designer.cs">
       <DependentUpon>blendr.cs</DependentUpon>
     </Compile>
+    <Compile Include="blendro.cs" />
+    <Compile Include="blendro.Designer.cs">
+      <DependentUpon>blendro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendszam.cs" />
+    <Compile Include="blendszam.Designer.cs">
+      <DependentUpon>blendszam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bmpinsert.cs" />
     <Compile Include="Bmpinsert.Designer.cs">
       <DependentUpon>Bmpinsert.cs</DependentUpon>
@@ -109,6 +129,14 @@
     <Compile Include="bmpr.cs" />
     <Compile Include="bmpr.Designer.cs">
       <DependentUpon>bmpr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bmpro.cs" />
+    <Compile Include="bmpro.Designer.cs">
+      <DependentUpon>bmpro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bmpszam.cs" />
+    <Compile Include="bmpszam.Designer.cs">
+      <DependentUpon>bmpszam.cs</DependentUpon>
     </Compile>
     <Compile Include="bmpter.cs" />
     <Compile Include="bmpter.Designer.cs">
@@ -190,6 +218,10 @@
     <Compile Include="kiskevero.Designer.cs">
       <DependentUpon>kiskevero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Liqszam.cs" />
+    <Compile Include="Liqszam.Designer.cs">
+      <DependentUpon>Liqszam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Liquid.cs" />
     <Compile Include="Liquid.Designer.cs">
       <DependentUpon>Liquid.cs</DependentUpon>
@@ -197,6 +229,10 @@
     <Compile Include="Liquidinsert.cs" />
     <Compile Include="Liquidinsert.Designer.cs">
       <DependentUpon>Liquidinsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquido.cs" />
+    <Compile Include="Liquido.Designer.cs">
+      <DependentUpon>Liquido.cs</DependentUpon>
     </Compile>
     <Compile Include="Liquidter.cs" />
     <Compile Include="Liquidter.Designer.cs">
@@ -266,6 +302,14 @@
     <Compile Include="packrcs.Designer.cs">
       <DependentUpon>packrcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="packrcso.cs" />
+    <Compile Include="packrcso.Designer.cs">
+      <DependentUpon>packrcso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="packszam.cs" />
+    <Compile Include="packszam.Designer.cs">
+      <DependentUpon>packszam.cs</DependentUpon>
+    </Compile>
     <Compile Include="packter.cs" />
     <Compile Include="packter.Designer.cs">
       <DependentUpon>packter.cs</DependentUpon>
@@ -273,6 +317,10 @@
     <Compile Include="paletta.cs" />
     <Compile Include="paletta.Designer.cs">
       <DependentUpon>paletta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pepsinon.cs" />
+    <Compile Include="pepsinon.Designer.cs">
+      <DependentUpon>pepsinon.cs</DependentUpon>
     </Compile>
     <Compile Include="pf.cs" />
     <Compile Include="pf.Designer.cs">
@@ -375,6 +423,12 @@
     <EmbeddedResource Include="aklr.resx">
       <DependentUpon>aklr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="aklro.resx">
+      <DependentUpon>aklro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="aklszam.resx">
+      <DependentUpon>aklszam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Blender.resx">
       <DependentUpon>Blender.cs</DependentUpon>
     </EmbeddedResource>
@@ -384,17 +438,32 @@
     <EmbeddedResource Include="blendingter.resx">
       <DependentUpon>blendingter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="blendingteruj.resx">
+      <DependentUpon>blendingteruj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="blendkis.resx">
       <DependentUpon>blendkis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="blendr.resx">
       <DependentUpon>blendr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="blendro.resx">
+      <DependentUpon>blendro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendszam.resx">
+      <DependentUpon>blendszam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bmpinsert.resx">
       <DependentUpon>Bmpinsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bmpr.resx">
       <DependentUpon>bmpr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bmpro.resx">
+      <DependentUpon>bmpro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bmpszam.resx">
+      <DependentUpon>bmpszam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bmpter.resx">
       <DependentUpon>bmpter.cs</DependentUpon>
@@ -454,11 +523,17 @@
     <EmbeddedResource Include="kiskevero.resx">
       <DependentUpon>kiskevero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Liqszam.resx">
+      <DependentUpon>Liqszam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Liquid.resx">
       <DependentUpon>Liquid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Liquidinsert.resx">
       <DependentUpon>Liquidinsert.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquido.resx">
+      <DependentUpon>Liquido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Liquidter.resx">
       <DependentUpon>Liquidter.cs</DependentUpon>
@@ -511,11 +586,20 @@
     <EmbeddedResource Include="packrcs.resx">
       <DependentUpon>packrcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="packrcso.resx">
+      <DependentUpon>packrcso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="packszam.resx">
+      <DependentUpon>packszam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="packter.resx">
       <DependentUpon>packter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="paletta.resx">
       <DependentUpon>paletta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pepsinon.resx">
+      <DependentUpon>pepsinon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pf.resx">
       <DependentUpon>pf.cs</DependentUpon>

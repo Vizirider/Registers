@@ -31,6 +31,7 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			// blending datatable with datagridview
 					const string Select = "SELECT * FROM blendella";
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();

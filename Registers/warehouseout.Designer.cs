@@ -118,7 +118,7 @@ namespace Liquidinster
 			this.textBox2.Location = new System.Drawing.Point(128, 75);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(210, 20);
-			this.textBox2.TabIndex = 3;
+			this.textBox2.TabIndex = 1;
 			// 
 			// label4
 			// 
@@ -134,7 +134,7 @@ namespace Liquidinster
 			this.textBox3.Location = new System.Drawing.Point(128, 107);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(210, 20);
-			this.textBox3.TabIndex = 5;
+			this.textBox3.TabIndex = 2;
 			// 
 			// checkBox1
 			// 
@@ -146,9 +146,11 @@ namespace Liquidinster
 			this.checkBox1.Location = new System.Drawing.Point(22, 146);
 			this.checkBox1.Name = "checkBox1";
 			this.checkBox1.Size = new System.Drawing.Size(354, 24);
-			this.checkBox1.TabIndex = 7;
+			this.checkBox1.TabIndex = 3;
 			this.checkBox1.Text = "- Foil undamaged";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.MouseLeave += new System.EventHandler(this.CheckBox1MouseLeave);
+			this.checkBox1.MouseHover += new System.EventHandler(this.CheckBox1MouseHover);
 			// 
 			// checkBox2
 			// 
@@ -160,9 +162,11 @@ namespace Liquidinster
 			this.checkBox2.Location = new System.Drawing.Point(22, 189);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(354, 24);
-			this.checkBox2.TabIndex = 8;
+			this.checkBox2.TabIndex = 4;
 			this.checkBox2.Text = "- ZMP undamaged scannable";
 			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.MouseLeave += new System.EventHandler(this.CheckBox2MouseLeave);
+			this.checkBox2.MouseHover += new System.EventHandler(this.CheckBox2MouseHover);
 			// 
 			// checkBox3
 			// 
@@ -174,9 +178,11 @@ namespace Liquidinster
 			this.checkBox3.Location = new System.Drawing.Point(22, 233);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(354, 24);
-			this.checkBox3.TabIndex = 9;
+			this.checkBox3.TabIndex = 5;
 			this.checkBox3.Text = "- ZEA/GS1 on every boxes without customer address on boxes";
 			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.MouseLeave += new System.EventHandler(this.CheckBox3MouseLeave);
+			this.checkBox3.MouseHover += new System.EventHandler(this.CheckBox3MouseHover);
 			// 
 			// checkBox4
 			// 
@@ -188,9 +194,11 @@ namespace Liquidinster
 			this.checkBox4.Location = new System.Drawing.Point(22, 282);
 			this.checkBox4.Name = "checkBox4";
 			this.checkBox4.Size = new System.Drawing.Size(354, 24);
-			this.checkBox4.TabIndex = 10;
+			this.checkBox4.TabIndex = 6;
 			this.checkBox4.Text = "- ZIL1/ZEX1 pm every box only with address Hilversum";
 			this.checkBox4.UseVisualStyleBackColor = true;
+			this.checkBox4.MouseLeave += new System.EventHandler(this.CheckBox4MouseLeave);
+			this.checkBox4.MouseHover += new System.EventHandler(this.CheckBox4MouseHover);
 			// 
 			// checkBox5
 			// 
@@ -202,9 +210,11 @@ namespace Liquidinster
 			this.checkBox5.Location = new System.Drawing.Point(22, 327);
 			this.checkBox5.Name = "checkBox5";
 			this.checkBox5.Size = new System.Drawing.Size(354, 24);
-			this.checkBox5.TabIndex = 11;
+			this.checkBox5.TabIndex = 7;
 			this.checkBox5.Text = "- Chep Industrial Wooden pallet type used";
 			this.checkBox5.UseVisualStyleBackColor = true;
+			this.checkBox5.MouseLeave += new System.EventHandler(this.CheckBox5MouseLeave);
+			this.checkBox5.MouseHover += new System.EventHandler(this.CheckBox5MouseHover);
 			// 
 			// checkBox6
 			// 
@@ -216,9 +226,11 @@ namespace Liquidinster
 			this.checkBox6.Location = new System.Drawing.Point(22, 375);
 			this.checkBox6.Name = "checkBox6";
 			this.checkBox6.Size = new System.Drawing.Size(354, 24);
-			this.checkBox6.TabIndex = 12;
+			this.checkBox6.TabIndex = 8;
 			this.checkBox6.Text = "- The pallet containes only one Batch";
 			this.checkBox6.UseVisualStyleBackColor = true;
+			this.checkBox6.MouseLeave += new System.EventHandler(this.CheckBox6MouseLeave);
+			this.checkBox6.MouseHover += new System.EventHandler(this.CheckBox6MouseHover);
 			// 
 			// checkBox7
 			// 
@@ -230,9 +242,11 @@ namespace Liquidinster
 			this.checkBox7.Location = new System.Drawing.Point(22, 418);
 			this.checkBox7.Name = "checkBox7";
 			this.checkBox7.Size = new System.Drawing.Size(354, 24);
-			this.checkBox7.TabIndex = 13;
+			this.checkBox7.TabIndex = 9;
 			this.checkBox7.Text = "- Correct Quantity (3x10 boxes / 600kg) on Palett";
 			this.checkBox7.UseVisualStyleBackColor = true;
+			this.checkBox7.MouseLeave += new System.EventHandler(this.CheckBox7MouseLeave);
+			this.checkBox7.MouseHover += new System.EventHandler(this.CheckBox7MouseHover);
 			// 
 			// checkBox8
 			// 
@@ -244,9 +258,11 @@ namespace Liquidinster
 			this.checkBox8.Location = new System.Drawing.Point(22, 458);
 			this.checkBox8.Name = "checkBox8";
 			this.checkBox8.Size = new System.Drawing.Size(354, 24);
-			this.checkBox8.TabIndex = 14;
+			this.checkBox8.TabIndex = 10;
 			this.checkBox8.Text = "- Every boxes are undamaged";
 			this.checkBox8.UseVisualStyleBackColor = true;
+			this.checkBox8.MouseLeave += new System.EventHandler(this.CheckBox8MouseLeave);
+			this.checkBox8.MouseHover += new System.EventHandler(this.CheckBox8MouseHover);
 			// 
 			// checkBox9
 			// 
@@ -257,11 +273,13 @@ namespace Liquidinster
 			this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.checkBox9.Location = new System.Drawing.Point(22, 493);
 			this.checkBox9.Name = "checkBox9";
-			this.checkBox9.Size = new System.Drawing.Size(354, 57);
-			this.checkBox9.TabIndex = 15;
+			this.checkBox9.Size = new System.Drawing.Size(354, 51);
+			this.checkBox9.TabIndex = 11;
 			this.checkBox9.Text = "Only for BOL\r\n\r\n- GS1 on every pallet\r\n";
 			this.checkBox9.TextAlign = System.Drawing.ContentAlignment.TopLeft;
 			this.checkBox9.UseVisualStyleBackColor = true;
+			this.checkBox9.MouseLeave += new System.EventHandler(this.CheckBox9MouseLeave);
+			this.checkBox9.MouseHover += new System.EventHandler(this.CheckBox9MouseHover);
 			// 
 			// dateTimePicker1
 			// 
@@ -289,10 +307,10 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button2.Location = new System.Drawing.Point(179, 539);
+			this.button2.Location = new System.Drawing.Point(176, 549);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(71, 30);
-			this.button2.TabIndex = 69;
+			this.button2.TabIndex = 12;
 			this.button2.Text = "Add";
 			this.button2.UseVisualStyleBackColor = false;
 			this.button2.Click += new System.EventHandler(this.Button2Click);

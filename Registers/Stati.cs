@@ -23,6 +23,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of Stati.
 	/// </summary>
+	/// Production check registers chart
 	public partial class Stati : Form
 	{
 		public Stati()
@@ -38,6 +39,8 @@ namespace Liquidinster
 					Button32Click(null,null);
 			dateTimePicker1.Format = DateTimePickerFormat.Custom;
 			dateTimePicker1.CustomFormat = "yyyy.MM.dd";
+			dateTimePicker2.Format = DateTimePickerFormat.Custom;
+			dateTimePicker2.CustomFormat = "yyyy.MM.dd";
 		}
 		void DateTimePicker1ValueChanged(object sender, EventArgs e)
 		{
@@ -85,7 +88,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.Osszregdatumonkent WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("select (Ossz) AS Ossz from dbo.Osszregdatumonkent WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -99,7 +102,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.Ossznincsregdatumonkent WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Ossz) AS Ossz from dbo.Ossznincsregdatumonkent WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -117,7 +120,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincsliqberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincsliqberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -136,7 +139,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.liqregszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regiszterszam) AS Regiszterszam from dbo.liqregszam WHERE Termeles =('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -154,7 +157,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.liqszazalek WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.liqszazalek WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -175,7 +178,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincsbmpberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincsbmpberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -194,7 +197,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.bmpreg WHERE Termelesdatum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regiszterszam) AS Regiszterszam from dbo.bmpreg WHERE Termelesdatum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -212,7 +215,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.bmpszazalek WHERE Termelesdatum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.bmpszazalek WHERE Termelesdatum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -231,7 +234,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincsblendberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincsblendberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -250,7 +253,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.blendszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam, (Nagy) AS Nagy, (Kicsi) AS Kicsi from dbo.blendszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -271,7 +274,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.blendszazalek WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.blendszazalek WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -292,7 +295,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincssdberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincssdberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -311,7 +314,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.sdregszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regiszterszam) AS Regiszterszam from dbo.sdregszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -330,7 +333,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.sdszazalek WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.sdszazalek WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -349,7 +352,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincspfberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincspfberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -368,7 +371,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.pfregszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regiszterszam) AS Regiszterszam from dbo.pfregszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -386,7 +389,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.pfszazalek WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.pfszazalek WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -405,7 +408,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nincspackberegszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.nincspackberegszam WHERE Datum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -424,7 +427,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.packregszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regiszterszam) AS Regiszterszam from dbo.packregszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -442,7 +445,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.packszazalek WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT Szazalek from dbo.packszazalek WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -461,7 +464,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.liqnemmegszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.liqnemmegszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -480,7 +483,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.bmpnemmegszam WHERE Termelesdatum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.bmpnemmegszam WHERE Termelesdatum = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -499,7 +502,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.blendnemmegsza WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.blendnemmegsza WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -518,7 +521,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.sdnemmegszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.sdnemmegszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -537,7 +540,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.pfnemmegszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.pfnemmegszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -556,7 +559,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.packnemmegszam WHERE Termeles = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT (Regszam) AS Regszam from dbo.packnemmegszam WHERE Termeles = ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -575,7 +578,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nemmegliqszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT COALESCE(SUM(Regszam),0) AS Regszam from dbo.nemmegliqszam WHERE Datum BETWEEN ('" + dateTimePicker1.Text + "') AND ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -584,17 +587,16 @@ namespace Liquidinster
 					textBox24.Text = (read["Regszam"].ToString());	
 					textBox24.BackColor = Color.White;					
 					}
-				else{
-					textBox24.Text = "0";
+				if (textBox24.Text == "0"){
 					textBox24.BackColor = Color.Green;
-				}
+				}				
 				}	
 		}
 		void Button17Click(object sender, EventArgs e)
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nemmegaklszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT COALESCE(SUM(Regszam),0) AS Regszam from dbo.nemmegaklszam WHERE Datum BETWEEN ('" + dateTimePicker1.Text + "') AND ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -603,8 +605,7 @@ namespace Liquidinster
 					textBox23.Text = (read["Regszam"].ToString());	
 					textBox23.BackColor = Color.White;					
 					}
-				else{
-					textBox23.Text = "0";
+				if (textBox23.Text == "0"){
 					textBox23.BackColor = Color.Green;
 				}
 				}	
@@ -613,7 +614,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nemmegbmpszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT COALESCE(SUM(Regszam),0) AS Regszam from dbo.nemmegbmpszam WHERE Datum BETWEEN ('" + dateTimePicker1.Text + "') AND ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -622,8 +623,7 @@ namespace Liquidinster
 					textBox22.Text = (read["Regszam"].ToString());	
 					textBox22.BackColor = Color.White;					
 					}
-				else{
-					textBox22.Text = "0";
+				if(textBox22.Text == "0"){
 					textBox22.BackColor = Color.Green;
 				}
 				}	
@@ -632,7 +632,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nemmegblendszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT COALESCE(SUM(Regszam),0) AS Regszam from dbo.nemmegblendszam WHERE Datum BETWEEN ('" + dateTimePicker1.Text + "') AND ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -641,8 +641,7 @@ namespace Liquidinster
 					textBox21.Text = (read["Regszam"].ToString());	
 					textBox21.BackColor = Color.White;					
 					}
-				else{
-					textBox21.Text = "0";
+				if(textBox21.Text == "0"){
 					textBox21.BackColor = Color.Green;
 				}
 				}	
@@ -651,7 +650,7 @@ namespace Liquidinster
 		{
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
-					new SqlCommand("select * from dbo.nemmegpackszam WHERE Datum = ('" + dateTimePicker1.Text + "')", connection);
+					new SqlCommand("SELECT COALESCE(SUM(Regszam),0) AS Regszam from dbo.nemmegpackszam WHERE Datum BETWEEN ('" + dateTimePicker1.Text + "') AND ('" + dateTimePicker2.Text + "')", connection);
 				connection.Open();
 				
 				SqlDataReader read = command.ExecuteReader();
@@ -660,8 +659,7 @@ namespace Liquidinster
 					textBox25.Text = (read["Regszam"].ToString());	
 					textBox25.BackColor = Color.White;					
 					}
-				else{
-					textBox25.Text = "0";
+				if(textBox25.Text == "0"){
 					textBox25.BackColor = Color.Green;
 				}
 				}	
@@ -714,6 +712,36 @@ namespace Liquidinster
             g.DrawPie(p, rec, deg1, deg2);
             g.FillPie(b2, rec, deg1, deg2);
           
+		}
+		void TextBox24MouseDown(object sender, MouseEventArgs e)
+		{
+		Registers.Liqszam liqes = new Registers.Liqszam(this.dateTimePicker1.Text, this.dateTimePicker2.Text);
+		liqes.Show();	
+		}
+		void TextBox23MouseDown(object sender, MouseEventArgs e)
+		{
+		Registers.aklszam akl = new Registers.aklszam(this.dateTimePicker1.Text, this.dateTimePicker2.Text);
+		akl.Show();		
+		}
+		void TextBox22MouseDown(object sender, MouseEventArgs e)
+		{
+		Registers.bmpszam bmp = new Registers.bmpszam(this.dateTimePicker1.Text, this.dateTimePicker2.Text);
+		bmp.Show();		
+		}
+		void TextBox21MouseDown(object sender, MouseEventArgs e)
+		{
+		Registers.blendszam blend = new Registers.blendszam(this.dateTimePicker1.Text, this.dateTimePicker2.Text);
+		blend.Show();		
+		}
+		void TextBox25MouseDown(object sender, MouseEventArgs e)
+		{
+		Registers.packszam pack = new Registers.packszam(this.dateTimePicker1.Text, this.dateTimePicker2.Text);
+		pack.Show();	
+		}
+		void Button34Click(object sender, EventArgs e)
+		{
+			Registers.pepsinon pepsi = new Registers.pepsinon();
+			pepsi.Show();
 		}
 			
 		}

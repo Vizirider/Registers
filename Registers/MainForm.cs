@@ -21,7 +21,7 @@ namespace Liquidinster
 {
 	/// <summary>
 	/// Description of MainForm.
-	/// PepsiCo regiszterek
+	/// PepsiCo registers
 	/// </summary>
 	public partial class MainForm : Form
 	{
@@ -35,6 +35,9 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			
+			// Format week and datetimepicker to standard
+			
 			System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.CurrentCulture;
 			int weekNum = cul.Calendar.GetWeekOfYear(
    			DateTime.Now, 
@@ -60,6 +63,8 @@ namespace Liquidinster
 
 		void Button44Click(object sender, EventArgs e)
 		{
+			// Each stored procedure from production datatable to another 
+			
 				SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			
@@ -818,6 +823,7 @@ namespace Liquidinster
 		}
 		void Button49Click(object sender, EventArgs e)
 		{
+			// Open akl form with textbox instance (username)
 			Aklinsert akl = new Aklinsert(this.textBox11.Text);
 			akl.Show();
 		}
@@ -851,7 +857,8 @@ namespace Liquidinster
 			label8.Text = "table";
 			label16.Text = "the PO number";
 			label18.Text = "palletisation";	
-			button71.Text = "delete";			
+			button71.Text = "delete";	
+			button82.Text = "delete";			
 			button43.Text = "Search";
 			}
 			else if(button72.Text == "Lang")
@@ -868,6 +875,7 @@ namespace Liquidinster
 			label16.Text = "adott POszam";
 			label18.Text = "palettázós";	
 			button71.Text = "törlés";	
+			button82.Text = "kivétel";
 			button43.Text = "Keres";			
 			}		
 		}
@@ -974,12 +982,12 @@ namespace Liquidinster
 		}
 		void Button66Click(object sender, EventArgs e)
 		{
-			aklr akl = new aklr(this.textBox11.Text,this.textBox9.Text);
+			aklro akl = new aklro(this.textBox11.Text,this.textBox9.Text);
 			akl.Show();	
 		}
 		void Button69Click(object sender, EventArgs e)
 		{
-			bmpr bmp = new bmpr(this.textBox11.Text,this.textBox9.Text);
+			bmpro bmp = new bmpro(this.textBox11.Text,this.textBox9.Text);
 			bmp.Show();	
 		}
 		void Button68Click(object sender, EventArgs e)
@@ -994,6 +1002,8 @@ namespace Liquidinster
 		}
 		void Button70Click(object sender, EventArgs e)
 		{
+			
+			// Pepsico excel from V folder
 			if(comboBox1.Text == ""){
 			System.Diagnostics.Process proc = new System.Diagnostics.Process();
 			proc.StartInfo.FileName = @"V:\ROC\PepsiCo ROC summary 2014-2015.xlsx";
@@ -1018,6 +1028,9 @@ namespace Liquidinster
 			}
 		}
 		void Button71Click(object sender, EventArgs e)
+		{
+		DialogResult dialogResult = MessageBox.Show("Are you sure?", "Delete Register from " + comboBox2.Text, MessageBoxButtons.YesNo);
+		if(dialogResult == DialogResult.Yes)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
@@ -1061,7 +1074,19 @@ namespace Liquidinster
 			cmd10.ExecuteNonQuery();
 			Button43Click(sender, e);
 			}
+			else if(comboBox2.Text == "PEPSICO")
+			{
+			SqlCommand cmd11 = new SqlCommand(@"DELETE FROM dbo.pepsiall  WHERE POszam = ('" + textBox9.Text +"')",conn);
+			SqlCommand cmd12 = new SqlCommand(@"DELETE FROM dbo.pepsiall  WHERE POszam = ('" + textBox9.Text +"')",conn);
+			cmd11.ExecuteNonQuery();
+			cmd12.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
 			conn.Close();
+		}
+		else{
+			
+		}
 		}
 
 		void Button73Click(object sender, EventArgs e)
@@ -1217,28 +1242,64 @@ namespace Liquidinster
 		}
 		void DataGridView10CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DateTime date = Convert.ToDateTime("2016-08-21");
+			if(dateTimePicker1.Value < date){			
+			Liquido liqo = new Liquido(this.textBox11.Text, this.dataGridView10.CurrentCell.Value.ToString());
+			liqo.Show();	
+			}
+			else{
 			Liquid liq = new Liquid(this.textBox11.Text, this.dataGridView10.CurrentCell.Value.ToString());
-			liq.Show();	
+			liq.Show();				
+			}
 		}
 		void DataGridView9CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DateTime date = Convert.ToDateTime("2016-08-21");
+		
+			if(dateTimePicker1.Value < date){
+			aklro aklo = new aklro(this.textBox11.Text,this.dataGridView9.CurrentCell.Value.ToString());
+			aklo.Show();					
+			}
+			else{
 			aklr akl = new aklr(this.textBox11.Text,this.dataGridView9.CurrentCell.Value.ToString());
 			akl.Show();	
+			}
 		}
 		void DataGridView8CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DateTime date = Convert.ToDateTime("2016-08-21");
+			if(dateTimePicker1.Value < date){
+			bmpro bmpo = new bmpro(this.textBox11.Text, this.dataGridView8.CurrentCell.Value.ToString());
+			bmpo.Show();	
+			}
+			else{
 			bmpr bmp = new bmpr(this.textBox11.Text, this.dataGridView8.CurrentCell.Value.ToString());
-			bmp.Show();		
+			bmp.Show();				
+			}
 		}
 		void DataGridView7CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DateTime date = Convert.ToDateTime("2016-08-21");
+			if(dateTimePicker1.Value < date){
+			blendro blendo = new blendro(this.textBox11.Text,this.dataGridView7.CurrentCell.Value.ToString());
+			blendo.Show();				
+			}
+			else{
 			blendr blend = new blendr(this.textBox11.Text,this.dataGridView7.CurrentCell.Value.ToString());
-			blend.Show();	
+			blend.Show();
+			}
 		}
 		void DataGridView6CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DateTime date = Convert.ToDateTime("2016-08-21");
+			if(dateTimePicker1.Value < date){
+			packrcso packo = new packrcso(this.textBox11.Text,this.dataGridView6.CurrentCell.Value.ToString());
+			packo.Show();	
+			}
+			else{
 			packrcs pack = new packrcs(this.textBox11.Text,this.dataGridView6.CurrentCell.Value.ToString());
 			pack.Show();	
+			}
 		}
 		void Button79Click(object sender, EventArgs e)
 		{
@@ -1266,6 +1327,8 @@ namespace Liquidinster
 		}
 		void Button72Click(object sender, EventArgs e)
 		{
+			
+			// Language selector
 			if(button72.Text == "Lang")
 			{
 			button72.Text = "Nyelv";
@@ -1308,9 +1371,16 @@ namespace Liquidinster
 			Statpep stp = new Statpep();
 			stp.Show();
 		}
-		void TextBox9KeyPress(object sender, KeyPressEventArgs e)
+		void Button81Click(object sender, EventArgs e)
 		{
-			if(	e.KeyChar == (char)13)
+			QMtabla qm = new QMtabla();
+			qm.Show();
+		}
+		void TextBox9KeyUp(object sender, KeyEventArgs e)
+		{
+			
+			// Search for the PO-s in each Production Area
+			if (e.KeyCode == Keys.Enter)
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
@@ -1328,13 +1398,52 @@ namespace Liquidinster
 			textBox15.Text = "";
 			textBox14.Text = "";
 			textBox13.Text = "";
-			textBox12.Text = "";				
+			textBox12.Text = "";
 			}
 		}
-		void Button81Click(object sender, EventArgs e)
+		void Button82Click(object sender, EventArgs e)
 		{
-			QMtabla qm = new QMtabla();
-			qm.Show();
+		DialogResult dialogResult = MessageBox.Show("Are you sure?", "n/a in " + comboBox2.Text, MessageBoxButtons.YesNo);
+		if(dialogResult == DialogResult.Yes)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			if(comboBox2.Text == "liquid")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [LIQ] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
+			else if(comboBox2.Text == "akl")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [AKL] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
+			else if(comboBox2.Text == "bmp")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [BMP] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
+			else if(comboBox2.Text == "blending")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [BLEND] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
+			else if(comboBox2.Text == "packingoff")
+			{
+			SqlCommand cmd3 = new SqlCommand(@"UPDATE [dbo].[reportall] SET [PACK_OFF] = 'n/a' WHERE POszam = ('" + textBox1.Text +"')",conn);
+			cmd3.ExecuteNonQuery();
+			Button43Click(sender, e);
+			}
+			conn.Close();
+		}
+		else{
+			
+		}
+	
 		}
 
 

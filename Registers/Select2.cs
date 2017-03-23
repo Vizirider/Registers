@@ -54,5 +54,10 @@ namespace Liquidinster
 			Planningriport plr = new Planningriport();
 			plr.Show();
 		}
+		void Button5Click(object sender, EventArgs e)
+		{
+			LogReg f2 = new LogReg();
+			f2.Show();	
+		}
 	}
 }

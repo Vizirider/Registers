@@ -118,6 +118,7 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button61;
 		private System.Windows.Forms.Button button62;
 		private System.Windows.Forms.Button button63;
+		private System.Windows.Forms.Button button64;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -247,6 +248,7 @@ namespace Liquidinster
 			this.button61 = new System.Windows.Forms.Button();
 			this.button62 = new System.Windows.Forms.Button();
 			this.button63 = new System.Windows.Forms.Button();
+			this.button64 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -511,6 +513,7 @@ namespace Liquidinster
 			// 
 			// label6
 			// 
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label6.Location = new System.Drawing.Point(520, 352);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(161, 24);
@@ -519,6 +522,7 @@ namespace Liquidinster
 			// 
 			// label5
 			// 
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.Location = new System.Drawing.Point(527, 153);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(163, 23);
@@ -527,6 +531,7 @@ namespace Liquidinster
 			// 
 			// label4
 			// 
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label4.Location = new System.Drawing.Point(1226, 153);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(155, 23);
@@ -535,6 +540,7 @@ namespace Liquidinster
 			// 
 			// label3
 			// 
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(320, 153);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(156, 23);
@@ -543,42 +549,51 @@ namespace Liquidinster
 			// 
 			// dataGridView5
 			// 
+			this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView5.Location = new System.Drawing.Point(452, 376);
 			this.dataGridView5.Name = "dataGridView5";
-			this.dataGridView5.Size = new System.Drawing.Size(223, 115);
+			this.dataGridView5.RowHeadersVisible = false;
+			this.dataGridView5.Size = new System.Drawing.Size(225, 115);
 			this.dataGridView5.TabIndex = 74;
 			this.dataGridView5.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView5CellDoubleClick);
 			// 
 			// dataGridView4
 			// 
+			this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView4.Location = new System.Drawing.Point(453, 179);
 			this.dataGridView4.Name = "dataGridView4";
-			this.dataGridView4.Size = new System.Drawing.Size(222, 150);
+			this.dataGridView4.RowHeadersVisible = false;
+			this.dataGridView4.Size = new System.Drawing.Size(224, 150);
 			this.dataGridView4.TabIndex = 73;
 			this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView4CellClick);
 			// 
 			// dataGridView3
 			// 
+			this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Location = new System.Drawing.Point(1145, 179);
+			this.dataGridView3.Location = new System.Drawing.Point(1143, 179);
 			this.dataGridView3.Name = "dataGridView3";
-			this.dataGridView3.Size = new System.Drawing.Size(222, 150);
+			this.dataGridView3.RowHeadersVisible = false;
+			this.dataGridView3.Size = new System.Drawing.Size(226, 150);
 			this.dataGridView3.TabIndex = 72;
 			this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3CellClick);
 			// 
 			// dataGridView2
 			// 
+			this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(228, 179);
 			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(218, 150);
+			this.dataGridView2.RowHeadersVisible = false;
+			this.dataGridView2.Size = new System.Drawing.Size(220, 150);
 			this.dataGridView2.TabIndex = 71;
 			this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2CellClick);
 			// 
 			// label2
 			// 
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label2.Location = new System.Drawing.Point(93, 153);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(155, 23);
@@ -587,10 +602,12 @@ namespace Liquidinster
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 179);
+			this.dataGridView1.Location = new System.Drawing.Point(6, 179);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(210, 150);
+			this.dataGridView1.RowHeadersVisible = false;
+			this.dataGridView1.Size = new System.Drawing.Size(216, 150);
 			this.dataGridView1.TabIndex = 69;
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1CellClick);
 			// 
@@ -608,7 +625,7 @@ namespace Liquidinster
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 20);
 			this.textBox1.TabIndex = 67;
-			this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1KeyPress);
+			this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox1KeyUp);
 			// 
 			// button6
 			// 
@@ -717,6 +734,7 @@ namespace Liquidinster
 			// 
 			// label7
 			// 
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label7.Location = new System.Drawing.Point(1015, 153);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(161, 23);
@@ -725,6 +743,7 @@ namespace Liquidinster
 			// 
 			// label8
 			// 
+			this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label8.Location = new System.Drawing.Point(781, 153);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(163, 23);
@@ -733,18 +752,22 @@ namespace Liquidinster
 			// 
 			// dataGridView6
 			// 
+			this.dataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView6.Location = new System.Drawing.Point(912, 179);
 			this.dataGridView6.Name = "dataGridView6";
+			this.dataGridView6.RowHeadersVisible = false;
 			this.dataGridView6.Size = new System.Drawing.Size(224, 150);
 			this.dataGridView6.TabIndex = 110;
 			this.dataGridView6.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView6CellClick);
 			// 
 			// dataGridView7
 			// 
+			this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView7.Location = new System.Drawing.Point(683, 179);
 			this.dataGridView7.Name = "dataGridView7";
+			this.dataGridView7.RowHeadersVisible = false;
 			this.dataGridView7.Size = new System.Drawing.Size(223, 150);
 			this.dataGridView7.TabIndex = 109;
 			this.dataGridView7.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView7CellClick);
@@ -934,6 +957,7 @@ namespace Liquidinster
 			// 
 			// label11
 			// 
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label11.Location = new System.Drawing.Point(997, 352);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(132, 24);
@@ -942,9 +966,11 @@ namespace Liquidinster
 			// 
 			// dataGridView8
 			// 
+			this.dataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView8.Location = new System.Drawing.Point(912, 376);
 			this.dataGridView8.Name = "dataGridView8";
+			this.dataGridView8.RowHeadersVisible = false;
 			this.dataGridView8.Size = new System.Drawing.Size(223, 115);
 			this.dataGridView8.TabIndex = 211;
 			this.dataGridView8.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView8CellDoubleClick);
@@ -984,7 +1010,7 @@ namespace Liquidinster
 			// button48
 			// 
 			this.button48.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button48.Location = new System.Drawing.Point(1289, 139);
+			this.button48.Location = new System.Drawing.Point(1294, 141);
 			this.button48.Name = "button48";
 			this.button48.Size = new System.Drawing.Size(75, 32);
 			this.button48.TabIndex = 219;
@@ -1294,12 +1320,24 @@ namespace Liquidinster
 			this.button63.Visible = false;
 			this.button63.Click += new System.EventHandler(this.Button63Click);
 			// 
+			// button64
+			// 
+			this.button64.Location = new System.Drawing.Point(857, 101);
+			this.button64.Name = "button64";
+			this.button64.Size = new System.Drawing.Size(75, 23);
+			this.button64.TabIndex = 254;
+			this.button64.Text = "kivétel";
+			this.button64.UseVisualStyleBackColor = true;
+			this.button64.Click += new System.EventHandler(this.Button64Click);
+			// 
 			// MainForm1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(1376, 558);
+			this.Controls.Add(this.button64);
 			this.Controls.Add(this.button62);
 			this.Controls.Add(this.button63);
 			this.Controls.Add(this.button59);

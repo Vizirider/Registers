@@ -119,7 +119,7 @@ namespace Liquidinster
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(104, 24);
 			this.checkBox3.TabIndex = 5;
-			this.checkBox3.Text = "Felcímkézve";
+			this.checkBox3.Text = "Idegenanyag";
 			this.checkBox3.UseVisualStyleBackColor = true;
 			// 
 			// checkBox2

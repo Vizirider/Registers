@@ -28,9 +28,26 @@ namespace Liquidinster
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			this.comboBox2.Text = mws;
-			this.comboBox5.Text = mws;
+//			this.comboBox2.Text = mws;
+//			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					comboBox5.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.comboBox5.Text = mws;				
+				}
+				read.Close();
+			}
+			
 			this.Button5Click(null, null);
 			
 			//
@@ -39,7 +56,23 @@ namespace Liquidinster
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
+		CaptureScreen();
+        printDocument1.Print();
 		}
+		Bitmap memoryImage;
+    
+		private void CaptureScreen()
+	    {
+	        Graphics myGraphics = this.CreateGraphics();
+	        Size s = this.Size;
+	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+	    }
+			void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+			{
+	        e.Graphics.DrawImage(memoryImage, 0, 0);
+			}
 		void Button1Click(object sender, EventArgs e)
 		{
 			OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
@@ -89,12 +122,13 @@ namespace Liquidinster
 					textBox19.Text = (read["Keselezesuta"].ToString());
 					textBox16.Text = (read["Keselezes1"].ToString());
 					textBox17.Text = (read["Keselezes2"].ToString());
-					comboBox5.Text = (read["Ellenorzo"].ToString());
 					textBox20.Text = (read["Bmpall"].ToString());
 					textBox21.Text = (read["Munkakornyezet"].ToString());
 					textBox22.Text = (read["Leiras1"].ToString());
 					textBox23.Text = (read["Megjegyzes"].ToString());
 					comboBox4.Text = (read["Operator2"].ToString());
+					textBox24.Text = (read["Operator4"].ToString());
+					comboBox6.Text = (read["Ellenorzo"].ToString()); 
 					
 				}
 				panel16.Visible |= textBox7.Text == "1";
@@ -107,7 +141,7 @@ namespace Liquidinster
 				panel11.Visible |= textBox14.Text == "1";
 				panel20.Visible |= textBox15.Text == "1";
 				panel19.Visible |= textBox16.Text == "1";
-				panel28.Visible |= textBox17.Text == "1";
+				panel22.Visible |= textBox17.Text == "1";
 				panel36.Visible |= textBox20.Text == "1";
 				panel44.Visible |= textBox21.Text == "1";
 				panel14.Visible |= textBox7.Text == "2";
@@ -124,6 +158,13 @@ namespace Liquidinster
 				panel31.Visible |= textBox20.Text == "2";
 				panel39.Visible |= textBox21.Text == "2";
 				
+				panel21.Visible |= textBox6.Text == "9";
+				panel23.Visible |= textBox6.Text == "7";
+				panel29.Visible |= textBox6.Text == "6";
+				panel30.Visible |= textBox6.Text == "5";
+				panel32.Visible |= textBox6.Text == "4";
+				panel33.Visible |= textBox6.Text == "3";
+				panel34.Visible |= textBox6.Text == "2";
 		}
 		Button6Click(null,null);
 

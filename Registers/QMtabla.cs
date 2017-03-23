@@ -39,7 +39,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM PepsiQM10 ",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM PepsiQM10 Order by Datum DESC",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);

@@ -42,7 +42,7 @@ namespace Liquidinster
 			comboBox1.Font = new Font(comboBox1.Font.FontFamily, 12);
 			const string Select = "Select Order FROM [Sheet1$]";
 			OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
+            Data Source=V:\Production\14 REGISTER\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
 			conn.Open();
 			OleDbDataAdapter dataAdapter = new OleDbDataAdapter(Select, conn);			
 			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
@@ -56,7 +56,7 @@ namespace Liquidinster
 		void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
 		{
             OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
+            Data Source=V:\Production\14 REGISTER\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
 			conn.Open();
 			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$] WHERE [Sheet1$].[Order] LIKE ('" + comboBox1.Text +"%')",conn);
 			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
@@ -73,7 +73,7 @@ namespace Liquidinster
 				void Combobox1KeyUp(object sender, KeyEventArgs e)
 		{
             OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
+            Data Source=V:\Production\14 REGISTER\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
 			conn.Open();
 			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$] WHERE [Sheet1$].[Order] LIKE ('" + comboBox1.Text +"%')",conn);
 			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
@@ -93,7 +93,7 @@ namespace Liquidinster
 		{
             
             OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
+            Data SourceV:\Production\14 REGISTER\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
 			conn.Open();
 			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$] WHERE [Sheet1$].[Order] LIKE ('" + comboBox1.Text +"%')",conn);
 			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
@@ -126,6 +126,9 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Uledeke", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Megfelelohoe", checkBox5.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen hozzáadtad a PO-t", "Üzenet"); 			
@@ -154,6 +157,9 @@ namespace Liquidinster
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
 			        checkBox4.Checked = (bool)read["Ellenorizve"];
 			        comboBox3.Text = (read["Ki"].ToString());
+			        checkBox7.Checked = (bool)read["Uledeke"];
+			        checkBox6.Checked = (bool)read["Idegene"];
+			        checkBox5.Checked = (bool)read["Megfelelohoe"];
 			    }
 			    read.Close();
 			}
@@ -171,7 +177,7 @@ namespace Liquidinster
 		void ComboBox1KeyPress(object sender, KeyPressEventArgs e)
 		{
             OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
+            Data Source=V:\Production\14 REGISTER\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
 			conn.Open();
 			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$] WHERE [Sheet1$].[Order] LIKE ('" + comboBox1.Text +"%')",conn);
 			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);

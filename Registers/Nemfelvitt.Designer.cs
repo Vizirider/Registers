@@ -40,6 +40,8 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.DataGridView dataGridView7;
 		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label10;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -88,6 +90,8 @@ namespace Liquidinster
 			this.label9 = new System.Windows.Forms.Label();
 			this.dataGridView7 = new System.Windows.Forms.DataGridView();
 			this.button9 = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -320,6 +324,22 @@ namespace Liquidinster
 			this.button9.Visible = false;
 			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(683, 11);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(100, 20);
+			this.textBox1.TabIndex = 53;
+			this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox1KeyUp);
+			// 
+			// label10
+			// 
+			this.label10.Location = new System.Drawing.Point(548, 14);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(129, 23);
+			this.label10.TabIndex = 52;
+			this.label10.Text = "Pepsico PO:";
+			// 
 			// Nemfelvitt
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +347,8 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.Color.SkyBlue;
 			this.ClientSize = new System.Drawing.Size(930, 640);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.label10);
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.dataGridView7);
@@ -362,6 +384,7 @@ namespace Liquidinster
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 	}

@@ -19,6 +19,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of Form12.
 	/// </summary>
+	/// small blend register datagridview form
 	public partial class Form12 : Form
 	{
 		public Form12(string mws)

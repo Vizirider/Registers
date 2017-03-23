@@ -22,6 +22,7 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.Button button5;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -53,6 +54,7 @@ namespace Liquidinster
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.button8 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -134,11 +136,22 @@ namespace Liquidinster
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(319, 12);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(75, 23);
+			this.button5.TabIndex = 17;
+			this.button5.Text = "Login";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
 			// Select1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(406, 344);
+			this.Controls.Add(this.button5);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -147,6 +160,7 @@ namespace Liquidinster
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox8);
 			this.Controls.Add(this.button3);
+			this.MaximizeBox = false;
 			this.Name = "Select1";
 			this.Text = "Warehouse Registers";
 			this.ResumeLayout(false);

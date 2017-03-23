@@ -20,6 +20,7 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of Warehouse.
 	/// </summary>
+	///  Warehouse pepsico register with insert sql table
 	public partial class Warehouse : Form
 	{
 		public Warehouse(string mws)
@@ -46,8 +47,8 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.warehouse (POszam, Pallets, Batch, Matdep, Matcom, Labsled, Zealab, Zexlab, Corpal, Thegood, Thepall, Corrquan, Quantity, Packun, Nobox, Palletli, Mocklab, Datum, Ellenorzo)  VALUES 
-			(@POszam, @Pallets, @Batch, @Matdep, @Matcom, @Labsled, @Zealab, @Zexlab, @Corpal, @Thegood, @Thepall, @Corrquan, @Quantity, @Packun, @Nobox, @Palletli, @Mocklab, @Datum, @Ellenorzo)",conn);
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.warehouse (POszam, Pallets, Batch, Matdep, Matcom, Labsled, Zealab, Zexlab, Thegood, Thepall, Corrquan, Quantity, Packun, Nobox, Palletli, Zmp, Mocklab, Datum, Ellenorzo, Givfelirat, Givfolia, Chepp, Chepw, Euro, Standard, Megjegy)  VALUES 
+			(@POszam, @Pallets, @Batch, @Matdep, @Matcom, @Labsled, @Zealab, @Zexlab, @Thegood, @Thepall, @Corrquan, @Quantity, @Packun, @Nobox, @Palletli, @Zmp, @Mocklab, @Datum, @Ellenorzo, @Givfelirat, @Givfolia, @Chepp, @Chepw, @Euro, @Standard, @Megjegy)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Pallets", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Batch", textBox2.Text));
@@ -56,17 +57,24 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Labsled", checkBox3.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Zealab", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Zexlab", checkBox5.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Corpal", checkBox6.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Thegood", checkBox7.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Thepall", checkBox8.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Corrquan", checkBox9.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Thegood", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Thepall", checkBox7.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Corrquan", checkBox8.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Packun", checkBox9.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Quantity", textBox3.Text));
-			cmd.Parameters.Add(new SqlParameter("@Packun", checkBox10.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Nobox", checkBox11.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Palletli", checkBox12.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Nobox", checkBox10.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Palletli", checkBox11.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Zmp", checkBox12.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Mocklab", checkBox13.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Givfelirat", checkBox15.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Givfolia", checkBox14.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
+			cmd.Parameters.Add(new SqlParameter("@Chepp", checkBox19.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Chepw", checkBox18.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Euro", checkBox17.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Standard", checkBox16.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Megjegy", textBox4.Text));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 
@@ -88,6 +96,8 @@ namespace Liquidinster
 			checkBox11.Checked = true;
 			checkBox12.Checked = true;
 			checkBox13.Checked = true;
+			checkBox14.Checked = true;
+			checkBox15.Checked = true;
 		}
 	}
 }

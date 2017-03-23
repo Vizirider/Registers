@@ -21,7 +21,7 @@ namespace Liquidinster
 {
 	/// <summary>
 	/// Description of Form3.
-	/// Ez a bejelentkezés, név+jelszó
+	/// This is login with Username, Password by Area
 	/// </summary>
 	public partial class Login : Form
 	{
@@ -31,9 +31,11 @@ namespace Liquidinster
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			// Excection error handling server
 			const string Select = "SELECT UserName FROM LoginUser";
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			using 
+				(SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")){
+	    try{
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter(Select, conn);			
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -44,95 +46,117 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			}
+	    catch(Exception)
+	    {
+		MessageBox.Show("Don't have permission to acces! Turn to the local IT group", "Warning");	    	
+	    }
+		}
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
 		{
+			// Login to 3 area (Production, Warehouse, Planning)
+			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
+			{
+			MessageBox.Show("Missing information to enter!", "Message");				
+			}
 				SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 				conn.Open();
-				SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT count(*) FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
-				SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-				DataTable dt = new DataTable();
-				dataAdapter.Fill(dt);				
-				if(dt.Rows[0][0].ToString() == "1" && comboBox1.Text != "planner" && comboBox1.Text != "warehouse" && comboBox1.Text != "ATI" && comboBox1.Text != "ati" && comboBox1.Text != "ige" && comboBox1.Text != "shipping" && comboBox1.Text != "izsaig" && comboBox1.Text != "tothb1" && comboBox1.Text != "csernusi" && comboBox1.Text != "mazane" && comboBox1.Text != "gen" && comboBox1.Text != "gbu" && comboBox1.Text != "lengyelg" && comboBox1.Text != "elekn" && comboBox1.Text != "kietai" && comboBox1.Text != "kubinyib"){
+				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
+				SqlDataReader read= command.ExecuteReader();
+				while (read.Read())
+				{
+				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
 				sc.Show();
 				}
-				else if( comboBox1.Text == "warehouse" && textBox1.Text == "warehouse" || comboBox1.Text == "ATI" && textBox1.Text == "ati007" || comboBox1.Text == "ige" && textBox1.Text == "ige75" || comboBox1.Text == "shipping" && textBox1.Text == "shipping" || comboBox1.Text == "izsaig" && textBox1.Text == "gabyyy" || comboBox1.Text == "tothb1" && textBox1.Text == "tothb1" || comboBox1.Text == "gen" && textBox1.Text == "gen49" || comboBox1.Text == "gbu" && textBox1.Text == "gbu113" || comboBox1.Text == "lengyelg" && textBox1.Text == "gabor74" || comboBox1.Text == "elekn" && textBox1.Text == "elekn" || comboBox1.Text == "kietai" && textBox1.Text == "kietai" || comboBox1.Text == "kubinyib" && textBox1.Text == "Dorina05"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Warehouse"){
 				Select1 sc1 = new Select1(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc1.Show();
 				}
-				else if( comboBox1.Text == "planner" && textBox1.Text == "planner" || comboBox1.Text == "csernusi" && textBox1.Text == "wanted" || comboBox1.Text == "mazane" && textBox1.Text == "mazane"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Planning"){
 				Select2 sc2 = new Select2(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc2.Show();
 				}
 				else{
-					MessageBox.Show("Nincs jogosultságod", "Üzenet");
+					MessageBox.Show("You don't have permission", "Message");
 				}
-				
+				}
 		}
 		}
 		void Button1KeyPress(object sender, KeyPressEventArgs e)
 		{
+		{
+			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
 			{
+			MessageBox.Show("Missing information to enter!", "Message");				
+			}
 				SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 				conn.Open();
-				SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT count(*) FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
-				SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-				DataTable dt = new DataTable();
-				dataAdapter.Fill(dt);				
-				if(dt.Rows[0][0].ToString() == "1" && comboBox1.Text != "planner" && comboBox1.Text != "warehouse" && comboBox1.Text != "ATI" && comboBox1.Text != "ati" && comboBox1.Text != "ige" && comboBox1.Text != "shipping" && comboBox1.Text != "izsaig" && comboBox1.Text != "tothb1" && comboBox1.Text != "csernusi" && comboBox1.Text != "mazane" && comboBox1.Text != "gen" && comboBox1.Text != "gbu" && comboBox1.Text != "lengyelg" && comboBox1.Text != "elekn" && comboBox1.Text != "kietai" && comboBox1.Text != "kubinyib"){
+				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
+				SqlDataReader read= command.ExecuteReader();
+				while (read.Read())
+				{
+				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
 				sc.Show();
 				}
-				else if( comboBox1.Text == "warehouse" && textBox1.Text == "warehouse" || comboBox1.Text == "ATI" && textBox1.Text == "ati007" || comboBox1.Text == "ige" && textBox1.Text == "ige75" || comboBox1.Text == "shipping" && textBox1.Text == "shipping" || comboBox1.Text == "izsaig" && textBox1.Text == "gabyyy" || comboBox1.Text == "tothb1" && textBox1.Text == "tothb1" || comboBox1.Text == "gen" && textBox1.Text == "gen49" || comboBox1.Text == "gbu" && textBox1.Text == "gbu113" || comboBox1.Text == "lengyelg" && textBox1.Text == "gabor74" || comboBox1.Text == "elekn" && textBox1.Text == "elekn" || comboBox1.Text == "kietai" && textBox1.Text == "kietai" || comboBox1.Text == "kubinyib" && textBox1.Text == "Dorina05"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Warehouse"){
 				Select1 sc1 = new Select1(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc1.Show();
 				}
-				else if( comboBox1.Text == "planner" && textBox1.Text == "planner" || comboBox1.Text == "csernusi" && textBox1.Text == "wanted" || comboBox1.Text == "mazane" && textBox1.Text == "mazane"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Planning"){
 				Select2 sc2 = new Select2(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc2.Show();
 				}
 				else{
-					MessageBox.Show("Nincs jogosultságod", "Üzenet");
+					MessageBox.Show("You don't have permission", "Message");
 				}
-			}
-		}
+				}
+				
+		}		}
 		void Button1KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Enter){
-			
+			if (e.KeyCode == Keys.Enter)
+		{
+			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
+			{
+			MessageBox.Show("Missing information to enter!", "Message");				
+			}
 				SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 				conn.Open();
-				SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT count(*) FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
-				SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-				DataTable dt = new DataTable();
-				dataAdapter.Fill(dt);				
-				if(dt.Rows[0][0].ToString() == "1" && comboBox1.Text != "planner" && comboBox1.Text != "warehouse" && comboBox1.Text != "ATI" && comboBox1.Text != "ati" && comboBox1.Text != "ige" && comboBox1.Text != "shipping" && comboBox1.Text != "izsaig" && comboBox1.Text != "tothb1" && comboBox1.Text != "csernusi" && comboBox1.Text != "mazane" && comboBox1.Text != "gen" && comboBox1.Text != "gbu" && comboBox1.Text != "lengyelg" && comboBox1.Text != "elekn" && comboBox1.Text != "kietai" && comboBox1.Text != "kubinyib"){
+				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
+				SqlDataReader read= command.ExecuteReader();
+				while (read.Read())
+				{
+				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
 				sc.Show();
 				}
-				else if( comboBox1.Text == "warehouse" && textBox1.Text == "warehouse" || comboBox1.Text == "ATI" && textBox1.Text == "ati007" || comboBox1.Text == "ige" && textBox1.Text == "ige75" || comboBox1.Text == "shipping" && textBox1.Text == "shipping" || comboBox1.Text == "izsaig" && textBox1.Text == "gabyyy" || comboBox1.Text == "tothb1" && textBox1.Text == "tothb1" || comboBox1.Text == "gen" && textBox1.Text == "gen49" || comboBox1.Text == "gbu" && textBox1.Text == "gbu113" || comboBox1.Text == "lengyelg" && textBox1.Text == "gabor74" || comboBox1.Text == "elekn" && textBox1.Text == "elekn" || comboBox1.Text == "kietai" && textBox1.Text == "kietai" || comboBox1.Text == "kubinyib" && textBox1.Text == "Dorina05"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Warehouse"){
 				Select1 sc1 = new Select1(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc1.Show();
 				}
-				else if( comboBox1.Text == "planner" && textBox1.Text == "planner" || comboBox1.Text == "csernusi" && textBox1.Text == "wanted" || comboBox1.Text == "mazane" && textBox1.Text == "mazane"){
+				else if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Planning"){
 				Select2 sc2 = new Select2(this.comboBox1.Text);
-
+				Button3Click(null,null);
 				sc2.Show();
 				}
 				else{
-					MessageBox.Show("Nincs jogosultságod", "Üzenet");
+					MessageBox.Show("You don't have permission", "Message");
 				}
-			}
+				}
+				
+		}
 								
 		}
 		public string MWS{
@@ -143,6 +167,7 @@ namespace Liquidinster
 			Regist reg = new Regist();
 			reg.Show();
 		}
+		// Log file
 		void Button3Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
@@ -153,14 +178,15 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Date", DateTime.Now));
 			cmd.ExecuteNonQuery();
 		}
+		// About 
 		void Label3Click(object sender, EventArgs e)
 		{
-		MessageBox.Show("1.0 verzió: Production: PepsiCo, Gyártásellenőrzés, Ellenőrzési napló műszakbeosztással, \n Blending Timesheet, Warehouse: PepsiCo, Planning: PepsiCo, RIPORTOK", "Üzenet");
+		MessageBox.Show("1.0 version: Production: PepsiCo, Production check, Audit log with shift handover, \n Blending Timesheet, Warehouse: PepsiCo, Planning: PepsiCo, Riports", "Message");
 		}
 		void Label3MouseHover(object sender, EventArgs e)
 		{
             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(this.label3, "1.0 verzió: Production: PepsiCo, Gyártásellenőrzés, Ellenőrzési napló műszakbeosztással, \n Blending Timesheet, Warehouse: PepsiCo, Planning: PepsiCo, RIPORTOK");
+            ToolTip1.SetToolTip(this.label3, "1.0 version: Production: PepsiCo, Production check, Audit log with shift handover, \n Blending Timesheet, Warehouse: PepsiCo, Planning: PepsiCo, Riports");
 		}
 		
 	}

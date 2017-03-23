@@ -48,7 +48,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT [POszam],[SOszam],[Gep],[WH],[LIQ],[AKL],[BMP],[BLEND],[SD],[PF],[PACK_OFF],[Datum] FROM reportalls WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT [POszam],[SOszam],[WH],[LIQ],[AKL],[BMP],[BLEND],[SD],[PF],[PACK_OFF],[Datum] FROM reportall WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);

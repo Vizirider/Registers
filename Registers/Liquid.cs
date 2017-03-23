@@ -60,6 +60,24 @@ namespace Liquidinster
 			        dateTimePicker1.Text = Convert.ToDateTime(read["Datum"]).ToString();
 			        comboBox2.Text = (read["Ellenorzo"].ToString());
 			        comboBox3.Text = (read["Ki"].ToString());
+			        if(read["Uledeke"] == DBNull.Value){
+			        checkBox5.Checked = false;			        	
+			        }
+			        else{
+			        checkBox5.Checked = (bool)read["Uledeke"];			        	
+			        }
+			        if(read["Idegene"] == DBNull.Value){
+			        checkBox6.Checked = false;			        	
+			        }
+			        else{
+			        checkBox6.Checked = (bool)read["Idegene"];			        	
+			        }
+			        if(read["Megfelelohoe"] == DBNull.Value){
+			        checkBox7.Checked = false;			        	
+			        }
+			        else{
+			        checkBox7.Checked = (bool)read["Megfelelohoe"];			        	
+			        }		        
 			    }
 			    read.Close();
 			}
@@ -78,7 +96,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Update dbo.liquida set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, Kimerve = @Kimerve, Felrazva = @Felrazva, Felcimkezve = @Felcimkezve, Kannaszam = @Kannaszam, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki 
+			SqlCommand cmd = new SqlCommand(@"Update dbo.liquida set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, Kimerve = @Kimerve, Felrazva = @Felrazva, Felcimkezve = @Felcimkezve, Kannaszam = @Kannaszam, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki, Uledeke = @Uledeke, Idegene = @Idegene, Megfelelohoe = @Megfelelohoe 
 			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
@@ -92,6 +110,9 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
+			cmd.Parameters.Add(new SqlParameter("@Uledeke", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Megfelelohoe", checkBox4.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen Módosítottad a PO-t", "Üzenet"); 
@@ -111,7 +132,18 @@ namespace Liquidinster
 			{
 				checkBox3.BackColor = Color.Red;
 			}
-	
+			if(checkBox5.Checked == true)
+			{
+				checkBox5.BackColor = Color.Red;
+			}
+			if(checkBox6.Checked == true)
+			{
+				checkBox6.BackColor = Color.Red;
+			}
+			if(checkBox7.Checked == false)
+			{
+				checkBox7.BackColor = Color.Red;
+			}			
 		}
 	}
 }

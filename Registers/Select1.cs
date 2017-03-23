@@ -49,5 +49,10 @@ namespace Liquidinster
 			Statwh sw = new Statwh();
 			sw.Show();
 		}
+		void Button5Click(object sender, EventArgs e)
+		{
+			LogReg f2 = new LogReg();
+			f2.Show();	
+		}
 	}
 }

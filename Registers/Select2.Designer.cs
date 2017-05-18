@@ -122,6 +122,8 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox8);
 			this.Controls.Add(this.button3);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(402, 364);
+			this.MinimumSize = new System.Drawing.Size(402, 364);
 			this.Name = "Select2";
 			this.Text = "Planner register";
 			this.ResumeLayout(false);

@@ -210,6 +210,8 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button8;
 		private System.Drawing.Printing.PrintDocument printDocument1;
 		private System.Windows.Forms.ComboBox comboBox4;
+		private System.Windows.Forms.Panel panel83;
+		private System.Windows.Forms.Panel panel82;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -234,6 +236,8 @@ namespace Liquidinster
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pf));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel83 = new System.Windows.Forms.Panel();
+			this.panel82 = new System.Windows.Forms.Panel();
 			this.comboBox4 = new System.Windows.Forms.ComboBox();
 			this.panel80 = new System.Windows.Forms.Panel();
 			this.panel78 = new System.Windows.Forms.Panel();
@@ -437,6 +441,8 @@ namespace Liquidinster
 			// 
 			this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
 			this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.panel1.Controls.Add(this.panel83);
+			this.panel1.Controls.Add(this.panel82);
 			this.panel1.Controls.Add(this.comboBox4);
 			this.panel1.Controls.Add(this.panel80);
 			this.panel1.Controls.Add(this.panel78);
@@ -623,6 +629,26 @@ namespace Liquidinster
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(933, 1340);
 			this.panel1.TabIndex = 0;
+			// 
+			// panel83
+			// 
+			this.panel83.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel83.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel83.Location = new System.Drawing.Point(400, 118);
+			this.panel83.Name = "panel83";
+			this.panel83.Size = new System.Drawing.Size(43, 18);
+			this.panel83.TabIndex = 466;
+			this.panel83.Visible = false;
+			// 
+			// panel82
+			// 
+			this.panel82.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel82.Location = new System.Drawing.Point(138, 118);
+			this.panel82.Name = "panel82";
+			this.panel82.Size = new System.Drawing.Size(43, 18);
+			this.panel82.TabIndex = 465;
+			this.panel82.Visible = false;
 			// 
 			// comboBox4
 			// 
@@ -2185,6 +2211,7 @@ namespace Liquidinster
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(35, 20);
 			this.textBox3.TabIndex = 150;
+			this.textBox3.Visible = false;
 			// 
 			// label1
 			// 
@@ -2351,7 +2378,7 @@ namespace Liquidinster
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(1157, 1024);
+			this.ClientSize = new System.Drawing.Size(1174, 1024);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.button7);
 			this.Controls.Add(this.button9);

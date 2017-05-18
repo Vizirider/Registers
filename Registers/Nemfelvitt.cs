@@ -255,6 +255,7 @@ namespace Liquidinster
 			na.Show();
 		}
 		void Button9Click(object sender, EventArgs e){
+		try{
 			SqlConnection  conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM [_nincswhba]",conn);
@@ -263,7 +264,11 @@ namespace Liquidinster
 			dataAdapter.Fill(ds);
 			dataGridView7.DataSource = ds.Tables[0];
 			dataGridView7.AutoResizeColumns();
-			conn.Close();		
+			conn.Close();	
+			}
+			catch(Exception){
+		MessageBox.Show("Don't have permission to access! Turn to the local IT group", "Warning");
+			}
 		}
 		void TextBox1KeyUp(object sender, KeyEventArgs e)
 		{
@@ -276,8 +281,34 @@ namespace Liquidinster
 			dataGridView2.DataSource = ds.Tables[0];
 			dataGridView2.AutoResizeColumns();	
 		}
+		void Button10Click(object sender, EventArgs e)
+		{
+			TopMost = true;
+			this.Size = new Size(946,300);
+			dataGridView2.Font = new System.Drawing.Font("Verdana",6.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+		this.timer1.Enabled = true;
+	    this.timer1.Interval = 5000;
+	    this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+           PlaceLowerRight();
+            base.OnLoad(e);	
+		}
+		void Timer1Tick(object sender, EventArgs e)
+		{ 
+			Button2Click(null,null);
+		}
+       private void PlaceLowerRight()
+        {
+            //Determine "rightmost" screen
+            Screen rightmost = Screen.AllScreens[0];
+            foreach (Screen screen in Screen.AllScreens)
+            {
+                if (screen.WorkingArea.Right > rightmost.WorkingArea.Right)
+                    rightmost = screen;
+            }
 
-
+            this.Left = rightmost.WorkingArea.Right - this.Width;
+            this.Top = rightmost.WorkingArea.Bottom - this.Height;
+       }
 		
 	}
 }

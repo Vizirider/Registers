@@ -41,6 +41,7 @@ namespace Liquidinster
 		private System.Windows.Forms.CheckBox checkBox17;
 		private System.Windows.Forms.CheckBox checkBox18;
 		private System.Windows.Forms.CheckBox checkBox19;
+		private System.Windows.Forms.Panel panel1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -91,6 +92,7 @@ namespace Liquidinster
 			this.checkBox17 = new System.Windows.Forms.CheckBox();
 			this.checkBox18 = new System.Windows.Forms.CheckBox();
 			this.checkBox19 = new System.Windows.Forms.CheckBox();
+			this.panel1 = new System.Windows.Forms.Panel();
 			this.SuspendLayout();
 			// 
 			// checkBox1
@@ -330,13 +332,21 @@ namespace Liquidinster
 			this.checkBox19.TabIndex = 63;
 			this.checkBox19.UseVisualStyleBackColor = false;
 			// 
+			// panel1
+			// 
+			this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(719, 886);
+			this.panel1.TabIndex = 67;
+			// 
 			// Warehouse
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.AutoScroll = true;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(721, 937);
+			this.ClientSize = new System.Drawing.Size(721, 915);
 			this.Controls.Add(this.checkBox16);
 			this.Controls.Add(this.checkBox17);
 			this.Controls.Add(this.checkBox18);
@@ -364,6 +374,7 @@ namespace Liquidinster
 			this.Controls.Add(this.checkBox3);
 			this.Controls.Add(this.checkBox2);
 			this.Controls.Add(this.checkBox1);
+			this.Controls.Add(this.panel1);
 			this.Name = "Warehouse";
 			this.Text = "REG-114";
 			this.Load += new System.EventHandler(this.Form_load);

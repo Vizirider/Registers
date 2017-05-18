@@ -32,6 +32,10 @@ namespace Liquidinster
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+		private System.Windows.Forms.Button button5;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -57,6 +61,12 @@ namespace Liquidinster
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
 			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.button1 = new System.Windows.Forms.Button();
 			this.textBox14 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -75,7 +85,13 @@ namespace Liquidinster
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.button4 = new System.Windows.Forms.Button();
+			this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.button5 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -237,12 +253,70 @@ namespace Liquidinster
 			this.textBox6.Size = new System.Drawing.Size(86, 20);
 			this.textBox6.TabIndex = 265;
 			// 
+			// chart2
+			// 
+			chartArea2.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chart2.Legends.Add(legend2);
+			this.chart2.Location = new System.Drawing.Point(12, 659);
+			this.chart2.Name = "chart2";
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Series1";
+			this.chart2.Series.Add(series2);
+			this.chart2.Size = new System.Drawing.Size(1445, 652);
+			this.chart2.TabIndex = 269;
+			this.chart2.Text = "chart2";
+			// 
+			// button4
+			// 
+			this.button4.Location = new System.Drawing.Point(681, 486);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(85, 34);
+			this.button4.TabIndex = 270;
+			this.button4.Text = "button4";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Visible = false;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
+			// 
+			// chart3
+			// 
+			chartArea3.Name = "ChartArea1";
+			this.chart3.ChartAreas.Add(chartArea3);
+			legend3.Name = "Legend1";
+			this.chart3.Legends.Add(legend3);
+			this.chart3.Location = new System.Drawing.Point(0, 1308);
+			this.chart3.Name = "chart3";
+			series3.ChartArea = "ChartArea1";
+			series3.Legend = "Legend1";
+			series3.Name = "Series1";
+			this.chart3.Series.Add(series3);
+			this.chart3.Size = new System.Drawing.Size(1445, 652);
+			this.chart3.TabIndex = 271;
+			this.chart3.Text = "chart3";
+			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(681, 657);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(85, 34);
+			this.button5.TabIndex = 272;
+			this.button5.Text = "button5";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Visible = false;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
 			// Stat
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1463, 677);
+			this.ClientSize = new System.Drawing.Size(1463, 675);
+			this.Controls.Add(this.button5);
+			this.Controls.Add(this.chart3);
+			this.Controls.Add(this.button4);
+			this.Controls.Add(this.chart2);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox5);
 			this.Controls.Add(this.label7);
@@ -264,6 +338,8 @@ namespace Liquidinster
 			this.Name = "Stat";
 			this.Text = "Production registers";
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

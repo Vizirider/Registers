@@ -36,7 +36,7 @@ namespace Liquidinster
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-					Button32Click(null,null);
+			Button32Click(null,null);
 			dateTimePicker1.Format = DateTimePickerFormat.Custom;
 			dateTimePicker1.CustomFormat = "yyyy.MM.dd";
 			dateTimePicker2.Format = DateTimePickerFormat.Custom;
@@ -44,8 +44,6 @@ namespace Liquidinster
 		}
 		void DateTimePicker1ValueChanged(object sender, EventArgs e)
 		{
-			
-			this.timer1.Start();
 			Button1Click(null,null);
 			Button2Click(null,null);
 			Button3Click(null,null);
@@ -668,7 +666,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM chart ORDER BY Termeles", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM chart ORDER BY Termeles", conn);	
 			dataAdapter1.Fill(ds);	
 			chart1.DataSource = ds.Tables[0];
 			chart1.Series.Add("Felvittek");
@@ -743,6 +741,7 @@ namespace Liquidinster
 			Registers.pepsinon pepsi = new Registers.pepsinon();
 			pepsi.Show();
 		}
+
 			
 		}
 

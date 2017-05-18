@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class packrcso : Form
 	{
-		public packrcso(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;
+		public packrcso(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -35,6 +36,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 		}
 		void Button3Click(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 						this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)

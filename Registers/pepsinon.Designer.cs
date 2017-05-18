@@ -43,6 +43,20 @@ namespace Registers
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
 		private System.Windows.Forms.Button button18;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dateTimePicker2;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Button button19;
+		private System.Windows.Forms.Button button20;
+		private System.Windows.Forms.Button button21;
+		private System.Windows.Forms.Button button22;
+		private System.Windows.Forms.Button button23;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dataGridView2;
+		private System.Windows.Forms.DataGridView dataGridView3;
+		private System.Windows.Forms.DataGridView dataGridView4;
+		private System.Windows.Forms.DataGridView dataGridView5;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -87,7 +101,6 @@ namespace Registers
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
-			this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.button6 = new System.Windows.Forms.Button();
@@ -109,11 +122,31 @@ namespace Registers
 			this.button16 = new System.Windows.Forms.Button();
 			this.button17 = new System.Windows.Forms.Button();
 			this.button18 = new System.Windows.Forms.Button();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.button19 = new System.Windows.Forms.Button();
+			this.button20 = new System.Windows.Forms.Button();
+			this.button21 = new System.Windows.Forms.Button();
+			this.button22 = new System.Windows.Forms.Button();
+			this.button23 = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.dataGridView3 = new System.Windows.Forms.DataGridView();
+			this.dataGridView4 = new System.Windows.Forms.DataGridView();
+			this.dataGridView5 = new System.Windows.Forms.DataGridView();
+			this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// chart2
@@ -200,50 +233,34 @@ namespace Registers
 			this.button5.UseVisualStyleBackColor = true;
 			this.button5.Visible = false;
 			// 
-			// chart3
+			// chart4
 			// 
 			chartArea3.Name = "ChartArea1";
-			this.chart3.ChartAreas.Add(chartArea3);
+			this.chart4.ChartAreas.Add(chartArea3);
 			legend3.Name = "Legend1";
-			this.chart3.Legends.Add(legend3);
-			this.chart3.Location = new System.Drawing.Point(0, 449);
-			this.chart3.Name = "chart3";
+			this.chart4.Legends.Add(legend3);
+			this.chart4.Location = new System.Drawing.Point(0, 618);
+			this.chart4.Name = "chart4";
 			series3.ChartArea = "ChartArea1";
 			series3.Legend = "Legend1";
 			series3.Name = "Series1";
-			this.chart3.Series.Add(series3);
-			this.chart3.Size = new System.Drawing.Size(1180, 174);
-			this.chart3.TabIndex = 14;
-			this.chart3.Text = "chart3";
-			// 
-			// chart4
-			// 
-			chartArea4.Name = "ChartArea1";
-			this.chart4.ChartAreas.Add(chartArea4);
-			legend4.Name = "Legend1";
-			this.chart4.Legends.Add(legend4);
-			this.chart4.Location = new System.Drawing.Point(0, 618);
-			this.chart4.Name = "chart4";
-			series4.ChartArea = "ChartArea1";
-			series4.Legend = "Legend1";
-			series4.Name = "Series1";
-			this.chart4.Series.Add(series4);
+			this.chart4.Series.Add(series3);
 			this.chart4.Size = new System.Drawing.Size(1180, 174);
 			this.chart4.TabIndex = 15;
 			this.chart4.Text = "chart4";
 			// 
 			// chart5
 			// 
-			chartArea5.Name = "ChartArea1";
-			this.chart5.ChartAreas.Add(chartArea5);
-			legend5.Name = "Legend1";
-			this.chart5.Legends.Add(legend5);
+			chartArea4.Name = "ChartArea1";
+			this.chart5.ChartAreas.Add(chartArea4);
+			legend4.Name = "Legend1";
+			this.chart5.Legends.Add(legend4);
 			this.chart5.Location = new System.Drawing.Point(0, 789);
 			this.chart5.Name = "chart5";
-			series5.ChartArea = "ChartArea1";
-			series5.Legend = "Legend1";
-			series5.Name = "Series1";
-			this.chart5.Series.Add(series5);
+			series4.ChartArea = "ChartArea1";
+			series4.Legend = "Legend1";
+			series4.Name = "Series1";
+			this.chart5.Series.Add(series4);
 			this.chart5.Size = new System.Drawing.Size(1180, 174);
 			this.chart5.TabIndex = 16;
 			this.chart5.Text = "chart5";
@@ -338,7 +355,7 @@ namespace Registers
 			"50",
 			"51",
 			"52"});
-			this.comboBox1.Location = new System.Drawing.Point(662, 13);
+			this.comboBox1.Location = new System.Drawing.Point(398, 14);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(120, 28);
 			this.comboBox1.TabIndex = 116;
@@ -347,7 +364,7 @@ namespace Registers
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label1.Location = new System.Drawing.Point(788, 18);
+			this.label1.Location = new System.Drawing.Point(524, 19);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(45, 23);
 			this.label1.TabIndex = 117;
@@ -411,7 +428,7 @@ namespace Registers
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label2.Location = new System.Drawing.Point(597, 17);
+			this.label2.Location = new System.Drawing.Point(333, 18);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(59, 23);
 			this.label2.TabIndex = 124;
@@ -434,7 +451,7 @@ namespace Registers
 			"10",
 			"11",
 			"12"});
-			this.comboBox3.Location = new System.Drawing.Point(471, 13);
+			this.comboBox3.Location = new System.Drawing.Point(207, 14);
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(120, 28);
 			this.comboBox3.TabIndex = 125;
@@ -455,7 +472,7 @@ namespace Registers
 			"2023",
 			"2024",
 			"2025"});
-			this.comboBox2.Location = new System.Drawing.Point(276, 11);
+			this.comboBox2.Location = new System.Drawing.Point(12, 12);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(120, 28);
 			this.comboBox2.TabIndex = 127;
@@ -464,7 +481,7 @@ namespace Registers
 			// label3
 			// 
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label3.Location = new System.Drawing.Point(402, 15);
+			this.label3.Location = new System.Drawing.Point(138, 16);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 23);
 			this.label3.TabIndex = 126;
@@ -525,11 +542,169 @@ namespace Registers
 			this.button18.Visible = false;
 			this.button18.Click += new System.EventHandler(this.Button18Click);
 			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(738, 16);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(139, 20);
+			this.dateTimePicker1.TabIndex = 133;
+			// 
+			// dateTimePicker2
+			// 
+			this.dateTimePicker2.Location = new System.Drawing.Point(943, 17);
+			this.dateTimePicker2.Name = "dateTimePicker2";
+			this.dateTimePicker2.Size = new System.Drawing.Size(139, 20);
+			this.dateTimePicker2.TabIndex = 134;
+			this.dateTimePicker2.ValueChanged += new System.EventHandler(this.DateTimePicker2ValueChanged);
+			// 
+			// label4
+			// 
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label4.Location = new System.Drawing.Point(687, 18);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(45, 23);
+			this.label4.TabIndex = 135;
+			this.label4.Text = "from";
+			// 
+			// label5
+			// 
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label5.Location = new System.Drawing.Point(892, 20);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(45, 23);
+			this.label5.TabIndex = 136;
+			this.label5.Text = "to";
+			// 
+			// button19
+			// 
+			this.button19.Location = new System.Drawing.Point(495, 249);
+			this.button19.Name = "button19";
+			this.button19.Size = new System.Drawing.Size(75, 23);
+			this.button19.TabIndex = 141;
+			this.button19.Text = "button19";
+			this.button19.UseVisualStyleBackColor = true;
+			this.button19.Visible = false;
+			this.button19.Click += new System.EventHandler(this.Button19Click);
+			// 
+			// button20
+			// 
+			this.button20.Location = new System.Drawing.Point(388, 249);
+			this.button20.Name = "button20";
+			this.button20.Size = new System.Drawing.Size(75, 23);
+			this.button20.TabIndex = 140;
+			this.button20.Text = "button20";
+			this.button20.UseVisualStyleBackColor = true;
+			this.button20.Visible = false;
+			this.button20.Click += new System.EventHandler(this.Button20Click);
+			// 
+			// button21
+			// 
+			this.button21.Location = new System.Drawing.Point(538, 192);
+			this.button21.Name = "button21";
+			this.button21.Size = new System.Drawing.Size(75, 23);
+			this.button21.TabIndex = 139;
+			this.button21.Text = "button21";
+			this.button21.UseVisualStyleBackColor = true;
+			this.button21.Visible = false;
+			this.button21.Click += new System.EventHandler(this.Button21Click);
+			// 
+			// button22
+			// 
+			this.button22.Location = new System.Drawing.Point(412, 181);
+			this.button22.Name = "button22";
+			this.button22.Size = new System.Drawing.Size(75, 23);
+			this.button22.TabIndex = 138;
+			this.button22.Text = "button22";
+			this.button22.UseVisualStyleBackColor = true;
+			this.button22.Visible = false;
+			this.button22.Click += new System.EventHandler(this.Button22Click);
+			// 
+			// button23
+			// 
+			this.button23.Location = new System.Drawing.Point(295, 181);
+			this.button23.Name = "button23";
+			this.button23.Size = new System.Drawing.Size(75, 23);
+			this.button23.TabIndex = 137;
+			this.button23.Text = "button23";
+			this.button23.UseVisualStyleBackColor = true;
+			this.button23.Visible = false;
+			this.button23.Click += new System.EventHandler(this.Button23Click);
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(1186, 55);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView1.TabIndex = 142;
+			// 
+			// dataGridView2
+			// 
+			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView2.Location = new System.Drawing.Point(1186, 279);
+			this.dataGridView2.Name = "dataGridView2";
+			this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView2.TabIndex = 143;
+			// 
+			// dataGridView3
+			// 
+			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView3.Location = new System.Drawing.Point(1186, 460);
+			this.dataGridView3.Name = "dataGridView3";
+			this.dataGridView3.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView3.TabIndex = 144;
+			// 
+			// dataGridView4
+			// 
+			this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView4.Location = new System.Drawing.Point(1186, 642);
+			this.dataGridView4.Name = "dataGridView4";
+			this.dataGridView4.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView4.TabIndex = 145;
+			// 
+			// dataGridView5
+			// 
+			this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView5.Location = new System.Drawing.Point(1186, 813);
+			this.dataGridView5.Name = "dataGridView5";
+			this.dataGridView5.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView5.TabIndex = 146;
+			// 
+			// chart3
+			// 
+			chartArea5.Name = "ChartArea1";
+			this.chart3.ChartAreas.Add(chartArea5);
+			legend5.Name = "Legend1";
+			this.chart3.Legends.Add(legend5);
+			this.chart3.Location = new System.Drawing.Point(0, 449);
+			this.chart3.Name = "chart3";
+			series5.ChartArea = "ChartArea1";
+			series5.Legend = "Legend1";
+			series5.Name = "Series1";
+			this.chart3.Series.Add(series5);
+			this.chart3.Size = new System.Drawing.Size(1180, 174);
+			this.chart3.TabIndex = 14;
+			this.chart3.Text = "chart3";
+			// 
 			// pepsinon
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1175, 966);
+			this.ClientSize = new System.Drawing.Size(1422, 966);
+			this.Controls.Add(this.dataGridView5);
+			this.Controls.Add(this.dataGridView4);
+			this.Controls.Add(this.dataGridView3);
+			this.Controls.Add(this.dataGridView2);
+			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.button19);
+			this.Controls.Add(this.button20);
+			this.Controls.Add(this.button21);
+			this.Controls.Add(this.button22);
+			this.Controls.Add(this.button23);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.dateTimePicker2);
+			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button15);
 			this.Controls.Add(this.button16);
@@ -563,9 +738,14 @@ namespace Registers
 			this.Text = "Pepsico non komformitások";
 			((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
 			this.ResumeLayout(false);
 
 		}

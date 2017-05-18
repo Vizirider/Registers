@@ -72,7 +72,7 @@ namespace Liquidinster
 		{
 		SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.packingoffa (POszam, Anyagkod, Anyagnev, Tisztae, POSszam, IBCdok, POStisztae, Kezitisztae, Szitae, Serulese, Pore, Komment, Datum, Ellenorzo, Ellenorizve, Ki)  VALUES 
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.packingoffa (POszam, Anyagkod, Anyagnev, Tisztae, POSszam, IBCdok, POStisztae, Kezitisztae, Szitae, Serulese, Pore, Komment, Datum, Ellenorzo, Ellenorizve, Ki, Prepordere, Szitaellazone, Beleszsake, Mintaedenyszame, Szinhomogene, Beleszsakzare, Packofffolye, Mintaedenyszamu, Idegene, Vizfolye)  VALUES 
 			(@POszam, @Anyagkod, @Anyagnev, @Tisztae, @POSszam, @IBCdok, @POStisztae, @Kezitisztae, @Szitae, @Serulese, @Pore, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Prepordere, @Szitaellazone,
 			 @Beleszsake, @Mintaedenyszame, @Szinhomogene, @Beleszsakzare, @Packofffolye, @Mintaedenyszamu, @Idegene, @Vizfolye)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
@@ -155,10 +155,6 @@ namespace Liquidinster
 			textBox1.Text = frstcol;
 			textBox2.Text = scndcol;
 			conn.Close();	
-		}
-		void CheckBox1CheckedChanged(object sender, EventArgs e)
-		{
-	
 		}
 	
 		}

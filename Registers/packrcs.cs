@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class packrcs : Form
 	{
-		public packrcs(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;
+		public packrcs(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -35,6 +36,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 			
 			// pack register with instances
@@ -77,7 +79,13 @@ namespace Liquidinster
 			        checkBox13.Checked = (bool)read["Idegene"];
 			        checkBox14.Checked = (bool)read["Vizfolye"];
 			        checkBox4.Checked = (bool)read["Pore"];
+			        if(read["Komment1"].ToString() != "Kattints bele, ha nem azonos")
+			        {
 			        textBox8.Text = (read["Komment1"].ToString());
+			        }
+			        else{
+			        	textBox8.Text = " ";
+			        }
 			    }
 			    read.Close();
 			}
@@ -91,6 +99,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 						this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)
@@ -100,7 +109,7 @@ namespace Liquidinster
 			SqlCommand cmd = new SqlCommand(@"Update dbo.packingoffa Set Tisztae = @Tisztae, POSszam = @POSszam, IBCdok = @IBCdok, POStisztae = @POStisztae, Kezitisztae = @Kezitisztae, 
 			Szitae = @Szitae, Serulese = @Serulese, Pore = @Pore, Prepordere = @Prepordere, Szitaellazone = @Szitaellazone, Beleszsake = @Beleszsake,
 			Mintaedenyszame = @Mintaedenyszame, Mintaedenyszamu = @Mintaedenyszamu, Szinhomogene = @Szinhomogene, Beleszsakzare = @Beleszsakzare, Packofffolye = @Packofffolye, Idegene = @Idegene, Vizfolye = @Vizfolye, Komment = @Komment, Komment1 = @Komment1
-			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
+			WHERE POszam = ('" + comboBox1.Text +"')",conn);
 			cmd.Parameters.Add(new SqlParameter("@Tisztae", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@POSszam", textBox3.Text));
 			cmd.Parameters.Add(new SqlParameter("@IBCdok", textBox4.Text));

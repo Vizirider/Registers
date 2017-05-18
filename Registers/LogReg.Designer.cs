@@ -73,6 +73,7 @@ namespace Liquidinster
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.dataGridView1);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(228, 300);
 			this.Name = "LogReg";
 			this.ShowIcon = false;
 			this.Text = "LogReg";

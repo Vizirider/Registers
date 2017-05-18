@@ -23,7 +23,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class blendro : Form
 	{
-		public blendro(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;
+		public blendro(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 			
 			// old Blender register
@@ -88,6 +90,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 						this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)

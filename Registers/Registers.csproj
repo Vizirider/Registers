@@ -51,9 +51,15 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>C:\Users\vizir\Downloads\itextsharp.xfaworker-dll-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -63,6 +69,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -106,9 +113,17 @@
     <Compile Include="blendingteruj.Designer.cs">
       <DependentUpon>blendingteruj.cs</DependentUpon>
     </Compile>
+    <Compile Include="blendip.cs" />
+    <Compile Include="blendip.Designer.cs">
+      <DependentUpon>blendip.cs</DependentUpon>
+    </Compile>
     <Compile Include="blendkis.cs" />
     <Compile Include="blendkis.Designer.cs">
       <DependentUpon>blendkis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="blendpepsi.cs" />
+    <Compile Include="blendpepsi.Designer.cs">
+      <DependentUpon>blendpepsi.cs</DependentUpon>
     </Compile>
     <Compile Include="blendr.cs" />
     <Compile Include="blendr.Designer.cs">
@@ -145,6 +160,10 @@
     <Compile Include="celebrate.cs" />
     <Compile Include="celebrate.Designer.cs">
       <DependentUpon>celebrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CMS.cs" />
+    <Compile Include="CMS.Designer.cs">
+      <DependentUpon>CMS.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
@@ -210,6 +229,10 @@
     <Compile Include="Form9.Designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPQCQM.cs" />
+    <Compile Include="IPQCQM.Designer.cs">
+      <DependentUpon>IPQCQM.cs</DependentUpon>
+    </Compile>
     <Compile Include="kiskev.cs" />
     <Compile Include="kiskev.Designer.cs">
       <DependentUpon>kiskev.cs</DependentUpon>
@@ -217,6 +240,10 @@
     <Compile Include="kiskevero.cs" />
     <Compile Include="kiskevero.Designer.cs">
       <DependentUpon>kiskevero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="liqip.cs" />
+    <Compile Include="liqip.Designer.cs">
+      <DependentUpon>liqip.cs</DependentUpon>
     </Compile>
     <Compile Include="Liqszam.cs" />
     <Compile Include="Liqszam.Designer.cs">
@@ -234,7 +261,9 @@
     <Compile Include="Liquido.Designer.cs">
       <DependentUpon>Liquido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Liquidter.cs" />
+    <Compile Include="Liquidter.cs">
+      <DependentUpon>Liquido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Liquidter.Designer.cs">
       <DependentUpon>Liquidter.cs</DependentUpon>
     </Compile>
@@ -266,6 +295,10 @@
     <Compile Include="MainForm4.Designer.cs">
       <DependentUpon>MainForm4.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm5.cs" />
+    <Compile Include="MainForm5.Designer.cs">
+      <DependentUpon>MainForm5.cs</DependentUpon>
+    </Compile>
     <Compile Include="nagykev.cs" />
     <Compile Include="nagykev.Designer.cs">
       <DependentUpon>nagykev.cs</DependentUpon>
@@ -287,12 +320,18 @@
       <DependentUpon>Nemfelvitt1.cs</DependentUpon>
     </Compile>
     <Compile Include="Nemfelvittarchiv.cs" />
-    <Compile Include="Nemfelvittarchiv.Designer.cs">
-      <DependentUpon>Nemfelvittarchiv.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Nemfelvittarchiv.Designer.cs" />
     <Compile Include="Nemfelvittarchiv1.cs" />
     <Compile Include="Nemfelvittarchiv1.Designer.cs">
       <DependentUpon>Nemfelvittarchiv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nemfelvittipqc.cs" />
+    <Compile Include="Nemfelvittipqc.Designer.cs">
+      <DependentUpon>Nemfelvittipqc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CCP.cs" />
+    <Compile Include="CCP.Designer.cs">
+      <DependentUpon>CCP.cs</DependentUpon>
     </Compile>
     <Compile Include="packingoffinsert.cs" />
     <Compile Include="packingoffinsert.Designer.cs">
@@ -318,7 +357,9 @@
     <Compile Include="paletta.Designer.cs">
       <DependentUpon>paletta.cs</DependentUpon>
     </Compile>
-    <Compile Include="pepsinon.cs" />
+    <Compile Include="pepsinon.cs">
+      <DependentUpon>paletta.cs</DependentUpon>
+    </Compile>
     <Compile Include="pepsinon.Designer.cs">
       <DependentUpon>pepsinon.cs</DependentUpon>
     </Compile>
@@ -344,6 +385,12 @@
     <Compile Include="Regist.Designer.cs">
       <DependentUpon>Regist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Regtime.cs" />
+    <Compile Include="Regtime.Designer.cs">
+      <DependentUpon>Regtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Regtimep.cs" />
+    <Compile Include="Regtimep.Designer.cs" />
     <Compile Include="sd.cs" />
     <Compile Include="sd.Designer.cs">
       <DependentUpon>sd.cs</DependentUpon>
@@ -359,6 +406,10 @@
     <Compile Include="Select2.cs" />
     <Compile Include="Select2.Designer.cs">
       <DependentUpon>Select2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.cs" />
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="Stat.cs" />
     <Compile Include="Stat.Designer.cs">
@@ -376,6 +427,10 @@
     <Compile Include="Statwh.Designer.cs">
       <DependentUpon>Statwh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Timestamptable.cs" />
+    <Compile Include="Timestamptable.Designer.cs">
+      <DependentUpon>Timestamptable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Top.cs" />
     <Compile Include="Top.Designer.cs">
       <DependentUpon>Top.cs</DependentUpon>
@@ -383,10 +438,6 @@
     <Compile Include="Warehouse.cs" />
     <Compile Include="Warehouse.Designer.cs">
       <DependentUpon>Warehouse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Warehouse1.cs" />
-    <Compile Include="Warehouse1.Designer.cs">
-      <DependentUpon>Warehouse1.cs</DependentUpon>
     </Compile>
     <Compile Include="Warehouse2.cs" />
     <Compile Include="Warehouse2.Designer.cs">
@@ -408,13 +459,11 @@
     <Compile Include="Warehouseread.Designer.cs">
       <DependentUpon>Warehouseread.cs</DependentUpon>
     </Compile>
-    <Compile Include="Warehouseread1.cs" />
-    <Compile Include="Warehouseread1.Designer.cs">
-      <DependentUpon>Warehouseread1.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <DependentUpon>Blender.cs</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Aklinsert.resx">
@@ -441,8 +490,14 @@
     <EmbeddedResource Include="blendingteruj.resx">
       <DependentUpon>blendingteruj.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="blendip.resx">
+      <DependentUpon>blendip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="blendkis.resx">
       <DependentUpon>blendkis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blendpepsi.resx">
+      <DependentUpon>blendpepsi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="blendr.resx">
       <DependentUpon>blendr.cs</DependentUpon>
@@ -470,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="celebrate.resx">
       <DependentUpon>celebrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMS.resx">
+      <DependentUpon>CMS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -517,11 +575,17 @@
     <EmbeddedResource Include="Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IPQCQM.resx">
+      <DependentUpon>IPQCQM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="kiskev.resx">
       <DependentUpon>kiskev.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kiskevero.resx">
       <DependentUpon>kiskevero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="liqip.resx">
+      <DependentUpon>liqip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Liqszam.resx">
       <DependentUpon>Liqszam.cs</DependentUpon>
@@ -559,6 +623,9 @@
     <EmbeddedResource Include="MainForm4.resx">
       <DependentUpon>MainForm4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm5.resx">
+      <DependentUpon>MainForm5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="nagykev.resx">
       <DependentUpon>nagykev.cs</DependentUpon>
     </EmbeddedResource>
@@ -579,6 +646,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nemfelvittarchiv1.resx">
       <DependentUpon>Nemfelvittarchiv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemfelvittipqc.resx">
+      <DependentUpon>Nemfelvittipqc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CCP.resx">
+      <DependentUpon>CCP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="packingoffinsert.resx">
       <DependentUpon>packingoffinsert.cs</DependentUpon>
@@ -616,6 +689,12 @@
     <EmbeddedResource Include="Regist.resx">
       <DependentUpon>Regist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Regtime.resx">
+      <DependentUpon>Regtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Regtimep.resx">
+      <DependentUpon>Regtimep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sd.resx">
       <DependentUpon>sd.cs</DependentUpon>
     </EmbeddedResource>
@@ -627,6 +706,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Select2.resx">
       <DependentUpon>Select2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stat.resx">
       <DependentUpon>Stat.cs</DependentUpon>
@@ -640,14 +722,14 @@
     <EmbeddedResource Include="Statwh.resx">
       <DependentUpon>Statwh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Timestamptable.resx">
+      <DependentUpon>Timestamptable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Top.resx">
       <DependentUpon>Top.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Warehouse.resx">
       <DependentUpon>Warehouse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Warehouse1.resx">
-      <DependentUpon>Warehouse1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Warehouse2.resx">
       <DependentUpon>Warehouse2.cs</DependentUpon>
@@ -664,9 +746,24 @@
     <EmbeddedResource Include="Warehouseread.resx">
       <DependentUpon>Warehouseread.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Warehouseread1.resx">
-      <DependentUpon>Warehouseread1.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="LCC11">
+      <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

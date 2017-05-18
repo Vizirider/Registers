@@ -47,8 +47,8 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.warehouse (POszam, Pallets, Batch, Matdep, Matcom, Labsled, Zealab, Zexlab, Thegood, Thepall, Corrquan, Quantity, Packun, Nobox, Palletli, Zmp, Mocklab, Datum, Ellenorzo, Givfelirat, Givfolia, Chepp, Chepw, Euro, Standard, Megjegy)  VALUES 
-			(@POszam, @Pallets, @Batch, @Matdep, @Matcom, @Labsled, @Zealab, @Zexlab, @Thegood, @Thepall, @Corrquan, @Quantity, @Packun, @Nobox, @Palletli, @Zmp, @Mocklab, @Datum, @Ellenorzo, @Givfelirat, @Givfolia, @Chepp, @Chepw, @Euro, @Standard, @Megjegy)",conn);
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.warehouse (POszam, Pallets, Batch, Matdep, Matcom, Labsled, Zealab, Zexlab, Thegood, Thepall, Corrquan, Quantity, Packun, Nobox, Palletli, Zmp, Mocklab, Datum, Ellenorzo, Givfelirat, Givfolia, Chepp, Chepw, Euro, Standard, Megjegy, Log)  VALUES 
+			(@POszam, @Pallets, @Batch, @Matdep, @Matcom, @Labsled, @Zealab, @Zexlab, @Thegood, @Thepall, @Corrquan, @Quantity, @Packun, @Nobox, @Palletli, @Zmp, @Mocklab, @Datum, @Ellenorzo, @Givfelirat, @Givfolia, @Chepp, @Chepw, @Euro, @Standard, @Megjegy, @Log)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Pallets", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Batch", textBox2.Text));
@@ -75,6 +75,7 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Euro", checkBox17.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Standard", checkBox16.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Megjegy", textBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Log", DateTime.Now));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 

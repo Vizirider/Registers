@@ -188,6 +188,29 @@
             not be able to load this method if it was changed manually.
             </summary>
         </member>
+        <member name="T:Registers.blendip">
+            <summary>
+            Description of blendip.
+            </summary>
+        </member>
+        <member name="F:Registers.blendip.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.blendip.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.blendip.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
         <member name="T:Liquidinster.blendkis">
             <summary>
             Description of blendkis.
@@ -205,6 +228,29 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.blendkis.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.blendpepsi">
+            <summary>
+            Description of blendpepsi.
+            </summary>
+        </member>
+        <member name="F:Registers.blendpepsi.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.blendpepsi.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.blendpepsi.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -376,6 +422,7 @@
             <summary>
             Description of bmpter.
             </summary>
+            
         </member>
         <member name="F:Liquidinster.bmpter.components">
             <summary>
@@ -412,6 +459,29 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.celebrate.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.CMS">
+            <summary>
+            Description of CMS.
+            </summary>
+        </member>
+        <member name="F:Registers.CMS.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.CMS.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.CMS.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -776,6 +846,29 @@
             not be able to load this method if it was changed manually.
             </summary>
         </member>
+        <member name="T:Registers.IPQCQM">
+            <summary>
+            Description of IPQCQM.
+            </summary>
+        </member>
+        <member name="F:Registers.IPQCQM.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.IPQCQM.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.IPQCQM.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
         <member name="T:Liquidinster.kiskev">
             <summary>
             Description of kiskev.
@@ -816,6 +909,29 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.kiskevero.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.liqip">
+            <summary>
+            Description of liqip.
+            </summary>
+        </member>
+        <member name="F:Registers.liqip.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.liqip.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.liqip.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -1100,6 +1216,29 @@
             not be able to load this method if it was changed manually.
             </summary>
         </member>
+        <member name="T:Registers.MainForm5">
+            <summary>
+            Description of MainForm5.
+            </summary>
+        </member>
+        <member name="F:Registers.MainForm5.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.MainForm5.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.MainForm5.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
         <member name="T:Liquidinster.nagykev">
             <summary>
             Description of nagykev.
@@ -1256,6 +1395,52 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.Nemfelvittarchiv1.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.Nemfelvittipqc">
+            <summary>
+            Description of Nemfelvittipqc.
+            </summary>
+        </member>
+        <member name="F:Registers.Nemfelvittipqc.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.Nemfelvittipqc.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.Nemfelvittipqc.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.OEE">
+            <summary>
+            Description of OEE.
+            </summary>
+        </member>
+        <member name="F:Registers.OEE.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.OEE.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.OEE.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -1548,6 +1733,52 @@
             not be able to load this method if it was changed manually.
             </summary>
         </member>
+        <member name="T:Registers.Regtime">
+            <summary>
+            Description of Regtime.
+            </summary>
+        </member>
+        <member name="F:Registers.Regtime.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.Regtime.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.Regtime.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.Regtimep">
+            <summary>
+            Description of Regtime.
+            </summary>
+        </member>
+        <member name="F:Registers.Regtimep.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.Regtimep.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.Regtimep.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
         <member name="T:Liquidinster.sd">
             <summary>
             Description of sd.
@@ -1636,6 +1867,29 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.Select2.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
+        <member name="T:Registers.Splash">
+            <summary>
+            Description of Splash.
+            </summary>
+        </member>
+        <member name="F:Registers.Splash.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.Splash.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.Splash.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -1737,6 +1991,29 @@
             not be able to load this method if it was changed manually.
             </summary>
         </member>
+        <member name="T:Registers.Timestamptable">
+            <summary>
+            Description of Timestamptable.
+            </summary>
+        </member>
+        <member name="F:Registers.Timestamptable.components">
+            <summary>
+            Designer variable used to keep track of non-visual components.
+            </summary>
+        </member>
+        <member name="M:Registers.Timestamptable.Dispose(System.Boolean)">
+            <summary>
+            Disposes resources used by the form.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Registers.Timestamptable.InitializeComponent">
+            <summary>
+            This method is required for Windows Forms designer support.
+            Do not change the method contents inside the source code editor. The Forms designer might
+            not be able to load this method if it was changed manually.
+            </summary>
+        </member>
         <member name="T:Liquidinster.Top">
             <summary>
             Description of Top.
@@ -1779,29 +2056,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.Warehouse.InitializeComponent">
-            <summary>
-            This method is required for Windows Forms designer support.
-            Do not change the method contents inside the source code editor. The Forms designer might
-            not be able to load this method if it was changed manually.
-            </summary>
-        </member>
-        <member name="T:Liquidinster.Warehouse1">
-            <summary>
-            Description of Warehouse1.
-            </summary>
-        </member>
-        <member name="F:Liquidinster.Warehouse1.components">
-            <summary>
-            Designer variable used to keep track of non-visual components.
-            </summary>
-        </member>
-        <member name="M:Liquidinster.Warehouse1.Dispose(System.Boolean)">
-            <summary>
-            Disposes resources used by the form.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Liquidinster.Warehouse1.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might
@@ -1919,29 +2173,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Liquidinster.Warehouseread.InitializeComponent">
-            <summary>
-            This method is required for Windows Forms designer support.
-            Do not change the method contents inside the source code editor. The Forms designer might
-            not be able to load this method if it was changed manually.
-            </summary>
-        </member>
-        <member name="T:Liquidinster.Warehouseread1">
-            <summary>
-            Description of Warehouseread1.
-            </summary>
-        </member>
-        <member name="F:Liquidinster.Warehouseread1.components">
-            <summary>
-            Designer variable used to keep track of non-visual components.
-            </summary>
-        </member>
-        <member name="M:Liquidinster.Warehouseread1.Dispose(System.Boolean)">
-            <summary>
-            Disposes resources used by the form.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Liquidinster.Warehouseread1.InitializeComponent">
             <summary>
             This method is required for Windows Forms designer support.
             Do not change the method contents inside the source code editor. The Forms designer might

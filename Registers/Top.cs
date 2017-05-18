@@ -42,6 +42,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
 			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT Operátor, Kitöltött FROM Kitoltottnevesall ORDER BY Kitöltött DESC", conn);
+			dataAdapter1.SelectCommand.CommandTimeout = 120;
 			dataAdapter1.Fill(ds);	
 			dataGridView1.DataSource = ds.Tables[0];
 			dataGridView1.AutoResizeColumns();
@@ -52,6 +53,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
 			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT Ellenorzo, Töltött FROM Javitott ORDER BY Töltött DESC ", conn);
+			dataAdapter2.SelectCommand.CommandTimeout = 120;
 			dataAdapter2.Fill(ds);	
 			dataGridView2.DataSource = ds.Tables[0];
 			dataGridView2.AutoResizeColumns();
@@ -62,6 +64,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
 			SqlDataAdapter dataAdapter3 = new SqlDataAdapter("SELECT Felhasználó, Hasznalta FROM belepett ORDER BY Hasznalta DESC", conn);
+			dataAdapter3.SelectCommand.CommandTimeout = 120;
 			dataAdapter3.Fill(ds);	
 			dataGridView3.DataSource = ds.Tables[0];
 			dataGridView3.AutoResizeColumns();
@@ -69,14 +72,17 @@ namespace Liquidinster
 		}
 		void TextBox1KeyUp(object sender, KeyEventArgs e)
 		{
+			if (e.KeyCode == Keys.Enter){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Operátor, Kitöltött FROM Kitoltottnevesall WHERE Operátor LIKE ('" + textBox1.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
+			dataAdapter.SelectCommand.CommandTimeout = 120;
 			dataAdapter.Fill(ds);
 			dataGridView1.DataSource = ds.Tables[0];
 			dataGridView1.AutoResizeColumns();	
+			}
 		}
 		void Button4Click(object sender, EventArgs e)
 		{
@@ -183,14 +189,17 @@ namespace Liquidinster
 		}
 		void TextBox6KeyUp(object sender, KeyEventArgs e)
 		{
+			if (e.KeyCode == Keys.Enter){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Felhasználó, Hasznalta FROM belepett WHERE Felhasználó LIKE ('" + textBox6.Text +"%')",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
+			dataAdapter.SelectCommand.CommandTimeout = 120;
 			dataAdapter.Fill(ds);
 			dataGridView3.DataSource = ds.Tables[0];
-			dataGridView3.AutoResizeColumns();		
+			dataGridView3.AutoResizeColumns();
+			}
 		}
 	}
 }

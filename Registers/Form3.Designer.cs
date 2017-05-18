@@ -155,6 +155,8 @@ namespace Liquidinster
 			this.DoubleBuffered = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(323, 266);
+			this.MinimumSize = new System.Drawing.Size(323, 266);
 			this.Name = "Login";
 			this.Text = "Login";
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Button1KeyUp);

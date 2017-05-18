@@ -26,7 +26,7 @@ namespace Liquidinster
 	/// Digital room check with each of area, show mws name to textboxes
 	public partial class naplok : Form
 	{
-		public naplok()
+		public naplok(string lang)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -38,10 +38,11 @@ namespace Liquidinster
 			//
 			dateTimePicker1.Format = DateTimePickerFormat.Custom;
 			dateTimePicker1.CustomFormat = "yyyy.MM.dd";
+			button72.Text = lang;
+			Button46Click(null,null);
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
-			Button2Click(null,null);
 			Button4Click(null,null);
 			Button5Click(null,null);
 			Button6Click(null,null);
@@ -84,6 +85,7 @@ namespace Liquidinster
 			Button36Click(null,null);
 			Button44Click(null,null);
 			Button45Click(null,null);
+			Button2Click(null,null);
 
         int countTB = 0;
         int countTG = 0;
@@ -101,8 +103,18 @@ namespace Liquidinster
         }
         
         double pro = 100-(Convert.ToDouble(countTB) / (Convert.ToDouble(countTB) + Convert.ToDouble(countTG)))*100;
+        
+        
+			if(button72.Text == "Nyelv")
+			{
+        	MessageBox.Show(dateTimePicker1.Text+" Hiányzó naplók: " + countTB + " Kitöltött naplók: " + countTG + " Ez százalékosan: " + pro + "%");
 
-        MessageBox.Show("Hiányzó naplók: " + countTB + " Kitöltött naplók: " + countTG + " Ez százalékosan: " + pro + "%");	
+			}
+			else if(button72.Text == "Lang")
+			{
+			MessageBox.Show(dateTimePicker1.Text+" Missing logs: " + countTB + " Filled logs: " + countTG + " This is in percentage: " + pro + "%");	
+			}
+	
 
             int i1 = countTG;
             int i2 = countTB;
@@ -1260,22 +1272,474 @@ namespace Liquidinster
 				SqlDataReader read = command.ExecuteReader();
 
 				if (read.Read()) {
-					textBox129.Text = (read["operator1"].ToString());	
-					textBox129.BackColor = Color.White;	
-					textBox128.Text = (read["operator2"].ToString());	
-					textBox128.BackColor = Color.White;	
-					textBox127.Text = (read["operator3"].ToString());	
-					textBox127.BackColor = Color.White;						
+					comboBox1.Text = (read["operator1"].ToString());	
+					comboBox1.BackColor = Color.White;	
+					comboBox2.Text = (read["operator2"].ToString());	
+					comboBox2.BackColor = Color.White;	
+					comboBox3.Text = (read["operator3"].ToString());	
+					comboBox3.BackColor = Color.White;						
 					}
 				else {
-					textBox129.Text = "0";
-					textBox129.BackColor = Color.Red;
-					textBox128.Text = "0";
-					textBox128.BackColor = Color.Red;
-					textBox127.Text = "0";
-					textBox127.BackColor = Color.Red;
+					comboBox1.Text = "0";
+					comboBox1.BackColor = Color.Red;
+					comboBox2.Text = "0";
+					comboBox2.BackColor = Color.Red;
+					comboBox3.Text = "0";
+					comboBox3.BackColor = Color.Red;
 				}
 				}		
 		}
+		void NaplokLoad(object sender, EventArgs e)
+		{
+			if(button72.Text == "Lang")
+			{
+			button72.Text = "Nyelv";
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\hun.png");
+			button72.BackgroundImage = myimage;
+			label6.Text = "Töltöttség";
+			chart1.Series["Naploszam"].LegendText = "Naploszam";
+			chart1.Series["Hianyzo"].LegendText = "Hianyzo";		
+			chart1.Series["Target"].YValueMembers = "Target";
+			button3.Text = "Naplók";
+			label11.Text = "Műszak:";
+			}
+			else if(button72.Text == "Nyelv")
+			{
+			button72.Text = "Lang";
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\eng.png");
+		    button72.BackgroundImage = myimage;
+			label6.Text = "Filled";			
+			chart1.Series["Naploszam"].LegendText = "Lognumber";
+			chart1.Series["Hianyzo"].LegendText = "Missing";		
+			chart1.Series["Target"].YValueMembers = "Target";	
+			button3.Text = "Logs";
+			label11.Text = "Shift:";
+			}
+			Button1Click(null,null);
+		}
+		void Button72Click(object sender, EventArgs e)
+		{
+			if(button72.Text == "Lang")
+			{
+			button72.Text = "Nyelv";
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\hun.png");
+			button72.BackgroundImage = myimage;
+			label6.Text = "Töltöttség";
+			chart1.Series["Naploszam"].LegendText = "Naploszam";
+			chart1.Series["Hianyzo"].LegendText = "Hianyzo";		
+			chart1.Series["Target"].YValueMembers = "Target";
+			button3.Text = "Naplók";
+			label11.Text = "Műszak:";
+			}
+			else if(button72.Text == "Nyelv")
+			{
+			button72.Text = "Lang";
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\eng.png");
+		    button72.BackgroundImage = myimage;
+			label6.Text = "Filled";			
+			chart1.Series["Naploszam"].LegendText = "Lognumber";
+			chart1.Series["Hianyzo"].LegendText = "Missing";		
+			chart1.Series["Target"].YValueMembers = "Target";	
+			button3.Text = "Logs";
+			label11.Text = "Shift:";			
+			}	
+		}
+		void Button46Click(object sender, EventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			DataSet ds = new DataSet();	
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT Week, Naploszam, Hianyzo, Target FROM naploweek WHERE Year = YEAR(GETDATE()) ORDER BY Week", conn);
+			dataAdapter1.Fill(ds);	
+			chart1.DataSource = ds.Tables[0];
+			chart1.Series.Add("Naploszam");
+			chart1.Series["Naploszam"].YValueMembers = "Naploszam";
+			chart1.Series["Naploszam"].XValueMember = "Week";
+			chart1.Series["Naploszam"].ChartType = SeriesChartType.StackedArea;
+			chart1.Series["Naploszam"].LegendText = "Naploszam";
+			chart1.Series["Naploszam"].Color = Color.Green;
+			chart1.Series["Naploszam"].IsValueShownAsLabel = true;
+			chart1.Series.Add("Hianyzo");
+			chart1.Series["Hianyzo"].YValueMembers = "Hianyzo";
+			chart1.Series["Hianyzo"].XValueMember = "Week";
+			chart1.Series["Hianyzo"].LegendText = "Hianyzo";
+			chart1.ChartAreas[0].AxisX.Title = "Week";
+			chart1.ChartAreas[0].AxisX.Interval = 1;
+			chart1.Series["Hianyzo"].IsValueShownAsLabel = true;
+			chart1.Series["Hianyzo"].ChartType = SeriesChartType.StackedColumn;
+			chart1.Series["Hianyzo"].Color = Color.Red;
+			chart1.Series["Hianyzo"]["PixelPointWidth"] = "10";
+			chart1.Series.Add("Target");
+			chart1.Series["Target"].YValueMembers = "Target";
+			chart1.Series["Target"].XValueMember = "Week";
+			chart1.Series["Target"].ChartType = SeriesChartType.Line;
+			chart1.Series["Series1"].IsVisibleInLegend = false;
+		}
+		void Button47Click(object sender, EventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			if(comboBox4.Text == "POS1" || comboBox4.Text == "POS2" || comboBox4.Text == "POS3" || comboBox4.Text == "POS4" || comboBox4.Text == "POSBG1" || comboBox4.Text == "POS6" || comboBox4.Text == "POS7" ||  comboBox4.Text == "Karton h")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Gep", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " szobában " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "SMP01" || comboBox4.Text == "SMP02" || comboBox4.Text == "SMP03" || comboBox4.Text == "SMP04" || comboBox4.Text == "SMP05" || comboBox4.Text == "01" || comboBox4.Text == "02" || comboBox4.Text == "03")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Allomas", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " állomáson " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "SMP01" || comboBox4.Text == "2" || comboBox4.Text == "3" || comboBox4.Text == "4" || comboBox4.Text == "5" || comboBox4.Text == "6" || comboBox4.Text == "9")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Allomas", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " állomáson " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "2" || comboBox4.Text == "3" || comboBox4.Text == "4" || comboBox4.Text == "5" || comboBox4.Text == "6" || comboBox4.Text == "7" ||comboBox4.Text == "9")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Allomas", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " állomáson " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "Diosna" || comboBox4.Text == "Henschel" || comboBox4.Text == "100" || comboBox4.Text == "500" || comboBox4.Text == "1501" || comboBox4.Text == "1502" || comboBox4.Text == "1503" || comboBox4.Text == "1504" || comboBox4.Text == "6001" || comboBox4.Text == "6002" || comboBox4.Text == "6003")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Gep", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " szobában " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "M20" || comboBox4.Text == "M60" || comboBox4.Text == "M450")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.SD (Datum, SD, Operator1)  VALUES 
+			(@Datum, @SD, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@SD", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " szobában " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "R1601" || comboBox4.Text == "R4001" || comboBox4.Text == "Lödige")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.PF (Datum, Reactor, Operator1)  VALUES 
+			(@Datum, @Reactor, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Reactor", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " szobában " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}
+			else if(comboBox4.Text == "Palettázó")
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.Pal (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Gep", comboBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			MessageBox.Show("Sikeresen pótoltál " + comboBox4.Text + " szobában " + dateTimePicker1.Text + " dátummal", "Üzenet"); 
+			Button1Click(null,null);
+			}			
+		}
+		void Button47MouseMove(object sender, MouseEventArgs e)
+		{
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.button47, ", Correct log");
+	
+		}
+		void Button48Click(object sender, EventArgs e)
+		{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+		DialogResult result2 = MessageBox.Show("Leállás volt az adott napon minden gépen?",
+	    "Ellenőrzés",
+	    MessageBoxButtons.YesNoCancel,
+	    MessageBoxIcon.Question);
+			if(result2 == DialogResult.Yes)
+			{
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.Pal (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd.Parameters.Add(new SqlParameter("@Gep", "Palettázó"));
+			cmd.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd.ExecuteNonQuery();
+			SqlCommand cmd1 = new SqlCommand(@"Insert into dbo.PF (Datum, Reactor, Operator1)  VALUES 
+			(@Datum, @Reactor, @Operator1)",conn);
+			cmd1.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd1.Parameters.Add(new SqlParameter("@Reactor", "R1601"));
+			cmd1.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd1.ExecuteNonQuery();
+			SqlCommand cmd2 = new SqlCommand(@"Insert into dbo.PF (Datum, Reactor, Operator1)  VALUES 
+			(@Datum, @Reactor, @Operator1)",conn);
+			cmd2.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd2.Parameters.Add(new SqlParameter("@Reactor", "R4001"));
+			cmd2.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd2.ExecuteNonQuery();
+			SqlCommand cmd3 = new SqlCommand(@"Insert into dbo.PF (Datum, Reactor, Operator1)  VALUES 
+			(@Datum, @Reactor, @Operator1)",conn);
+			cmd3.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd3.Parameters.Add(new SqlParameter("@Reactor", "Lödige"));
+			cmd3.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd3.ExecuteNonQuery();
+			SqlCommand cmd4 = new SqlCommand(@"Insert into dbo.SD (Datum, SD, Operator1)  VALUES 
+			(@Datum, @SD, @Operator1)",conn);
+			cmd4.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd4.Parameters.Add(new SqlParameter("@SD", "M20"));
+			cmd4.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd4.ExecuteNonQuery();
+			SqlCommand cmd5 = new SqlCommand(@"Insert into dbo.SD (Datum, SD, Operator1)  VALUES 
+			(@Datum, @SD, @Operator1)",conn);
+			cmd5.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd5.Parameters.Add(new SqlParameter("@SD", "M60"));
+			cmd5.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd5.ExecuteNonQuery();
+			SqlCommand cmd6 = new SqlCommand(@"Insert into dbo.SD (Datum, SD, Operator1)  VALUES 
+			(@Datum, @SD, @Operator1)",conn);
+			cmd6.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd6.Parameters.Add(new SqlParameter("@SD", "M450"));
+			cmd6.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd6.ExecuteNonQuery();
+			SqlCommand cmd7 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd7.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd7.Parameters.Add(new SqlParameter("@Gep", "Diosna"));
+			cmd7.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd7.ExecuteNonQuery();
+			SqlCommand cmd8 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd8.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd8.Parameters.Add(new SqlParameter("@Gep", "Henschel"));
+			cmd8.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd8.ExecuteNonQuery();
+			SqlCommand cmd9 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd9.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd9.Parameters.Add(new SqlParameter("@Gep", "100"));
+			cmd9.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd9.ExecuteNonQuery();
+			SqlCommand cmd10 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd10.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd10.Parameters.Add(new SqlParameter("@Gep", "500"));
+			cmd10.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd10.ExecuteNonQuery();
+			SqlCommand cmd11 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd11.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd11.Parameters.Add(new SqlParameter("@Gep", "1501"));
+			cmd11.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd11.ExecuteNonQuery();
+			SqlCommand cmd12 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd12.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd12.Parameters.Add(new SqlParameter("@Gep", "1502"));
+			cmd12.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd12.ExecuteNonQuery();
+			SqlCommand cmd13 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd13.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd13.Parameters.Add(new SqlParameter("@Gep", "1503"));
+			cmd13.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd13.ExecuteNonQuery();
+			SqlCommand cmd14 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd14.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd14.Parameters.Add(new SqlParameter("@Gep", "1504"));
+			cmd14.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd14.ExecuteNonQuery();
+			SqlCommand cmd15 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd15.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd15.Parameters.Add(new SqlParameter("@Gep", "6001"));
+			cmd15.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd15.ExecuteNonQuery();
+			SqlCommand cmd16 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd16.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd16.Parameters.Add(new SqlParameter("@Gep", "6002"));
+			cmd16.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd16.ExecuteNonQuery();
+			SqlCommand cmd17 = new SqlCommand(@"Insert into dbo.ble (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd17.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd17.Parameters.Add(new SqlParameter("@Gep", "6003"));
+			cmd17.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd17.ExecuteNonQuery();
+			SqlCommand cmd18 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd18.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd18.Parameters.Add(new SqlParameter("@Allomas", "2"));
+			cmd18.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd18.ExecuteNonQuery();
+			SqlCommand cmd19 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd19.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd19.Parameters.Add(new SqlParameter("@Allomas", "3"));
+			cmd19.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd19.ExecuteNonQuery();
+			SqlCommand cmd20 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd20.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd20.Parameters.Add(new SqlParameter("@Allomas", "4"));
+			cmd20.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd20.ExecuteNonQuery();
+			SqlCommand cmd21 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd21.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd21.Parameters.Add(new SqlParameter("@Allomas", "5"));
+			cmd21.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd21.ExecuteNonQuery();
+			SqlCommand cmd22 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd22.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd22.Parameters.Add(new SqlParameter("@Allomas", "6"));
+			cmd22.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd22.ExecuteNonQuery();
+			SqlCommand cmd23 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd23.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd23.Parameters.Add(new SqlParameter("@Allomas", "7"));
+			cmd23.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd23.ExecuteNonQuery();
+			SqlCommand cmd24 = new SqlCommand(@"Insert into dbo.BMPnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd24.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd24.Parameters.Add(new SqlParameter("@Allomas", "9"));
+			cmd24.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd24.ExecuteNonQuery();
+			SqlCommand cmd25 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd25.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd25.Parameters.Add(new SqlParameter("@Allomas", "SMP01"));
+			cmd25.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd25.ExecuteNonQuery();
+			SqlCommand cmd26 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd26.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd26.Parameters.Add(new SqlParameter("@Allomas", "SMP02"));
+			cmd26.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd26.ExecuteNonQuery();
+			SqlCommand cmd27 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd27.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd27.Parameters.Add(new SqlParameter("@Allomas", "SMP03"));
+			cmd27.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd27.ExecuteNonQuery();
+			SqlCommand cmd28 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd28.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd28.Parameters.Add(new SqlParameter("@Allomas", "SMP04"));
+			cmd28.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd28.ExecuteNonQuery();
+			SqlCommand cmd29 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd29.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd29.Parameters.Add(new SqlParameter("@Allomas", "SMP05"));
+			cmd29.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd29.ExecuteNonQuery();
+			SqlCommand cmd30 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd30.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd30.Parameters.Add(new SqlParameter("@Allomas", "01"));
+			cmd30.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd30.ExecuteNonQuery();
+			SqlCommand cmd31 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd31.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd31.Parameters.Add(new SqlParameter("@Allomas", "02"));
+			cmd31.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd31.ExecuteNonQuery();
+			SqlCommand cmd32 = new SqlCommand(@"Insert into dbo.AKLnap (Datum, Allomas, Operator1)  VALUES 
+			(@Datum, @Allomas, @Operator1)",conn);
+			cmd32.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd32.Parameters.Add(new SqlParameter("@Allomas", "03"));
+			cmd32.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd32.ExecuteNonQuery();
+			SqlCommand cmd33 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd33.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd33.Parameters.Add(new SqlParameter("@Gep", "POS1"));
+			cmd33.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd33.ExecuteNonQuery();
+			SqlCommand cmd34 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd34.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd34.Parameters.Add(new SqlParameter("@Gep", "POS2"));
+			cmd34.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd34.ExecuteNonQuery();
+			SqlCommand cmd35 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd35.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd35.Parameters.Add(new SqlParameter("@Gep", "POS3"));
+			cmd35.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd35.ExecuteNonQuery();
+			SqlCommand cmd36 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd36.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd36.Parameters.Add(new SqlParameter("@Gep", "POS4"));
+			cmd36.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd36.ExecuteNonQuery();
+			SqlCommand cmd37 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd37.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd37.Parameters.Add(new SqlParameter("@Gep", "POSBG1"));
+			cmd37.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd37.ExecuteNonQuery();
+			SqlCommand cmd38 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd38.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd38.Parameters.Add(new SqlParameter("@Gep", "POS6"));
+			cmd38.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd38.ExecuteNonQuery();
+			SqlCommand cmd39 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd39.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd39.Parameters.Add(new SqlParameter("@Gep", "POS7"));
+			cmd39.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd39.ExecuteNonQuery();
+			SqlCommand cmd40 = new SqlCommand(@"Insert into dbo.pack (Datum, Gep, Operator1)  VALUES 
+			(@Datum, @Gep, @Operator1)",conn);
+			cmd40.Parameters.Add(new SqlParameter("@Datum", dateTimePicker1.Value.Date));
+			cmd40.Parameters.Add(new SqlParameter("@Gep", "Karton h"));
+			cmd40.Parameters.Add(new SqlParameter("@Operator1", ""));
+			cmd40.ExecuteNonQuery();
+			Button1Click(sender, e);			
+			}	
+		}
+
 	}
 }

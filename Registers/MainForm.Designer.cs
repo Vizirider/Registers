@@ -148,6 +148,8 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button80;
 		private System.Windows.Forms.Button button81;
 		private System.Windows.Forms.Button button82;
+		private System.Windows.Forms.Button button83;
+		private System.Windows.Forms.Button button84;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -306,6 +308,8 @@ namespace Liquidinster
 			this.button80 = new System.Windows.Forms.Button();
 			this.button81 = new System.Windows.Forms.Button();
 			this.button82 = new System.Windows.Forms.Button();
+			this.button83 = new System.Windows.Forms.Button();
+			this.button84 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -827,7 +831,7 @@ namespace Liquidinster
 			// button34
 			// 
 			this.button34.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.button34.Location = new System.Drawing.Point(324, 12);
+			this.button34.Location = new System.Drawing.Point(275, 12);
 			this.button34.Name = "button34";
 			this.button34.Size = new System.Drawing.Size(75, 51);
 			this.button34.TabIndex = 140;
@@ -868,7 +872,7 @@ namespace Liquidinster
 			// label7
 			// 
 			this.label7.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.label7.Location = new System.Drawing.Point(445, 73);
+			this.label7.Location = new System.Drawing.Point(445, 77);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(77, 20);
 			this.label7.TabIndex = 132;
@@ -876,10 +880,10 @@ namespace Liquidinster
 			// 
 			// textBox9
 			// 
-			this.textBox9.Location = new System.Drawing.Point(528, 68);
+			this.textBox9.Location = new System.Drawing.Point(528, 72);
 			this.textBox9.Name = "textBox9";
 			this.textBox9.Size = new System.Drawing.Size(100, 20);
-			this.textBox9.TabIndex = 131;
+			this.textBox9.TabIndex = 0;
 			this.textBox9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox9KeyUp);
 			// 
 			// textBox10
@@ -899,7 +903,7 @@ namespace Liquidinster
 			// 
 			// button44
 			// 
-			this.button44.Location = new System.Drawing.Point(950, 12);
+			this.button44.Location = new System.Drawing.Point(384, 13);
 			this.button44.Name = "button44";
 			this.button44.Size = new System.Drawing.Size(81, 60);
 			this.button44.TabIndex = 142;
@@ -1414,6 +1418,7 @@ namespace Liquidinster
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(121, 21);
 			this.comboBox2.TabIndex = 205;
+			this.comboBox2.Text = "Site";
 			// 
 			// button71
 			// 
@@ -1574,7 +1579,7 @@ namespace Liquidinster
 			this.button81.BackColor = System.Drawing.Color.White;
 			this.button81.Font = new System.Drawing.Font("Swis721 BlkEx BT", 7F);
 			this.button81.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button81.Location = new System.Drawing.Point(324, 81);
+			this.button81.Location = new System.Drawing.Point(275, 81);
 			this.button81.Name = "button81";
 			this.button81.Size = new System.Drawing.Size(76, 41);
 			this.button81.TabIndex = 249;
@@ -1592,9 +1597,33 @@ namespace Liquidinster
 			this.button82.UseVisualStyleBackColor = true;
 			this.button82.Click += new System.EventHandler(this.Button82Click);
 			// 
+			// button83
+			// 
+			this.button83.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.button83.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button83.Location = new System.Drawing.Point(960, 13);
+			this.button83.Name = "button83";
+			this.button83.Size = new System.Drawing.Size(75, 51);
+			this.button83.TabIndex = 259;
+			this.button83.Text = "Register Timestamp";
+			this.button83.UseVisualStyleBackColor = false;
+			this.button83.Click += new System.EventHandler(this.Button83Click);
+			// 
+			// button84
+			// 
+			this.button84.Location = new System.Drawing.Point(773, 24);
+			this.button84.Name = "button84";
+			this.button84.Size = new System.Drawing.Size(75, 37);
+			this.button84.TabIndex = 260;
+			this.button84.Text = "Multi ellenőrzés";
+			this.button84.UseVisualStyleBackColor = true;
+			this.button84.Click += new System.EventHandler(this.Button84Click);
+			// 
 			// MainForm
 			// 
 			this.ClientSize = new System.Drawing.Size(1156, 505);
+			this.Controls.Add(this.button84);
+			this.Controls.Add(this.button83);
 			this.Controls.Add(this.button82);
 			this.Controls.Add(this.button81);
 			this.Controls.Add(this.button80);
@@ -1673,6 +1702,10 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox10);
 			this.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(1172, 543);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(1172, 543);
 			this.Name = "MainForm";
 			this.Text = "Pepsico";
 			this.Load += new System.EventHandler(this.MainFormLoad);

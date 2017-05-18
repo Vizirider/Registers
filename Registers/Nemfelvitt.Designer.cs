@@ -42,6 +42,8 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Button button10;
+		private System.Windows.Forms.Timer timer1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -64,6 +66,7 @@ namespace Liquidinster
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.button2 = new System.Windows.Forms.Button();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -92,6 +95,8 @@ namespace Liquidinster
 			this.button9 = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
+			this.button10 = new System.Windows.Forms.Button();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -106,7 +111,7 @@ namespace Liquidinster
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(0, 43);
 			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(781, 438);
+			this.dataGridView2.Size = new System.Drawing.Size(790, 439);
 			this.dataGridView2.TabIndex = 11;
 			this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
 			// 
@@ -300,7 +305,7 @@ namespace Liquidinster
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(63, 482);
+			this.label9.Location = new System.Drawing.Point(62, 484);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(57, 23);
 			this.label9.TabIndex = 47;
@@ -340,6 +345,16 @@ namespace Liquidinster
 			this.label10.TabIndex = 52;
 			this.label10.Text = "Pepsico PO:";
 			// 
+			// button10
+			// 
+			this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button10.Location = new System.Drawing.Point(810, 100);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(94, 30);
+			this.button10.TabIndex = 54;
+			this.button10.Text = "Live monitor";
+			this.button10.Click += new System.EventHandler(this.Button10Click);
+			// 
 			// Nemfelvitt
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,6 +362,7 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.Color.SkyBlue;
 			this.ClientSize = new System.Drawing.Size(930, 640);
+			this.Controls.Add(this.button10);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.button9);
@@ -375,7 +391,7 @@ namespace Liquidinster
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.dataGridView2);
 			this.Name = "Nemfelvitt";
-			this.Text = "Nemfelvitt";
+			this.Text = "Pepsico - Nem felvitt";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();

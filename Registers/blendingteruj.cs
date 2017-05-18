@@ -22,7 +22,8 @@ namespace Registers
 	/// </summary>
 	public partial class blendingteruj : Form
 	{
-		public blendingteruj(string mws, string po)
+		private readonly Liquidinster.MainForm1 frm1;
+		public blendingteruj(string mws, string po, Liquidinster.MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Registers
 //			this.comboBox4.Text = mws;
 			// Blending production check register (new)
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -216,6 +218,7 @@ namespace Registers
 				read.Close();	
 			}	
 		}
+		
 		void Button4Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
@@ -224,7 +227,9 @@ namespace Registers
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
-			this.Close();	
+        	frm1.Refresh();
+       		this.Close();
+       		
 		}
 		void Button2Click(object sender, EventArgs e)
 		{
@@ -340,9 +345,9 @@ namespace Registers
 			Anyagnev = @Anyagnev, Telmesidokezd = @Telmesidokezd, Termelesidoveg = @Termelesidoveg, kevero = @kevero, keverotiszta = @keverotiszta, keverokopas = @keverokopas,
 			folyadekbead = @folyadekbead, tomitescsat = @tomitescsat, alapanyagelo = @alapanyagelo, ibcell = @ibcell, folymel = @folymel, folyhom = @folyhom, Leiras1 = @Leiras1, mintavetel = @mintavetel,
 			vizsgalat = @vizsgalat, eredmeny = @eredmeny, megjegyzes = @megjegyzes, Operator4 = @Operator4, liqtank = @liqtank, kiurult = @kiurult, cipviz = @cipviz, Operator7 = Operator7,
-			lugkevkezd = @lugkevkezd, lugkevveg = @lugkevveg, lugkevcheck = @lugkevcheck, lugkevms = @lugkevms, koshercujcipkezd = @koshercujcipkezd, koshercujcipveg = @koshercujcipveg,
+			lugkevkezd = @lugkevkezd, koshercujcipkezd = @koshercujcipkezd, koshercujcipveg = @koshercujcipveg,
 			kosherujcipcheck = @kosherujcipcheck, kosherujcipms = @kosherujcipms, lugkevmos = @lugkevmos, kosherujcipmos = @kosherujcipmos, kosherujcipszar = @kosherujcipszar,
-			Leiras5 = @Leiras5, keverokezzel = @keverokezzel, lugos = @lugos, sav = @sav, kosherc = kosherc
+			Leiras5 = @Leiras5, keverokezzel = @keverokezzel, lugos = @lugos, sav = @sav, kosherc = kosherc, lugkevveg = @lugkevveg, lugkevcheck = @lugkevcheck, lugkevms = @lugkevms, lugkevszar = @lugkevszar
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox4.Text));
@@ -372,9 +377,6 @@ namespace Registers
 			cmd.Parameters.Add(new SqlParameter("@cipviz", textBox52.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator7", textBox53.Text));	
 			cmd.Parameters.Add(new SqlParameter("@lugkevkezd", textBox1.Text));
-			cmd.Parameters.Add(new SqlParameter("@lugkevveg", textBox2.Text));
-			cmd.Parameters.Add(new SqlParameter("@lugkevcheck", textBox4.Text));
-			cmd.Parameters.Add(new SqlParameter("@lugkevms", textBox55.Text));
 			cmd.Parameters.Add(new SqlParameter("@koshercujcipkezd", textBox63.Text));
 			cmd.Parameters.Add(new SqlParameter("@koshercujcipveg", textBox62.Text));
 			cmd.Parameters.Add(new SqlParameter("@kosherujcipcheck", textBox61.Text));
@@ -389,9 +391,14 @@ namespace Registers
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox88.Text));
 			cmd.Parameters.Add(new SqlParameter("@lugos", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@sav", checkBox2.Checked));
-			cmd.Parameters.Add(new SqlParameter("@kosherc", checkBox3.Checked));			
+			cmd.Parameters.Add(new SqlParameter("@kosherc", checkBox3.Checked));
+			cmd.Parameters.Add(new SqlParameter("@lugkevveg", textBox2.Text));
+			cmd.Parameters.Add(new SqlParameter("@lugkevcheck", textBox4.Text));
+			cmd.Parameters.Add(new SqlParameter("@lugkevms", textBox55.Text));			
 
 			cmd.ExecuteNonQuery();
+			SqlCommand cmd1 = new SqlCommand(@"Update dbo.blendella set [lugkevkezd] = null ,[lugkevveg] = null WHERE POszam = ('" + comboBox1.Text + "') AND lugkevveg = '0:00'", conn);
+			cmd1.ExecuteNonQuery();
 			conn.Close();
 
 			Button5Click(null,null);		

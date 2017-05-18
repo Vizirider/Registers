@@ -23,7 +23,8 @@ namespace Liquidinster
 	///  SD Production check register with select sql 
 	public partial class sd : Form
 	{
-		public sd(string mws, string po)
+	private readonly Liquidinster.MainForm1 frm1;
+		public sd(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 //			this.comboBox2.Text = mws;
 //			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -236,6 +238,10 @@ namespace Liquidinster
 					textBox116.Text = (read["Karton5"].ToString());
 					textBox115.Text = (read["Karton6"].ToString());
 					comboBox3.Text = (read["Ellenorzo"].ToString());
+					textBox121.Text = (read["etalon"].ToString());
+					textBox33.Text = (read["detszam"].ToString());
+					textBox123.Text = (read["Szitaid1"].ToString());
+					textBox122.Text = (read["Szitaid2"].ToString());
 					
 					if(read["lugos"] == DBNull.Value){
 			        	checkBox4.Checked = false;
@@ -260,7 +266,8 @@ namespace Liquidinster
 			        }
 			        else{
 			        checkBox3.Checked = (bool)read["mintavetel"];			        	
-			        }						
+			        }	
+					
 
 					
 	if (!string.IsNullOrWhiteSpace(textBox54.Text))
@@ -373,6 +380,7 @@ namespace Liquidinster
 				panel36.Visible |= textBox75.Text == "1";
 				panel77.Visible |= textBox65.Text == "1";
 				panel79.Visible |= textBox66.Text == "1";
+				panel88.Visible |= textBox121.Text == "1";
 				
 				panel75.Visible |= textBox17.Text == "2";
 				panel74.Visible |= textBox7.Text == "2";
@@ -415,6 +423,7 @@ namespace Liquidinster
 				panel37.Visible |= textBox75.Text == "2";
 				panel76.Visible |= textBox65.Text == "2";
 				panel78.Visible |= textBox66.Text == "2";
+				panel87.Visible |= textBox121.Text == "2";
 
 
 		}
@@ -428,6 +437,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+			frm1.Refresh();
 			this.Close();
 			
 		}
@@ -500,6 +510,7 @@ namespace Liquidinster
 			button9.Visible = true;	
 			textBox17.Visible = true;
 			textBox7.Visible = true;
+			textBox8.Visible = true;
 			textBox9.Visible = true;
 			textBox10.Visible = true;
 			textBox11.Visible = true;
@@ -534,13 +545,15 @@ namespace Liquidinster
 			textBox73.Visible = true;
 			textBox74.Visible = true;
 			textBox75.Visible = true;
+			textBox121.Visible = true;
 			
 			}
 			else if(button9.Visible == true){
 			Button5Click(null,null);
-			button9.Visible = false;	
+			button9.Visible = false;			
 			textBox17.Visible = false;
 			textBox7.Visible = false;
+			textBox8.Visible = false;
 			textBox9.Visible = false;
 			textBox10.Visible = false;
 			textBox11.Visible = false;
@@ -574,7 +587,9 @@ namespace Liquidinster
 			textBox71.Visible = false;
 			textBox73.Visible = false;
 			textBox74.Visible = false;
-			textBox75.Visible = false;			}	
+			textBox75.Visible = false;
+			textBox121.Visible = false;
+			}
 		}
 		void Button9Click(object sender, EventArgs e)
 		{
@@ -593,7 +608,8 @@ namespace Liquidinster
 			sdkezdk = @sdkezdk, sdkvegk = @sdkvegk, sdellk = @sdellk, sdms = @sdms, kiszaritaskezdc = @kiszaritaskezdc,
 			kiszaritasvegc = @kiszaritasvegc, mixtankmosl = @mixtankmosl, sdmosl = @sdmosl, mixtankmosk = @mixtankmosk, sdmosk = @sdmosk, kiszaritasszars = @kiszaritasszars,
 			kiszaritasszarc = @kiszaritasszarc, Labor = @Labor, Leiras3 = @Leiras3, Keztermek = @Keztermek, Kezszita = @Kezszita, Kezsd = @Kezsd,
-			Kezcsomag = @Kezcsomag, Kezemul = @Kezemul, Kezkorny = @Kezkorny, Leiras4 = @Leiras4, Datumd = @Datumd, Kezjegy = @Kezjegy, lugos = @lugos, savas = @savas, kosher = @kosher
+			Kezcsomag = @Kezcsomag, Kezemul = @Kezemul, Kezkorny = @Kezkorny, Leiras4 = @Leiras4, Datumd = @Datumd, Kezjegy = @Kezjegy, lugos = @lugos, savas = @savas, kosher = @kosher, etalon = @etalon, detszam = @detszam,
+			Szitaid1 = @Szitaid1, Szitaid2 = @Szitaid2
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox2.Text));
@@ -677,7 +693,10 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@lugos", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@savas", checkBox5.Checked));
 			cmd.Parameters.Add(new SqlParameter("@kosher", checkBox6.Checked));
-
+			cmd.Parameters.Add(new SqlParameter("@etalon", textBox121.Text));
+			cmd.Parameters.Add(new SqlParameter("@detszam", textBox33.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid1", textBox123.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid2", textBox122.Text));	
 			cmd.ExecuteNonQuery();
 			conn.Close();
 

@@ -64,7 +64,7 @@ namespace Liquidinster
 		{
 	    SqlCommand command =
 	    new SqlCommand("select POszam, Pallets, Batch, Matdep, Matcom, Labsled, Zealab, Zexlab, Thegood, Thepall, Corrquan, Quantity, Packun, Nobox, Palletli, Zmp, Mocklab, Datum, Ellenorzo, Givfelirat, Givfolia, Chepp, Chepw, Euro, Standard, Megjegy, Javitott" +
-"       from dbo.warehouse WHERE Batch = ('" + textBox2.Text +"')", connection);
+"       from dbo.warehouse WHERE Batch = ('" + textBox2.Text +"') AND POszam = ('" + comboBox1.Text +"')", connection);
 	    connection.Open();
 	
 	    SqlDataReader read= command.ExecuteReader();
@@ -155,10 +155,6 @@ namespace Liquidinster
 			if(checkBox3.Checked == false)
 			{
 				checkBox3.BackColor = Color.Red;
-			}
-			if(checkBox4.Checked == false)
-			{
-				checkBox4.BackColor = Color.Red;
 			}
 			if(checkBox5.Checked == false)
 			{

@@ -20,9 +20,12 @@ namespace Liquidinster
 	/// <summary>
 	/// Description of bmpter.
 	/// </summary>
+	/// 
+	
 	public partial class bmpter : Form
 	{
-		public bmpter(string mws, string po)
+		private readonly MainForm1 frm1;
+		public bmpter(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -31,6 +34,7 @@ namespace Liquidinster
 //			this.comboBox2.Text = mws;
 //			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
@@ -118,10 +122,10 @@ namespace Liquidinster
 					textBox13.Text = (read["Alapanyagelo"].ToString());
 					textBox14.Text = (read["SOell"].ToString());
 					textBox15.Text = (read["Elszivorendszer"].ToString());
-					textBox18.Text = (read["Keselezeselo"].ToString());
-					textBox19.Text = (read["Keselezesuta"].ToString());
-					textBox16.Text = (read["Keselezes1"].ToString());
-					textBox17.Text = (read["Keselezes2"].ToString());
+					textBox18.Text = (read["Keselezes1"].ToString());
+					textBox19.Text = (read["Keselezes2"].ToString());
+					textBox16.Text = (read["Keselezeseloy"].ToString());
+					textBox17.Text = (read["Keselezesutay"].ToString());
 					textBox20.Text = (read["Bmpall"].ToString());
 					textBox21.Text = (read["Munkakornyezet"].ToString());
 					textBox22.Text = (read["Leiras1"].ToString());
@@ -177,6 +181,9 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+
+			frm1.Refresh();
+			
 			this.Close();
 		}
 		void Button3Click(object sender, EventArgs e)
@@ -279,6 +286,8 @@ namespace Liquidinster
 			textBox17.Visible = true;
 			textBox20.Visible = true;
 			textBox21.Visible = true;
+			panel25.Visible = false;
+			panel27.Visible = false;
 			
 			}
 			else if(button7.Visible == true){
@@ -297,6 +306,8 @@ namespace Liquidinster
 			textBox17.Visible = false;
 			textBox20.Visible = false;
 			textBox21.Visible = false;
+			panel25.Visible = false;
+			panel27.Visible = false;
 			}	
 		}
 		void Button7Click(object sender, EventArgs e)
@@ -306,7 +317,7 @@ namespace Liquidinster
 			SqlCommand cmd = new SqlCommand(@"Update dbo.bmpella set  Termekkod = @Termekkod, Termeknev = @Termeknev, POszam = @POszam, SOszam = @SOszam, Termelesdatum = @Termelesdatum,
 			Termeleskezd = @Termeleskezd, Termelesveg = @Termelesveg, BMP = @BMP, Operator1 = @Operator1, Berendezestiszta = @Berendezestiszta, BMPtiszta = @BMPtiszta,
 			Tomitescsattiszta = @Tomitescsattiszta, Megfelelobetolto = @Megfelelobetolto, IBCkontenertiszta = @IBCkontenertiszta, Szitaep = @Szitaep, Alapanyagelo = @Alapanyagelo, SOell = @SOell,
-			Elszivorendszer = @Elszivorendszer, Keselezeselo = @Keselezeselo, Keselezesuta = Keselezesuta, Keselezes1 = @Keselezes1, Keselezes2 = @Keselezes2, Operator2 = @Operator2,
+			Elszivorendszer = @Elszivorendszer, Keselezeseloy = @Keselezeseloy, Keselezesutay = @Keselezesutay, Keselezes1 = @Keselezes1, Keselezes2 = @Keselezes2, Operator2 = @Operator2,
 			Leiras1 = @Leiras1, Datum1 = @Datum1, Bmpall = @Bmpall, Munkakornyezet = @Munkakornyezet, Megjegyzes = @Megjegyzes,
 			Ellenorizve = @Ellenorizve, Ellenorzo = @Ellenorzo
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
@@ -328,10 +339,10 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Alapanyagelo", textBox13.Text));
 			cmd.Parameters.Add(new SqlParameter("@SOell", textBox14.Text));
 			cmd.Parameters.Add(new SqlParameter("@Elszivorendszer", textBox15.Text));
-			cmd.Parameters.Add(new SqlParameter("@Keselezeselo", textBox18.Text));
-			cmd.Parameters.Add(new SqlParameter("@Keselezesuta", textBox19.Text));
-			cmd.Parameters.Add(new SqlParameter("@Keselezes1", textBox16.Text));
-			cmd.Parameters.Add(new SqlParameter("@Keselezes2", textBox17.Text));
+			cmd.Parameters.Add(new SqlParameter("@Keselezes1", textBox18.Text));
+			cmd.Parameters.Add(new SqlParameter("@Keselezes2", textBox19.Text));
+			cmd.Parameters.Add(new SqlParameter("@Keselezeseloy", textBox16.Text));
+			cmd.Parameters.Add(new SqlParameter("@Keselezesutay", textBox17.Text));
 			cmd.Parameters.Add(new SqlParameter("@Datum1", dateTimePicker2.Value.Date));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox5.Text));

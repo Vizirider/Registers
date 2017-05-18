@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class Liquid : Form
 	{
-		public Liquid(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;
+		public Liquid(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -35,6 +36,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 		}
 		void Button3Click(object sender, EventArgs e)
@@ -90,7 +92,8 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
-						this.Close();
+			frm1.Refresh();
+			this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
@@ -110,9 +113,9 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Ellenorzo", comboBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Ki", comboBox3.Text));
-			cmd.Parameters.Add(new SqlParameter("@Uledeke", checkBox4.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox4.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Megfelelohoe", checkBox4.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Uledeke", checkBox5.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox6.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Megfelelohoe", checkBox7.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen Módosítottad a PO-t", "Üzenet"); 

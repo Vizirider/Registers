@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class blendingter : Form
 	{
-		public blendingter(string mws, string po)
+		private readonly MainForm1 frm1;
+		public blendingter(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 //			this.comboBox4.Text = mws;
 			// blending production check register with instances to check
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -151,9 +153,6 @@ namespace Liquidinster
 					textBox78.Text = (read["blendszar"].ToString());
 					textBox77.Text = (read["csomagszar"].ToString());
 					textBox54.Text = (read["Leiras5"].ToString());
-					textBox1.Text = (read["lugkevkezd"].ToString());
-					textBox2.Text = (read["lugkevveg"].ToString());
-					textBox4.Text = (read["lugkevcheck"].ToString());
 					textBox87.Text = (read["Leiras6"].ToString());
 					textBox82.Text = (read["szitabetet"].ToString());
 					textBox83.Text = (read["szita"].ToString());
@@ -163,6 +162,8 @@ namespace Liquidinster
 					textBox88.Text = (read["Komment"].ToString());	
 					textBox91.Text = (read["Operator7"].ToString());	
 					comboBox2.Text = (read["Ellenorzo"].ToString());
+					textBox93.Text = (read["Szitaid1"].ToString());
+					textBox92.Text = (read["Szitaid2"].ToString());
 			        if(read["lugos"] == DBNull.Value){
 			        	checkBox1.Checked = false;
 			        }
@@ -346,28 +347,12 @@ namespace Liquidinster
 			SqlCommand cmd = new SqlCommand(@"Update dbo.blendella set Ellenorizve = 1, Ellenorzo='" + comboBox3.Text + "' WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();			
 			this.Close();
 		}
 
 		void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
-		{
-			OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
-			conn.Open();
-			OleDbDataAdapter dataAdapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$] WHERE [Sheet1$].[Order] LIKE ('" + comboBox1.Text + "%')", conn);
-			OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(dataAdapter);
-			DataSet ds = new DataSet();
-			dataAdapter.Fill(ds);
-			dataGridView1.DataSource = ds.Tables[0];
-			dataGridView1.AutoResizeColumns();
-			string frstcol = dataGridView1.Rows[0].Cells["Material"].Value.ToString();
-			string scndcol = dataGridView1.Rows[0].Cells["Material description"].Value.ToString();
-			textBox7.Text = frstcol;
-			textBox8.Text = scndcol;
-			conn.Close();
-		}
-		void Combobox1KeyUp(object sender, KeyEventArgs e)
 		{
 			OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
             Data Source=V:\Common (Don't share confidential docs here)\000\export.xlsx;Extended Properties=""Excel 12.0;HDR=YES;""");
@@ -611,13 +596,14 @@ namespace Liquidinster
 			Operator4 = @Operator4, szitameret = @szitameret, szitatiszta = @szitatiszta, szitahibatlan = @szitahibatlan, idegenanyag = @idegenanyag, Operator5 = @Operator5,
 			Leiras3 = @Leiras3, vastarte = @vastarte, nemvase = @nemvase, rozsdamente = @rozsdamente, vastartu = @vastartu, nemvasu = @nemvasu,
 			rozsdamentu = @rozsdamentu, Operator6 = @Operator6, Leiras4 = @Leiras4, liqtank = @liqtank, kiurult = @kiurult, lastphase = @lastphase,
-			cipviz = @cipviz, Operator7 = @Operator7, lugkevkezd = @lugkevkezd, lugkevveg = @lugkevveg, lugkevcheck = @lugkevcheck,
+			cipviz = @cipviz, Operator7 = @Operator7, lugkevkezd = @lugkevkezd, lugkevcheck = @lugkevcheck,
 			lugkevms = @lugkevms, savcsomkezd = @savcsomkezd, savcsomveg = @savcsomveg, savcsomcheck = @savcsomcheck, savcsomms = @savcsomms, koshercujcipkezd = @koshercujcipkezd,
 			koshercujcipveg = @koshercujcipveg, kosherujcipcheck = @kosherujcipcheck, kosherujcipms = @kosherujcipms, blendkezd = @blendkezd, blendveg = @blendveg, blendcheck = @blendcheck,
 			blendms = @blendms, csomagkezd = @csomagkezd, csomagveg = @csomagveg, csomagcheck = @csomagcheck, csomagms = @csomagms, lugkevmos = @lugkevmos,
 			savcsommos = @savcsommos, kosherujcipmos = @kosherujcipmos, blendmos = @blendmos, csomagmos = @csomagmos, lugkevszar = @lugkevszar, savcsomszar = @savcsomszar,
-			kosherujcipszar = @kosherujcipszar, blendszar = @blendszar, csomagszar = @csomagszar, Leiras5 = @Leiras5, Leiras6 = @Leiras6, szitabetet = @szitabetet,
-			szita = @szita, keverokezzel = @keverokezzel, csomagolotiszt = @csomagolotiszt, munkakor = @munkakor, Komment = @Komment,  lugos = @lugos, sav = @sav, kosherc = kosherc
+			kosherujcipszar = @kosherujcipszar, blendszar = @blendszar, csomagszar = @csomagszar, Leiras5 = @Leiras5, Leiras6 = @Leiras6, szitabetet = @szitabetet, tomitestiszta = @tomitestiszta,
+			szita = @szita, keverokezzel = @keverokezzel, csomagolotiszt = @csomagolotiszt, munkakor = @munkakor, Komment = @Komment,  lugos = @lugos, sav = @sav, kosherc = @kosherc, lugkevveg = @lugkevveg,
+			Szitaid1 = @Szitaid1, Szitaid2 = @Szitaid2
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox4.Text));
@@ -674,13 +660,13 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@kiurult", textBox50.Text));
 			cmd.Parameters.Add(new SqlParameter("@lastphase", textBox51.Text));
 			cmd.Parameters.Add(new SqlParameter("@cipviz", textBox52.Text));
-			cmd.Parameters.Add(new SqlParameter("@Operator7", textBox53.Text));	
+			cmd.Parameters.Add(new SqlParameter("@Operator7", textBox53.Text));
 			cmd.Parameters.Add(new SqlParameter("@lugkevkezd", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@lugkevveg", textBox2.Text));
 			cmd.Parameters.Add(new SqlParameter("@lugkevcheck", textBox4.Text));
 			cmd.Parameters.Add(new SqlParameter("@lugkevms", textBox55.Text));
-			cmd.Parameters.Add(new SqlParameter("@savcsomkezd", textBox59.Text));
 			cmd.Parameters.Add(new SqlParameter("@savcsomveg", textBox58.Text));
+			cmd.Parameters.Add(new SqlParameter("@savcsomkezd", textBox59.Text));
 			cmd.Parameters.Add(new SqlParameter("@savcsomcheck", textBox57.Text));
 			cmd.Parameters.Add(new SqlParameter("@savcsomms", textBox56.Text));
 			cmd.Parameters.Add(new SqlParameter("@koshercujcipkezd", textBox63.Text));
@@ -715,9 +701,14 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox88.Text));	
 			cmd.Parameters.Add(new SqlParameter("@lugos", checkBox1.Checked));
 			cmd.Parameters.Add(new SqlParameter("@sav", checkBox2.Checked));
-			cmd.Parameters.Add(new SqlParameter("@kosherc", checkBox3.Checked));			
+			cmd.Parameters.Add(new SqlParameter("@kosherc", checkBox3.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid1", textBox93.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid2", textBox92.Text));			
 
 			cmd.ExecuteNonQuery();
+			
+			SqlCommand cmd1 = new SqlCommand(@"Update dbo.blendella set [lugkevkezd] = null ,[lugkevveg] = null WHERE POszam = ('" + comboBox1.Text + "') AND lugkevveg = '0:00'", conn);
+			cmd1.ExecuteNonQuery();
 			conn.Close();
 
 			Button5Click(null,null);	

@@ -75,8 +75,8 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.bmpa (POszam, Anyagkod, Anyagnev, IBCtisztae, IBCszam, LastIBCszam, Allomastisztae, Elese, Kimerteke, MegfeleloIBCe, AKLzsak, Csomomentese, Komment, Datum, Ellenorzo, Ellenorizve, Ki)  VALUES 
-			(@POszam, @Anyagkod, @Anyagnev, @IBCtisztae, @IBCszam, @LastIBCszam, @Allomastisztae, @Elese, @Kimerteke, @MegfeleloIBCe, @AKLzsak, @Csomomentese, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Soszam, @Alapanyage, @Bonthatoe, @Idegene)",conn);
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.bmpa (POszam, Anyagkod, Anyagnev, IBCtisztae, IBCszam, LastIBCszam, Allomastisztae, Elese, Kimerteke, MegfeleloIBCe, AKLzsak, Csomomentese, Komment, Datum, Ellenorzo, Ellenorizve, Ki, sopick)  VALUES 
+			(@POszam, @Anyagkod, @Anyagnev, @IBCtisztae, @IBCszam, @LastIBCszam, @Allomastisztae, @Elese, @Kimerteke, @MegfeleloIBCe, @AKLzsak, @Csomomentese, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Soszam, @Alapanyage, @Bonthatoe, @Idegene, @sopick)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
@@ -97,7 +97,8 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Soszam", textBox7.Text));
 			cmd.Parameters.Add(new SqlParameter("@Alapanyage", checkBox6.Checked));	
 			cmd.Parameters.Add(new SqlParameter("@Bonthatoe", checkBox8.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox9.Checked));			
+			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox9.Checked));
+			cmd.Parameters.Add(new SqlParameter("@sopick", checkBox10.Checked));			
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen hozzáadtad a PO-t", "Üzenet"); 

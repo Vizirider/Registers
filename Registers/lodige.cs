@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class lodige : Form
 	{
-		public lodige(string mws, string po)
+	private readonly Liquidinster.MainForm1 frm1;
+		public lodige(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -34,6 +35,7 @@ namespace Liquidinster
 			//
 //			this.textBox5.Text = mws;
 			this.textBox2.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -351,6 +353,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+			frm1.Refresh();
 			this.Close();	
 		}
 	}

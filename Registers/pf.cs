@@ -23,7 +23,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class pf : Form
 	{
-		public pf(string mws, string po)
+	private readonly Liquidinster.MainForm1 frm1;
+		public pf(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 //			this.comboBox2.Text = mws;
 //			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -155,6 +157,7 @@ namespace Liquidinster
 					textBox45.Text = (read["elteresszuro"].ToString());
 					textBox46.Text = (read["elteresall"].ToString());
 					textBox37.Text = (read["mintavetel"].ToString());
+					textBox36.Text = (read["Idegen"].ToString());
 					textBox43.Text = (read["mintavetelmegjegy"].ToString());
 					textBox44.Text = (read["cimkezesmegj"].ToString());
 					textBox39.Text = (read["gyartaskozivizs"].ToString());
@@ -296,6 +299,7 @@ namespace Liquidinster
 				panel77.Visible |= textBox73.Text == "1";
 				panel79.Visible |= textBox74.Text == "1";
 				panel81.Visible |= textBox96.Text == "1";
+				panel82.Visible |= textBox3.Text == "1";
 
 				panel75.Visible |= textBox7.Text == "2";
 				panel2.Visible |= textBox8.Text == "2";
@@ -337,6 +341,7 @@ namespace Liquidinster
 				panel76.Visible |= textBox73.Text == "2";
 				panel78.Visible |= textBox74.Text == "2";
 				panel80.Visible |= textBox96.Text == "2";
+				panel83.Visible |= textBox3.Text == "2";
 				
 		}
 			Button6Click(null,null);
@@ -349,6 +354,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 			this.Close();
 		}
 		void Button6Click(object sender, EventArgs e)
@@ -447,6 +453,7 @@ namespace Liquidinster
 			textBox73.Visible = true;
 			textBox74.Visible = true;
 			textBox96.Visible = true;
+			textBox3.Visible = true;
 			
 			}
 			else if(button9.Visible == true){
@@ -489,7 +496,9 @@ namespace Liquidinster
 			textBox72.Visible = false;
 			textBox73.Visible = false;
 			textBox74.Visible = false;
-			textBox96.Visible = false;		}
+			textBox96.Visible = false;
+			textBox3.Visible = false;
+			}
 	
 		}
 		void Button9Click(object sender, EventArgs e)

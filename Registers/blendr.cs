@@ -23,7 +23,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class blendr : Form
 	{
-		public blendr(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;
+		public blendr(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 			
 			// blender register with instances 
@@ -93,16 +95,17 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
-						this.Close();
+			frm1.Refresh();
+			this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
 				SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.blendinga set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, Tisztae = @Tisztae, Blenderszam = @Blenderszam, Kitoltvee = @Kitoltvee, IBCszam = @IBCszam, LastIBC = @LastIBC, IBCkiurulte = @IBCkiurulte, 
-			Felrazvae = @Felrazvae, Kannaszam = @Kannaszam, Urese = @Urese, Automatae = @Automatae, Csotisztae = @Csotisztae,
+			Felrazvae = @Felrazvae, Kannaszam = @Kannaszam, Urese = @Urese, Automatae = @Automatae,
 			Szivarogepor = @Szivarogepor, IBCbatch = @IBCbatch, Szivaroge = @Szivaroge, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo, Ellenorizve = @Ellenorizve, Ki = @Ki, Felrazvahoe = @Felrazvahoe, Jerrycane = @Jerrycane, Muszakie = @Muszakie, Idegene = @Idegene
-			WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
+			WHERE POszam = ('" + comboBox1.Text +"')",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
@@ -116,7 +119,6 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Kannaszam", textBox6.Text));
 			cmd.Parameters.Add(new SqlParameter("@Urese", checkBox6.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Automatae", checkBox7.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Csotisztae", checkBox8.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Szivarogepor", checkBox9.Checked));
 			cmd.Parameters.Add(new SqlParameter("@IBCbatch", textBox8.Text));
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox7.Text));

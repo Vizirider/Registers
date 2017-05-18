@@ -161,6 +161,8 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox8);
 			this.Controls.Add(this.button3);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(422, 382);
+			this.MinimumSize = new System.Drawing.Size(422, 382);
 			this.Name = "Select1";
 			this.Text = "Warehouse Registers";
 			this.ResumeLayout(false);

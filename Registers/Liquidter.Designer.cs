@@ -80,6 +80,10 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button2;
 		private System.Drawing.Printing.PrintDocument printDocument1;
 		private System.Windows.Forms.ComboBox comboBox4;
+		private System.Windows.Forms.Panel panel29;
+		private System.Windows.Forms.Panel panel30;
+		private System.Windows.Forms.Panel panel31;
+		private System.Windows.Forms.TextBox textBox20;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -169,19 +173,23 @@ namespace Liquidinster
 			this.button2 = new System.Windows.Forms.Button();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.comboBox4 = new System.Windows.Forms.ComboBox();
+			this.panel29 = new System.Windows.Forms.Panel();
+			this.panel30 = new System.Windows.Forms.Panel();
+			this.textBox20 = new System.Windows.Forms.TextBox();
+			this.panel31 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(278, 114);
+			this.textBox2.Location = new System.Drawing.Point(283, 111);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(177, 20);
 			this.textBox2.TabIndex = 6;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(278, 97);
+			this.textBox1.Location = new System.Drawing.Point(283, 94);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(177, 20);
 			this.textBox1.TabIndex = 5;
@@ -189,7 +197,7 @@ namespace Liquidinster
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(616, 96);
+			this.comboBox1.Location = new System.Drawing.Point(621, 93);
 			this.comboBox1.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(150, 21);
@@ -239,7 +247,7 @@ namespace Liquidinster
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(290, 152);
+			this.comboBox2.Location = new System.Drawing.Point(295, 149);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -269,14 +277,14 @@ namespace Liquidinster
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(616, 115);
+			this.textBox4.Location = new System.Drawing.Point(621, 112);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(150, 20);
 			this.textBox4.TabIndex = 56;
 			// 
 			// textBox5
 			// 
-			this.textBox5.Location = new System.Drawing.Point(475, 262);
+			this.textBox5.Location = new System.Drawing.Point(488, 256);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(150, 20);
 			this.textBox5.TabIndex = 57;
@@ -284,7 +292,7 @@ namespace Liquidinster
 			// 
 			// textBox6
 			// 
-			this.textBox6.Location = new System.Drawing.Point(475, 288);
+			this.textBox6.Location = new System.Drawing.Point(497, 277);
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(150, 20);
 			this.textBox6.TabIndex = 58;
@@ -300,7 +308,7 @@ namespace Liquidinster
 			// 
 			// textBox8
 			// 
-			this.textBox8.Location = new System.Drawing.Point(916, 294);
+			this.textBox8.Location = new System.Drawing.Point(938, 283);
 			this.textBox8.Name = "textBox8";
 			this.textBox8.Size = new System.Drawing.Size(127, 20);
 			this.textBox8.TabIndex = 60;
@@ -308,7 +316,7 @@ namespace Liquidinster
 			// 
 			// textBox9
 			// 
-			this.textBox9.Location = new System.Drawing.Point(475, 443);
+			this.textBox9.Location = new System.Drawing.Point(497, 432);
 			this.textBox9.Name = "textBox9";
 			this.textBox9.Size = new System.Drawing.Size(150, 20);
 			this.textBox9.TabIndex = 61;
@@ -316,7 +324,7 @@ namespace Liquidinster
 			// 
 			// textBox10
 			// 
-			this.textBox10.Location = new System.Drawing.Point(475, 469);
+			this.textBox10.Location = new System.Drawing.Point(497, 458);
 			this.textBox10.Name = "textBox10";
 			this.textBox10.Size = new System.Drawing.Size(150, 20);
 			this.textBox10.TabIndex = 62;
@@ -324,7 +332,7 @@ namespace Liquidinster
 			// 
 			// textBox11
 			// 
-			this.textBox11.Location = new System.Drawing.Point(916, 439);
+			this.textBox11.Location = new System.Drawing.Point(938, 428);
 			this.textBox11.Name = "textBox11";
 			this.textBox11.Size = new System.Drawing.Size(127, 20);
 			this.textBox11.TabIndex = 63;
@@ -332,7 +340,7 @@ namespace Liquidinster
 			// 
 			// textBox12
 			// 
-			this.textBox12.Location = new System.Drawing.Point(916, 468);
+			this.textBox12.Location = new System.Drawing.Point(938, 457);
 			this.textBox12.Name = "textBox12";
 			this.textBox12.Size = new System.Drawing.Size(127, 20);
 			this.textBox12.TabIndex = 64;
@@ -340,7 +348,7 @@ namespace Liquidinster
 			// 
 			// textBox13
 			// 
-			this.textBox13.Location = new System.Drawing.Point(916, 494);
+			this.textBox13.Location = new System.Drawing.Point(938, 483);
 			this.textBox13.Name = "textBox13";
 			this.textBox13.Size = new System.Drawing.Size(127, 20);
 			this.textBox13.TabIndex = 65;
@@ -348,7 +356,7 @@ namespace Liquidinster
 			// 
 			// textBox14
 			// 
-			this.textBox14.Location = new System.Drawing.Point(916, 520);
+			this.textBox14.Location = new System.Drawing.Point(938, 509);
 			this.textBox14.Name = "textBox14";
 			this.textBox14.Size = new System.Drawing.Size(127, 20);
 			this.textBox14.TabIndex = 66;
@@ -356,7 +364,7 @@ namespace Liquidinster
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(907, 96);
+			this.dateTimePicker1.Location = new System.Drawing.Point(912, 95);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
 			this.dateTimePicker1.TabIndex = 67;
@@ -388,21 +396,21 @@ namespace Liquidinster
 			// 
 			// textBox17
 			// 
-			this.textBox17.Location = new System.Drawing.Point(475, 507);
+			this.textBox17.Location = new System.Drawing.Point(471, 509);
 			this.textBox17.Name = "textBox17";
 			this.textBox17.Size = new System.Drawing.Size(150, 20);
 			this.textBox17.TabIndex = 71;
 			// 
 			// textBox18
 			// 
-			this.textBox18.Location = new System.Drawing.Point(40, 322);
+			this.textBox18.Location = new System.Drawing.Point(49, 322);
 			this.textBox18.Name = "textBox18";
 			this.textBox18.Size = new System.Drawing.Size(1008, 20);
 			this.textBox18.TabIndex = 72;
 			// 
 			// textBox19
 			// 
-			this.textBox19.Location = new System.Drawing.Point(40, 551);
+			this.textBox19.Location = new System.Drawing.Point(48, 582);
 			this.textBox19.Name = "textBox19";
 			this.textBox19.Size = new System.Drawing.Size(585, 20);
 			this.textBox19.TabIndex = 73;
@@ -432,7 +440,7 @@ namespace Liquidinster
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Location = new System.Drawing.Point(466, 262);
+			this.panel1.Location = new System.Drawing.Point(478, 256);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(40, 26);
 			this.panel1.TabIndex = 76;
@@ -442,7 +450,7 @@ namespace Liquidinster
 			// 
 			this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel2.Location = new System.Drawing.Point(466, 294);
+			this.panel2.Location = new System.Drawing.Point(477, 288);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(40, 22);
 			this.panel2.TabIndex = 77;
@@ -452,7 +460,7 @@ namespace Liquidinster
 			// 
 			this.panel3.BackColor = System.Drawing.Color.DarkRed;
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel3.Location = new System.Drawing.Point(521, 262);
+			this.panel3.Location = new System.Drawing.Point(534, 256);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(40, 26);
 			this.panel3.TabIndex = 77;
@@ -462,7 +470,7 @@ namespace Liquidinster
 			// 
 			this.panel4.BackColor = System.Drawing.Color.DarkRed;
 			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel4.Location = new System.Drawing.Point(521, 294);
+			this.panel4.Location = new System.Drawing.Point(533, 289);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(40, 22);
 			this.panel4.TabIndex = 78;
@@ -472,7 +480,7 @@ namespace Liquidinster
 			// 
 			this.panel5.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel5.Location = new System.Drawing.Point(576, 262);
+			this.panel5.Location = new System.Drawing.Point(589, 256);
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(40, 26);
 			this.panel5.TabIndex = 78;
@@ -482,7 +490,7 @@ namespace Liquidinster
 			// 
 			this.panel6.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel6.Location = new System.Drawing.Point(576, 294);
+			this.panel6.Location = new System.Drawing.Point(588, 289);
 			this.panel6.Name = "panel6";
 			this.panel6.Size = new System.Drawing.Size(40, 22);
 			this.panel6.TabIndex = 79;
@@ -492,7 +500,7 @@ namespace Liquidinster
 			// 
 			this.panel7.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel7.Location = new System.Drawing.Point(576, 473);
+			this.panel7.Location = new System.Drawing.Point(585, 471);
 			this.panel7.Name = "panel7";
 			this.panel7.Size = new System.Drawing.Size(40, 24);
 			this.panel7.TabIndex = 85;
@@ -502,7 +510,7 @@ namespace Liquidinster
 			// 
 			this.panel8.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel8.Location = new System.Drawing.Point(576, 443);
+			this.panel8.Location = new System.Drawing.Point(585, 441);
 			this.panel8.Name = "panel8";
 			this.panel8.Size = new System.Drawing.Size(40, 24);
 			this.panel8.TabIndex = 83;
@@ -512,7 +520,7 @@ namespace Liquidinster
 			// 
 			this.panel9.BackColor = System.Drawing.Color.DarkRed;
 			this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel9.Location = new System.Drawing.Point(521, 473);
+			this.panel9.Location = new System.Drawing.Point(530, 471);
 			this.panel9.Name = "panel9";
 			this.panel9.Size = new System.Drawing.Size(40, 24);
 			this.panel9.TabIndex = 84;
@@ -522,7 +530,7 @@ namespace Liquidinster
 			// 
 			this.panel10.BackColor = System.Drawing.Color.DarkRed;
 			this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel10.Location = new System.Drawing.Point(521, 443);
+			this.panel10.Location = new System.Drawing.Point(530, 441);
 			this.panel10.Name = "panel10";
 			this.panel10.Size = new System.Drawing.Size(40, 24);
 			this.panel10.TabIndex = 81;
@@ -532,7 +540,7 @@ namespace Liquidinster
 			// 
 			this.panel11.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel11.Location = new System.Drawing.Point(466, 473);
+			this.panel11.Location = new System.Drawing.Point(475, 471);
 			this.panel11.Name = "panel11";
 			this.panel11.Size = new System.Drawing.Size(40, 28);
 			this.panel11.TabIndex = 82;
@@ -542,7 +550,7 @@ namespace Liquidinster
 			// 
 			this.panel12.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel12.Location = new System.Drawing.Point(466, 443);
+			this.panel12.Location = new System.Drawing.Point(475, 441);
 			this.panel12.Name = "panel12";
 			this.panel12.Size = new System.Drawing.Size(40, 29);
 			this.panel12.TabIndex = 80;
@@ -552,7 +560,7 @@ namespace Liquidinster
 			// 
 			this.panel13.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel13.Location = new System.Drawing.Point(986, 294);
+			this.panel13.Location = new System.Drawing.Point(988, 290);
 			this.panel13.Name = "panel13";
 			this.panel13.Size = new System.Drawing.Size(40, 22);
 			this.panel13.TabIndex = 82;
@@ -562,7 +570,7 @@ namespace Liquidinster
 			// 
 			this.panel14.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel14.Location = new System.Drawing.Point(986, 262);
+			this.panel14.Location = new System.Drawing.Point(988, 261);
 			this.panel14.Name = "panel14";
 			this.panel14.Size = new System.Drawing.Size(40, 26);
 			this.panel14.TabIndex = 80;
@@ -572,7 +580,7 @@ namespace Liquidinster
 			// 
 			this.panel15.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel15.Location = new System.Drawing.Point(915, 294);
+			this.panel15.Location = new System.Drawing.Point(917, 290);
 			this.panel15.Name = "panel15";
 			this.panel15.Size = new System.Drawing.Size(40, 22);
 			this.panel15.TabIndex = 81;
@@ -582,7 +590,7 @@ namespace Liquidinster
 			// 
 			this.panel16.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel16.Location = new System.Drawing.Point(915, 262);
+			this.panel16.Location = new System.Drawing.Point(917, 261);
 			this.panel16.Name = "panel16";
 			this.panel16.Size = new System.Drawing.Size(40, 26);
 			this.panel16.TabIndex = 79;
@@ -592,7 +600,7 @@ namespace Liquidinster
 			// 
 			this.panel17.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel17.Location = new System.Drawing.Point(986, 469);
+			this.panel17.Location = new System.Drawing.Point(998, 466);
 			this.panel17.Name = "panel17";
 			this.panel17.Size = new System.Drawing.Size(40, 24);
 			this.panel17.TabIndex = 86;
@@ -602,7 +610,7 @@ namespace Liquidinster
 			// 
 			this.panel18.BackColor = System.Drawing.Color.DarkRed;
 			this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel18.Location = new System.Drawing.Point(986, 439);
+			this.panel18.Location = new System.Drawing.Point(998, 436);
 			this.panel18.Name = "panel18";
 			this.panel18.Size = new System.Drawing.Size(40, 24);
 			this.panel18.TabIndex = 84;
@@ -612,7 +620,7 @@ namespace Liquidinster
 			// 
 			this.panel19.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel19.Location = new System.Drawing.Point(915, 469);
+			this.panel19.Location = new System.Drawing.Point(927, 466);
 			this.panel19.Name = "panel19";
 			this.panel19.Size = new System.Drawing.Size(40, 24);
 			this.panel19.TabIndex = 85;
@@ -622,7 +630,7 @@ namespace Liquidinster
 			// 
 			this.panel20.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel20.Location = new System.Drawing.Point(915, 439);
+			this.panel20.Location = new System.Drawing.Point(927, 436);
 			this.panel20.Name = "panel20";
 			this.panel20.Size = new System.Drawing.Size(40, 24);
 			this.panel20.TabIndex = 83;
@@ -632,7 +640,7 @@ namespace Liquidinster
 			// 
 			this.panel21.BackColor = System.Drawing.Color.DarkRed;
 			this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel21.Location = new System.Drawing.Point(986, 525);
+			this.panel21.Location = new System.Drawing.Point(998, 522);
 			this.panel21.Name = "panel21";
 			this.panel21.Size = new System.Drawing.Size(40, 23);
 			this.panel21.TabIndex = 90;
@@ -642,7 +650,7 @@ namespace Liquidinster
 			// 
 			this.panel22.BackColor = System.Drawing.Color.DarkRed;
 			this.panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel22.Location = new System.Drawing.Point(986, 499);
+			this.panel22.Location = new System.Drawing.Point(998, 496);
 			this.panel22.Name = "panel22";
 			this.panel22.Size = new System.Drawing.Size(40, 23);
 			this.panel22.TabIndex = 88;
@@ -652,7 +660,7 @@ namespace Liquidinster
 			// 
 			this.panel23.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel23.Location = new System.Drawing.Point(915, 525);
+			this.panel23.Location = new System.Drawing.Point(927, 522);
 			this.panel23.Name = "panel23";
 			this.panel23.Size = new System.Drawing.Size(40, 26);
 			this.panel23.TabIndex = 89;
@@ -662,7 +670,7 @@ namespace Liquidinster
 			// 
 			this.panel24.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel24.Location = new System.Drawing.Point(915, 499);
+			this.panel24.Location = new System.Drawing.Point(927, 496);
 			this.panel24.Name = "panel24";
 			this.panel24.Size = new System.Drawing.Size(40, 23);
 			this.panel24.TabIndex = 87;
@@ -672,7 +680,7 @@ namespace Liquidinster
 			// 
 			this.panel25.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel25.Location = new System.Drawing.Point(986, 640);
+			this.panel25.Location = new System.Drawing.Point(998, 640);
 			this.panel25.Name = "panel25";
 			this.panel25.Size = new System.Drawing.Size(40, 27);
 			this.panel25.TabIndex = 94;
@@ -682,7 +690,7 @@ namespace Liquidinster
 			// 
 			this.panel26.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel26.Location = new System.Drawing.Point(986, 613);
+			this.panel26.Location = new System.Drawing.Point(998, 613);
 			this.panel26.Name = "panel26";
 			this.panel26.Size = new System.Drawing.Size(40, 23);
 			this.panel26.TabIndex = 92;
@@ -692,7 +700,7 @@ namespace Liquidinster
 			// 
 			this.panel27.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel27.Location = new System.Drawing.Point(915, 640);
+			this.panel27.Location = new System.Drawing.Point(927, 640);
 			this.panel27.Name = "panel27";
 			this.panel27.Size = new System.Drawing.Size(40, 27);
 			this.panel27.TabIndex = 93;
@@ -702,7 +710,7 @@ namespace Liquidinster
 			// 
 			this.panel28.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel28.Location = new System.Drawing.Point(915, 613);
+			this.panel28.Location = new System.Drawing.Point(927, 613);
 			this.panel28.Name = "panel28";
 			this.panel28.Size = new System.Drawing.Size(40, 23);
 			this.panel28.TabIndex = 91;
@@ -728,7 +736,7 @@ namespace Liquidinster
 			// 
 			// button6
 			// 
-			this.button6.Location = new System.Drawing.Point(851, 140);
+			this.button6.Location = new System.Drawing.Point(851, 139);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(75, 23);
 			this.button6.TabIndex = 156;
@@ -763,7 +771,7 @@ namespace Liquidinster
 			// button2
 			// 
 			this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button2.Location = new System.Drawing.Point(608, 181);
+			this.button2.Location = new System.Drawing.Point(608, 180);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(86, 27);
 			this.button2.TabIndex = 331;
@@ -784,6 +792,44 @@ namespace Liquidinster
 			this.comboBox4.Size = new System.Drawing.Size(150, 21);
 			this.comboBox4.TabIndex = 332;
 			// 
+			// panel29
+			// 
+			this.panel29.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel29.Location = new System.Drawing.Point(585, 538);
+			this.panel29.Name = "panel29";
+			this.panel29.Size = new System.Drawing.Size(40, 24);
+			this.panel29.TabIndex = 336;
+			this.panel29.Visible = false;
+			// 
+			// panel30
+			// 
+			this.panel30.BackColor = System.Drawing.Color.DarkRed;
+			this.panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel30.Location = new System.Drawing.Point(530, 538);
+			this.panel30.Name = "panel30";
+			this.panel30.Size = new System.Drawing.Size(40, 24);
+			this.panel30.TabIndex = 335;
+			this.panel30.Visible = false;
+			// 
+			// textBox20
+			// 
+			this.textBox20.Location = new System.Drawing.Point(637, 563);
+			this.textBox20.Name = "textBox20";
+			this.textBox20.Size = new System.Drawing.Size(150, 20);
+			this.textBox20.TabIndex = 333;
+			this.textBox20.Visible = false;
+			// 
+			// panel31
+			// 
+			this.panel31.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel31.Location = new System.Drawing.Point(475, 537);
+			this.panel31.Name = "panel31";
+			this.panel31.Size = new System.Drawing.Size(40, 28);
+			this.panel31.TabIndex = 334;
+			this.panel31.Visible = false;
+			// 
 			// Liquidter
 			// 
 			this.AllowDrop = true;
@@ -793,6 +839,10 @@ namespace Liquidinster
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(1360, 742);
+			this.Controls.Add(this.textBox20);
+			this.Controls.Add(this.panel29);
+			this.Controls.Add(this.panel30);
+			this.Controls.Add(this.panel31);
 			this.Controls.Add(this.comboBox4);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button8);

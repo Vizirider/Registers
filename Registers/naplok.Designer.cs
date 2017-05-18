@@ -190,9 +190,6 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox127;
-		private System.Windows.Forms.TextBox textBox128;
-		private System.Windows.Forms.TextBox textBox129;
 		private System.Windows.Forms.Button button45;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox textBox130;
@@ -201,6 +198,16 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Button button72;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+		private System.Windows.Forms.Button button46;
+		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.ComboBox comboBox3;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Button button47;
+		private System.Windows.Forms.ComboBox comboBox4;
+		private System.Windows.Forms.Button button48;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -223,8 +230,11 @@ namespace Liquidinster
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(naplok));
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
@@ -401,9 +411,6 @@ namespace Liquidinster
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox127 = new System.Windows.Forms.TextBox();
-			this.textBox128 = new System.Windows.Forms.TextBox();
-			this.textBox129 = new System.Windows.Forms.TextBox();
 			this.button45 = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBox130 = new System.Windows.Forms.TextBox();
@@ -412,12 +419,23 @@ namespace Liquidinster
 			this.label8 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
+			this.button72 = new System.Windows.Forms.Button();
+			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.button46 = new System.Windows.Forms.Button();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.comboBox3 = new System.Windows.Forms.ComboBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.button47 = new System.Windows.Forms.Button();
+			this.comboBox4 = new System.Windows.Forms.ComboBox();
+			this.button48 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(68, 1);
+			this.dateTimePicker1.Location = new System.Drawing.Point(66, 1);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(161, 20);
 			this.dateTimePicker1.TabIndex = 0;
@@ -1544,12 +1562,12 @@ namespace Liquidinster
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
 			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(282, 2);
+			this.dataGridView1.Location = new System.Drawing.Point(284, 2);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersVisible = false;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-			this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+			this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dataGridView1.Size = new System.Drawing.Size(296, 50);
 			this.dataGridView1.TabIndex = 137;
 			// 
@@ -1971,30 +1989,6 @@ namespace Liquidinster
 			this.label4.TabIndex = 175;
 			this.label4.Text = "M:";
 			// 
-			// textBox127
-			// 
-			this.textBox127.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox127.Location = new System.Drawing.Point(117, 792);
-			this.textBox127.Name = "textBox127";
-			this.textBox127.Size = new System.Drawing.Size(28, 20);
-			this.textBox127.TabIndex = 178;
-			// 
-			// textBox128
-			// 
-			this.textBox128.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox128.Location = new System.Drawing.Point(117, 766);
-			this.textBox128.Name = "textBox128";
-			this.textBox128.Size = new System.Drawing.Size(28, 20);
-			this.textBox128.TabIndex = 177;
-			// 
-			// textBox129
-			// 
-			this.textBox129.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox129.Location = new System.Drawing.Point(117, 740);
-			this.textBox129.Name = "textBox129";
-			this.textBox129.Size = new System.Drawing.Size(28, 20);
-			this.textBox129.TabIndex = 176;
-			// 
 			// button45
 			// 
 			this.button45.Location = new System.Drawing.Point(178, 761);
@@ -2076,6 +2070,154 @@ namespace Liquidinster
 			this.label10.TabIndex = 186;
 			this.label10.Text = "03";
 			// 
+			// button72
+			// 
+			this.button72.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button72.BackgroundImage")));
+			this.button72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.button72.Location = new System.Drawing.Point(854, 740);
+			this.button72.Name = "button72";
+			this.button72.Size = new System.Drawing.Size(48, 48);
+			this.button72.TabIndex = 246;
+			this.button72.Text = "Lang";
+			this.button72.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.button72.UseVisualStyleBackColor = true;
+			this.button72.Click += new System.EventHandler(this.Button72Click);
+			// 
+			// chart1
+			// 
+			chartArea2.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chart1.Legends.Add(legend2);
+			this.chart1.Location = new System.Drawing.Point(201, 717);
+			this.chart1.Name = "chart1";
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Series1";
+			this.chart1.Series.Add(series2);
+			this.chart1.Size = new System.Drawing.Size(599, 92);
+			this.chart1.TabIndex = 247;
+			this.chart1.Text = "chart1";
+			// 
+			// button46
+			// 
+			this.button46.Location = new System.Drawing.Point(212, 717);
+			this.button46.Name = "button46";
+			this.button46.Size = new System.Drawing.Size(75, 23);
+			this.button46.TabIndex = 248;
+			this.button46.Text = "button46";
+			this.button46.UseVisualStyleBackColor = true;
+			this.button46.Visible = false;
+			this.button46.Click += new System.EventHandler(this.Button46Click);
+			// 
+			// comboBox1
+			// 
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(117, 741);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(28, 19);
+			this.comboBox1.TabIndex = 249;
+			// 
+			// comboBox2
+			// 
+			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+			this.comboBox2.FormattingEnabled = true;
+			this.comboBox2.Location = new System.Drawing.Point(117, 767);
+			this.comboBox2.Name = "comboBox2";
+			this.comboBox2.Size = new System.Drawing.Size(28, 19);
+			this.comboBox2.TabIndex = 250;
+			// 
+			// comboBox3
+			// 
+			this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+			this.comboBox3.FormattingEnabled = true;
+			this.comboBox3.Location = new System.Drawing.Point(117, 790);
+			this.comboBox3.Name = "comboBox3";
+			this.comboBox3.Size = new System.Drawing.Size(28, 19);
+			this.comboBox3.TabIndex = 251;
+			// 
+			// label11
+			// 
+			this.label11.BackColor = System.Drawing.Color.White;
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label11.Location = new System.Drawing.Point(224, 2);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(58, 23);
+			this.label11.TabIndex = 252;
+			this.label11.Text = "Műszak:";
+			// 
+			// button47
+			// 
+			this.button47.Location = new System.Drawing.Point(653, 630);
+			this.button47.Name = "button47";
+			this.button47.Size = new System.Drawing.Size(75, 23);
+			this.button47.TabIndex = 253;
+			this.button47.Text = "Done";
+			this.button47.UseVisualStyleBackColor = true;
+			this.button47.Click += new System.EventHandler(this.Button47Click);
+			this.button47.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Button47MouseMove);
+			// 
+			// comboBox4
+			// 
+			this.comboBox4.FormattingEnabled = true;
+			this.comboBox4.Items.AddRange(new object[] {
+			"POS1",
+			"POS2",
+			"POS3",
+			"POS4",
+			"POSBG1",
+			"POS6",
+			"POS7",
+			"Palettázó",
+			"Karton h",
+			"SMP01",
+			"SMP02",
+			"SMP03",
+			"SMP04",
+			"SMP05",
+			"01",
+			"02",
+			"03",
+			"2",
+			"3",
+			"4",
+			"5",
+			"6",
+			"7",
+			"9",
+			"Diosna",
+			"Henschel",
+			"100",
+			"500",
+			"1501",
+			"1502",
+			"1503",
+			"1504",
+			"6001",
+			"6002",
+			"6003",
+			"M20",
+			"M60",
+			"M450",
+			"R1601",
+			"R4001",
+			"Lödige"});
+			this.comboBox4.Location = new System.Drawing.Point(630, 602);
+			this.comboBox4.Name = "comboBox4";
+			this.comboBox4.Size = new System.Drawing.Size(121, 21);
+			this.comboBox4.TabIndex = 254;
+			// 
+			// button48
+			// 
+			this.button48.Location = new System.Drawing.Point(790, 611);
+			this.button48.Name = "button48";
+			this.button48.Size = new System.Drawing.Size(75, 23);
+			this.button48.TabIndex = 255;
+			this.button48.Text = "Multi done";
+			this.button48.UseVisualStyleBackColor = true;
+			this.button48.Click += new System.EventHandler(this.Button48Click);
+			// 
 			// naplok
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2084,6 +2226,16 @@ namespace Liquidinster
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(923, 812);
+			this.Controls.Add(this.button48);
+			this.Controls.Add(this.comboBox4);
+			this.Controls.Add(this.button47);
+			this.Controls.Add(this.label11);
+			this.Controls.Add(this.comboBox3);
+			this.Controls.Add(this.comboBox2);
+			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.button46);
+			this.Controls.Add(this.chart1);
+			this.Controls.Add(this.button72);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
@@ -2092,9 +2244,6 @@ namespace Liquidinster
 			this.Controls.Add(this.textBox130);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.button45);
-			this.Controls.Add(this.textBox127);
-			this.Controls.Add(this.textBox128);
-			this.Controls.Add(this.textBox129);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -2274,7 +2423,9 @@ namespace Liquidinster
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "naplok";
 			this.Text = "naplok";
+			this.Load += new System.EventHandler(this.NaplokLoad);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

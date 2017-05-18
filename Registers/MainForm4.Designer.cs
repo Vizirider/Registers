@@ -198,6 +198,10 @@ namespace Liquidinster
 			this.Controls.Add(this.button7);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox1);
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(527, 361);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(527, 361);
 			this.Name = "MainForm4";
 			this.Text = "PepsiCo Check";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

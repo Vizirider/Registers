@@ -35,7 +35,7 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button12;
 		private System.Windows.Forms.Button button11;
 		private System.Windows.Forms.Button button10;
-		private System.Windows.Forms.Button button9;
+		public System.Windows.Forms.Button button9;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button7;
@@ -119,6 +119,10 @@ namespace Liquidinster
 		private System.Windows.Forms.Button button62;
 		private System.Windows.Forms.Button button63;
 		private System.Windows.Forms.Button button64;
+		private System.Windows.Forms.TextBox textBox14;
+		private System.Windows.Forms.Button button65;
+		private System.Windows.Forms.Button button66;
+		private System.Windows.Forms.Button button67;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -249,6 +253,10 @@ namespace Liquidinster
 			this.button62 = new System.Windows.Forms.Button();
 			this.button63 = new System.Windows.Forms.Button();
 			this.button64 = new System.Windows.Forms.Button();
+			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.button65 = new System.Windows.Forms.Button();
+			this.button66 = new System.Windows.Forms.Button();
+			this.button67 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -556,6 +564,7 @@ namespace Liquidinster
 			this.dataGridView5.RowHeadersVisible = false;
 			this.dataGridView5.Size = new System.Drawing.Size(225, 115);
 			this.dataGridView5.TabIndex = 74;
+			this.dataGridView5.VirtualMode = true;
 			this.dataGridView5.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView5CellDoubleClick);
 			// 
 			// dataGridView4
@@ -567,6 +576,7 @@ namespace Liquidinster
 			this.dataGridView4.RowHeadersVisible = false;
 			this.dataGridView4.Size = new System.Drawing.Size(224, 150);
 			this.dataGridView4.TabIndex = 73;
+			this.dataGridView4.VirtualMode = true;
 			this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView4CellClick);
 			// 
 			// dataGridView3
@@ -578,6 +588,7 @@ namespace Liquidinster
 			this.dataGridView3.RowHeadersVisible = false;
 			this.dataGridView3.Size = new System.Drawing.Size(226, 150);
 			this.dataGridView3.TabIndex = 72;
+			this.dataGridView3.VirtualMode = true;
 			this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3CellClick);
 			// 
 			// dataGridView2
@@ -589,6 +600,7 @@ namespace Liquidinster
 			this.dataGridView2.RowHeadersVisible = false;
 			this.dataGridView2.Size = new System.Drawing.Size(220, 150);
 			this.dataGridView2.TabIndex = 71;
+			this.dataGridView2.VirtualMode = true;
 			this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2CellClick);
 			// 
 			// label2
@@ -609,6 +621,7 @@ namespace Liquidinster
 			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.Size = new System.Drawing.Size(216, 150);
 			this.dataGridView1.TabIndex = 69;
+			this.dataGridView1.VirtualMode = true;
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1CellClick);
 			// 
 			// label1
@@ -624,7 +637,7 @@ namespace Liquidinster
 			this.textBox1.Location = new System.Drawing.Point(731, 72);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 67;
+			this.textBox1.TabIndex = 0;
 			this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox1KeyUp);
 			// 
 			// button6
@@ -759,6 +772,7 @@ namespace Liquidinster
 			this.dataGridView6.RowHeadersVisible = false;
 			this.dataGridView6.Size = new System.Drawing.Size(224, 150);
 			this.dataGridView6.TabIndex = 110;
+			this.dataGridView6.VirtualMode = true;
 			this.dataGridView6.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView6CellClick);
 			// 
 			// dataGridView7
@@ -770,6 +784,7 @@ namespace Liquidinster
 			this.dataGridView7.RowHeadersVisible = false;
 			this.dataGridView7.Size = new System.Drawing.Size(223, 150);
 			this.dataGridView7.TabIndex = 109;
+			this.dataGridView7.VirtualMode = true;
 			this.dataGridView7.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView7CellClick);
 			// 
 			// button35
@@ -867,6 +882,7 @@ namespace Liquidinster
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(121, 21);
 			this.comboBox2.TabIndex = 203;
+			this.comboBox2.Text = "Site";
 			// 
 			// button71
 			// 
@@ -973,6 +989,7 @@ namespace Liquidinster
 			this.dataGridView8.RowHeadersVisible = false;
 			this.dataGridView8.Size = new System.Drawing.Size(223, 115);
 			this.dataGridView8.TabIndex = 211;
+			this.dataGridView8.VirtualMode = true;
 			this.dataGridView8.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView8CellDoubleClick);
 			// 
 			// button45
@@ -1330,6 +1347,53 @@ namespace Liquidinster
 			this.button64.UseVisualStyleBackColor = true;
 			this.button64.Click += new System.EventHandler(this.Button64Click);
 			// 
+			// textBox14
+			// 
+			this.textBox14.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+			this.textBox14.Location = new System.Drawing.Point(1289, 47);
+			this.textBox14.Name = "textBox14";
+			this.textBox14.ReadOnly = true;
+			this.textBox14.Size = new System.Drawing.Size(80, 20);
+			this.textBox14.TabIndex = 255;
+			this.textBox14.Visible = false;
+			// 
+			// button65
+			// 
+			this.button65.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.button65.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button65.Location = new System.Drawing.Point(1193, 406);
+			this.button65.Name = "button65";
+			this.button65.Size = new System.Drawing.Size(112, 60);
+			this.button65.TabIndex = 256;
+			this.button65.Text = "CCP Timediff";
+			this.button65.UseVisualStyleBackColor = false;
+			this.button65.Click += new System.EventHandler(this.Button65Click);
+			// 
+			// button66
+			// 
+			this.button66.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.button66.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button66.Location = new System.Drawing.Point(1061, 0);
+			this.button66.Name = "button66";
+			this.button66.Size = new System.Drawing.Size(81, 20);
+			this.button66.TabIndex = 257;
+			this.button66.Text = "CMS Live";
+			this.button66.UseVisualStyleBackColor = false;
+			this.button66.Visible = false;
+			this.button66.Click += new System.EventHandler(this.Button66Click);
+			// 
+			// button67
+			// 
+			this.button67.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.button67.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button67.Location = new System.Drawing.Point(1193, 16);
+			this.button67.Name = "button67";
+			this.button67.Size = new System.Drawing.Size(75, 51);
+			this.button67.TabIndex = 258;
+			this.button67.Text = "Register Timestamp";
+			this.button67.UseVisualStyleBackColor = false;
+			this.button67.Click += new System.EventHandler(this.Button67Click);
+			// 
 			// MainForm1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1337,6 +1401,10 @@ namespace Liquidinster
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(1376, 558);
+			this.Controls.Add(this.button67);
+			this.Controls.Add(this.button66);
+			this.Controls.Add(this.button65);
+			this.Controls.Add(this.textBox14);
 			this.Controls.Add(this.button64);
 			this.Controls.Add(this.button62);
 			this.Controls.Add(this.button63);
@@ -1443,6 +1511,10 @@ namespace Liquidinster
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.textBox4);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(1392, 596);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(1392, 596);
 			this.Name = "MainForm1";
 			this.Text = "Gyártás ellenőrzés";
 			this.Load += new System.EventHandler(this.MainForm1Load);

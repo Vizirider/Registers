@@ -24,6 +24,13 @@ namespace Liquidinster
 	/// </summary>
 	public partial class MainForm2 : Form
 	{
+		private String connectionString = null;
+        private SqlConnection sqlConnection = null;
+        private SqlDataAdapter sqlDataAdapter = null;
+        private SqlCommandBuilder sqlCommandBuilder = null;
+        private DataTable dataTable = null;
+        private BindingSource bindingSource = null;
+        private String selectQueryString = null;
 		public MainForm2(string mws)
 		{
 			//
@@ -80,9 +87,11 @@ namespace Liquidinster
 		}
 		void Button7Click(object sender, EventArgs e)
 		{
+			if(textBox3.Text.Length == 0)
+			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Datum, Batch FROM warehouse WHERE POszam LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Datum, Batch FROM warehouse WHERE Batch LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
 			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 			DataSet ds = new DataSet();
 			dataAdapter.Fill(ds);
@@ -90,7 +99,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumns();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM warehouse WHERE POszam LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08'",conn))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Batch) FROM warehouse WHERE Batch LIKE ('" + textBox1.Text +"%') AND Datum > '2016-05-08'",conn))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -101,41 +110,64 @@ namespace Liquidinster
 			{
 			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
 			}
+			}
+			else if(textBox1.Text.Length == 0)
+			{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Datum, Batch FROM warehouse WHERE POszam LIKE ('" + textBox3.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView1.DataSource = ds.Tables[0];
+			dataGridView1.AutoResizeColumns();
+			try{
+			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM warehouse WHERE POszam LIKE ('" + textBox3.Text +"%') AND Datum > '2016-05-08'",conn))
+    		{
+       	 	con.Open();
+        	int result = (int)cmd.ExecuteScalar();
+        	textBox2.Text = result.ToString();
+    		}
+			}
+			catch (SqlException ex)
+			{
+			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
+			}
+			}
+			else{
+			{
+			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
+			conn.Open();
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Datum, Batch FROM warehouse WHERE (POszam LIKE ('" + textBox3.Text +"%') AND Batch LIKE ('" + textBox1.Text +"%'))  AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
+			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+			DataSet ds = new DataSet();
+			dataAdapter.Fill(ds);
+			dataGridView1.DataSource = ds.Tables[0];
+			dataGridView1.AutoResizeColumns();
+			try{
+			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM warehouse WHERE (POszam LIKE ('" + textBox3.Text +"%') AND Batch LIKE ('" + textBox1.Text +"%')) AND Datum > '2016-05-08'",conn))
+    		{
+       	 	con.Open();
+        	int result = (int)cmd.ExecuteScalar();
+        	textBox2.Text = result.ToString();
+    		}
+			}
+			catch (SqlException ex)
+			{
+			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
+			}
+			}
+			}
+			
 		}
 		void Button3Click(object sender, EventArgs e)
 		{
 			Warehouse wh = new Warehouse(textBox8.Text);
 			wh.Show();
 		}
-		void Button2Click(object sender, EventArgs e)
-		{
-			Warehouseread whr = new Warehouseread(textBox6.Text, textBox1.Text);
-			whr.Show();		
-		}
-		void Button11Click(object sender, EventArgs e)
-		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Batch, Datum FROM warehouse1 WHERE Batch LIKE ('" + textBox6.Text +"%') ORDER BY Datum DESC",conn);
-			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-			DataSet ds = new DataSet();
-			dataAdapter.Fill(ds);
-			dataGridView2.DataSource = ds.Tables[0];
-			dataGridView2.AutoResizeColumns();
-			try{
-			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Batch) FROM warehouse1 WHERE Batch LIKE ('" + textBox6.Text +"%')",conn))
-    		{
-       	 	con.Open();
-        	int result = (int)cmd.ExecuteScalar();
-        	textBox3.Text = result.ToString();
-    		}
-			}
-			catch (SqlException ex)
-			{
-			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
-			}	
-		}
+
 		void Button12Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
@@ -161,16 +193,7 @@ namespace Liquidinster
 			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
 			}	
 		}
-		void Button5Click(object sender, EventArgs e)
-		{
-			Warehouse1 wh1 = new Warehouse1(textBox8.Text);
-			wh1.Show();	
-		}
-		void Button4Click(object sender, EventArgs e)
-		{
-			Warehouseread1 wh1 = new Warehouseread1(textBox6.Text);
-			wh1.Show();		
-		}
+
 		void Button8Click(object sender, EventArgs e)
 		{
 			Warehouse2 wh2 = new Warehouse2(textBox8.Text);
@@ -183,14 +206,17 @@ namespace Liquidinster
 		}
 		void DataGridView1CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			Warehouseread wh = new Warehouseread(this.dataGridView1.CurrentCell.Value.ToString(), textBox1.Text);
+			if(textBox3.Text.Length == 0)
+			{
+			MessageBox.Show("Hiányzó SO szám", "Üzenet");	
+			}
+			else{
+			Warehouseread wh = new Warehouseread(this.dataGridView1.CurrentCell.Value.ToString(), textBox3.Text);
 			wh.Show();					
+			}
+				
 		}
-		void DataGridView2CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-		{
-			Warehouseread1 wh1 = new Warehouseread1(this.dataGridView2.CurrentCell.Value.ToString());
-			wh1.Show();		
-		}
+
 		void DataGridView3CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			Warehouse2read wh2 = new Warehouse2read(this.dataGridView3.CurrentCell.Value.ToString());
@@ -205,15 +231,7 @@ namespace Liquidinster
 							e.CellStyle.ForeColor = Color.White;			                
 			   	}	
 		}
-		void DataGridView2CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-		{
-			   	if (this.dataGridView2.Columns[e.ColumnIndex].Name == "Batch")
-			    {
 
-			                e.CellStyle.BackColor = Color.Black;
-							e.CellStyle.ForeColor = Color.White;			                
-			   	}		
-		}
 		void DataGridView3CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
 			   	if (this.dataGridView3.Columns[e.ColumnIndex].Name == "Hu")
@@ -247,31 +265,7 @@ namespace Liquidinster
 			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
 			}
 		}
-		void Button14Click(object sender, EventArgs e)
-		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			conn.Open();
-			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Batch, Datum FROM Warehouseraklapnem WHERE Batch LIKE ('" + textBox6.Text +"%') AND Datum > '2016-05-08' ORDER BY Datum Desc",conn);
-			SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-			DataSet ds = new DataSet();
-			dataAdapter.Fill(ds);
-			dataGridView2.DataSource = ds.Tables[0];
-			dataGridView2.AutoResizeColumns();
-			try{
-			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(Batch) FROM Warehouseraklapnem WHERE Batch LIKE ('" + textBox6.Text +"%') AND Datum > '2016-05-08'",conn))
-    		{
-       	 	con.Open();
-        	int result = (int)cmd.ExecuteScalar();
-        	textBox3.Text = result.ToString();
-    		}
-			}
-			catch (SqlException ex)
-			{
-			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
-			}
 
-		}
 		void Button15Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
@@ -295,6 +289,12 @@ namespace Liquidinster
 			{
 			    MessageBox.Show(ex.ToString()); // do you get any Exception here?
 			}		
+		}
+
+		void Button2Click(object sender, EventArgs e)
+		{
+			Warehouseread wh = new Warehouseread(textBox1.Text, textBox3.Text);
+			wh.Show();	
 		}
 
 	}

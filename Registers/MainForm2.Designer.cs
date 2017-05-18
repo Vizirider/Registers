@@ -28,31 +28,21 @@ namespace Liquidinster
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.DataGridView dataGridView3;
-		private System.Windows.Forms.Button button11;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Button button12;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Button button13;
-		private System.Windows.Forms.Button button14;
 		private System.Windows.Forms.Button button15;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.TextBox textBox3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -90,40 +80,29 @@ namespace Liquidinster
 			this.label3 = new System.Windows.Forms.Label();
 			this.button3 = new System.Windows.Forms.Button();
 			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.button4 = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this.button5 = new System.Windows.Forms.Button();
 			this.label7 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.label8 = new System.Windows.Forms.Label();
 			this.button8 = new System.Windows.Forms.Button();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.button9 = new System.Windows.Forms.Button();
-			this.label9 = new System.Windows.Forms.Label();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.button10 = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
 			this.dataGridView3 = new System.Windows.Forms.DataGridView();
-			this.button11 = new System.Windows.Forms.Button();
-			this.label11 = new System.Windows.Forms.Label();
-			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.button13 = new System.Windows.Forms.Button();
-			this.button14 = new System.Windows.Forms.Button();
 			this.button15 = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
+			this.textBox3 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button39
 			// 
 			this.button39.Cursor = System.Windows.Forms.Cursors.AppStarting;
-			this.button39.Location = new System.Drawing.Point(31, 12);
+			this.button39.Location = new System.Drawing.Point(381, 12);
 			this.button39.Name = "button39";
 			this.button39.Size = new System.Drawing.Size(75, 51);
 			this.button39.TabIndex = 208;
@@ -147,7 +126,7 @@ namespace Liquidinster
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(55, 20);
 			this.label1.TabIndex = 206;
-			this.label1.Text = "SOszam";
+			this.label1.Text = "BATCH";
 			// 
 			// textBox1
 			// 
@@ -158,7 +137,7 @@ namespace Liquidinster
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(390, 12);
+			this.textBox4.Location = new System.Drawing.Point(265, 12);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(47, 20);
 			this.textBox4.TabIndex = 204;
@@ -166,7 +145,7 @@ namespace Liquidinster
 			// textBox8
 			// 
 			this.textBox8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-			this.textBox8.Location = new System.Drawing.Point(659, 12);
+			this.textBox8.Location = new System.Drawing.Point(480, 12);
 			this.textBox8.Name = "textBox8";
 			this.textBox8.Size = new System.Drawing.Size(80, 20);
 			this.textBox8.TabIndex = 212;
@@ -243,45 +222,9 @@ namespace Liquidinster
 			this.textBox2.Size = new System.Drawing.Size(44, 20);
 			this.textBox2.TabIndex = 220;
 			// 
-			// label5
-			// 
-			this.label5.Location = new System.Drawing.Point(300, 233);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(106, 23);
-			this.label5.TabIndex = 224;
-			this.label5.Text = "REG-115 visszanéz";
-			// 
-			// button4
-			// 
-			this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-			this.button4.Location = new System.Drawing.Point(431, 214);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(62, 50);
-			this.button4.TabIndex = 223;
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.Button4Click);
-			// 
-			// label6
-			// 
-			this.label6.Location = new System.Drawing.Point(300, 167);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(106, 23);
-			this.label6.TabIndex = 222;
-			this.label6.Text = "REG-115 felvétel";
-			// 
-			// button5
-			// 
-			this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-			this.button5.Location = new System.Drawing.Point(431, 146);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(62, 55);
-			this.button5.TabIndex = 221;
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.Button5Click);
-			// 
 			// label7
 			// 
-			this.label7.Location = new System.Drawing.Point(569, 233);
+			this.label7.Location = new System.Drawing.Point(310, 233);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(106, 23);
 			this.label7.TabIndex = 228;
@@ -290,7 +233,7 @@ namespace Liquidinster
 			// button6
 			// 
 			this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-			this.button6.Location = new System.Drawing.Point(700, 214);
+			this.button6.Location = new System.Drawing.Point(441, 214);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(62, 50);
 			this.button6.TabIndex = 227;
@@ -299,7 +242,7 @@ namespace Liquidinster
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(569, 167);
+			this.label8.Location = new System.Drawing.Point(310, 167);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(106, 23);
 			this.label8.TabIndex = 226;
@@ -308,58 +251,23 @@ namespace Liquidinster
 			// button8
 			// 
 			this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-			this.button8.Location = new System.Drawing.Point(700, 146);
+			this.button8.Location = new System.Drawing.Point(441, 146);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(62, 55);
 			this.button8.TabIndex = 225;
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(390, 502);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(44, 20);
-			this.textBox3.TabIndex = 232;
-			// 
-			// button9
-			// 
-			this.button9.Location = new System.Drawing.Point(379, 503);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(44, 23);
-			this.button9.TabIndex = 231;
-			this.button9.Text = "Show";
-			this.button9.UseVisualStyleBackColor = true;
-			this.button9.Visible = false;
-			// 
-			// label9
-			// 
-			this.label9.Location = new System.Drawing.Point(390, 287);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(155, 24);
-			this.label9.TabIndex = 230;
-			this.label9.Text = "REG-115";
-			// 
-			// dataGridView2
-			// 
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Location = new System.Drawing.Point(283, 314);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(265, 183);
-			this.dataGridView2.TabIndex = 229;
-			this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2CellDoubleClick);
-			this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView2CellFormatting);
-			// 
 			// textBox5
 			// 
-			this.textBox5.Location = new System.Drawing.Point(661, 502);
+			this.textBox5.Location = new System.Drawing.Point(402, 502);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(44, 20);
 			this.textBox5.TabIndex = 236;
 			// 
 			// button10
 			// 
-			this.button10.Location = new System.Drawing.Point(650, 503);
+			this.button10.Location = new System.Drawing.Point(391, 503);
 			this.button10.Name = "button10";
 			this.button10.Size = new System.Drawing.Size(44, 23);
 			this.button10.TabIndex = 235;
@@ -369,7 +277,7 @@ namespace Liquidinster
 			// 
 			// label10
 			// 
-			this.label10.Location = new System.Drawing.Point(661, 287);
+			this.label10.Location = new System.Drawing.Point(402, 287);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(155, 24);
 			this.label10.TabIndex = 234;
@@ -378,41 +286,16 @@ namespace Liquidinster
 			// dataGridView3
 			// 
 			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Location = new System.Drawing.Point(554, 314);
+			this.dataGridView3.Location = new System.Drawing.Point(295, 314);
 			this.dataGridView3.Name = "dataGridView3";
 			this.dataGridView3.Size = new System.Drawing.Size(265, 183);
 			this.dataGridView3.TabIndex = 233;
 			this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3CellDoubleClick);
 			this.dataGridView3.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView3CellFormatting);
 			// 
-			// button11
-			// 
-			this.button11.Location = new System.Drawing.Point(431, 116);
-			this.button11.Name = "button11";
-			this.button11.Size = new System.Drawing.Size(63, 23);
-			this.button11.TabIndex = 239;
-			this.button11.Text = "Keres";
-			this.button11.UseVisualStyleBackColor = true;
-			this.button11.Click += new System.EventHandler(this.Button11Click);
-			// 
-			// label11
-			// 
-			this.label11.Location = new System.Drawing.Point(321, 91);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(55, 20);
-			this.label11.TabIndex = 238;
-			this.label11.Text = "Batch";
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(393, 86);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(100, 20);
-			this.textBox6.TabIndex = 237;
-			// 
 			// button12
 			// 
-			this.button12.Location = new System.Drawing.Point(700, 116);
+			this.button12.Location = new System.Drawing.Point(441, 116);
 			this.button12.Name = "button12";
 			this.button12.Size = new System.Drawing.Size(62, 23);
 			this.button12.TabIndex = 242;
@@ -422,7 +305,7 @@ namespace Liquidinster
 			// 
 			// label12
 			// 
-			this.label12.Location = new System.Drawing.Point(589, 91);
+			this.label12.Location = new System.Drawing.Point(330, 91);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(45, 20);
 			this.label12.TabIndex = 241;
@@ -430,7 +313,7 @@ namespace Liquidinster
 			// 
 			// textBox7
 			// 
-			this.textBox7.Location = new System.Drawing.Point(662, 86);
+			this.textBox7.Location = new System.Drawing.Point(403, 86);
 			this.textBox7.Name = "textBox7";
 			this.textBox7.Size = new System.Drawing.Size(100, 20);
 			this.textBox7.TabIndex = 240;
@@ -447,23 +330,11 @@ namespace Liquidinster
 			this.button13.UseVisualStyleBackColor = false;
 			this.button13.Click += new System.EventHandler(this.Button13Click);
 			// 
-			// button14
-			// 
-			this.button14.BackColor = System.Drawing.Color.LightCoral;
-			this.button14.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-			this.button14.Location = new System.Drawing.Point(300, 117);
-			this.button14.Name = "button14";
-			this.button14.Size = new System.Drawing.Size(90, 23);
-			this.button14.TabIndex = 244;
-			this.button14.Text = "Nem megfelelő";
-			this.button14.UseVisualStyleBackColor = false;
-			this.button14.Click += new System.EventHandler(this.Button14Click);
-			// 
 			// button15
 			// 
 			this.button15.BackColor = System.Drawing.Color.LightCoral;
 			this.button15.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-			this.button15.Location = new System.Drawing.Point(569, 117);
+			this.button15.Location = new System.Drawing.Point(310, 117);
 			this.button15.Name = "button15";
 			this.button15.Size = new System.Drawing.Size(90, 23);
 			this.button15.TabIndex = 245;
@@ -471,36 +342,41 @@ namespace Liquidinster
 			this.button15.UseVisualStyleBackColor = false;
 			this.button15.Click += new System.EventHandler(this.Button15Click);
 			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(66, 55);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(55, 20);
+			this.label5.TabIndex = 248;
+			this.label5.Text = "SO";
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(149, 50);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(100, 20);
+			this.textBox3.TabIndex = 247;
+			// 
 			// MainForm2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(828, 524);
+			this.ClientSize = new System.Drawing.Size(572, 524);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.button15);
-			this.Controls.Add(this.button14);
 			this.Controls.Add(this.button13);
 			this.Controls.Add(this.button12);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.textBox7);
-			this.Controls.Add(this.button11);
-			this.Controls.Add(this.label11);
-			this.Controls.Add(this.textBox6);
 			this.Controls.Add(this.textBox5);
 			this.Controls.Add(this.button10);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.dataGridView3);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.button9);
-			this.Controls.Add(this.label9);
-			this.Controls.Add(this.dataGridView2);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.button6);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.button8);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.button5);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.button2);
@@ -515,10 +391,13 @@ namespace Liquidinster
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.textBox4);
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(588, 562);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(588, 562);
 			this.Name = "MainForm2";
 			this.Text = "Warehouse Pepsico";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

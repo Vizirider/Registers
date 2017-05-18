@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class Liquidter : Form
 	{
-		public Liquidter(string mws, string po)
+	private readonly Liquidinster.MainForm1 frm1;
+		public Liquidter(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -31,6 +32,7 @@ namespace Liquidinster
 //			this.comboBox2.Text = mws;
 //			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
@@ -160,6 +162,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");		
+			frm1.Refresh();
 			this.Close();
 
 		}
@@ -195,6 +198,7 @@ namespace Liquidinster
 					textBox18.Text = (read["Leiras"].ToString());
 					textBox19.Text = (read["Hanemtakaritunk"].ToString());
 					comboBox4.Text = (read["Ellenorzo"].ToString()); 
+					textBox20.Text = (read["DG label"].ToString()); 
 				}
 				read.Close();
 				panel1.Visible |= textBox5.Text == "1";
@@ -225,6 +229,9 @@ namespace Liquidinster
 				panel21.Visible |= textBox14.Text == "2";
 				panel26.Visible |= textBox15.Text == "2";
 				panel25.Visible |= textBox16.Text == "2";
+				panel31.Visible |= textBox20.Text == "1";
+				panel30.Visible |= textBox20.Text == "2";
+				panel29.Visible |= textBox20.Text == "3";
 			}
 			Button6Click(null,null);
 		}
@@ -280,6 +287,7 @@ namespace Liquidinster
 			textBox17.Visible = true;
 			textBox18.Visible = true;
 			textBox19.Visible = true;
+			textBox20.Visible = true;
 			panel1.Visible = false;
 			panel2.Visible = false;
 			panel16.Visible = false;
@@ -292,6 +300,9 @@ namespace Liquidinster
 			panel23.Visible = false;
 			panel28.Visible = false;
 			panel27.Visible = false;
+			panel31.Visible = false;
+			panel30.Visible = false;
+			panel29.Visible = false;
 			}
 			else if(button7.Visible == true){
 			Button5Click(null,null);
@@ -311,6 +322,7 @@ namespace Liquidinster
 			textBox17.Visible = false;
 			textBox18.Visible = false;
 			textBox19.Visible = false;
+			textBox20.Visible = false;
 			}
 
 		}
@@ -319,7 +331,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.liquidella set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, SOszam = @SOszam, Operator1 = @Operator1, Ellenorzo = @Ellenorzo, berendeztiszta = @berendeztiszta, Edenytiszta = @Edenytiszta, Folymel = @Folymel, Folyhom = @Folyhom, Csomagtiszta = @Csomagtiszta,
-			Tomites = @Tomites, Cimkek = @Cimkek, Extracimke = @Extracimke, Zaras = @Zaras, Alapanyagtar = @Alapanyagtar, Sampling = @Sampling, Samplingcimke = @Samplingcimke, Csomagazon = @Csomagazon, Leiras = @Leiras, Hanemtakaritunk = @Hanemtakaritunk, Ellenorizve = @Ellenorizve
+			Tomites = @Tomites, Cimkek = @Cimkek, Extracimke = @Extracimke, Zaras = @Zaras, Alapanyagtar = @Alapanyagtar, Sampling = @Sampling, Samplingcimke = @Samplingcimke, Csomagazon = @Csomagazon, Leiras = @Leiras, Hanemtakaritunk = @Hanemtakaritunk, Ellenorizve = @Ellenorizve, [DG label] = @DG_cimke
 			WHERE POszam LIKE ('" + comboBox1.Text + "%')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
@@ -344,6 +356,7 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Leiras", textBox18.Text));
 			cmd.Parameters.Add(new SqlParameter("@Hanemtakaritunk", textBox19.Text));
 			cmd.Parameters.Add(new SqlParameter("@Ellenorizve", checkBox1.Checked));
+			cmd.Parameters.Add(new SqlParameter("@DG_Cimke", textBox20.Text));
 
 			cmd.ExecuteNonQuery();
 			conn.Close();

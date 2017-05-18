@@ -210,6 +210,13 @@ namespace Liquidinster
 		private System.Windows.Forms.Panel panel81;
 		private System.Windows.Forms.Panel panel80;
 		private System.Windows.Forms.ComboBox comboBox3;
+		private System.Windows.Forms.PrintDialog printDialog1;
+		private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+		private System.Windows.Forms.Button button10;
+		private System.Windows.Forms.Panel panel86;
+		private System.Windows.Forms.TextBox textBox86;
+		private System.Windows.Forms.TextBox textBox85;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -234,6 +241,10 @@ namespace Liquidinster
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(packter));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.textBox86 = new System.Windows.Forms.TextBox();
+			this.textBox85 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.panel86 = new System.Windows.Forms.Panel();
 			this.panel85 = new System.Windows.Forms.Panel();
 			this.panel84 = new System.Windows.Forms.Panel();
 			this.panel83 = new System.Windows.Forms.Panel();
@@ -429,6 +440,9 @@ namespace Liquidinster
 			this.button8 = new System.Windows.Forms.Button();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.comboBox3 = new System.Windows.Forms.ComboBox();
+			this.printDialog1 = new System.Windows.Forms.PrintDialog();
+			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+			this.button10 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.panel47.SuspendLayout();
 			this.panel45.SuspendLayout();
@@ -440,6 +454,10 @@ namespace Liquidinster
 			this.panel1.AutoScroll = true;
 			this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
 			this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.panel1.Controls.Add(this.textBox86);
+			this.panel1.Controls.Add(this.textBox85);
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Controls.Add(this.panel86);
 			this.panel1.Controls.Add(this.panel85);
 			this.panel1.Controls.Add(this.panel84);
 			this.panel1.Controls.Add(this.panel83);
@@ -625,6 +643,40 @@ namespace Liquidinster
 			this.panel1.Size = new System.Drawing.Size(988, 1547);
 			this.panel1.TabIndex = 0;
 			// 
+			// textBox86
+			// 
+			this.textBox86.Location = new System.Drawing.Point(240, 760);
+			this.textBox86.Name = "textBox86";
+			this.textBox86.Size = new System.Drawing.Size(80, 20);
+			this.textBox86.TabIndex = 525;
+			// 
+			// textBox85
+			// 
+			this.textBox85.Location = new System.Drawing.Point(180, 760);
+			this.textBox85.Name = "textBox85";
+			this.textBox85.Size = new System.Drawing.Size(43, 20);
+			this.textBox85.TabIndex = 524;
+			// 
+			// label3
+			// 
+			this.label3.BackColor = System.Drawing.Color.White;
+			this.label3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label3.Location = new System.Drawing.Point(6, 761);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(141, 23);
+			this.label3.TabIndex = 523;
+			this.label3.Text = "Szita azonosító / Sieve id:";
+			// 
+			// panel86
+			// 
+			this.panel86.BackColor = System.Drawing.Color.DarkRed;
+			this.panel86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel86.Location = new System.Drawing.Point(22, 691);
+			this.panel86.Name = "panel86";
+			this.panel86.Size = new System.Drawing.Size(69, 18);
+			this.panel86.TabIndex = 298;
+			this.panel86.Visible = false;
+			// 
 			// panel85
 			// 
 			this.panel85.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -717,7 +769,7 @@ namespace Liquidinster
 			// 
 			// textBox84
 			// 
-			this.textBox84.Location = new System.Drawing.Point(186, 858);
+			this.textBox84.Location = new System.Drawing.Point(184, 858);
 			this.textBox84.Name = "textBox84";
 			this.textBox84.Size = new System.Drawing.Size(69, 20);
 			this.textBox84.TabIndex = 522;
@@ -734,7 +786,7 @@ namespace Liquidinster
 			// 
 			// textBox83
 			// 
-			this.textBox83.Location = new System.Drawing.Point(186, 821);
+			this.textBox83.Location = new System.Drawing.Point(184, 821);
 			this.textBox83.Name = "textBox83";
 			this.textBox83.Size = new System.Drawing.Size(69, 20);
 			this.textBox83.TabIndex = 521;
@@ -1640,7 +1692,7 @@ namespace Liquidinster
 			// 
 			// textBox80
 			// 
-			this.textBox80.Location = new System.Drawing.Point(903, 1477);
+			this.textBox80.Location = new System.Drawing.Point(873, 1393);
 			this.textBox80.Name = "textBox80";
 			this.textBox80.Size = new System.Drawing.Size(80, 20);
 			this.textBox80.TabIndex = 249;
@@ -1942,9 +1994,9 @@ namespace Liquidinster
 			// 
 			// textBox41
 			// 
-			this.textBox41.Location = new System.Drawing.Point(5, 752);
+			this.textBox41.Location = new System.Drawing.Point(205, 1004);
 			this.textBox41.Name = "textBox41";
-			this.textBox41.Size = new System.Drawing.Size(716, 20);
+			this.textBox41.Size = new System.Drawing.Size(274, 20);
 			this.textBox41.TabIndex = 208;
 			// 
 			// dateTimePicker4
@@ -2086,9 +2138,9 @@ namespace Liquidinster
 			// 
 			// textBox25
 			// 
-			this.textBox25.Location = new System.Drawing.Point(5, 542);
+			this.textBox25.Location = new System.Drawing.Point(4, 541);
 			this.textBox25.Name = "textBox25";
-			this.textBox25.Size = new System.Drawing.Size(582, 20);
+			this.textBox25.Size = new System.Drawing.Size(403, 20);
 			this.textBox25.TabIndex = 181;
 			// 
 			// textBox24
@@ -2141,14 +2193,14 @@ namespace Liquidinster
 			// 
 			// textBox18
 			// 
-			this.textBox18.Location = new System.Drawing.Point(146, 506);
+			this.textBox18.Location = new System.Drawing.Point(140, 506);
 			this.textBox18.Name = "textBox18";
 			this.textBox18.Size = new System.Drawing.Size(63, 20);
 			this.textBox18.TabIndex = 185;
 			// 
 			// textBox17
 			// 
-			this.textBox17.Location = new System.Drawing.Point(146, 478);
+			this.textBox17.Location = new System.Drawing.Point(140, 478);
 			this.textBox17.Name = "textBox17";
 			this.textBox17.Size = new System.Drawing.Size(63, 20);
 			this.textBox17.TabIndex = 184;
@@ -2315,7 +2367,7 @@ namespace Liquidinster
 			// button8
 			// 
 			this.button8.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.button8.Location = new System.Drawing.Point(1028, 12);
+			this.button8.Location = new System.Drawing.Point(1032, 481);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(86, 27);
 			this.button8.TabIndex = 335;
@@ -2330,11 +2382,36 @@ namespace Liquidinster
 			// comboBox3
 			// 
 			this.comboBox3.FormattingEnabled = true;
-			this.comboBox3.Location = new System.Drawing.Point(1016, 77);
+			this.comboBox3.Location = new System.Drawing.Point(1016, 76);
 			this.comboBox3.MinimumSize = new System.Drawing.Size(120, 0);
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(120, 21);
 			this.comboBox3.TabIndex = 336;
+			// 
+			// printDialog1
+			// 
+			this.printDialog1.UseEXDialog = true;
+			// 
+			// printPreviewDialog1
+			// 
+			this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+			this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+			this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+			this.printPreviewDialog1.Enabled = true;
+			this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+			this.printPreviewDialog1.Name = "printPreviewDialog1";
+			this.printPreviewDialog1.Visible = false;
+			// 
+			// button10
+			// 
+			this.button10.ForeColor = System.Drawing.SystemColors.HotTrack;
+			this.button10.Location = new System.Drawing.Point(1032, 436);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(86, 27);
+			this.button10.TabIndex = 337;
+			this.button10.Text = "Előnézet";
+			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.Button10Click);
 			// 
 			// packter
 			// 
@@ -2343,7 +2420,8 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.AutoSize = true;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(1219, 1024);
+			this.ClientSize = new System.Drawing.Size(1304, 1024);
+			this.Controls.Add(this.button10);
 			this.Controls.Add(this.comboBox3);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.button7);

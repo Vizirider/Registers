@@ -38,8 +38,6 @@ namespace Liquidinster
 			//
 			Button1Click(null,null);
 			Button2Click(null,null);
-			Button4Click(null,null);
-			Button3Click(null,null);
 			Button5Click(null,null);
 			Button6Click(null,null);
 		}
@@ -47,7 +45,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousebatch ORDER BY Datum", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousebatch WHERE Year = YEAR(getdate()) ORDER BY Datum", conn);
 			dataAdapter1.Fill(ds);	
 			chart1.DataSource = ds.Tables[0];
 			chart1.Series.Add("Batchszam");
@@ -75,7 +73,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM warehousenemekw ORDER BY Datum", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM warehousenemekw WHERE Year = YEAR(getdate()) ORDER BY Datum", conn);
 			dataAdapter1.Fill(ds);	
 			chart2.DataSource = ds.Tables[0];			
 			chart2.Series.Add("Matdep");
@@ -172,92 +170,12 @@ namespace Liquidinster
 			chart2.Series["Givfolia"].LegendText = "Givaudan foil";
 			chart2.Series["Series1"].IsVisibleInLegend = false;
 		}
-		void Button4Click(object sender, EventArgs e)
-		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehouseraklap ORDER BY Datum", conn);
-			dataAdapter1.Fill(ds);	
-			chart4.DataSource = ds.Tables[0];
-			chart4.Series.Add("Batchszam");
-			chart4.Series["Batchszam"].YValueMembers = "Batchszam";
-			chart4.Series["Batchszam"].XValueMember = "Datum";
-			chart4.Series["Batchszam"].ChartType = SeriesChartType.StackedArea;
-			chart4.Series["Batchszam"].LegendText = "Batch number";
-			chart4.Series["Batchszam"].Color = Color.Green;
-			chart4.Series["Series1"].IsVisibleInLegend = false;
-			chart4.ChartAreas[0].AxisX.Title = "Week";
-			chart4.ChartAreas[0].AxisX.Interval = 1;
-			chart4.Series.Add("Nem felvittek");
-			chart4.Series["Nem felvittek"].YValueMembers = "Nincsbatch";
-			chart4.Series["Nem felvittek"].XValueMember = "Datum";
-			chart4.Series["Nem felvittek"].ChartType = SeriesChartType.StackedColumn;
-			chart4.Series["Nem felvittek"].LegendText = "Missing batch number";
-			chart4.Series["Nem felvittek"].Color = Color.Red;			
-			chart4.Series.Add("Target");
-			chart4.Series["Target"].YValueMembers = "Target";
-			chart4.Series["Target"].XValueMember = "Datum";
-			chart4.Series["Target"].ChartType = SeriesChartType.Line;
-			chart4.Series["Series1"].IsVisibleInLegend = false;
-		}
-		void Button3Click(object sender, EventArgs e)
-		{
-			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM warehouseraklapnemekw ORDER BY Datum", conn);
-			dataAdapter1.Fill(ds);	
-			chart3.DataSource = ds.Tables[0];			
-			chart3.Series.Add("Cimketart");
-			chart3.Titles.Add("Non comfort");
-			chart3.Series["Cimketart"].Color = Color.Red;
-			chart3.Series["Cimketart"].YValueMembers = "Cimketart";
-			chart3.Series["Cimketart"].XValueMember = "Datum";
-			chart3.Series["Cimketart"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Cimketart"].LegendText = "Label ";
-			chart3.Series["Cimketart"]["PixelPointWidth"] = "100";
-			chart3.ChartAreas[0].AxisX.Title = "Week";
-			chart3.ChartAreas[0].AxisX.Interval = 1;
-			chart3.Series.Add("Arumeg");
-			chart3.Series["Arumeg"].Color = Color.Orange;
-			chart3.Series["Arumeg"].YValueMembers = "Arumeg";
-			chart3.Series["Arumeg"].XValueMember = "Datum";
-			chart3.Series["Arumeg"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Arumeg"].LegendText = "Shrink wrapped properly";		
-			chart3.Series["Arumeg"]["PixelPointWidth"] = "100";	
-			chart3.Series.Add("Givfelirat");
-			chart3.Series["Givfelirat"].Color = Color.Purple;
-			chart3.Series["Givfelirat"].YValueMembers = "Givfelirat";
-			chart3.Series["Givfelirat"].XValueMember = "Datum";
-			chart3.Series["Givfelirat"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Givfelirat"].LegendText = "Givaudan logo";
-			chart3.Series["Givfelirat"]["PixelPointWidth"] = "100";				
-			chart3.Series.Add("Csomag");
-			chart3.Series["Csomag"].Color = Color.Blue;
-			chart3.Series["Csomag"].YValueMembers = "Csomag";
-			chart3.Series["Csomag"].XValueMember = "Datum";
-			chart3.Series["Csomag"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Csomag"].LegendText = "Package damage";
-			chart3.Series["Csomag"]["PixelPointWidth"] = "100";			
-			chart3.Series.Add("Raklap");
-			chart3.Series["Raklap"].Color = Color.Green;
-			chart3.Series["Raklap"].YValueMembers = "Raklap";
-			chart3.Series["Raklap"].XValueMember = "Datum";
-			chart3.Series["Raklap"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Raklap"].LegendText = "No overhang from pallet";	
-			chart3.Series["Raklap"]["PixelPointWidth"] = "100";
-			chart3.Series.Add("Zmp");
-			chart3.Series["Zmp"].Color = Color.Yellow;
-			chart3.Series["Zmp"].YValueMembers = "Zmp";
-			chart3.Series["Zmp"].XValueMember = "Datum";
-			chart3.Series["Zmp"].ChartType = SeriesChartType.StackedColumn;
-			chart3.Series["Zmp"].LegendText = "ZMP label";
-			chart3.Series["Zmp"]["PixelPointWidth"] = "100";			
-		}
+
 		void Button5Click(object sender, EventArgs e)
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousemintazonemekw ORDER BY Datum", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousemintazonemekw WHERE Year = YEAR(getdate()) ORDER BY Datum", conn);
 			dataAdapter1.Fill(ds);	
 			chart5.DataSource = ds.Tables[0];			
 			chart5.Titles.Add("Non comfort");
@@ -290,7 +208,7 @@ namespace Liquidinster
 		{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousemintazo ORDER BY Datum", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Warehousemintazo WHERE Year = YEAR(getdate()) ORDER BY Datum", conn);
 			dataAdapter1.Fill(ds);	
 			chart6.DataSource = ds.Tables[0];
 			chart6.Series.Add("Batchszam");

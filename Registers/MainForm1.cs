@@ -20,6 +20,7 @@ using System.Threading;
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Data.OracleClient;
 
 
 
@@ -64,6 +65,22 @@ namespace Liquidinster
 			dateTimePicker2.CustomFormat = "yyyy.MM.dd";
 			dateTimePicker1.Format = DateTimePickerFormat.Custom;
 			dateTimePicker1.CustomFormat = "yyyy.MM.dd";
+			
+			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
+				SqlCommand command =
+					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + textBox8.Text + "')", connection);
+				connection.Open();
+				
+				SqlDataReader read = command.ExecuteReader();
+
+				if (read.Read()) {
+					textBox14.Text = (read["Name"].ToString());		
+				}
+				else {
+				this.textBox14.Text = textBox8.Text;				
+				}
+				read.Close();
+			}
 
 		}
 		public System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
@@ -73,11 +90,17 @@ namespace Liquidinster
 		    timer1.Tick += new System.EventHandler(timer1_Tick);
 		    timer1.Start();
 		}
+		
 		void timer1_Tick(object sender, EventArgs e)
 		{
 			Button13Click(null,null);
-		}		
-		void Button9Click(object sender, EventArgs e)
+		}
+
+		public void Refresh()
+		{
+			Button13Click(null,null);
+		}
+		public void Button9Click(object sender, EventArgs e)
 		{
 			Button1Click(sender, e);
 			Button8Click(sender, e);
@@ -113,7 +136,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", conn);
 			dataAdapter1.Fill(ds);
 			
 			
@@ -123,7 +146,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -140,7 +163,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", conn);
 			dataAdapter1.Fill(ds);
 			
 			
@@ -150,7 +173,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -167,7 +190,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", conn);
 			dataAdapter2.Fill(ds);
 			
 			
@@ -177,7 +200,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -234,14 +257,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM bmpella WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM bmpella WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter2.Fill(ds);	
 			dataGridView2.DataSource = ds.Tables[0];
 			dataGridView2.AutoResizeColumns();
 			dataGridView2.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM bmpella WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM bmpella WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
     		{
 		   	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -292,14 +315,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter3 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM packella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter3 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM packella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter3.Fill(ds);	
 			dataGridView3.DataSource = ds.Tables[0];
 			dataGridView3.AutoResizeColumns();
 			dataGridView3.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM packella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM packella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -349,14 +372,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter4 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter4 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter4.Fill(ds);	
 			dataGridView4.DataSource = ds.Tables[0];
 			dataGridView4.AutoResizeColumns();
 			dataGridView4.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -403,14 +426,14 @@ namespace Liquidinster
 			if(comboBox1.Text == "Éjszaka" || comboBox1.Text == "Night"){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendkisella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM blendkisella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView5.DataSource = ds.Tables[0];
 			dataGridView5.AutoResizeColumns();
 			dataGridView5.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendkisella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendkisella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -458,14 +481,14 @@ namespace Liquidinster
 			if(comboBox1.Text == "Éjszaka" || comboBox1.Text == "Night"){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM sdella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM sdella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView7.DataSource = ds.Tables[0];
 			dataGridView7.AutoResizeColumns();
 			dataGridView7.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM sdella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM sdella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -514,14 +537,14 @@ namespace Liquidinster
 			if(comboBox1.Text == "Éjszaka" || comboBox1.Text == "Night"){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM pfella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM pfella  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView6.DataSource = ds.Tables[0];
 			dataGridView6.AutoResizeColumns();
 			dataGridView6.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM pfella WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM pfella WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -535,14 +558,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView1.DataSource = ds.Tables[0];
 			dataGridView1.AutoResizeColumns();
 			dataGridView1.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -553,14 +576,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView1.DataSource = ds.Tables[0];
 			dataGridView1.AutoResizeColumns();
 			dataGridView1.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -571,14 +594,14 @@ namespace Liquidinster
 			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"')", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView1.DataSource = ds.Tables[0];
 			dataGridView1.AutoResizeColumns();
 			dataGridView1.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"')", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -635,7 +658,7 @@ namespace Liquidinster
 			dataGridView2.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM bmpelletlen WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND  Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
+				using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM bmpelletlen WHERE (Termelesdatum BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND  Termelesveg >'1899-12-30 22:00:00.000') OR (Termelesdatum BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -689,7 +712,7 @@ namespace Liquidinster
 			dataGridView3.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM packelletlen WHERE  (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND  Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM packelletlen WHERE  (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND  Termelesveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -743,7 +766,7 @@ namespace Liquidinster
 			dataGridView4.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -800,7 +823,7 @@ namespace Liquidinster
 			dataGridView5.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendkiselletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM blendkiselletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -857,7 +880,7 @@ namespace Liquidinster
 			dataGridView7.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM sdelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM sdelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -911,7 +934,7 @@ namespace Liquidinster
 			dataGridView6.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM pfelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM pfelletlen WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -921,6 +944,8 @@ namespace Liquidinster
 		}
 		void Button7Click(object sender, EventArgs e)
 		{
+			if(textBox1.TextLength > 0)
+			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
@@ -944,6 +969,11 @@ namespace Liquidinster
 			textBox9.Text = "";
 			textBox5.Text = "";
 			textBox11.Text = "";
+			}
+			else{
+						MessageBox.Show("Empty PO", "Warning");
+			
+			}
 		}
 		void Button20Click(object sender, EventArgs e)
 		{
@@ -1048,141 +1078,12 @@ namespace Liquidinster
 		}
 		void Button29Click(object sender, EventArgs e)
 		{
-		SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
-			conn.Open();
-			
-			SqlCommand cmd01 = new SqlCommand(@"insert into liquida
-    		select *
-    		from liquid t1
-    		where not exists (select * from liquida t2 where t2.POszam = t1.POszam);",conn);
-			cmd01.ExecuteNonQuery();
-			
-			SqlCommand cmd02 = new SqlCommand(@"insert into akla
-    		select *
-    		from akl t1
-    		where not exists (select * from akla t2 where t2.POszam = t1.POszam);",conn);
-			cmd02.ExecuteNonQuery();
-			
-			SqlCommand cmd03 = new SqlCommand(@"insert into bmpa
-    		select *
-    		from bmp t1
-    		where not exists (select * from bmpa t2 where t2.POszam = t1.POszam);",conn);
-			cmd03.ExecuteNonQuery();
-			
-			SqlCommand cmd04 = new SqlCommand(@"insert into blendinga
-    		select *
-    		from blending t1
-    		where not exists (select * from blendinga t2 where t2.POszam = t1.POszam);",conn);
-			cmd04.ExecuteNonQuery();
-			
-			SqlCommand cmd05 = new SqlCommand(@"insert into packingoffa
-    		select *
-    		from packingoff t1
-    		where not exists (select * from packingoffa t2 where t2.POszam = t1.POszam);",conn);
-			cmd05.ExecuteNonQuery();
-			
-			SqlCommand cmd06 = new SqlCommand(@"insert into liquidella
-    		select *
-    		from liquidell t1
-    		where not exists (select * from liquidella t2 where t2.POszam = t1.POszam);",conn);
-			cmd06.ExecuteNonQuery();
-			
-			SqlCommand cmd07 = new SqlCommand(@"insert into bmpella
-    		select *
-    		from bmpell t1
-    		where not exists (select * from bmpella t2 where t2.POszam = t1.POszam);",conn);
-			cmd07.ExecuteNonQuery();
-			
-			SqlCommand cmd08 = new SqlCommand(@"insert into blendella
-    		select *
-    		from blendell t1
-    		where not exists (select * from blendella t2 where t2.POszam = t1.POszam);",conn);
-			cmd08.ExecuteNonQuery();
-			
-			SqlCommand cmd09 = new SqlCommand(@"insert into blendkisella
-    		select *
-    		from blendkisell t1
-    		where not exists (select * from blendkisella t2 where t2.POszam = t1.POszam);",conn);
-			cmd09.ExecuteNonQuery();
-			
-			SqlCommand cmd010 = new SqlCommand(@"insert into packella
-    		select *
-    		from packell t1
-    		where not exists (select * from packella t2 where t2.POszam = t1.POszam);",conn);
-			cmd010.ExecuteNonQuery();
-			
-			SqlCommand cmd011 = new SqlCommand(@"insert into sdella
-    		select *
-    		from sdell t1
-    		where not exists (select * from sdella t2 where t2.POszam = t1.POszam);",conn);
-			cmd011.ExecuteNonQuery();
-			
-			SqlCommand cmd012 = new SqlCommand(@"insert into pfella
-    		select *
-    		from pfell t1
-    		where not exists (select * from pfella t2 where t2.POszam = t1.POszam);",conn);
-			cmd012.ExecuteNonQuery();
-			
-			SqlCommand cmd = new SqlCommand(@"DELETE FROM dbo.liquid  WHERE POszam IS NULL",conn);
-			SqlCommand cmd1 = new SqlCommand(@"DELETE FROM dbo.liquida  WHERE POszam IS NULL",conn);
-			SqlCommand cmd2 = new SqlCommand(@"DELETE FROM dbo.akl  WHERE POszam IS NULL",conn);
-			SqlCommand cmd3 = new SqlCommand(@"DELETE FROM dbo.akla  WHERE POszam IS NULL",conn);
-			SqlCommand cmd4 = new SqlCommand(@"DELETE FROM dbo.bmp  WHERE POszam IS NULL",conn);
-			SqlCommand cmd5 = new SqlCommand(@"DELETE FROM dbo.bmpa  WHERE POszam IS NULL",conn);
-			SqlCommand cmd6 = new SqlCommand(@"DELETE FROM dbo.blending  WHERE POszam IS NULL",conn);
-			SqlCommand cmd7 = new SqlCommand(@"DELETE FROM dbo.blendinga  WHERE POszam IS NULL",conn);
-			SqlCommand cmd8 = new SqlCommand(@"DELETE FROM dbo.packingoff  WHERE POszam IS NULL",conn);
-			SqlCommand cmd9 = new SqlCommand(@"DELETE FROM dbo.packingoffa  WHERE POszam IS NULL",conn);
-			SqlCommand cmd32 = new SqlCommand(@"DELETE FROM dbo.liquidell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd33 = new SqlCommand(@"DELETE FROM dbo.liquidella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd34 = new SqlCommand(@"DELETE FROM dbo.bmpell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd35 = new SqlCommand(@"DELETE FROM dbo.bmpella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd36 = new SqlCommand(@"DELETE FROM dbo.blendell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd37 = new SqlCommand(@"DELETE FROM dbo.blendella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd38 = new SqlCommand(@"DELETE FROM dbo.packell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd39 = new SqlCommand(@"DELETE FROM dbo.packella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd40 = new SqlCommand(@"DELETE FROM dbo.sdell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd41 = new SqlCommand(@"DELETE FROM dbo.sdella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd42 = new SqlCommand(@"DELETE FROM dbo.pfell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd43 = new SqlCommand(@"DELETE FROM dbo.pfella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd46 = new SqlCommand(@"DELETE FROM dbo.blendkisell  WHERE POszam IS NULL",conn);
-			SqlCommand cmd47 = new SqlCommand(@"DELETE FROM dbo.blendkisella  WHERE POszam IS NULL",conn);
-			SqlCommand cmd147 = new SqlCommand(@"DELETE FROM dbo.lodige  WHERE POszam IS NULL",conn);
-			SqlCommand cmd148 = new SqlCommand(@"DELETE FROM dbo.lodigea  WHERE POszam IS NULL",conn);
-			
-			cmd.ExecuteNonQuery();
-			cmd1.ExecuteNonQuery();
-			cmd2.ExecuteNonQuery();
-			cmd3.ExecuteNonQuery();
-			cmd4.ExecuteNonQuery();
-			cmd5.ExecuteNonQuery();
-			cmd6.ExecuteNonQuery();
-			cmd7.ExecuteNonQuery();
-			cmd8.ExecuteNonQuery();
-			cmd9.ExecuteNonQuery();
-			cmd32.ExecuteNonQuery();
-			cmd33.ExecuteNonQuery();
-			cmd34.ExecuteNonQuery();
-			cmd35.ExecuteNonQuery();
-			cmd36.ExecuteNonQuery();
-			cmd37.ExecuteNonQuery();
-			cmd38.ExecuteNonQuery();
-			cmd39.ExecuteNonQuery();	
-			cmd40.ExecuteNonQuery();
-			cmd41.ExecuteNonQuery();
-			cmd42.ExecuteNonQuery();
-			cmd43.ExecuteNonQuery();
-			cmd46.ExecuteNonQuery();
-			cmd47.ExecuteNonQuery();
-			cmd147.ExecuteNonQuery();
-			cmd148.ExecuteNonQuery();
-			conn.Close();
 			MessageBox.Show("Sikeresen tisztítottad a listát, frissült. Beléphetsz újra", "Üzenet");
 			this.Close();
 		}
 		void Button24Click(object sender, EventArgs e)
 		{
-			Liquidter liqter = new Liquidter(textBox8.Text,textBox1.Text);
+			Liquidter liqter = new Liquidter(textBox8.Text,textBox1.Text, this);
 			liqter.Show();
 		}
 		void Button39Click(object sender, EventArgs e)
@@ -1384,14 +1285,14 @@ namespace Liquidinster
 		}
 		void Button43Click(object sender, EventArgs e)
 		{
-			Liquidter liqter = new Liquidter(textBox8.Text, textBox1.Text);
+			Liquidter liqter = new Liquidter(textBox8.Text, textBox1.Text, this);
 			liqter.Show();
 		}
 		void MainForm1Load(object sender, EventArgs e)
 		{
 			if(button72.Text == "Nyelv")
 			{
-		    Image myimage = new Bitmap(@"V:\Common (Don't share confidential docs here)\adminregisters\hun.png");
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\hun.png");
 		    button72.BackgroundImage = myimage;
 		    button9.Text = "All";
 		    button25.Text = "Wrongs";
@@ -1422,8 +1323,8 @@ namespace Liquidinster
 			}
 			else if(button72.Text == "Lang")
 			{
-		    Image myimage = new Bitmap(@"V:\Common (Don't share confidential docs here)\adminregisters\eng.png");
-		    button72.BackgroundImage = myimage;
+//		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\eng.png");
+//			button72.BackgroundImage = myimage;
 		    button9.Text = "Összes";
 		    button25.Text = "Hibás";
 		    button13.Text = "Ellenőrizetlen";
@@ -1465,14 +1366,14 @@ namespace Liquidinster
 			{
 				comboBox1.SelectedIndex = 1;
 			}
-			if( time_now > user_time2 &&  time_now < user_time ) 
+			if( time_now > user_time2 ||  time_now < user_time ) 
 			{
 				comboBox1.SelectedIndex = 2;
 			}
 		}
 		void Button44Click(object sender, EventArgs e)
 		{
-			bmpter bmps = new bmpter(textBox8.Text, textBox1.Text);
+			bmpter bmps = new bmpter(textBox8.Text, textBox1.Text, this);
 			bmps.Show();
 			
 		}
@@ -1515,14 +1416,14 @@ namespace Liquidinster
 			if(comboBox1.Text == "Éjszaka" || comboBox1.Text == "Night"){
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();	
-			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM lodigea  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter5 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM lodigea  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg7 >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 <'1899-12-30 06:00:00.000')", conn);
 			dataAdapter5.Fill(ds);	
 			dataGridView8.DataSource = ds.Tables[0];
 			dataGridView8.AutoResizeColumns();
 			dataGridView8.AutoResizeColumnHeadersHeight();
 
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM lodigea  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM lodigea  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND Termelesidoveg7 >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg7 <'1899-12-30 06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -1608,43 +1509,43 @@ namespace Liquidinster
 	    MessageBoxIcon.Question);
 			if(result2 == DialogResult.Yes)
 			{
-			SqlCommand cmd1 = new SqlCommand(@"Update dbo.liquidella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd1 = new SqlCommand(@"Update dbo.liquidella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd1.ExecuteNonQuery();
-			SqlCommand cmd2 = new SqlCommand(@"Update dbo.bmpella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd2 = new SqlCommand(@"Update dbo.bmpella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd2.ExecuteNonQuery();
-			SqlCommand cmd3 = new SqlCommand(@"Update dbo.blendkisella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd3 = new SqlCommand(@"Update dbo.blendkisella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd3.ExecuteNonQuery();
-			SqlCommand cmd4 = new SqlCommand(@"Update dbo.blendella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd4 = new SqlCommand(@"Update dbo.blendella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd4.ExecuteNonQuery();
-			SqlCommand cmd5 = new SqlCommand(@"Update dbo.packella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd5 = new SqlCommand(@"Update dbo.packella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd5.ExecuteNonQuery();		
-			SqlCommand cmd6 = new SqlCommand(@"Update dbo.sdella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd6 = new SqlCommand(@"Update dbo.sdella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd6.ExecuteNonQuery();		
-			SqlCommand cmd7 = new SqlCommand(@"Update dbo.pfella set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd7 = new SqlCommand(@"Update dbo.pfella set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd7.ExecuteNonQuery();		
-			SqlCommand cmd8 = new SqlCommand(@"Update dbo.lodigea set Ellenorizve = 1, Ellenorzo='" + textBox8.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
+			SqlCommand cmd8 = new SqlCommand(@"Update dbo.lodigea set Ellenorizve = 1, Ellenorzo='" + textBox14.Text + "' WHERE (Ellenorizve IS NULL) OR (Ellenorizve = 0)",conn);
 			cmd8.ExecuteNonQuery();				
 			Button9Click(sender, e);				
 			}
 		}
 		void Button48Click(object sender, EventArgs e)
 		{
-			packter pack = new packter(textBox8.Text, textBox1.Text);
+			packter pack = new packter(textBox8.Text, textBox1.Text,this);
 			pack.Show();
 		}
 		void Button49Click(object sender, EventArgs e)
 		{
-			blendingter blendtermeles = new blendingter(textBox8.Text, textBox1.Text);
+			blendingter blendtermeles = new blendingter(textBox8.Text, textBox1.Text, this);
 			blendtermeles.Show();
 		}
 		void Button50Click(object sender, EventArgs e)
 		{
-			sd sd = new sd(textBox8.Text, textBox1.Text);
+			sd sd = new sd(textBox8.Text, textBox1.Text,this);
 			sd.Show();	
 		}
 		void Button51Click(object sender, EventArgs e)
 		{
-			pf pf = new pf(textBox8.Text, textBox1.Text);
+			pf pf = new pf(textBox8.Text, textBox1.Text,this);
 			pf.Show();		
 		}
 		void Button52Click(object sender, EventArgs e)
@@ -2056,12 +1957,12 @@ namespace Liquidinster
 		}
 		void DataGridView1CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			Liquidter liqter = new Liquidter(textBox8.Text, this.dataGridView1.CurrentCell.Value.ToString());
+			Liquidter liqter = new Liquidter(textBox8.Text, this.dataGridView1.CurrentCell.Value.ToString(), this);
 			liqter.Show();
 		}
 		void DataGridView2CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			bmpter bmps = new bmpter(textBox8.Text, this.dataGridView2.CurrentCell.Value.ToString());
+			bmpter bmps = new bmpter(textBox8.Text, this.dataGridView2.CurrentCell.Value.ToString(), this);
 			bmps.Show();	
 		}
 		void DataGridView4CellClick(object sender, DataGridViewCellEventArgs e)
@@ -2077,11 +1978,11 @@ namespace Liquidinster
 					
 					if(read["kevero"].ToString() == "1" || read["kevero"].ToString() == "2" || read["kevero"].ToString() == "3" || read["kevero"].ToString() == "4" || read["kevero"].ToString() == "5" ||
 					   read["kevero"].ToString() == "8"){
-						Registers.blendingteruj blend = new Registers.blendingteruj(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString());
+						Registers.blendingteruj blend = new Registers.blendingteruj(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString(), this);
 						blend.Show();
 			        }
 					else{
-						blendingter blendtermeles = new blendingter(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString());
+						blendingter blendtermeles = new blendingter(textBox8.Text, this.dataGridView4.CurrentCell.Value.ToString(), this);
 						blendtermeles.Show();
 					}
 				}
@@ -2090,22 +1991,22 @@ namespace Liquidinster
 		}
 		void DataGridView7CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			sd sd = new sd(textBox8.Text, this.dataGridView7.CurrentCell.Value.ToString());
+			sd sd = new sd(textBox8.Text, this.dataGridView7.CurrentCell.Value.ToString(),this);
 			sd.Show();	
 		}
 		void DataGridView6CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			pf pf = new pf(textBox8.Text, this.dataGridView6.CurrentCell.Value.ToString());
+			pf pf = new pf(textBox8.Text, this.dataGridView6.CurrentCell.Value.ToString(),this);
 			pf.Show();	
 		}
 		void DataGridView3CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			packter pack = new packter(textBox8.Text, this.dataGridView3.CurrentCell.Value.ToString());
+			packter pack = new packter(textBox8.Text, this.dataGridView3.CurrentCell.Value.ToString(),this);
 			pack.Show();	
 		}
 		void DataGridView5CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			blendkis blendkister = new blendkis(textBox8.Text, this.dataGridView5.CurrentCell.Value.ToString());
+			blendkis blendkister = new blendkis(textBox8.Text, this.dataGridView5.CurrentCell.Value.ToString(), this);
 			blendkister.Show();		
 		}
 		void Button56Click(object sender, EventArgs e)
@@ -2115,7 +2016,7 @@ namespace Liquidinster
 		}
 		void DataGridView8CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			lodige lod = new lodige(textBox8.Text, dataGridView8.CurrentCell.Value.ToString());
+			lodige lod = new lodige(textBox8.Text, dataGridView8.CurrentCell.Value.ToString(),this);
 			lod.Show();
 		}
 		void Button58Click(object sender, EventArgs e)
@@ -2179,7 +2080,7 @@ namespace Liquidinster
 		{
 			if(button72.Text == "Lang")
 			{
-		    Image myimage = new Bitmap(@"V:\Common (Don't share confidential docs here)\adminregisters\hun.png");
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\hun.png");
 		    button72.BackgroundImage = myimage;
 		    button72.Text = "Nyelv";
 		    button9.Text = "All";
@@ -2191,6 +2092,7 @@ namespace Liquidinster
 			label1.Text = "POnumber";
 			button7.Text = "Search";
 			button71.Text = "Delete";
+			button64.Text = "Drop";
 			button47.Text = "Multi check";
 			button42.Text = "Check";	
 			button40.Text = "Mail riport";
@@ -2210,7 +2112,7 @@ namespace Liquidinster
 			}
 			else if(button72.Text == "Nyelv")
 			{
-		    Image myimage = new Bitmap(@"V:\Common (Don't share confidential docs here)\adminregisters\eng.png");
+		    Image myimage = new Bitmap(@"V:\Production\14 REGISTER\eng.png");
 		    button72.BackgroundImage = myimage;
 		    button72.Text = "Lang";
 		    button9.Text = "Összes";
@@ -2222,6 +2124,7 @@ namespace Liquidinster
 			label1.Text = "POszam";		
 			button7.Text = "Keres";	
 			button71.Text = "törlés";
+			button64.Text = "kivétel";
 			button47.Text = "Multi ellenőrzés";
 			button42.Text = "ellenőrzés";	
 			button40.Text = "Levél riport";
@@ -2247,7 +2150,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", conn);
 			dataAdapter1.Fill(ds);
 			
 			
@@ -2257,7 +2160,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 06:00:00.000' AND Termelesidoveg <'1899-12-30 14:00:00.000'", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'06:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'14:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -2274,7 +2177,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", conn);
+			SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", conn);
 			dataAdapter1.Fill(ds);
 			
 			
@@ -2284,7 +2187,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 14:00:00.000' AND Termelesidoveg <'1899-12-30 22:00:00.000'", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep WHERE Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'14:00:00.000' AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'22:00:00.000'", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -2301,7 +2204,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			DataSet ds = new DataSet();			
 
-			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", conn);
+			SqlDataAdapter dataAdapter2 = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidellapep WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", conn);
 			dataAdapter2.Fill(ds);
 			
 			
@@ -2311,7 +2214,7 @@ namespace Liquidinster
 			dataGridView1.AutoResizeColumnHeadersHeight();
 			try{
 			using (SqlConnection con = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI"))
-    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg >'1899-12-30 22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker2.Text +"') AND Termelesidoveg <'1899-12-30 06:00:00.000')", con))
+    		using (SqlCommand cmd = new SqlCommand("SELECT COUNT(POszam) FROM liquidellapep  WHERE (Termeles BETWEEN ('" + dateTimePicker1.Text +"') AND ('" + dateTimePicker1.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) >'22:00:00.000') OR (Termeles BETWEEN ('" + dateTimePicker2.Text +"') AND ('" + dateTimePicker2.Text +"') AND CONVERT(DATETIME,RIGHT(termelesidoveg,8)) <'06:00:00.000')", con))
     		{
        	 	con.Open();
         	int result = (int)cmd.ExecuteScalar();
@@ -2333,6 +2236,9 @@ namespace Liquidinster
 			Button61Click(null,null);
 			Button60Click(null,null);
 			Button59Click(null,null);
+			dataGridView7.DataSource = null;
+			dataGridView6.DataSource = null;		
+			dataGridView8.DataSource = null;				
 		}
 		void Button62Click(object sender, EventArgs e)
 		{
@@ -2566,7 +2472,9 @@ namespace Liquidinster
 		void TextBox1KeyUp(object sender, KeyEventArgs e)
 		{		
 			if (e.KeyCode == Keys.Enter)
-		{			
+		{
+			if(textBox1.TextLength > 0)
+			{
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT POszam, Ellenorizve, Ellenorzo FROM liquidella WHERE POszam LIKE ('" + textBox1.Text +"%')",conn);
@@ -2590,6 +2498,10 @@ namespace Liquidinster
 			textBox9.Text = "";
 			textBox5.Text = "";
 			textBox11.Text = "";
+			}
+			else{
+						MessageBox.Show("Empty PO", "Warning");
+			}
 			}
 		}
 		void Button64Click(object sender, EventArgs e)
@@ -2652,6 +2564,27 @@ namespace Liquidinster
 		else{
 			
 		}
+		}
+		void Button65Click(object sender, EventArgs e)
+		{
+			Registers.OEE oee = new Registers.OEE();
+			oee.Show();
+		}
+		void Button66Click(object sender, EventArgs e)
+		{
+		OracleConnection con; 
+		con = new OracleConnection();
+        con.ConnectionString = "User Id=cms_usr;Password=cmslcmsu;Data Source=huncp.emea.givaudan.com"; 
+        con.Open(); 
+        MessageBox.Show("Connected to Oracle"); 	
+        con.Close();
+        Registers.CMS cms = new Registers.CMS();
+        cms.Show();
+		}
+		void Button67Click(object sender, EventArgs e)
+		{
+			Registers.Regtime reg = new Registers.Regtime();
+			reg.Show();
 		}
 
 	

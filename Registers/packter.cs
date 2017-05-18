@@ -14,6 +14,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;  
+using System.IO;  
+
 
 namespace Liquidinster
 {
@@ -22,7 +26,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class packter : Form
 	{
-		public packter(string mws, string po)
+		private readonly Liquidinster.MainForm1 frm1;
+		public packter(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -35,6 +40,7 @@ namespace Liquidinster
 //			this.comboBox2.Text = mws;
 //			this.comboBox5.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -146,6 +152,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+			frm1.Refresh();
 			this.Close();
 		}
 		void Button5Click(object sender, EventArgs e)
@@ -245,6 +252,9 @@ namespace Liquidinster
 					textBox83.Text = (read["Boxhand"].ToString());
 					textBox84.Text = (read["Boxoperator"].ToString());
 					comboBox3.Text = (read["Ellenorzo"].ToString());
+					textBox80.Text = (read["Operator6"].ToString());
+					textBox85.Text = (read["Szitaid1"].ToString());
+					textBox86.Text = (read["Szitaid2"].ToString());
 					
 			        if(read["Lugos"] == DBNull.Value){
 			        	checkBox4.Checked = false;
@@ -356,6 +366,7 @@ namespace Liquidinster
 				panel36.Visible |= textBox79.Text == "1";
 				panel77.Visible |= textBox7.Text == "1";
 				panel79.Visible |= textBox8.Text == "1";
+				panel79.Visible |= textBox8.Text == "1";				
 				
 				panel75.Visible |= textBox14.Text == "2";
 				panel74.Visible |= textBox15.Text == "2";
@@ -394,6 +405,7 @@ namespace Liquidinster
 				panel37.Visible |= textBox79.Text == "2";
 				panel76.Visible |= textBox7.Text == "2";
 				panel78.Visible |= textBox8.Text == "2";
+				panel86.Visible |= textBox30.Text == "";
 				
 				panel80.Visible |= textBox6.Text == "1";
 				panel81.Visible |= textBox6.Text == "2";
@@ -463,6 +475,7 @@ namespace Liquidinster
 			textBox77.Visible = true;
 			textBox78.Visible = true;
 			textBox79.Visible = true;
+			panel86.Visible = false;
 			
 			}
 			else if(button9.Visible == true){
@@ -517,12 +530,12 @@ namespace Liquidinster
 			Tisztaszaranyag = @Tisztaszaranyag, Hibatlanszita = @Hibatlanszita, Idegenanyag = @Idegenanyag, Operator3 = @Operator3, Vase = @Vase, Nemvase = @Nemvase,
 			Rozsdae = @Rozsdae, Vasu = @Vasu, Nemvasu = @Nemvasu, Rozsau = @Rozsau, Leiras2 = @Leiras2, Operator4 = @Operator4,
 			Lugoscsomagkezd = @Lugoscsomagkezd, Lugoscsomagveg = @Lugoscsomagveg, Lugoscsomagcheck = @Lugoscsomagcheck, Lugoscsomagms = @Lugoscsomagms, Lugoscsomagmos = @Lugoscsomagmos, Lugoscsomagszar = @Lugoscsomagszar,
-			Savasalkkezd = @Savasalkkezd, Savasalkveg = @Savasalkveg, Savasalkcheck = @Savasalkcheck, Savasalkms = @Savasalkms, Savasalkmos = @Savasalkmos,
+			Savasalkkezd = @Savasalkkezd, Savasalkcheck = @Savasalkcheck, Savasalkms = @Savasalkms, Savasalkmos = @Savasalkmos,
 			Savasalkszar = @Savasalkszar, Koshercipkezd = @Koshercipkezd, Koshercipveg = @Koshercipveg, Koshercipcheck = @Koshercipcheck, Koshercipms = @Koshercipms, Koshercipmos = @Koshercipmos,
 			Koshercipszar = @Koshercipszar, Csomagkezd = @Csomagkezd, Csomagveg = @Csomagveg, Csomagcheck = @Csomagcheck, Csomagms = @Csomagms, Csomagmos = @Csomagmos,
 			Csomagszar = @Csomagszar, Alkatkezd = @Alkatkezd, Alkatveg = @Alkatveg, Alkatcheck = @Alkatcheck, Alkatms = @Alkatms, Alkatmos = @Alkatmos,
 			Alkatszar = @Alkatszar, Leiras3 = @Leiras3, Operator5 = @Operator5, Szitabetet = @Szitabetet, Szita = @Szita, Csomagkez = @Csomagkez,
-			Csomagtiszt = @Csomagtiszt, Munkakor = @Munkakor, Komment = @Komment, Lugos = @Lugos, Savas = @Savas, Kosher = @Kosher
+			Csomagtiszt = @Csomagtiszt, Munkakor = @Munkakor, Komment = @Komment, Lugos = @Lugos, Savas = @Savas, Kosher = @Kosher, Savasalkveg = @Savasalkveg, Operator6 = @Operator6, Szitaid1 = @Szitaid1, Szitaid2 = @Szitaid2
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox2.Text));
@@ -577,7 +590,7 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Lugoscsomagmos", textBox47.Text));
 			cmd.Parameters.Add(new SqlParameter("@Lugoscsomagszar", textBox48.Text));
 			cmd.Parameters.Add(new SqlParameter("@Savasalkkezd", textBox52.Text));
-			cmd.Parameters.Add(new SqlParameter("@Savasalkveg", textBox51.Text));
+			cmd.Parameters.Add(new SqlParameter("@Savasalkveg", textBox52.Text));
 			cmd.Parameters.Add(new SqlParameter("@Savasalkcheck", textBox50.Text));
 			cmd.Parameters.Add(new SqlParameter("@Savasalkms", textBox49.Text));	
 			cmd.Parameters.Add(new SqlParameter("@Savasalkmos", textBox66.Text));
@@ -610,25 +623,36 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Komment", textBox81.Text));	
 			cmd.Parameters.Add(new SqlParameter("@Lugos", checkBox4.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Savas", checkBox1.Checked));
-			cmd.Parameters.Add(new SqlParameter("@Kosher", checkBox3.Checked));			
-
+			cmd.Parameters.Add(new SqlParameter("@Kosher", checkBox3.Checked));
+			cmd.Parameters.Add(new SqlParameter("@Operator6", textBox80.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid1", textBox85.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid2", textBox86.Text));			
 			cmd.ExecuteNonQuery();
-			conn.Close();
 
+//			SqlCommand cmd1 = new SqlCommand(@"Update dbo.packella set [Lugoscsomagkezd] = null ,[lugoscsomagveg] = null, [Savasalkkezd] = null, [Savasalkveg] = null WHERE POszam = ('" + comboBox1.Text + "') AND lugoscsomagveg = '0:00'", conn);
+//			cmd1.ExecuteNonQuery();
+			conn.Close();
 			Button5Click(null,null);			
 	
 		}
 		void Button8Click(object sender, EventArgs e)
 		{
-		CaptureScreen();
-        printDocument1.Print();		
+            printDialog1.Document = printDocument1;
+ 
+            if (printDialog1.ShowDialog()==DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+//		CaptureScreen();
+//        printDocument1.Print();	
+         
 		}
 		Bitmap memoryImage;
 		private void CaptureScreen()
 	    {
 	        Graphics myGraphics = this.CreateGraphics();
 	        Size s = this.Size;
-	        memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+	        memoryImage = new Bitmap(988, 1547, myGraphics);
 	        Graphics memoryGraphics = Graphics.FromImage(memoryImage);
 	        memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
 	    }
@@ -636,5 +660,13 @@ namespace Liquidinster
 			{
 	        e.Graphics.DrawImage(memoryImage, 0, 0);
 			}
+		void Button10Click(object sender, EventArgs e)
+		{
+            //Associate PrintPreviewDialog with PrintDocument.
+            printPreviewDialog1.Document = printDocument1;  
+  
+            // Show PrintPreview Dialog
+            printPreviewDialog1.ShowDialog();		
+		}
 }
 }

@@ -68,7 +68,7 @@ namespace Registers
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox90;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Button button4;
+		public System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.ComboBox comboBox3;
 		private System.Windows.Forms.Button button5;
@@ -696,7 +696,7 @@ namespace Registers
 			// 
 			// textBox52
 			// 
-			this.textBox52.BackColor = System.Drawing.Color.Yellow;
+			this.textBox52.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox52.Location = new System.Drawing.Point(611, 604);
 			this.textBox52.Name = "textBox52";
 			this.textBox52.Size = new System.Drawing.Size(51, 20);
@@ -725,7 +725,7 @@ namespace Registers
 			// 
 			// textBox50
 			// 
-			this.textBox50.BackColor = System.Drawing.Color.Yellow;
+			this.textBox50.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox50.Location = new System.Drawing.Point(616, 569);
 			this.textBox50.Name = "textBox50";
 			this.textBox50.Size = new System.Drawing.Size(51, 20);
@@ -754,7 +754,7 @@ namespace Registers
 			// 
 			// textBox49
 			// 
-			this.textBox49.BackColor = System.Drawing.Color.Yellow;
+			this.textBox49.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox49.Location = new System.Drawing.Point(616, 532);
 			this.textBox49.Name = "textBox49";
 			this.textBox49.Size = new System.Drawing.Size(51, 20);

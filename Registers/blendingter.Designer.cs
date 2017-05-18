@@ -241,6 +241,9 @@ namespace Liquidinster
 		private System.Windows.Forms.TextBox textBox91;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.TextBox textBox92;
+		private System.Windows.Forms.TextBox textBox93;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -280,6 +283,9 @@ namespace Liquidinster
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.textBox92 = new System.Windows.Forms.TextBox();
+			this.textBox93 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.panel102 = new System.Windows.Forms.Panel();
 			this.panel104 = new System.Windows.Forms.Panel();
 			this.textBox91 = new System.Windows.Forms.TextBox();
@@ -565,9 +571,7 @@ namespace Liquidinster
 			this.comboBox1.Size = new System.Drawing.Size(222, 21);
 			this.comboBox1.TabIndex = 306;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
-			this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Combobox1KeyUp);
 			this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1KeyPress);
-			this.comboBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Combobox1KeyUp);
 			// 
 			// textBox17
 			// 
@@ -628,6 +632,9 @@ namespace Liquidinster
 			this.panel1.AutoScroll = true;
 			this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
 			this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.panel1.Controls.Add(this.textBox92);
+			this.panel1.Controls.Add(this.textBox93);
+			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.panel102);
 			this.panel1.Controls.Add(this.panel104);
 			this.panel1.Controls.Add(this.textBox91);
@@ -840,6 +847,30 @@ namespace Liquidinster
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(986, 1305);
 			this.panel1.TabIndex = 312;
+			// 
+			// textBox92
+			// 
+			this.textBox92.Location = new System.Drawing.Point(237, 785);
+			this.textBox92.Name = "textBox92";
+			this.textBox92.Size = new System.Drawing.Size(80, 20);
+			this.textBox92.TabIndex = 528;
+			// 
+			// textBox93
+			// 
+			this.textBox93.Location = new System.Drawing.Point(177, 785);
+			this.textBox93.Name = "textBox93";
+			this.textBox93.Size = new System.Drawing.Size(43, 20);
+			this.textBox93.TabIndex = 527;
+			// 
+			// label3
+			// 
+			this.label3.BackColor = System.Drawing.Color.White;
+			this.label3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label3.Location = new System.Drawing.Point(3, 784);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(183, 23);
+			this.label3.TabIndex = 526;
+			this.label3.Text = "Szita azonosító / Sieve id:";
 			// 
 			// panel102
 			// 
@@ -2218,9 +2249,9 @@ namespace Liquidinster
 			// 
 			// textBox40
 			// 
-			this.textBox40.Location = new System.Drawing.Point(3, 783);
+			this.textBox40.Location = new System.Drawing.Point(3, 810);
 			this.textBox40.Name = "textBox40";
-			this.textBox40.Size = new System.Drawing.Size(683, 20);
+			this.textBox40.Size = new System.Drawing.Size(949, 20);
 			this.textBox40.TabIndex = 359;
 			// 
 			// textBox39

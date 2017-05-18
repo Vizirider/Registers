@@ -73,8 +73,8 @@ namespace Liquidinster
 		{
 		SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand(@"Insert into dbo.blendinga (POszam, Anyagkod, Anyagnev, Tisztae, Blenderszam, Kitoltvee, IBCszam, LastIBC, IBCkiurulte, Felrazvae, Kannaszam, Urese, Automatae, Csotisztae, Szivarogepor, IBCbatch, Szivaroge, Komment, Datum, Ellenorzo, Ellenorizve, Ki, Felrazvahoe, Jerrycane, Muszakie, Idegene)  VALUES 
-			(@POszam, @Anyagkod, @Anyagnev, @Tisztae, @Blenderszam, @Kitoltvee, @IBCszam, @LastIBC, @IBCkiurulte, @Felrazvae, @Kannaszam, @Urese, @Automatae, @Csotisztae, @Szivarogepor, @IBCbatch, @Szivaroge, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Felrazvahoe, @Jerrycane, @Muszakie, @Idegene)",conn);
+			SqlCommand cmd = new SqlCommand(@"Insert into dbo.blendinga (POszam, Anyagkod, Anyagnev, Tisztae, Blenderszam, Kitoltvee, IBCszam, LastIBC, IBCkiurulte, Felrazvae, Kannaszam, Urese, Automatae, Szivarogepor, IBCbatch, Szivaroge, Komment, Datum, Ellenorzo, Ellenorizve, Ki, Felrazvahoe, Jerrycane, Muszakie, Idegene)  VALUES 
+			(@POszam, @Anyagkod, @Anyagnev, @Tisztae, @Blenderszam, @Kitoltvee, @IBCszam, @LastIBC, @IBCkiurulte, @Felrazvae, @Kannaszam, @Urese, @Automatae, @Szivarogepor, @IBCbatch, @Szivaroge, @Komment, @Datum, @Ellenorzo, @Ellenorizve, @Ki, @Felrazvahoe, @Jerrycane, @Muszakie, @Idegene)",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));

@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class blendkis : Form
 	{
-		public blendkis(string mws, string po)
+		private readonly Liquidinster.MainForm1 frm1; 
+		public blendkis(string mws, string po, MainForm1 frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 //			this.comboBox4.Text = mws;
 			// Small blender register
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			using (SqlConnection connection = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")) {
 				SqlCommand command =
 					new SqlCommand("select Name FROM dbo.Admins WHERE ID=('" + mws + "')", connection);
@@ -165,6 +167,8 @@ namespace Liquidinster
 					textBox87.Text = (read["Leiras10"].ToString());
 					textBox92.Text = (read["Operator10"].ToString());	
 					comboBox2.Text = (read["Ellenorzo"].ToString());					
+					textBox103.Text = (read["Szitaid1"].ToString());
+					textBox102.Text = (read["Szitaid2"].ToString());
 					
 					if(read["lugose"] == DBNull.Value){
 			        	checkBox1.Checked = false;
@@ -380,7 +384,8 @@ namespace Liquidinster
 			SqlCommand cmd = new SqlCommand(@"Update dbo.blendkisella set Ellenorizve = 1, Ellenorzo='" + comboBox3.Text + "' WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");	
+			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 			this.Close();	
 		}
 		void Button6Click(object sender, EventArgs e)
@@ -547,7 +552,7 @@ namespace Liquidinster
 			kosherterljesend = @kosherterljesend, kosherteljestiszt = @kosherteljestiszt, kosherteljeskom = @kosherteljeskom, areastart = @areastart, areaend = @areaend, areatiszt = @areatiszt,
 			areakomm = @areakomm, lugosblendmos = @lugosblendmos, lugosblendszar = @lugosblendszar, lugosszitamos = @lugosszitamos, lugosszitaszar = @lugosszitaszar, savaspackmos = @savaspackmos,
 			savaspackszar = @savaspackszar, kosherblendmos = @kosherblendmos, kosherblendszar = @kosherblendszar, kosherpackmos = @kosherpackmos, kosherpackszar = @kosherpackszar,
-			kosherteljesmos = @kosherteljesmos, kosherteljesszar = @kosherteljesszar, areamos = @areamos, areaszar = @areaszar
+			kosherteljesmos = @kosherteljesmos, kosherteljesszar = @kosherteljesszar, areamos = @areamos, areaszar = @areaszar, Szitaid1 = @Szitaid1, Szitaid2 = @Szitaid2
 			WHERE POszam = ('" + comboBox1.Text + "')", conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Operator1", comboBox4.Text));
@@ -648,8 +653,12 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@areaszar", textBox96.Text));
 			cmd.Parameters.Add(new SqlParameter("@Leiras10", textBox87.Text));			
 			cmd.Parameters.Add(new SqlParameter("@Operator10", textBox92.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid1", textBox103.Text));
+			cmd.Parameters.Add(new SqlParameter("@Szitaid2", textBox102.Text));	
 			
 			cmd.ExecuteNonQuery();
+			SqlCommand cmd1 = new SqlCommand(@"Update dbo.blendkisella set [lugosblendstart] = null ,[lugosblendend] = null WHERE POszam = ('" + comboBox1.Text + "') AND lugosblendend = '0:00'", conn);
+			cmd1.ExecuteNonQuery();
 			conn.Close();
 
 			Button5Click(null,null);	

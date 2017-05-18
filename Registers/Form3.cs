@@ -32,7 +32,7 @@ namespace Liquidinster
 			//
 			InitializeComponent();
 			// Excection error handling server
-			const string Select = "SELECT UserName FROM LoginUser";
+			const string Select = "SELECT UserName, Password FROM LoginUser";
 			using 
 				(SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI")){
 	    try{
@@ -49,12 +49,11 @@ namespace Liquidinster
 			}
 	    catch(Exception)
 	    {
-		MessageBox.Show("Don't have permission to acces! Turn to the local IT group", "Warning");	    	
+		MessageBox.Show("Don't have permission to access! Turn to the local IT group", "Warning");	    	
 	    }
 		}
 		}
 		void Button1Click(object sender, EventArgs e)
-		{
 		{
 			// Login to 3 area (Production, Warehouse, Planning)
 			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
@@ -65,8 +64,11 @@ namespace Liquidinster
 				conn.Open();
 				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
 				SqlDataReader read= command.ExecuteReader();
-				while (read.Read())
+				if(read.Read())
 				{
+				if(textBox1.Text != (read["Password"].ToString())){
+				MessageBox.Show("Wrong Password!", "Message");
+				}
 				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
@@ -82,15 +84,15 @@ namespace Liquidinster
 				Button3Click(null,null);
 				sc2.Show();
 				}
-				else{
-					MessageBox.Show("You don't have permission", "Message");
 				}
-				}
-		}
+			else{
+			MessageBox.Show("Wrong Username or Password!", "Warning");	
+			
+			}
 		}
 		void Button1KeyPress(object sender, KeyPressEventArgs e)
 		{
-		{
+			// Login to 3 area (Production, Warehouse, Planning)
 			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
 			{
 			MessageBox.Show("Missing information to enter!", "Message");				
@@ -99,8 +101,11 @@ namespace Liquidinster
 				conn.Open();
 				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
 				SqlDataReader read= command.ExecuteReader();
-				while (read.Read())
+				if(read.Read())
 				{
+				if(textBox1.Text != (read["Password"].ToString())){
+				MessageBox.Show("Wrong Password!", "Message");
+				}
 				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
@@ -116,16 +121,16 @@ namespace Liquidinster
 				Button3Click(null,null);
 				sc2.Show();
 				}
-				else{
-					MessageBox.Show("You don't have permission", "Message");
 				}
-				}
-				
-		}		}
+			else{
+			MessageBox.Show("Wrong Username or Password!", "Warning");		
+			}	
+		}
 		void Button1KeyUp(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 		{
+			// Login to 3 area (Production, Warehouse, Planning)
 			if(string.IsNullOrWhiteSpace(comboBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
 			{
 			MessageBox.Show("Missing information to enter!", "Message");				
@@ -134,8 +139,11 @@ namespace Liquidinster
 				conn.Open();
 				SqlCommand command = new SqlCommand("SELECT * FROM LoginUser WHERE UserName='" + comboBox1.Text + "' and Password ='" + textBox1.Text + "'",conn);
 				SqlDataReader read= command.ExecuteReader();
-				while (read.Read())
+				if(read.Read())
 				{
+				if(textBox1.Text != (read["Password"].ToString())){
+				MessageBox.Show("Wrong Password!", "Message");
+				}
 				if(comboBox1.Text == (read["UserName"].ToString()) && textBox1.Text == (read["Password"].ToString()) && (read["Area"].ToString()) == "Production"){
 				Select sc = new Select(this.comboBox1.Text);
 				Button3Click(null,null);
@@ -151,11 +159,10 @@ namespace Liquidinster
 				Button3Click(null,null);
 				sc2.Show();
 				}
-				else{
-					MessageBox.Show("You don't have permission", "Message");
 				}
-				}
-				
+			else{
+			MessageBox.Show("Wrong Username or Password!", "Warning");				
+			}
 		}
 								
 		}
@@ -188,6 +195,7 @@ namespace Liquidinster
             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
             ToolTip1.SetToolTip(this.label3, "1.0 version: Production: PepsiCo, Production check, Audit log with shift handover, \n Blending Timesheet, Warehouse: PepsiCo, Planning: PepsiCo, Riports");
 		}
+
 		
 	}
 }

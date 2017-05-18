@@ -39,6 +39,7 @@ namespace Liquidinster
 			this.textBox8.Text = mws;
 			label2.Font = new Font(label2.Font.FontFamily, 6);
 			button6.Font = new Font(label2.Font.FontFamily, 16);
+			button11.Font = new Font(label2.Font.FontFamily, 16);
 		}
 		void Button3Click(object sender, EventArgs e)
 		{
@@ -87,168 +88,6 @@ namespace Liquidinster
 			SqlCommand cmd7 = new SqlCommand(@"DELETE FROM dbo.blendinga  WHERE POszam IS NULL",conn);
 			SqlCommand cmd8 = new SqlCommand(@"DELETE FROM dbo.packingoff  WHERE POszam IS NULL",conn);
 			SqlCommand cmd9 = new SqlCommand(@"DELETE FROM dbo.packingoffa  WHERE POszam IS NULL",conn);
-
-//			SqlCommand cmd10 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquid
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquid
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd11 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquida
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquida
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd12 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM akl
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    akl
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd13 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM akla
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    akla
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd14 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmp
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmp
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd15 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpa
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpa
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd16 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blending
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blending
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd17 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendinga
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendinga
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd18 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packingoff
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packingoff
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd19 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packingoffa
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packingoffa
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-
 			
 			cmd.ExecuteNonQuery();
 			cmd1.ExecuteNonQuery();
@@ -260,16 +99,6 @@ namespace Liquidinster
 			cmd7.ExecuteNonQuery();
 			cmd8.ExecuteNonQuery();
 			cmd9.ExecuteNonQuery();
-//			cmd10.ExecuteNonQuery();
-//			cmd11.ExecuteNonQuery();
-//			cmd12.ExecuteNonQuery();
-//			cmd13.ExecuteNonQuery();
-//			cmd14.ExecuteNonQuery();
-//			cmd15.ExecuteNonQuery();
-//			cmd16.ExecuteNonQuery();
-//			cmd17.ExecuteNonQuery();
-//			cmd18.ExecuteNonQuery();
-//			cmd19.ExecuteNonQuery();
 
 			conn.Close();
 		MainForm mf = new MainForm(this.textBox8.Text, this.textBox8.Text, button9.Text);
@@ -358,247 +187,6 @@ namespace Liquidinster
 			SqlCommand cmd147 = new SqlCommand(@"DELETE FROM dbo.lodige  WHERE POszam IS NULL",conn);
 			SqlCommand cmd148 = new SqlCommand(@"DELETE FROM dbo.lodigea  WHERE POszam IS NULL",conn);
 			
-//			SqlCommand cmd20 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquidell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquidell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd21 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM liquidella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    liquidella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd22 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd23 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM bmpella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    bmpella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd24 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd25 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd26 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd27 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM packella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    packella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd28 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM sdell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    sdell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd29 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM sdella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    sdella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd30 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM pfell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    pfell
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd31 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM pfella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    pfella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd44 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendkisell
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendkisella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-//			SqlCommand cmd45 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM blendkisella
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    blendkisella
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
-			
-//			SqlCommand cmd48 = new SqlCommand(
-//			@"SET NOCOUNT ON
-//			SET ROWCOUNT 1
-//			WHILE 1 = 1
-//			 BEGIN
-//			   DELETE  
-//			   FROM reportall
-//			   WHERE POszam IN
-//			        (SELECT  POszam
-//			         FROM    reportall
-//			         GROUP BY POszam
-//			         HAVING  COUNT(*) > 1)
-//			      IF @@Rowcount = 0
-//			      BREAK;
-//			 END
-//			 SET ROWCOUNT 0",conn);
 						SqlCommand cmd49 = new SqlCommand(
 			@"SET NOCOUNT ON
 			SET ROWCOUNT 1
@@ -632,18 +220,6 @@ namespace Liquidinster
 			 END
 			 SET ROWCOUNT 0",conn);
 			
-//			cmd20.ExecuteNonQuery();
-//			cmd21.ExecuteNonQuery();
-//			cmd22.ExecuteNonQuery();
-//			cmd23.ExecuteNonQuery();
-//			cmd24.ExecuteNonQuery();
-//			cmd25.ExecuteNonQuery();
-//			cmd26.ExecuteNonQuery();
-//			cmd27.ExecuteNonQuery();
-//			cmd28.ExecuteNonQuery();
-//			cmd29.ExecuteNonQuery();
-//			cmd30.ExecuteNonQuery();
-//			cmd31.ExecuteNonQuery();
 			cmd32.ExecuteNonQuery();
 			cmd33.ExecuteNonQuery();
 			cmd34.ExecuteNonQuery();
@@ -656,11 +232,8 @@ namespace Liquidinster
 			cmd41.ExecuteNonQuery();
 			cmd42.ExecuteNonQuery();
 			cmd43.ExecuteNonQuery();
-//			cmd44.ExecuteNonQuery();
-//			cmd45.ExecuteNonQuery();
 			cmd46.ExecuteNonQuery();
 			cmd47.ExecuteNonQuery();
-//			cmd48.ExecuteNonQuery();
 			cmd49.ExecuteNonQuery();
 			cmd50.ExecuteNonQuery();
 			cmd147.ExecuteNonQuery();
@@ -759,9 +332,15 @@ namespace Liquidinster
 		}
 		void Button10Click(object sender, EventArgs e)
 		{
-			naplok nap = new naplok();
+			naplok nap = new naplok(button9.Text);
 			nap.Show();	
 		}
+		void Button11Click(object sender, EventArgs e)
+		{
+			Registers.MainForm5 ipqc = new Registers.MainForm5(textBox8.Text,button9.Text);
+			ipqc.Show();			
+		}
+
 
 	}
 }

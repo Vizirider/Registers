@@ -8,6 +8,9 @@
  */
 using System;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
+
 
 namespace Liquidinster
 {
@@ -24,9 +27,23 @@ namespace Liquidinster
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Login());
+			new SplashApp().Run(args);
 			
 		}
+        class SplashApp : WindowsFormsApplicationBase
+        {
+            protected override void OnCreateSplashScreen()
+            {
+                this.SplashScreen = new Registers.Splash();
+            }
+            protected override void OnCreateMainForm()
+            {
+                //Connect to db, remote server or anything you like in here
+                System.Threading.Thread.Sleep(2000);
+                //create your main form and the SplashForm will close here automatically
+                this.MainForm = new Login();
+            }
+        }
 		
 	}
 }

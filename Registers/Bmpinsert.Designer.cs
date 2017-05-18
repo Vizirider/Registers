@@ -48,6 +48,7 @@ namespace Liquidinster
 		private System.Windows.Forms.CheckBox checkBox9;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.CheckBox checkBox10;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -104,6 +105,7 @@ namespace Liquidinster
 			this.checkBox9 = new System.Windows.Forms.CheckBox();
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
+			this.checkBox10 = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -297,7 +299,7 @@ namespace Liquidinster
 			// 
 			// checkBox2
 			// 
-			this.checkBox2.Location = new System.Drawing.Point(89, 212);
+			this.checkBox2.Location = new System.Drawing.Point(46, 213);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(104, 24);
 			this.checkBox2.TabIndex = 6;
@@ -306,7 +308,7 @@ namespace Liquidinster
 			// 
 			// checkBox3
 			// 
-			this.checkBox3.Location = new System.Drawing.Point(89, 242);
+			this.checkBox3.Location = new System.Drawing.Point(46, 243);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(104, 24);
 			this.checkBox3.TabIndex = 7;
@@ -315,7 +317,7 @@ namespace Liquidinster
 			// 
 			// checkBox5
 			// 
-			this.checkBox5.Location = new System.Drawing.Point(89, 272);
+			this.checkBox5.Location = new System.Drawing.Point(46, 273);
 			this.checkBox5.Name = "checkBox5";
 			this.checkBox5.Size = new System.Drawing.Size(104, 24);
 			this.checkBox5.TabIndex = 8;
@@ -324,7 +326,7 @@ namespace Liquidinster
 			// 
 			// checkBox6
 			// 
-			this.checkBox6.Location = new System.Drawing.Point(199, 212);
+			this.checkBox6.Location = new System.Drawing.Point(156, 213);
 			this.checkBox6.Name = "checkBox6";
 			this.checkBox6.Size = new System.Drawing.Size(104, 24);
 			this.checkBox6.TabIndex = 9;
@@ -372,7 +374,7 @@ namespace Liquidinster
 			// 
 			// checkBox8
 			// 
-			this.checkBox8.Location = new System.Drawing.Point(196, 242);
+			this.checkBox8.Location = new System.Drawing.Point(153, 243);
 			this.checkBox8.Name = "checkBox8";
 			this.checkBox8.Size = new System.Drawing.Size(104, 24);
 			this.checkBox8.TabIndex = 81;
@@ -381,7 +383,7 @@ namespace Liquidinster
 			// 
 			// checkBox9
 			// 
-			this.checkBox9.Location = new System.Drawing.Point(195, 272);
+			this.checkBox9.Location = new System.Drawing.Point(152, 273);
 			this.checkBox9.Name = "checkBox9";
 			this.checkBox9.Size = new System.Drawing.Size(104, 24);
 			this.checkBox9.TabIndex = 82;
@@ -403,11 +405,21 @@ namespace Liquidinster
 			this.label11.TabIndex = 84;
 			this.label11.Text = "Soszam";
 			// 
+			// checkBox10
+			// 
+			this.checkBox10.Location = new System.Drawing.Point(270, 213);
+			this.checkBox10.Name = "checkBox10";
+			this.checkBox10.Size = new System.Drawing.Size(104, 24);
+			this.checkBox10.TabIndex = 85;
+			this.checkBox10.Text = "Soszampick";
+			this.checkBox10.UseVisualStyleBackColor = true;
+			// 
 			// Bmpinsert
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(399, 611);
+			this.Controls.Add(this.checkBox10);
 			this.Controls.Add(this.textBox7);
 			this.Controls.Add(this.label11);
 			this.Controls.Add(this.checkBox9);

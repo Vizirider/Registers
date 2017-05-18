@@ -22,7 +22,8 @@ namespace Liquidinster
 	/// </summary>
 	public partial class bmpr : Form
 	{
-		public bmpr(string mws, string po)
+		private readonly Liquidinster.MainForm frm1;	
+		public bmpr(string mws, string po, MainForm frm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +37,7 @@ namespace Liquidinster
 			this.comboBox2.Text = mws;
 			this.comboBox3.Text = mws;
 			this.comboBox1.Text = po;
+			frm1 = frm;
 			this.Button3Click(null, null);
 			
 			// bmp register with instances (po, mws number)
@@ -72,6 +74,12 @@ namespace Liquidinster
 			        checkBox7.Checked = (bool)read["Bonthatoe"];
 			        checkBox8.Checked = (bool)read["Idegene"];
 			        textBox7.Text = (read["Soszam"].ToString());
+			   		if(read["sopick"] == DBNull.Value){
+			        	checkBox9.Checked = false;			        	
+			        }
+			        else{
+			        checkBox9.Checked = (bool)read["sopick"];			        	
+			        }
 			    }
 			    read.Close();
 			}
@@ -84,6 +92,7 @@ namespace Liquidinster
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen ellenőrizted a PO-t", "Üzenet");
+			frm1.Refresh();
 						this.Close();
 		}
 		void Button1Click(object sender, EventArgs e)
@@ -91,7 +100,7 @@ namespace Liquidinster
 			SqlConnection conn = new SqlConnection("server=gmacsm0001dp;database=Production_test;Integrated Security=SSPI");
 			conn.Open();
 			SqlCommand cmd = new SqlCommand(@"Update dbo.bmpa set POszam = @POszam, Anyagkod = @Anyagkod, Anyagnev = @Anyagnev, IBCtisztae = @IBCtisztae, IBCszam = @IBCszam, LastIBCszam = @LastIBCszam, Allomastisztae = @Allomastisztae, Elese = @Elese, Kimerteke = @Kimerteke, AKLzsak = @AKLzsak, Csomomentese = @Csomomentese, Komment = @Komment, Datum = @Datum, Ellenorzo = @Ellenorzo,  Ki = @Ki, 
-			Soszam = @Soszam, Alapanyage = @Alapanyage, Bonthatoe = @Bonthatoe, Idegene = @Idegene WHERE POszam LIKE ('" + comboBox1.Text +"%')",conn);
+			Soszam = @Soszam, Alapanyage = @Alapanyage, Bonthatoe = @Bonthatoe, Idegene = @Idegene, sopick = @sopick WHERE POszam = ('" + comboBox1.Text +"')",conn);
 			cmd.Parameters.Add(new SqlParameter("@POszam", comboBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagkod", textBox1.Text));
 			cmd.Parameters.Add(new SqlParameter("@Anyagnev", textBox2.Text));
@@ -111,6 +120,7 @@ namespace Liquidinster
 			cmd.Parameters.Add(new SqlParameter("@Alapanyage", checkBox6.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Bonthatoe", checkBox7.Checked));
 			cmd.Parameters.Add(new SqlParameter("@Idegene", checkBox8.Checked));
+			cmd.Parameters.Add(new SqlParameter("@sopick", checkBox9.Checked));
 			cmd.ExecuteNonQuery();
 			conn.Close();
 			MessageBox.Show("Sikeresen módosítottad a PO-t", "Üzenet"); 
@@ -148,6 +158,10 @@ namespace Liquidinster
 			if(checkBox4.Checked == false)
 			{
 				checkBox4.BackColor = Color.Red;
+			}
+			if(checkBox9.Checked == false)
+			{
+				checkBox9.BackColor = Color.Red;
 			}
 
 		}

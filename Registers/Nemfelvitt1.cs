@@ -474,7 +474,34 @@ private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormatt
 			Button13Click(null,null);
 			Button12Click(null,null);	
 		}
+		void Button3Click(object sender, EventArgs e)
+		{
+			TopMost = true;
+			this.Size = new Size(946,300);
+			dataGridView2.Font = new System.Drawing.Font("Verdana",6.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+		this.timer1.Enabled = true;
+	    this.timer1.Interval = 5000;
+	    this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+           PlaceLowerRight();
+            base.OnLoad(e);			
+		}
+		void Timer1Tick(object sender, EventArgs e)
+		{ 
+			Button2Click(null,null);
+		}
+       private void PlaceLowerRight()
+        {
+            //Determine "rightmost" screen
+            Screen rightmost = Screen.AllScreens[0];
+            foreach (Screen screen in Screen.AllScreens)
+            {
+                if (screen.WorkingArea.Right > rightmost.WorkingArea.Right)
+                    rightmost = screen;
+            }
 
+            this.Left = rightmost.WorkingArea.Right - this.Width;
+            this.Top = rightmost.WorkingArea.Bottom - this.Height;
+       }		
 
 	}
 }

@@ -63,6 +63,7 @@ namespace Liquidinster
 		private System.Windows.Forms.TextBox textBox10;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Timer timer1;
+		private System.Windows.Forms.Button button3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -135,6 +136,7 @@ namespace Liquidinster
 			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.button3 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -319,6 +321,7 @@ namespace Liquidinster
 			this.button10.TabIndex = 69;
 			this.button10.Text = "Indikátor";
 			this.button10.UseVisualStyleBackColor = false;
+			this.button10.Click += new System.EventHandler(this.Button10Click);
 			// 
 			// textBox1
 			// 
@@ -517,6 +520,7 @@ namespace Liquidinster
 			this.button19.TabIndex = 96;
 			this.button19.Text = "Keres";
 			this.button19.UseVisualStyleBackColor = false;
+			this.button19.Click += new System.EventHandler(this.Button19Click);
 			// 
 			// button20
 			// 
@@ -528,6 +532,7 @@ namespace Liquidinster
 			this.button20.TabIndex = 97;
 			this.button20.Text = "Összesített";
 			this.button20.UseVisualStyleBackColor = false;
+			this.button20.Click += new System.EventHandler(this.Button20Click);
 			// 
 			// textBox10
 			// 
@@ -549,6 +554,16 @@ namespace Liquidinster
 			// 
 			this.timer1.Interval = 1000;
 			// 
+			// button3
+			// 
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button3.Location = new System.Drawing.Point(816, 96);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(100, 36);
+			this.button3.TabIndex = 101;
+			this.button3.Text = "Live monitor";
+			this.button3.Click += new System.EventHandler(this.Button3Click);
+			// 
 			// Nemfelvitt1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,6 +571,7 @@ namespace Liquidinster
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(986, 892);
+			this.Controls.Add(this.button3);
 			this.Controls.Add(this.textBox10);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.button20);
@@ -604,7 +620,7 @@ namespace Liquidinster
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.dataGridView2);
 			this.Name = "Nemfelvitt1";
-			this.Text = "Nemfelvitt1";
+			this.Text = "Gyártás ellenőrzési - Nem felvitt";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();

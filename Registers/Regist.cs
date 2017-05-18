@@ -50,7 +50,7 @@ namespace Liquidinster
 			
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Succesful registration, you're the " +textBox3.Text+ ". User ", "Message");  
+			MessageBox.Show("Succesfull registration, you're the " +textBox3.Text+ ". User ", "Message");  
 			this.Close();	
 			}
 		}
@@ -81,7 +81,7 @@ namespace Liquidinster
 			
 			cmd.ExecuteNonQuery();
 			conn.Close();
-			MessageBox.Show("Succesful registration, you're the " +textBox3.Text+ ". User ", "Message");  
+			MessageBox.Show("Succesfull registration, you're the " +textBox3.Text+ ". User ", "Message");  
 			this.Close();	
 			}
 		}

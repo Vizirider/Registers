@@ -16,7 +16,7 @@ namespace Liquidinster
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		public System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.TextBox textBox4;
@@ -98,6 +98,10 @@ namespace Liquidinster
 		private System.Windows.Forms.DateTimePicker dateTimePicker3;
 		private System.Windows.Forms.TextBox textBox24;
 		private System.Windows.Forms.ComboBox comboBox6;
+		private System.Windows.Forms.Panel panel25;
+		private System.Windows.Forms.Panel panel26;
+		private System.Windows.Forms.Panel panel27;
+		private System.Windows.Forms.Panel panel28;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -205,9 +209,15 @@ namespace Liquidinster
 			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
 			this.textBox24 = new System.Windows.Forms.TextBox();
 			this.comboBox6 = new System.Windows.Forms.ComboBox();
+			this.panel25 = new System.Windows.Forms.Panel();
+			this.panel26 = new System.Windows.Forms.Panel();
+			this.panel27 = new System.Windows.Forms.Panel();
+			this.panel28 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel45.SuspendLayout();
 			this.panel47.SuspendLayout();
+			this.panel25.SuspendLayout();
+			this.panel27.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button5
@@ -270,7 +280,7 @@ namespace Liquidinster
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(1111, 136);
+			this.comboBox2.Location = new System.Drawing.Point(1109, 133);
 			this.comboBox2.MinimumSize = new System.Drawing.Size(150, 0);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
@@ -398,7 +408,7 @@ namespace Liquidinster
 			// 
 			// textBox16
 			// 
-			this.textBox16.Location = new System.Drawing.Point(1129, 445);
+			this.textBox16.Location = new System.Drawing.Point(1129, 446);
 			this.textBox16.Name = "textBox16";
 			this.textBox16.Size = new System.Drawing.Size(66, 20);
 			this.textBox16.TabIndex = 99;
@@ -808,7 +818,7 @@ namespace Liquidinster
 			// 
 			// textBox17
 			// 
-			this.textBox17.Location = new System.Drawing.Point(1134, 479);
+			this.textBox17.Location = new System.Drawing.Point(1134, 477);
 			this.textBox17.Name = "textBox17";
 			this.textBox17.Size = new System.Drawing.Size(57, 20);
 			this.textBox17.TabIndex = 159;
@@ -972,6 +982,38 @@ namespace Liquidinster
 			this.comboBox6.Size = new System.Drawing.Size(150, 21);
 			this.comboBox6.TabIndex = 334;
 			// 
+			// panel25
+			// 
+			this.panel25.BackColor = System.Drawing.Color.White;
+			this.panel25.Controls.Add(this.panel26);
+			this.panel25.Location = new System.Drawing.Point(954, 438);
+			this.panel25.Name = "panel25";
+			this.panel25.Size = new System.Drawing.Size(59, 20);
+			this.panel25.TabIndex = 144;
+			// 
+			// panel26
+			// 
+			this.panel26.Location = new System.Drawing.Point(3, 22);
+			this.panel26.Name = "panel26";
+			this.panel26.Size = new System.Drawing.Size(62, 20);
+			this.panel26.TabIndex = 143;
+			// 
+			// panel27
+			// 
+			this.panel27.BackColor = System.Drawing.Color.White;
+			this.panel27.Controls.Add(this.panel28);
+			this.panel27.Location = new System.Drawing.Point(954, 467);
+			this.panel27.Name = "panel27";
+			this.panel27.Size = new System.Drawing.Size(59, 20);
+			this.panel27.TabIndex = 145;
+			// 
+			// panel28
+			// 
+			this.panel28.Location = new System.Drawing.Point(3, 22);
+			this.panel28.Name = "panel28";
+			this.panel28.Size = new System.Drawing.Size(62, 20);
+			this.panel28.TabIndex = 143;
+			// 
 			// bmpter
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -979,6 +1021,9 @@ namespace Liquidinster
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(1260, 880);
+			this.Controls.Add(this.panel27);
+			this.Controls.Add(this.panel25);
+			this.Controls.Add(this.textBox16);
 			this.Controls.Add(this.comboBox6);
 			this.Controls.Add(this.textBox24);
 			this.Controls.Add(this.dateTimePicker3);
@@ -1037,7 +1082,6 @@ namespace Liquidinster
 			this.Controls.Add(this.dateTimePicker2);
 			this.Controls.Add(this.textBox19);
 			this.Controls.Add(this.textBox18);
-			this.Controls.Add(this.textBox16);
 			this.Controls.Add(this.textBox15);
 			this.Controls.Add(this.textBox14);
 			this.Controls.Add(this.textBox13);
@@ -1065,6 +1109,8 @@ namespace Liquidinster
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.panel45.ResumeLayout(false);
 			this.panel47.ResumeLayout(false);
+			this.panel25.ResumeLayout(false);
+			this.panel27.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

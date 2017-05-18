@@ -242,6 +242,9 @@ namespace Liquidinster
 		private System.Windows.Forms.TextBox textBox92;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.TextBox textBox102;
+		private System.Windows.Forms.TextBox textBox103;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -493,6 +496,9 @@ namespace Liquidinster
 			this.button8 = new System.Windows.Forms.Button();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.textBox102 = new System.Windows.Forms.TextBox();
+			this.textBox103 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel47.SuspendLayout();
 			this.panel45.SuspendLayout();
@@ -503,6 +509,9 @@ namespace Liquidinster
 			// 
 			this.panel1.AutoScroll = true;
 			this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+			this.panel1.Controls.Add(this.textBox102);
+			this.panel1.Controls.Add(this.textBox103);
+			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.dateTimePicker1);
 			this.panel1.Controls.Add(this.textBox92);
 			this.panel1.Controls.Add(this.checkBox3);
@@ -1353,7 +1362,7 @@ namespace Liquidinster
 			// 
 			// textBox40
 			// 
-			this.textBox40.Location = new System.Drawing.Point(0, 781);
+			this.textBox40.Location = new System.Drawing.Point(0, 813);
 			this.textBox40.Name = "textBox40";
 			this.textBox40.Size = new System.Drawing.Size(694, 20);
 			this.textBox40.TabIndex = 564;
@@ -2705,6 +2714,30 @@ namespace Liquidinster
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(150, 21);
 			this.comboBox2.TabIndex = 336;
+			// 
+			// textBox102
+			// 
+			this.textBox102.Location = new System.Drawing.Point(237, 788);
+			this.textBox102.Name = "textBox102";
+			this.textBox102.Size = new System.Drawing.Size(80, 20);
+			this.textBox102.TabIndex = 639;
+			// 
+			// textBox103
+			// 
+			this.textBox103.Location = new System.Drawing.Point(177, 788);
+			this.textBox103.Name = "textBox103";
+			this.textBox103.Size = new System.Drawing.Size(43, 20);
+			this.textBox103.TabIndex = 638;
+			// 
+			// label3
+			// 
+			this.label3.BackColor = System.Drawing.Color.White;
+			this.label3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label3.Location = new System.Drawing.Point(3, 787);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(183, 23);
+			this.label3.TabIndex = 637;
+			this.label3.Text = "Szita azonosító / Sieve id:";
 			// 
 			// blendkis
 			// 

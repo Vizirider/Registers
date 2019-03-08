@@ -1,7 +1,7 @@
 # Registers
 Givaudan digital registers
 
-Windows application for Givaudan factory quality checklist.
+Windows application for factory quality checklist.
 
 Production-Planner-Warehouse area registers visualisation by Product Order.
 

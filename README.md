@@ -1,5 +1,5 @@
 # Registers
-Givaudan digital registers
+Factory digital quality registers
 
 Windows application for factory quality checklist.
 
